@@ -1,5 +1,5 @@
-const phone="01064255553";
-const wa="201064255553";
+const phone="01011673107";
+const wa="201011673107";
 const price="399";
 const msg=[
   "مرحبًا، أريد شراء ReStock Desk v1.0.0 من Digital Execution.",
