@@ -1,0 +1,11 @@
+# No paid product binaries in the public store
+*.zip
+*.exe
+*.msi
+*.dmg
+*.apk
+/releases/
+private/
+products-private/
+.env
+.env.*
