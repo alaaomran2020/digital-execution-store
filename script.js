@@ -2,7 +2,7 @@ const phone="01011673107";
 const wa="201011673107";
 const price="399";
 const msg=[
-  "مرحبًا، أريد شراء ReStock Desk v1.0.0 من Digital Execution.",
+  "مرحبًا، أريد شراء ReStock Desk v1.2.0 من Digital Execution.",
   "",
   "السعر: "+price+" جنيه",
   "رقم Vodafone Cash: "+phone,
