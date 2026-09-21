@@ -19,7 +19,7 @@
 - Customer delivery files
 
 ## المنتج الأول
-**ReStock Desk v1.0.0**
+**ReStock Desk v1.2.2**
 
 السعر الحالي: 399 EGP  
 الدفع: Vodafone Cash  
