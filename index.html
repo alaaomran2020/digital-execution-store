@@ -36,8 +36,10 @@
 <body>
 <header class="topbar"><div class="container nav">
 <a class="brand" href="#top"><span class="mark">DE</span><span>Digital Execution</span></a>
-<nav><a href="#features">المميزات</a><a href="#mobile">الموبايل</a><a href="#inside">المحتويات</a><a href="#faq">الأسئلة</a></nav>
+<nav class="desktop-nav"><a href="#screenshots">الصور</a><a href="#compare">الفرق بين النسخ</a><a href="#buy">السعر</a><a href="#faq">الأسئلة</a></nav>
+<button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="فتح قائمة التنقل">☰</button>
 <a class="nav-buy" href="#buy">شراء المنتج</a>
+<nav class="mobile-nav" id="mobileNav" hidden><a href="#screenshots">الصور</a><a href="#compare">الفرق بين النسخ</a><a href="#buy">السعر</a><a href="#faq">الأسئلة</a></nav>
 </div></header>
 
 <main id="top">
@@ -46,28 +48,54 @@
 <span class="eyebrow">منتج رقمي من Digital Execution</span>
 <h1>ReStock Desk</h1>
 <h2>اعرف إيه ناقص في محلك<br><span>قبل ما يخلص.</span></h2>
-<p>ReStock Desk يساعدك تحدّث الكميات من الموبايل، تعرف الأصناف اللي محتاجة إعادة طلب، وتجمع احتياجات كل مورد في مكان واحد.</p>
+<p>نظّم المخزون، اعرف النواقص بسرعة، واجمع احتياجات الموردين من مكان واحد بدون اشتراك شهري أو سيرفر.</p>
+<div class="hero-price"><strong>399 جنيه</strong><span>مرة واحدة</span></div>
 <div class="badges"><span>نسخة تجريبية للموبايل</span><span>النسخة التجارية تعمل محليًا على الكمبيوتر</span><span>بدون API</span><span>بدون سيرفر</span><span>بدون اشتراك شهري</span></div>
-<div class="actions"><a class="btn primary" href="#buy" data-event="hero_cta_click">اشتري ReStock Desk — 399 جنيه</a><a class="btn secondary" href="https://restock-desk.pages.dev" target="_blank" rel="noopener">جرّب النسخة التجريبية</a></div>
+<div class="actions"><a class="btn primary" href="#buy" data-track="hero_buy_click">شراء ReStock Desk</a><a class="btn secondary" href="https://restock-desk.pages.dev" target="_blank" rel="noopener" data-track="demo_click">جرّب Demo</a></div>
 <p class="small">النسخة العامة Demo محدودة للتجربة. النسخة التجارية الكاملة تُسلَّم بعد الدفع.</p>
 </div>
 <figure class="product-hero"><img src="assets/restock/dashboard.png" alt="لوحة التحكم الحقيقية في ReStock Desk v1.2.2" width="1920" height="954" fetchpriority="high" decoding="async"><figcaption>واجهة ReStock Desk v1.2.2 الفعلية</figcaption></figure>
 </div></section>
 
+<section class="section value-section"><div class="container">
+<div class="section-title"><span class="eyebrow">الفائدة الأساسية</span><h3>3 حاجات هتخلي متابعة المخزون أوضح.</h3></div>
+<div class="value-grid">
+<article><strong>اعرف الناقص بسرعة</strong><p>شوف الأصناف اللي وصلت لحد إعادة الطلب بدل المراجعة اليدوية الطويلة.</p></article>
+<article><strong>حدّث الكميات بسهولة</strong><p>عدّل المخزون بسرعة وخلّي حالة كل صنف واضحة قدامك.</p></article>
+<article><strong>اجمع طلبات الموردين</strong><p>شوف احتياج كل مورد مع Backup / Restore لحماية بياناتك المحلية.</p></article>
+</div>
+</div></section>
 
-<section class="section showcase" id="screenshots"><div class="container">
+<section class="section showcase alt" id="screenshots" data-observe="gallery_view"><div class="container">
 <div class="section-title"><span class="eyebrow">صور حقيقية من البرنامج</span><h3>شوف ReStock Desk قبل الشراء.</h3><p class="lead">لقطات مباشرة من الإصدار التجاري v1.2.2 بدون إعادة رسم للواجهة.</p></div>
 <div class="screen-gallery">
-<figure><img src="assets/restock/dashboard.png" alt="لوحة التحكم في ReStock Desk" width="1920" height="954" loading="lazy" decoding="async"><figcaption><strong>لوحة التحكم</strong><span>ملخص سريع للمخزون والنواقص وإعادة الطلب.</span></figcaption></figure>
-<figure><img src="assets/restock/inventory.png" alt="إدارة المخزون في ReStock Desk" width="1920" height="954" loading="lazy" decoding="async"><figcaption><strong>إدارة المخزون</strong><span>متابعة الكميات والحالة واحتياج إعادة الطلب.</span></figcaption></figure>
-<figure><img src="assets/restock/shortages.png" alt="شاشة النواقص في ReStock Desk" width="1920" height="954" loading="lazy" decoding="async"><figcaption><strong>النواقص</strong><span>الأصناف المطلوب إعادة طلبها مجمعة بوضوح.</span></figcaption></figure>
-<figure><img src="assets/restock/suppliers.png" alt="ملخص الموردين في ReStock Desk" width="1920" height="954" loading="lazy" decoding="async"><figcaption><strong>الموردون</strong><span>تجميع احتياجات إعادة الطلب حسب المورد.</span></figcaption></figure>
+<figure><button class="screen-open" type="button" data-lightbox="assets/restock/dashboard.png" aria-label="تكبير صورة لوحة التحكم"><img src="assets/restock/dashboard.png" alt="لوحة التحكم في ReStock Desk" width="1920" height="954" loading="lazy" decoding="async"></button><figcaption><strong>لوحة التحكم</strong><span>ملخص سريع للمخزون والنواقص وإعادة الطلب.</span></figcaption></figure>
+<figure><button class="screen-open" type="button" data-lightbox="assets/restock/inventory.png" aria-label="تكبير صورة إدارة المخزون"><img src="assets/restock/inventory.png" alt="إدارة المخزون في ReStock Desk" width="1920" height="954" loading="lazy" decoding="async"></button><figcaption><strong>إدارة المخزون</strong><span>متابعة الكميات والحالة واحتياج إعادة الطلب.</span></figcaption></figure>
+<figure><button class="screen-open" type="button" data-lightbox="assets/restock/shortages.png" aria-label="تكبير صورة شاشة النواقص"><img src="assets/restock/shortages.png" alt="شاشة النواقص في ReStock Desk" width="1920" height="954" loading="lazy" decoding="async"></button><figcaption><strong>النواقص</strong><span>الأصناف المطلوب إعادة طلبها مجمعة بوضوح.</span></figcaption></figure>
+<figure><button class="screen-open" type="button" data-lightbox="assets/restock/suppliers.png" aria-label="تكبير صورة ملخص الموردين"><img src="assets/restock/suppliers.png" alt="ملخص الموردين في ReStock Desk" width="1920" height="954" loading="lazy" decoding="async"></button><figcaption><strong>الموردون</strong><span>تجميع احتياجات إعادة الطلب حسب المورد.</span></figcaption></figure>
 </div></div></section>
 
-<section class="section alt" id="video"><div class="container narrow"><div class="section-title"><span class="eyebrow">استعراض البرنامج</span><h3>شاهد طريقة العمل قبل الشراء.</h3></div><div class="placeholder-card" data-video-placeholder data-event="video_play"><strong>فيديو استعراض البرنامج (قريبًا)</strong><p>سيظهر هنا فيديو YouTube أو MP4 مع صورة Poster عند نشره.</p></div></div></section>
-<section class="section" id="testimonials"><div class="container narrow"><div class="section-title"><span class="eyebrow">آراء العملاء</span><h3>تجارب حقيقية فقط.</h3></div><div class="placeholder-card"><p>سيتم نشر آراء أول العملاء هنا بعد الإطلاق التجاري.</p></div></div></section>
-<section class="proof"><div class="container proof-grid">
-<div><strong>Demo</strong><span>تجربة على الموبايل</span></div><div><strong>Desktop</strong><span>النسخة التجارية الكاملة</span></div><div><strong>0</strong><span>اشتراكات شهرية</span></div><div><strong>0</strong><span>API مطلوبة</span></div>
+<section class="section" id="workflow"><div class="container">
+<div class="section-title"><span class="eyebrow">طريقة العمل</span><h3>افتح → حدّث → اعرف الناقص → اطلب.</h3></div>
+<div class="workflow-grid"><div><b>1</b><strong>افتح</strong><span>ادخل على المخزون.</span></div><div><b>2</b><strong>حدّث</strong><span>سجّل الكميات الفعلية.</span></div><div><b>3</b><strong>اعرف الناقص</strong><span>راجع الأصناف المطلوب إعادة طلبها.</span></div><div><b>4</b><strong>اطلب</strong><span>اجمع الاحتياج حسب المورد.</span></div></div>
+</div></section>
+
+<section class="section alt" id="compare"><div class="container">
+<div class="section-title"><span class="eyebrow">اختار النسخة المناسبة</span><h3>Demo للتجربة، والنسخة التجارية للشغل الكامل.</h3><p class="lead">المقارنة مبنية على خصائص ReStock Desk v1.2.2 الحالية.</p></div>
+<div class="comparison-wrap" role="region" aria-label="مقارنة Demo والنسخة التجارية" tabindex="0">
+<table class="comparison-table"><thead><tr><th>العنصر</th><th>Demo</th><th>النسخة التجارية</th></tr></thead><tbody>
+<tr><td>البحث والفلاتر</td><td>✓</td><td>✓</td></tr>
+<tr><td>تحديث الكميات</td><td>✓</td><td>✓</td></tr>
+<tr><td>إدارة المنتجات كاملة</td><td>—</td><td>✓</td></tr>
+<tr><td>استيراد وتصدير CSV</td><td>—</td><td>✓</td></tr>
+<tr><td>Backup / Restore</td><td>—</td><td>✓</td></tr>
+<tr><td>دليل الاستخدام</td><td>—</td><td>✓</td></tr>
+<tr><td>الاستخدام</td><td>تجربة على الموبايل</td><td>تشغيل محلي على الكمبيوتر</td></tr>
+<tr><td>السعر</td><td>مجانًا</td><td>399 جنيه مرة واحدة</td></tr>
+</tbody></table>
+</div>
+<details class="demo-install"><summary>طريقة تثبيت الـDemo على الموبايل</summary><p>افتح النسخة التجريبية على Chrome، ثم اختر «تثبيت التطبيق» أو Install، وبعدها افتح ReStock Desk من الأيقونة على الموبايل.</p></details>
+<div class="actions compare-actions"><a class="btn secondary" href="https://restock-desk.pages.dev" target="_blank" rel="noopener" data-track="demo_click">فتح Demo</a><a class="btn primary" href="#buy">شراء النسخة التجارية</a></div>
 </div></section>
 
 <section class="section" id="features"><div class="container">
@@ -82,30 +110,6 @@
 </div>
 </div></section>
 
-<section class="section alt" id="mobile"><div class="container mobile-grid">
-<div>
-  <div class="section-title"><span class="eyebrow">جرّب قبل الشراء</span><h3>الـDemo العامة تشتغل على الموبايل وتتثبت كتطبيق.</h3></div>
-  <p class="lead">استخدم النسخة التجريبية على الموبايل عشان تجرب تحديث الكميات والنواقص والموردين. النسخة التجارية الكاملة الحالية تُسلَّم كحزمة وتعمل محليًا على الكمبيوتر.</p>
-  <div class="mobile-steps">
-    <div><b>1</b><span>افتح الرابط على Chrome.</span></div>
-    <div><b>2</b><span>اضغط «تثبيت التطبيق» أو Install.</span></div>
-    <div><b>3</b><span>افتح ReStock Desk من الأيقونة على الموبايل.</span></div>
-  </div>
-  <div class="actions"><a class="btn primary" href="https://restock-desk.pages.dev" target="_blank" rel="noopener">فتح النسخة التجريبية</a></div>
-</div>
-<div class="phone-card">
-  <span class="eyebrow">تدفق العمل</span>
-  <h4>افتح → حدّث → اعرف الناقص → اطلب</h4>
-  <ul class="checklist">
-    <li>كروت مخزون مناسبة للشاشة الصغيرة</li>
-    <li>تحديث سريع للكميات بزر + و −</li>
-    <li>شاشة نواقص مستقلة</li>
-    <li>ملخص حسب المورد</li>
-    <li>يعمل دون اتصال بعد أول تحميل في الحالات المدعومة</li>
-  </ul>
-</div>
-</div></section>
-
 <section class="section" id="inside"><div class="container split">
 <div><div class="section-title"><span class="eyebrow">محتويات المنتج</span><h3>كل اللي تحتاجه عشان تبدأ.</h3></div>
 <ul class="checklist"><li>ReStock Desk v1.2.2</li><li>قالب CSV جاهز للاستيراد</li><li>بيانات Demo</li><li>دليل استخدام عربي</li><li>دليل حل المشاكل</li><li>نسخ احتياطي واستعادة</li><li>ترخيص استخدام</li></ul>
@@ -113,26 +117,34 @@
 <div class="policy"><strong>Self-Service Edition</strong><p>المنتج مصمم للاستخدام الذاتي، ولا يشمل تركيبًا عن بُعد أو تخصيصًا أو دعمًا فنيًا فرديًا.</p><p>داخله دليل استخدام، فحص ذاتي، Demo Data، Backup/Restore، وحلول للمشاكل الشائعة.</p></div>
 </div></section>
 
-<section class="section" id="requirements"><div class="container split">
+<section class="section alt" id="requirements"><div class="container split">
 <div><div class="section-title"><span class="eyebrow">المتطلبات</span><h3>متصفح حديث فقط.</h3></div>
 <ul class="requirements"><li><strong>لا يحتاج:</strong> سيرفر</li><li><strong>لا يحتاج:</strong> API</li><li><strong>لا يحتاج:</strong> OpenAI</li><li><strong>لا يحتاج:</strong> اشتراك شهري</li></ul></div>
 <div class="policy"><strong>بياناتك محلية</strong><p>النسخة الحالية تخزن البيانات داخل المتصفح، لذلك يُنصح بعمل Backup دوري.</p></div>
 </div></section>
 
-<section class="section alt" id="buy"><div class="container buy-grid">
-<div><span class="eyebrow">شراء ReStock Desk</span><h3>مرة واحدة. بدون اشتراك شهري.</h3><div class="price"><strong>399</strong><span>جنيه مصري</span></div><p>استلم ReStock Desk v1.2.2 مع النسخة التجارية الكاملة، قالب CSV للاستيراد، دليل الاستخدام، النسخ الاحتياطي والاستعادة، وترخيص الاستخدام الداخلي.</p><p class="small">النسخة العامة للتجربة فقط ولا تشمل خصائص النسخة التجارية الكاملة.</p></div>
-<div class="checkout"><small>Vodafone Cash</small><strong class="number">01011673107</strong><button id="copyBtn" data-event="copy_phone">نسخ الرقم</button><a id="waBtn" class="btn whatsapp" target="_blank" rel="noopener" data-event="whatsapp_click purchase_intent buy_click">تأكيد الدفع على واتساب</a><p class="small"><strong>طريقة الاستلام:</strong> بعد التحويل أرسل صورة أو رقم العملية على واتساب. بعد مراجعة الدفع تستلم رابط تحميل النسخة التجارية v1.2.2 مباشرة.</p><p class="small">لن نطلب PIN أو OTP الخاص بمحفظتك. احتفظ بنسخة من ملف المنتج بعد التحميل.</p></div>
+<section class="section" id="buy" data-observe="buy_section_view"><div class="container buy-grid">
+<div><span class="eyebrow">شراء ReStock Desk</span><h3>ابدأ استخدام ReStock Desk مقابل 399 جنيه مرة واحدة.</h3><div class="price"><strong>399</strong><span>جنيه مصري</span></div><ul class="purchase-trust"><li>الإصدار: v1.2.2</li><li>بدون اشتراك شهري</li><li>بدون API أو سيرفر</li><li>يشمل دليل الاستخدام وBackup / Restore</li><li>Self-Service بدون تركيب أو تخصيص</li></ul></div>
+<div class="checkout"><div class="purchase-steps"><div><b>1</b><span>انسخ رقم Vodafone Cash.</span></div><div><b>2</b><span>حوّل 399 جنيه.</span></div><div><b>3</b><span>أرسل رقم العملية على واتساب واستلم النسخة.</span></div></div><small>Vodafone Cash</small><strong class="number">01011673107</strong><button id="copyBtn" type="button" data-track="copy_payment_number">نسخ الرقم</button><a id="waBtn" class="btn whatsapp" target="_blank" rel="noopener" data-track="whatsapp_payment_click">أرسل إثبات الدفع واستلم ReStock Desk</a><p class="small">لن نطلب PIN أو OTP الخاص بمحفظتك. احتفظ بنسخة من ملف المنتج بعد التحميل.</p></div>
 </div></section>
 
 <section class="section" id="faq"><div class="container narrow">
 <div class="section-title"><span class="eyebrow">الأسئلة الشائعة</span><h3>كل شيء واضح قبل الشراء.</h3></div>
-<details open data-event="faq_open"><summary>إيه الفرق بين الـDemo والنسخة التجارية؟</summary><p>الـDemo تسمح لك بتجربة البحث والفلاتر وتحديث الكميات والنواقص والموردين. النسخة التجارية تضيف إدارة المنتجات والاستيراد والتصدير والنسخ الاحتياطي والاستعادة.</p></details>
-<details data-event="faq_open"><summary>هل أحتاج تثبيت برنامج؟</summary><p>لا. تقدر تستخدمه من المتصفح مباشرة، وعلى الموبايل تقدر تثبته كتطبيق PWA من Chrome.</p></details>
-<details data-event="faq_open"><summary>هل النسخة التجارية الكاملة تعمل على الموبايل؟</summary><p>النسخة العامة Demo تعمل على الموبايل ويمكن تثبيتها كتطبيق. النسخة التجارية الكاملة الحالية تُسلَّم كحزمة وتعمل محليًا على الكمبيوتر.</p></details><details data-event="faq_open"><summary>هل يحتاج API؟</summary><p>لا.</p></details>
-<details data-event="faq_open"><summary>هل يوجد دعم فني؟</summary><p>المنتج Self-Service ولا يشمل دعمًا فرديًا.</p></details>
-<details data-event="faq_open"><summary>هل يمكن إعادة بيع الملفات؟</summary><p>لا. الشراء يمنح حق الاستخدام فقط حسب الترخيص.</p></details>
+<details open><summary>هل يوجد اشتراك شهري؟</summary><p>لا. السعر 399 جنيه مرة واحدة للإصدار التجاري الحالي.</p></details>
+<details><summary>هل يحتاج إنترنت أو سيرفر أو API؟</summary><p>لا يحتاج Backend أو API. بعد تنزيل النسخة التجارية يعمل محليًا في متصفح حديث، والبيانات تُحفظ في Local Storage على نفس الجهاز والمتصفح.</p></details>
+<details><summary>هل الـDemo هي النسخة الكاملة؟</summary><p>لا. الـDemo للتجربة على الموبايل، أما النسخة التجارية فتضيف إدارة المنتجات الكاملة وCSV وBackup / Restore ودليل الاستخدام.</p></details>
+<details><summary>كيف أستلم البرنامج بعد الدفع؟</summary><p>بعد التحويل على Vodafone Cash أرسل صورة أو رقم العملية على واتساب، وبعد مراجعة الدفع تستلم رابط تحميل النسخة التجارية v1.2.2.</p></details>
+<details><summary>هل يعمل على الكمبيوتر؟</summary><p>نعم. النسخة التجارية الحالية تعمل محليًا على الكمبيوتر من خلال متصفح حديث.</p></details>
+<details><summary>هل يوجد دليل استخدام وBackup / Restore؟</summary><p>نعم. النسخة التجارية تشمل دليل استخدام عربي وJSON Backup / Restore.</p></details>
+<details><summary>هل بياناتي تظل محفوظة؟</summary><p>البيانات تُحفظ محليًا في نفس المتصفح والجهاز. يُنصح بعمل Backup دوري لأن مسح بيانات المتصفح قد يحذف البيانات المحلية.</p></details>
+<details><summary>هل يوجد دعم فني فردي أو تخصيص؟</summary><p>لا. المنتج Self-Service ويعتمد على التوثيق المرفق، ولا يشمل تركيبًا عن بُعد أو تخصيصًا أو دعمًا فرديًا.</p></details>
 </div></section>
-<div class="mobile-buybar"><div><small>ReStock Desk v1.2.2</small><strong>399 جنيه</strong></div><a href="#buy" data-event="buy_click">شراء الآن</a></div>
+<div class="mobile-buybar"><div><small>ReStock Desk v1.2.2</small><strong>399 جنيه — مرة واحدة</strong></div><a href="#buy">شراء الآن</a></div>
+
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="تكبير لقطة البرنامج">
+<button class="lightbox-close" id="lightboxClose" type="button" aria-label="إغلاق الصورة">×</button>
+<img id="lightboxImage" alt="">
+</div>
 </main>
 
 <footer><div class="container">
@@ -140,8 +152,5 @@
 <br><a href="terms.html">شروط الاستخدام</a> · <a href="privacy.html">سياسة الخصوصية</a>
 </div></footer>
 <script src="script.js"></script>
-<script>
-(()=>{const push=(event,detail={})=>{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event,...detail});window.dispatchEvent(new CustomEvent("digital-execution:event",{detail:{event,...detail}}));};document.addEventListener("click",e=>{const target=e.target.closest("[data-event]");if(!target)return;target.dataset.event.split(/\s+/).filter(Boolean).forEach(event=>push(event,{label:(target.textContent||"").trim().slice(0,120)}));});document.querySelectorAll("details[data-event]").forEach(item=>item.addEventListener("toggle",()=>{if(item.open)push("faq_open",{label:(item.querySelector("summary")?.textContent||"").trim()})}));const seen=new Set();const onScroll=()=>{const h=document.documentElement,max=h.scrollHeight-innerHeight,pct=max>0?Math.round((scrollY/max)*100):100;[50,90].forEach(mark=>{if(pct>=mark&&!seen.has(mark)){seen.add(mark);push(`scroll_${mark}`)}});};addEventListener("scroll",onScroll,{passive:true});onScroll();})();
-</script>
 </body>
 </html>
