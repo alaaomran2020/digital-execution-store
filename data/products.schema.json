@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://digital-execution.cc/data/products.schema.json",
+  "title": "Digital Execution Product Schema v3",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "schema_version",
+      "slug",
+      "name",
+      "category",
+      "price",
+      "currency",
+      "version",
+      "status",
+      "identity",
+      "market",
+      "offer",
+      "commerce",
+      "trust",
+      "delivery",
+      "analytics",
+      "lifecycle"
+    ],
+    "properties": {
+      "schema_version": { "const": 3 },
+      "slug": { "type": "string", "minLength": 1 },
+      "name": { "type": "string", "minLength": 1 },
+      "category": { "type": "string", "minLength": 1 },
+      "short_description": { "type": "string" },
+      "price": { "type": "number", "minimum": 0 },
+      "currency": { "type": "string", "minLength": 3, "maxLength": 3 },
+      "image": { "type": "string" },
+      "version": { "type": "string", "minLength": 1 },
+      "source_type": { "type": "string" },
+      "license_type": { "type": "string" },
+      "resell_allowed": { "type": "boolean" },
+      "editable": { "type": "boolean" },
+      "brandable": { "type": "boolean" },
+      "delivery_type": { "type": "string" },
+      "lifetime_updates": { "type": "boolean" },
+      "demo_url": { "type": ["string", "null"] },
+      "product_url": { "type": "string" },
+      "featured": { "type": "boolean" },
+      "last_updated": { "type": "string" },
+      "status": { "type": "string" },
+      "identity": {
+        "type": "object",
+        "required": ["product_type", "brand"],
+        "properties": {
+          "product_type": { "type": "string" },
+          "edition": { "type": ["string", "null"] },
+          "brand": { "type": "string" }
+        },
+        "additionalProperties": false
+      },
+      "market": {
+        "type": "object",
+        "required": ["audience", "problem", "alternatives", "differentiation"],
+        "properties": {
+          "audience": { "type": "array", "items": { "type": "string" } },
+          "problem": { "type": "string" },
+          "alternatives": { "type": "array", "items": { "type": "string" } },
+          "differentiation": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      },
+      "offer": {
+        "type": "object",
+        "required": ["outcome", "mechanism", "contents", "limitations"],
+        "properties": {
+          "outcome": { "type": "string" },
+          "mechanism": { "type": "string" },
+          "contents": { "type": "array", "items": { "type": "string" } },
+          "limitations": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      },
+      "commerce": {
+        "type": "object",
+        "required": ["price", "currency", "billing", "bundle", "upgrade", "payment_method"],
+        "properties": {
+          "price": { "type": "number", "minimum": 0 },
+          "currency": { "type": "string" },
+          "billing": { "type": "string" },
+          "bundle": { "type": ["string", "object", "null"] },
+          "upgrade": { "type": ["string", "object", "null"] },
+          "payment_method": { "type": ["string", "null"] }
+        },
+        "additionalProperties": false
+      },
+      "trust": {
+        "type": "object",
+        "required": ["preview_type", "previews", "license", "support_policy"],
+        "properties": {
+          "preview_type": { "type": "string" },
+          "previews": { "type": "array", "items": { "type": "string" } },
+          "license": {
+            "type": "object",
+            "required": ["type", "resell_allowed", "transferable"],
+            "properties": {
+              "type": { "type": "string" },
+              "resell_allowed": { "type": "boolean" },
+              "transferable": { "type": "boolean" }
+            },
+            "additionalProperties": false
+          },
+          "support_policy": { "type": ["string", "null"] }
+        },
+        "additionalProperties": false
+      },
+      "delivery": {
+        "type": "object",
+        "required": ["method", "channel", "includes_updates", "update_policy"],
+        "properties": {
+          "method": { "type": "string" },
+          "channel": { "type": ["string", "null"] },
+          "includes_updates": { "type": "boolean" },
+          "update_policy": { "type": ["string", "null"] }
+        },
+        "additionalProperties": false
+      },
+      "analytics": {
+        "type": "object",
+        "required": ["product_slug", "trackable"],
+        "properties": {
+          "product_slug": { "type": "string" },
+          "trackable": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      },
+      "lifecycle": {
+        "type": "object",
+        "required": ["stage", "published_version"],
+        "properties": {
+          "stage": {
+            "type": "string",
+            "enum": [
+              "IDEA",
+              "VALIDATING",
+              "VALIDATED",
+              "BUILDING",
+              "OFFER_READY",
+              "DELIVERY_READY",
+              "COMMERCIAL_QA",
+              "PUBLISHED",
+              "OPTIMIZING",
+              "SCALING"
+            ]
+          },
+          "published_version": { "type": ["string", "null"] }
+        },
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": true
+  }
+}
