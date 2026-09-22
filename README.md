@@ -32,3 +32,11 @@
 
 ## Single Source of Truth
 هذا المستودع هو المصدر الوحيد للواجهة العامة لمتجر Digital Execution.
+
+## Store Architecture v2
+- الصفحة الرئيسية تمثل علامة Digital Execution بدل منتج واحد.
+- كتالوج المنتجات: `/products/`.
+- صفحة ReStock Desk: `/products/restock-desk/`.
+- سجل المنتجات العام: `/data/products.json`.
+- دليل التراخيص: `/licenses.html`.
+- المنتجات التجارية المدفوعة وملفات التسليم تظل خارج هذا المستودع.
