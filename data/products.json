@@ -1,5 +1,6 @@
 [
   {
+    "schema_version": 3,
     "slug": "restock-desk",
     "name": "ReStock Desk",
     "category": "برامج وأنظمة",
@@ -19,9 +20,85 @@
     "product_url": "products/restock-desk/",
     "featured": true,
     "last_updated": "2026-09-22",
-    "status": "published"
+    "status": "published",
+    "identity": {
+      "product_type": "software",
+      "edition": "Self-Service Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "أصحاب المتاجر",
+        "الأنشطة التي تحتاج متابعة المخزون والنواقص وإعادة الطلب"
+      ],
+      "problem": "صعوبة معرفة الأصناف الناقصة وتجميع احتياجات إعادة الطلب حسب المورد بسرعة ووضوح.",
+      "alternatives": [],
+      "differentiation": [
+        "يعمل محليًا على الكمبيوتر",
+        "بدون API",
+        "بدون سيرفر",
+        "بدون اشتراك شهري"
+      ]
+    },
+    "offer": {
+      "outcome": "معرفة النواقص وتحديث الكميات وتجميع احتياجات الموردين من مكان واحد.",
+      "mechanism": "تحديث المخزون ثم تحديد الأصناف عند حد إعادة الطلب وتجميع الاحتياج حسب المورد.",
+      "contents": [
+        "ReStock Desk v1.2.2",
+        "قالب CSV جاهز للاستيراد",
+        "بيانات Demo",
+        "دليل استخدام عربي",
+        "دليل حل المشاكل",
+        "Backup / Restore",
+        "ترخيص استخدام"
+      ],
+      "limitations": [
+        "Self-Service بدون تركيب عن بُعد",
+        "لا يشمل تخصيصًا",
+        "لا يشمل دعمًا فنيًا فرديًا",
+        "البيانات محفوظة محليًا في المتصفح ويُنصح بعمل Backup دوري"
+      ]
+    },
+    "commerce": {
+      "price": 399,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": null,
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "real_product_screenshots",
+      "previews": [
+        "assets/restock/dashboard.png",
+        "assets/restock/inventory.png",
+        "assets/restock/shortages.png",
+        "assets/restock/suppliers.png"
+      ],
+      "license": {
+        "type": "Commercial Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "Self-Service بدون تركيب أو تخصيص أو دعم فردي."
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": true,
+      "update_policy": "تحديثات ReStock Desk الرسمية مدى الحياة."
+    },
+    "analytics": {
+      "product_slug": "restock-desk",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.2.2"
+    }
   },
   {
+    "schema_version": 3,
     "slug": "career-kit",
     "name": "Career Kit",
     "category": "قوالب وأدوات مهنية",
@@ -41,6 +118,81 @@
     "product_url": "products/career-kit/",
     "featured": true,
     "last_updated": "2026-09-23",
-    "status": "published"
+    "status": "published",
+    "identity": {
+      "product_type": "career_toolkit",
+      "edition": "Fresh Graduate + Experienced",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "الخريجون الجدد",
+        "الموظفون وأصحاب الخبرة الباحثون عن فرصة جديدة"
+      ],
+      "problem": "تشتت تجهيز ملف التقديم للوظائف بين الـCV وLinkedIn وCover Letter ومتابعة التقديم والاستعداد للمقابلة.",
+      "alternatives": [],
+      "differentiation": [
+        "مسار Fresh Graduate مستقل",
+        "مسار Experienced مستقل",
+        "Workflow متكامل من تجهيز الـCV حتى متابعة التقديم وتحضير المقابلة",
+        "Arabic + English"
+      ]
+    },
+    "offer": {
+      "outcome": "تجهيز وتنظيم ملف التقديم المهني ومتابعة التقديمات في Workflow واحد.",
+      "mechanism": "اختيار المسار المهني ثم تجهيز CV وLinkedIn وCover Letter ومتابعة الطلبات والاستعداد للمقابلات.",
+      "contents": [
+        "CV Templates",
+        "Cover Letter Kit",
+        "LinkedIn Kit",
+        "Content Builder",
+        "Job Application Tracker",
+        "Interview Starter Pack",
+        "PDF Previews",
+        "Guidebook",
+        "License"
+      ],
+      "limitations": [
+        "لا يضمن الحصول على وظيفة",
+        "لا يضمن اجتياز ATS بعينه",
+        "إعادة البيع أو التوزيع أو مشاركة ملفات المصدر غير مسموح"
+      ]
+    },
+    "commerce": {
+      "price": 249,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": null,
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "product_previews",
+      "previews": [
+        "assets/career-kit/career-kit-preview-fresh.svg",
+        "assets/career-kit/career-kit-preview-experienced.svg",
+        "assets/career-kit/career-kit-preview-tracker.svg"
+      ],
+      "license": {
+        "type": "Personal Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": null
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": false,
+      "update_policy": null
+    },
+    "analytics": {
+      "product_slug": "career-kit",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    }
   }
 ]
