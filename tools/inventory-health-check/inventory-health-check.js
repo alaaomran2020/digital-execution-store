@@ -1,0 +1,37 @@
+(() => {
+const WA_NUMBER="201011673107";
+const questions=[
+{id:"quantity",area:"دقة الكميات",text:"هل تعرف الكمية الحالية لكل صنف بدون ما تعتمد على الذاكرة؟",issue:"دقة تسجيل الكميات الحالية"},
+{id:"updates",area:"تحديث المخزون",text:"هل بتسجل حركة الكميات أولًا بأول بعد البيع أو الاستلام؟",issue:"تحديث الكميات أولًا بأول"},
+{id:"low_stock",area:"النواقص",text:"هل تقدر تعرف بسرعة الأصناف اللي قربت تخلص؟",issue:"اكتشاف الأصناف اللي قربت تخلص"},
+{id:"reorder_point",area:"إعادة الطلب",text:"هل عندك حد إعادة طلب واضح لكل صنف مهم؟",issue:"تحديد حد إعادة الطلب"},
+{id:"target_stock",area:"مخزون مستهدف",text:"هل عارف الكمية المناسبة اللي المفروض ترجع لها بعد إعادة الطلب؟",issue:"تحديد المخزون المستهدف"},
+{id:"reorder_list",area:"قائمة الشراء",text:"هل عندك قائمة واضحة بالأصناف المطلوب شراؤها بدل تجميعها من الذاكرة؟",issue:"تجهيز قائمة إعادة الطلب"},
+{id:"suppliers",area:"الموردون",text:"هل كل صنف مرتبط بالمورد المناسب عندك بحيث تعرف تطلب من مين بسرعة؟",issue:"ربط الأصناف بالموردين"},
+{id:"supplier_summary",area:"طلبات الموردين",text:"هل تقدر تجمع احتياجات كل مورد في قائمة واحدة بسهولة؟",issue:"تجميع احتياجات كل مورد"},
+{id:"stockouts",area:"نفاد الأصناف",text:"هل نادرًا ما بتتفاجئ إن صنف خلص وقت ما العميل يطلبه؟",issue:"تقليل مفاجآت نفاد الأصناف"},
+{id:"overstock",area:"الشراء الزائد",text:"هل عندك رؤية تمنعك من شراء كميات أكبر من احتياجك بدون سبب؟",issue:"تقليل الشراء الزائد"},
+{id:"audit",area:"الجرد",text:"هل الجرد عندك منظم وتقدر تقارن الفعلي بالمُسجل بسهولة؟",issue:"تنظيم الجرد ومراجعة الفروق"},
+{id:"history",area:"المراجعة",text:"هل عندك طريقة ترجع بيها للمعلومات الأساسية بدل الاعتماد على ورق أو ملاحظات متفرقة؟",issue:"تجميع معلومات المخزون في مكان واحد"},
+{id:"backup",area:"حماية البيانات",text:"هل عندك نسخة احتياطية حديثة لبيانات المخزون المهمة؟",issue:"النسخ الاحتياطي للبيانات"},
+{id:"routine",area:"روتين المتابعة",text:"هل عندك موعد أو روتين ثابت لمراجعة النواقص وإعادة الطلب؟",issue:"وجود روتين ثابت للمراجعة"},
+{id:"visibility",area:"وضوح الحالة",text:"هل تقدر في دقائق تعرف حالة المخزون العامة وإيه اللي محتاج تصرف؟",issue:"وضوح حالة المخزون واتخاذ القرار بسرعة"}
+];
+const answers=[{label:"نعم، بشكل منتظم",value:2},{label:"أحيانًا / جزئيًا",value:1},{label:"لا / مش واضح",value:0}];
+const bands=[
+{min:80,key:"good",label:"80–100 · إدارة جيدة",title:"أساس إدارة المخزون عندك جيد.",description:"عندك درجة جيدة من التنظيم. ركّز على النقاط الأقل في نتيجتك وثبّت الروتين علشان الجودة تفضل مستمرة مع زيادة الأصناف أو ضغط الشغل.",next:"الخطوة المناسبة: حسّن النقاط الثلاث الأقل، ولو المتابعة اليدوية بتاخد وقت فـ ReStock Desk ممكن يختصر التنفيذ اليومي."},
+{min:50,key:"medium",label:"50–79 · مشاكل واضحة",title:"مخزونك محتاج تنظيم أوضح.",description:"فيه أساس موجود، لكن بعض الخطوات بتتعامل يدويًا أو بشكل غير ثابت. ده ممكن يسبب نواقص مفاجئة أو تأخير في إعادة الطلب كل ما حجم الشغل يزيد.",next:"الخطوة المناسبة: ابدأ بأضعف 3 نقاط تحت، ولو المشاكل دي متكررة شوف ReStock Desk كطريقة تجمع المتابعة والنواقص وإعادة الطلب في مكان واحد."},
+{min:0,key:"needs_work",label:"0–49 · يحتاج تأسيس",title:"إدارة المخزون محتاجة نظام أبسط وثابت.",description:"جزء كبير من المتابعة غالبًا بيعتمد على الذاكرة أو خطوات متفرقة. الأولوية دلوقتي إنك تثبّت طريقة واضحة للكميات والنواقص وإعادة الطلب قبل ما تكبّر التعقيد.",next:"الخطوة المناسبة: ابدأ بتنظيم النقاط الثلاث الأقل واحدة واحدة. وبعد ما يبقى عندك أسلوب ثابت، استخدم أداة مثل ReStock Desk لتسهيل التنفيذ المستمر."}
+];
+const questionsRoot=document.getElementById("questions"),form=document.getElementById("healthForm"),result=document.getElementById("result"),progressBar=document.getElementById("progressBar"),progressText=document.getElementById("progressText"),formError=document.getElementById("formError");
+if(!questionsRoot||!form||!result)return;
+function renderQuestions(){questionsRoot.innerHTML=questions.map((q,index)=>`<fieldset class="question-card" data-question="${q.id}"><legend>السؤال ${index+1}</legend><span class="question-kicker">${String(index+1).padStart(2,"0")} · ${q.area}</span><h4>${q.text}</h4><div class="answer-grid">${answers.map(a=>`<label class="answer-option"><input type="radio" name="${q.id}" value="${a.value}" required><span>${a.label}</span></label>`).join("")}</div></fieldset>`).join("")}
+function updateProgress(){let completed=0;questions.forEach(q=>{const card=questionsRoot.querySelector(`[data-question="${q.id}"]`),checked=form.querySelector(`input[name="${q.id}"]:checked`);card?.classList.toggle("has-answer",Boolean(checked));if(checked)completed++});progressText.textContent=`${completed} / ${questions.length}`;progressBar.style.width=`${Math.round((completed/questions.length)*100)}%`}
+function getResult(){const rows=questions.map((q,index)=>{const input=form.querySelector(`input[name="${q.id}"]:checked`);return input?{...q,index,value:Number(input.value)}:null});if(rows.some(row=>row===null))return null;const points=rows.reduce((sum,row)=>sum+row.value,0),score=Math.round((points/(questions.length*2))*100),band=bands.find(item=>score>=item.min),issues=[...rows].sort((a,b)=>a.value-b.value||a.index-b.index).slice(0,3);return{score,band,issues}}
+function renderResult(data){document.getElementById("scoreValue").innerHTML=`${data.score}<small>/100</small>`;document.getElementById("resultBand").textContent=data.band.label;document.getElementById("resultTitle").textContent=data.band.title;document.getElementById("resultDescription").textContent=data.band.description;document.getElementById("issueList").innerHTML=data.issues.map(item=>`<li>${item.issue}</li>`).join("");document.getElementById("nextStep").textContent=data.band.next;const issueText=data.issues.map((item,index)=>`${index+1}. ${item.issue}`).join("\n"),message=["مرحبًا، عملت كشف صحة المخزون المجاني من Digital Execution.","",`نتيجتي: ${data.score}/100`,`التصنيف: ${data.band.label}`,"","أهم النقاط اللي محتاجة تحسين:",issueText,"","عايز أعرف أنسب خطوة لتحسين إدارة المخزون عندي."].join("\n");document.getElementById("resultWhatsApp").href=`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;result.hidden=false;result.focus({preventScroll:true});result.scrollIntoView({behavior:"smooth",block:"start"});window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:"health_check_complete",score:data.score,result_band:data.band.key,source:"health_check"})}
+questionsRoot.addEventListener("change",()=>{formError.hidden=true;updateProgress()});
+form.addEventListener("submit",event=>{event.preventDefault();const data=getResult();if(!data){formError.hidden=false;const firstMissing=questions.find(q=>!form.querySelector(`input[name="${q.id}"]:checked`));questionsRoot.querySelector(`[data-question="${firstMissing?.id}"]`)?.scrollIntoView({behavior:"smooth",block:"center"});return}formError.hidden=true;renderResult(data)});
+document.getElementById("restartCheck")?.addEventListener("click",()=>{form.reset();result.hidden=true;updateProgress();document.getElementById("check")?.scrollIntoView({behavior:"smooth",block:"start"})});
+document.addEventListener("click",event=>{const tracked=event.target.closest("[data-track]");if(!tracked)return;window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:tracked.dataset.track,source:tracked.dataset.source||"health_check",cta_location:tracked.dataset.ctaLocation||"unknown"})});
+renderQuestions();updateProgress();
+})();
