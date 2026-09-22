@@ -20,5 +20,27 @@
     "featured": true,
     "last_updated": "2026-09-22",
     "status": "published"
+  },
+  {
+    "slug": "career-kit",
+    "name": "Career Kit",
+    "category": "قوالب وأدوات مهنية",
+    "short_description": "باكدج عملي لتجهيز CV وLinkedIn والتقديم للوظائف للخريجين وأصحاب الخبرة.",
+    "price": 249,
+    "currency": "EGP",
+    "image": "assets/career-kit/career-kit-cover.svg",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Personal Use",
+    "resell_allowed": false,
+    "editable": true,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": false,
+    "demo_url": null,
+    "product_url": "products/career-kit/",
+    "featured": true,
+    "last_updated": "2026-09-23",
+    "status": "published"
   }
 ]
