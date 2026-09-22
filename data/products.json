@@ -1,0 +1,18 @@
+[
+  {
+    "slug":"restock-desk",
+    "name":"ReStock Desk",
+    "category":"برامج وأنظمة",
+    "price":399,
+    "currency":"EGP",
+    "image":"assets/restock/dashboard.png",
+    "version":"1.2.2",
+    "source_type":"Original",
+    "license_type":"Commercial Use",
+    "resell_allowed":false,
+    "editable":false,
+    "brandable":false,
+    "delivery_type":"Manual",
+    "status":"published"
+  }
+]
