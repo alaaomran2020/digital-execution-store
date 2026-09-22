@@ -9,8 +9,8 @@ const msg=[
   "وسأرسل صورة أو رقم عملية الدفع هنا للتأكيد."
 ].join("\n");
 
-document.getElementById("waBtn").href="https://wa.me/"+wa+"?text="+encodeURIComponent(msg);
-document.getElementById("copyBtn").addEventListener("click",async()=>{
+const waBtn=document.getElementById("waBtn");\nif(waBtn) waBtn.href="https://wa.me/"+wa+"?text="+encodeURIComponent(msg);
+const copyBtn=document.getElementById("copyBtn");\nif(copyBtn) copyBtn.addEventListener("click",async()=>{
   try{
     await navigator.clipboard.writeText(phone);
     const b=document.getElementById("copyBtn"),old=b.textContent;
@@ -34,12 +34,12 @@ document.addEventListener("click",event=>{
 
 const menuToggle=document.getElementById("menuToggle");
 const mobileNav=document.getElementById("mobileNav");
-menuToggle.addEventListener("click",()=>{
+if(menuToggle&&mobileNav) menuToggle.addEventListener("click",()=>{
   const open=menuToggle.getAttribute("aria-expanded")==="true";
   menuToggle.setAttribute("aria-expanded",String(!open));
   mobileNav.hidden=open;
 });
-mobileNav.addEventListener("click",event=>{
+if(mobileNav&&menuToggle) mobileNav.addEventListener("click",event=>{
   if(event.target.closest("a")){
     menuToggle.setAttribute("aria-expanded","false");
     mobileNav.hidden=true;
@@ -66,10 +66,10 @@ document.querySelectorAll("[data-lightbox]").forEach(button=>{
     lightboxClose.focus();
   });
 });
-lightboxClose.addEventListener("click",closeLightbox);
-lightbox.addEventListener("click",event=>{if(event.target===lightbox) closeLightbox();});
+if(lightboxClose) lightboxClose.addEventListener("click",closeLightbox);
+if(lightbox) lightbox.addEventListener("click",event=>{if(event.target===lightbox) closeLightbox();});
 document.addEventListener("keydown",event=>{
-  if(event.key==="Escape"&&!lightbox.hidden) closeLightbox();
+  if(event.key==="Escape"&&lightbox&&!lightbox.hidden) closeLightbox();
 });
 
 const observedOnce=new Set();
