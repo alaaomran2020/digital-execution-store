@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://alaaomran2020.github.io/digital-execution-store/sitemap.xml
+Sitemap: https://digital-execution.cc/sitemap.xml
