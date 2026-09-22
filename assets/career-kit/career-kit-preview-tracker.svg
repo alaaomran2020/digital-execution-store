@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+<rect width="1600" height="1000" fill="#f8fafc"/><circle cx="1400" cy="110" r="230" fill="#e8f0ff"/>
+<rect x="80" y="60" rx="22" width="370" height="64" fill="#14213d"/><text x="108" y="101" font-family="Arial,sans-serif" font-size="30" font-weight="700" fill="#fff">Digital Execution</text>
+<rect x="80" y="160" rx="18" width="300" height="55" fill="#e5edff"/><text x="105" y="196" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#4287f5">JOB TRACKER</text>
+<text x="80" y="305" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#14213d">Track every application</text>
+<text x="80" y="360" font-family="Arial,sans-serif" font-size="29" fill="#5a6270">Follow-ups, interviews, offers and next actions</text>
+<rect x="720" y="110" rx="26" width="760" height="750" fill="#fff" stroke="#dfe5ee" stroke-width="2"/><rect x="720" y="110" width="760" height="78" fill="#14213d"/>
+<text x="760" y="160" font-family="Arial,sans-serif" font-size="30" font-weight="700" fill="#fff">Job Application Dashboard</text>
+<rect x="770" y="235" rx="18" width="330" height="90" fill="#f8fafc" stroke="#e5e7eb"/><text x="800" y="273" font-family="Arial,sans-serif" font-size="22" fill="#5a6270">Total Applications</text><text x="1010" y="287" font-family="Arial,sans-serif" font-size="36" font-weight="700" fill="#14213d">24</text><rect x="770" y="350" rx="18" width="330" height="90" fill="#f8fafc" stroke="#e5e7eb"/><text x="800" y="388" font-family="Arial,sans-serif" font-size="22" fill="#5a6270">Interviews</text><text x="1010" y="402" font-family="Arial,sans-serif" font-size="36" font-weight="700" fill="#14213d">6</text><rect x="770" y="465" rx="18" width="330" height="90" fill="#f8fafc" stroke="#e5e7eb"/><text x="800" y="503" font-family="Arial,sans-serif" font-size="22" fill="#5a6270">Offers</text><text x="1010" y="517" font-family="Arial,sans-serif" font-size="36" font-weight="700" fill="#14213d">2</text><rect x="770" y="580" rx="18" width="330" height="90" fill="#f8fafc" stroke="#e5e7eb"/><text x="800" y="618" font-family="Arial,sans-serif" font-size="22" fill="#5a6270">Overdue Follow-ups</text><text x="1010" y="632" font-family="Arial,sans-serif" font-size="36" font-weight="700" fill="#14213d">3</text>
+<text x="1160" y="275" font-family="Arial,sans-serif" font-size="20" fill="#5a6270">Applied</text><rect x="1160" y="300" rx="10" width="230" height="24" fill="#4287f5"/>
+<text x="1160" y="385" font-family="Arial,sans-serif" font-size="20" fill="#5a6270">Interview</text><rect x="1160" y="410" rx="10" width="160" height="24" fill="#587ff6"/>
+<text x="1160" y="495" font-family="Arial,sans-serif" font-size="20" fill="#5a6270">Offer</text><rect x="1160" y="520" rx="10" width="75" height="24" fill="#22c55e"/>
+<text x="1160" y="605" font-family="Arial,sans-serif" font-size="20" fill="#5a6270">Rejected</text><rect x="1160" y="630" rx="10" width="120" height="24" fill="#ef4444"/>
+<text x="80" y="875" font-family="Arial,sans-serif" font-size="23" fill="#5a6270">Excel / Google Sheets workflow — no subscription</text>
+</svg>
