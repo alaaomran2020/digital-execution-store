@@ -58,7 +58,7 @@
 <strong>اطلب آخر تحديث</strong>
 <p>متاح مجانًا للعملاء الحاليين ضمن تحديثات ReStock Desk مدى الحياة.</p>
 <a id="requestUpdate" class="btn whatsapp" target="_blank" rel="noopener">اطلب آخر تحديث على واتساب</a>
-<p class="small">بعد التحقق من بيانات العميل، يتم إرسال التحديث على الإيميل.</p>
+<p class="small">بعد التحقق من بيانات العميل، يتم إرسال التحديث بالطريقة التي تؤكدها الشركة مع العميل.</p>
 </div>
 </div>
 </div></section>
@@ -68,7 +68,7 @@
 <div class="update-steps">
 <article><b>1</b><strong>اطلب التحديث</strong><p>اضغط الزر وأرسل الرسالة الجاهزة على واتساب.</p></article>
 <article><b>2</b><strong>التحقق من العميل</strong><p>يتم التأكد من بيانات الشراء واستحقاق تحديثات مدى الحياة.</p></article>
-<article><b>3</b><strong>استلم على الإيميل</strong><p>يتم إرسال رابط الإصدار الجديد وتعليمات التحديث على بريدك المسجل.</p></article>
+<article><b>3</b><strong>استلم التحديث</strong><p>بعد التحقق، يتم تأكيد طريقة استلام الإصدار الجديد وتعليمات التحديث معك.</p></article>
 </div>
 </div></section>
 
@@ -78,7 +78,7 @@
 <li>اسم العميل.</li>
 <li>Customer ID إن وجد.</li>
 <li>الإصدار الحالي من ReStock Desk.</li>
-<li>الإيميل المسجل وقت الشراء.</li>
+<li>بيانات التواصل المستخدمة وقت الشراء.</li>
 </ul>
 <p class="small">لا ترسل PIN أو OTP أو أي بيانات دفع حساسة.</p>
 </div></section>
@@ -96,7 +96,7 @@ const updateMessage=[
   "الاسم:",
   "Customer ID:",
   "الإصدار الحالي:",
-  "الإيميل المسجل وقت الشراء:"
+  "بيانات التواصل المستخدمة وقت الشراء:"
 ].join("\n");
 document.getElementById("requestUpdate").href="https://wa.me/201011673107?text="+encodeURIComponent(updateMessage);
 </script>
