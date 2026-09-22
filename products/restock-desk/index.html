@@ -29,6 +29,7 @@
 <meta name="twitter:image" content="https://digital-execution.cc/assets/restock/dashboard.png">
 <link rel="preload" as="image" href="../../assets/restock/dashboard-960.webp" imagesrcset="../../assets/restock/dashboard-960.webp 960w, ../../assets/restock/dashboard-1280.webp 1280w, ../../assets/restock/dashboard-1920.webp 1920w" imagesizes="(max-width: 850px) calc(100vw - 28px), 48vw" type="image/webp" fetchpriority="high">
 <link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../tools/inventory-health-check/inventory-health-check.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"ReStock Desk","description":"برنامج عربي لإدارة المخزون والنواقص وإعادة الطلب للمتاجر، يعمل محليًا بدون سيرفر أو API أو اشتراك شهري.","applicationCategory":"BusinessApplication","operatingSystem":"Modern desktop web browser","offers":{"@type":"Offer","price":"399","priceCurrency":"EGP"},"brand":{"@type":"Brand","name":"Digital Execution"},"publisher":{"@type":"Organization","name":"Digital Execution"},"softwareVersion":"1.2.2","url":"https://digital-execution.cc/products/restock-desk/","image":"https://digital-execution.cc/assets/restock/dashboard.png","inLanguage":"ar-EG"}
 </script>
@@ -51,7 +52,7 @@
 <p>نظّم المخزون، اعرف النواقص بسرعة، واجمع احتياجات الموردين من مكان واحد بدون اشتراك شهري أو سيرفر.</p>
 <div class="hero-price"><strong>399 جنيه</strong><span>مرة واحدة</span></div>
 <div class="badges"><span>نسخة تجريبية للموبايل</span><span>النسخة التجارية تعمل محليًا على الكمبيوتر</span><span>بدون API</span><span>بدون سيرفر</span><span>بدون اشتراك شهري</span></div>
-<div class="actions"><a class="btn primary" href="#buy" data-track="buy_intent_click" data-source="product_page" data-cta-location="hero">شراء ReStock Desk</a><a class="btn secondary" href="https://restock-desk.pages.dev" target="_blank" rel="noopener" data-track="demo_click" data-source="product_page" data-cta-location="demo">جرّب Demo</a><a class="btn secondary" href="../../tools/inventory-health-check/" data-track="health_check_click" data-source="product_page" data-cta-location="hero">اختبر مخزونك مجانًا</a></div>
+<div class="actions"><a class="btn primary" href="#buy" data-track="buy_intent_click" data-source="product_page" data-cta-location="hero">شراء ReStock Desk</a><a class="btn secondary" href="https://restock-desk.pages.dev" target="_blank" rel="noopener" data-track="demo_click" data-source="product_page" data-cta-location="demo">جرّب Demo</a></div>
 <p class="small">النسخة العامة Demo محدودة للتجربة. النسخة التجارية الكاملة تُسلَّم بعد الدفع.</p>
 </div>
 <figure class="product-hero"><picture><source type="image/webp" srcset="../../assets/restock/dashboard-960.webp 960w, ../../assets/restock/dashboard-1280.webp 1280w, ../../assets/restock/dashboard-1920.webp 1920w" sizes="(max-width: 850px) calc(100vw - 28px), 48vw"><img src="../../assets/restock/dashboard.png" alt="لوحة التحكم الحقيقية في ReStock Desk v1.2.2" width="1920" height="954" fetchpriority="high"></picture><figcaption>واجهة ReStock Desk v1.2.2 الفعلية</figcaption></figure>
@@ -64,6 +65,29 @@
 <article><strong>حدّث الكميات بسهولة</strong><p>عدّل المخزون بسرعة وخلّي حالة كل صنف واضحة قدامك.</p></article>
 <article><strong>اجمع طلبات الموردين</strong><p>شوف احتياج كل مورد مع Backup / Restore لحماية بياناتك المحلية.</p></article>
 </div>
+</div></section>
+
+<section class="section alt" id="health-check"><div class="container health-shell">
+<details class="health-tool">
+<summary>
+<span><span class="eyebrow">أداة مساعدة اختيارية</span><strong>عايز تعرف مؤشر سريع لصحة مخزونك؟</strong><small>استخدم 4 أرقام من شغلك الحالي. الحساب تقديري ومش مطلوب علشان تشتري أو تجرّب ReStock Desk.</small></span>
+<span class="health-tool-action">فتح الحاسبة</span>
+</summary>
+<div class="health-tool-body">
+<form id="healthForm" class="metric-form" novalidate>
+<label class="metric-card"><span class="question-kicker">01 · حجم المخزون</span><strong>إجمالي عدد الأصناف النشطة عندك</strong><input id="totalSkus" name="totalSkus" type="number" inputmode="numeric" min="1" step="1" placeholder="مثال: 500" required><small>عدد الأصناف التي تتابعها فعليًا.</small></label>
+<label class="metric-card"><span class="question-kicker">02 · النواقص الحالية</span><strong>عدد الأصناف الناقصة أو القريبة من النفاد الآن</strong><input id="lowStockSkus" name="lowStockSkus" type="number" inputmode="numeric" min="0" step="1" placeholder="مثال: 45" required><small>أي صنف يحتاج شراء أو متابعة عاجلة.</small></label>
+<label class="metric-card"><span class="question-kicker">03 · إعادة الطلب</span><strong>عدد الأصناف التي لها حد إعادة طلب واضح</strong><input id="reorderSkus" name="reorderSkus" type="number" inputmode="numeric" min="0" step="1" placeholder="مثال: 320" required><small>الأصناف التي تعرف عند أي كمية تحتاج إعادة طلب.</small></label>
+<label class="metric-card"><span class="question-kicker">04 · النفاد الفعلي</span><strong>عدد الأصناف التي نفدت بالفعل خلال آخر 30 يوم</strong><input id="stockoutSkus" name="stockoutSkus" type="number" inputmode="numeric" min="0" step="1" placeholder="مثال: 18" required><small>احسب الأصناف، مش عدد مرات البيع المفقودة.</small></label>
+<div id="formError" class="form-error" role="alert" hidden></div>
+<button class="btn secondary result-button" type="submit" data-track="health_check_submit" data-source="product_page" data-cta-location="health_check">احسب المؤشر</button>
+</form>
+<section id="result" class="health-result" tabindex="-1" hidden aria-live="polite">
+<div class="result-score"><span>مؤشر تقديري</span><strong id="scoreValue">0<small>/100</small></strong></div>
+<div class="result-copy"><span class="result-band" id="resultBand"></span><h3 id="resultTitle"></h3><p id="resultDescription"></p><h4>أهم نقاط التركيز:</h4><ol id="issueList" class="issue-list"></ol><div class="metric-summary" id="metricSummary"></div><div class="next-step" id="nextStep"></div><div class="result-actions"><a id="resultWhatsApp" class="btn whatsapp" target="_blank" rel="noopener" data-track="health_check_whatsapp" data-source="product_page" data-cta-location="health_check_result">ابعت النتيجة على واتساب</a><a class="btn primary" href="#buy" data-track="buy_intent_click" data-source="product_page" data-cta-location="health_check_result">شوف سعر ReStock Desk</a></div><button id="restartCheck" class="text-button" type="button">احسب من جديد</button></div>
+</section>
+</div>
+</details>
 </div></section>
 
 <section class="section showcase alt" id="screenshots" data-observe="gallery_view"><div class="container">
@@ -154,5 +178,6 @@
 <br><a href="../../updates/">التحديثات</a> · <a href="../../terms.html">شروط الاستخدام</a> · <a href="../../privacy.html">سياسة الخصوصية</a>
 </div></footer>
 <script src="../../script.js" defer></script>
+<script src="../../tools/inventory-health-check/inventory-health-check.js" defer></script>
 </body>
 </html>

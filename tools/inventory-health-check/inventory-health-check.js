@@ -57,5 +57,4 @@ window.dataLayer.push({event:"health_check_complete",score:data.score,result_ban
 }
 form.addEventListener("submit",event=>{event.preventDefault();const values=read(),error=validate(values);if(error){formError.textContent=error;formError.hidden=false;return}formError.hidden=true;render(calculate(values))});
 document.getElementById("restartCheck")?.addEventListener("click",()=>{form.reset();result.hidden=true;formError.hidden=true;document.getElementById("check")?.scrollIntoView({behavior:"smooth",block:"start"})});
-document.addEventListener("click",event=>{const tracked=event.target.closest("[data-track]");if(!tracked)return;window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:tracked.dataset.track,source:tracked.dataset.source||"health_check",cta_location:tracked.dataset.ctaLocation||"unknown"})});
 })();
