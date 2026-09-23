@@ -6,3 +6,6 @@ timestamp,event,path,landing_path,source,product_slug,cta_location,label,referre
 2026-09-23T12:01:30+03:00,search,/products/,/products/,url_query,,catalog,,https://digital-execution.cc/products/,direct,,
 2026-09-23T12:05:00+03:00,qualified_lead,/products/validation.html,/products/validation.html,validation_sprint,order-desk,interest_form,qualified lead,,,validation-sprint,
 2026-09-23T12:10:00+03:00,order,/products/restock-desk/,/products/restock-desk/,verified_order,restock-desk,manual_confirmation,confirmed order,,,direct,
+2026-09-24T12:00:00+03:00,repeat_offer_view,/after-purchase/business/,/after-purchase/business/,post_purchase,restock-desk,repeat_offer,عرض الخطوة التالية,,,direct,
+2026-09-24T12:01:00+03:00,repeat_purchase_click,/after-purchase/business/,/after-purchase/business/,post_purchase,business-control-pack,repeat_offer,عرض المنتج,,,direct,
+2026-09-24T12:10:00+03:00,repeat_purchase,/products/business-control-pack/,/after-purchase/business/,verified_repeat_order,business-control-pack,manual_confirmation,verified repeat purchase,,,direct,
