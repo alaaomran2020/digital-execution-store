@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />\n  <meta name="build" content="career-cv-studio-production" />
+  <title>Career Kit — Career CV Studio</title>
+  <meta name="description" content="Career CV Studio احترافي لإنشاء CV عربي أو إنجليزي بقوالب ATS-friendly وتحليل Job Description وتصدير PDF ضمن Digital Execution Career Kit." />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand-block">
+      <p class="eyebrow">Digital Execution — Career Kit</p>
+      <div class="title-row">
+        <h1>Career CV Studio</h1>
+        <span class="status-badge">Local-first</span>
+      </div>
+      <p class="muted">اكتب، رتّب، حلّل، وصدّر CV احترافي من مكان واحد.</p>
+    </div>
+    <div class="header-actions">
+      <span id="saveStatus" class="save-status" aria-live="polite">محفوظ محليًا</span>
+      <button id="themeToggle" class="icon-btn" type="button" aria-label="تبديل الوضع الداكن">☾</button>
+      <button id="saveBtn" class="secondary-btn" type="button">حفظ</button>
+      <button id="printBtn" class="primary-btn" type="button">تصدير PDF</button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <section class="panel editor-panel" aria-label="محرر السيرة الذاتية">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">CV Content</p>
+          <h2>بيانات الـCV</h2>
+          <p class="muted">كل تعديل يظهر فورًا في المعاينة ويُحفظ محليًا على جهازك.</p>
+        </div>
+        <div class="segmented" role="group" aria-label="المسار المهني">
+          <button type="button" class="seg-btn active" data-track="fresh">خريج جديد</button>
+          <button type="button" class="seg-btn" data-track="experienced">خبرة</button>
+        </div>
+      </div>
+
+      <section class="studio-controls" aria-label="إعدادات الاستوديو">
+        <label>لغة الـCV
+          <select id="languageSelect">
+            <option value="ar">العربية</option>
+            <option value="en">English</option>
+          </select>
+        </label>
+        <label>قالب ATS
+          <select id="templateSelect">
+            <option value="classic">Classic ATS</option>
+            <option value="executive">Executive ATS</option>
+            <option value="minimal">Minimal ATS</option>
+            <option value="compact">Compact ATS</option>
+          </select>
+        </label>
+        <label>تنسيق PDF
+          <select id="pdfFormatSelect">
+            <option value="a4">A4 Standard</option>
+            <option value="a4-compact">A4 Compact</option>
+            <option value="letter">US Letter</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="section-order-card" aria-labelledby="sectionOrderTitle">
+        <div class="section-row compact-row">
+          <div>
+            <p class="eyebrow">Layout</p>
+            <h3 id="sectionOrderTitle">ترتيب أقسام الـCV</h3>
+            <p class="muted">اسحب الأقسام أو استخدم الأسهم. الهيدر ثابت دائمًا.</p>
+          </div>
+          <button id="resetOrderBtn" class="secondary-btn small" type="button">الترتيب الافتراضي</button>
+        </div>
+        <div id="sectionOrderList" class="section-order-list"></div>
+      </section>
+
+      <div class="editor-divider"><span>البيانات الأساسية</span></div>
+
+      <div class="form-grid">
+        <label>الاسم الكامل<input id="fullName" autocomplete="name" placeholder="مثال: أحمد محمد / Ahmed Mohamed" /></label>
+        <label>المسمى المستهدف<input id="targetTitle" placeholder="مثال: Frontend Developer" /></label>
+        <label>البريد الإلكتروني<input id="email" type="email" autocomplete="email" placeholder="name@example.com" /></label>
+        <label>رقم الهاتف<input id="phone" autocomplete="tel" placeholder="+20..." /></label>
+        <label>الموقع<input id="location" placeholder="طنطا، مصر / Tanta, Egypt" /></label>
+        <label>LinkedIn<input id="linkedin" inputmode="url" placeholder="linkedin.com/in/..." /></label>
+      </div>
+
+      <label class="block-label">الملخص المهني
+        <textarea id="summary" rows="5" placeholder="اكتب 3–4 سطور واضحة عن خبرتك، نقاط قوتك، والنتيجة التي تضيفها."></textarea>
+      </label>
+
+      <div class="editor-divider"><span>الخبرة والتعليم</span></div>
+
+      <div class="section-row">
+        <div>
+          <h3 id="experienceHeading">التدريب / الخبرة</h3>
+          <p class="muted">كل سطر = Achievement Bullet. الـCoach يراجع قوة الصياغة تلقائيًا.</p>
+        </div>
+        <button id="addExperienceBtn" class="secondary-btn small" type="button">+ إضافة</button>
+      </div>
+      <div id="experienceList" class="stack"></div>
+
+      <div class="section-row">
+        <div>
+          <h3>التعليم</h3>
+          <p class="muted">الدرجة، التخصص، الجهة، والفترة.</p>
+        </div>
+        <button id="addEducationBtn" class="secondary-btn small" type="button">+ إضافة</button>
+      </div>
+      <div id="educationList" class="stack"></div>
+
+      <div class="section-row">
+        <div>
+          <h3>المشروعات</h3>
+          <p class="muted">اعرض المشروعات التي تدعم الوظيفة المستهدفة.</p>
+        </div>
+        <button id="addProjectBtn" class="secondary-btn small" type="button">+ إضافة</button>
+      </div>
+      <div id="projectList" class="stack"></div>
+
+      <label class="block-label">المهارات
+        <textarea id="skills" rows="3" placeholder="JavaScript, React, Excel, Inventory Management..."></textarea>
+        <span class="hint">افصل المهارات بفاصلة.</span>
+      </label>
+
+      <div class="editor-divider"><span>الجودة والمطابقة</span></div>
+
+      <section class="ats-card" aria-labelledby="atsTitle">
+        <div class="ats-head">
+          <div>
+            <p class="eyebrow">ATS Check</p>
+            <h3 id="atsTitle">مؤشر جاهزية الـCV</h3>
+          </div>
+          <strong id="atsScore" class="score">0%</strong>
+        </div>
+        <div class="progress" aria-hidden="true"><span id="atsBar"></span></div>
+        <ul id="atsNotes" class="check-list"></ul>
+      </section>
+
+      <section class="analyzer-card" aria-labelledby="analyzerTitle">
+        <div class="ats-head">
+          <div>
+            <p class="eyebrow">Job Description Analyzer</p>
+            <h3 id="analyzerTitle">تحليل الوظيفة والكلمات المفتاحية</h3>
+          </div>
+          <strong id="matchScore" class="score">0%</strong>
+        </div>
+        <label class="block-label">وصف الوظيفة
+          <textarea id="jobDescription" rows="7" placeholder="الصق Job Description هنا. التحليل يتم على جهازك فقط بدون إرسال البيانات لأي سيرفر."></textarea>
+        </label>
+        <div class="analyzer-grid">
+          <div class="metric-box"><span>Keyword Coverage</span><strong id="keywordCoverage">0%</strong></div>
+          <div class="metric-box"><span>Title Alignment</span><strong id="titleAlignment">0%</strong></div>
+          <div class="metric-box"><span>CV Terms Found</span><strong id="matchedCount">0</strong></div>
+          <div class="metric-box"><span>Missing Terms</span><strong id="missingCount">0</strong></div>
+        </div>
+        <div class="keyword-group">
+          <h4>Matched Keywords</h4>
+          <div id="matchedKeywords" class="keyword-chips"><span class="empty-chip">—</span></div>
+        </div>
+        <div class="keyword-group">
+          <h4>Missing Keywords</h4>
+          <div id="missingKeywords" class="keyword-chips"><span class="empty-chip">—</span></div>
+        </div>
+        <div class="keyword-group">
+          <h4>Priority Terms from Job Description</h4>
+          <div id="priorityKeywords" class="keyword-chips"><span class="empty-chip">—</span></div>
+        </div>
+        <p class="analyzer-note">المؤشر إرشادي لتحسين التغطية النصية، وليس ضمانًا للقبول أو نتيجة نظام ATS بعينه.</p>
+      </section>
+
+      <section class="export-card" aria-labelledby="exportTitle">
+        <div>
+          <p class="eyebrow">Export Center</p>
+          <h3 id="exportTitle">تصدير PDF احترافي</h3>
+          <p class="muted">اختر المقاس المناسب ثم استخدم نافذة الطباعة لحفظ الملف بصيغة PDF.</p>
+        </div>
+        <div class="export-presets" role="group" aria-label="تنسيق ملف PDF">
+          <button type="button" class="export-preset active" data-pdf-format="a4">
+            <strong>A4 Standard</strong><span>210 × 297 mm</span>
+          </button>
+          <button type="button" class="export-preset" data-pdf-format="a4-compact">
+            <strong>A4 Compact</strong><span>هوامش أضيق</span>
+          </button>
+          <button type="button" class="export-preset" data-pdf-format="letter">
+            <strong>US Letter</strong><span>8.5 × 11 in</span>
+          </button>
+        </div>
+        <div class="export-readiness" aria-live="polite">
+          <div class="readiness-head">
+            <div>
+              <strong>جاهزية التصدير</strong>
+              <span id="exportReadyStatus" class="readiness-status">قيد المراجعة</span>
+            </div>
+            <div class="page-fit">
+              <span id="pageFitStatus">Page Fit</span>
+              <strong id="pageEstimate">≈ 1 صفحة</strong>
+            </div>
+          </div>
+          <ul id="exportReadyList" class="readiness-list"></ul>
+          <label class="filename-field">اسم الملف المقترح
+            <input id="exportFilename" readonly value="career-kit-cv.pdf" aria-label="اسم ملف PDF المقترح" />
+          </label>
+        </div>
+        <div class="export-footer">
+          <div>
+            <strong id="exportFormatLabel">A4 Standard</strong>
+            <span id="exportHint" class="muted">مناسب لمعظم التقديمات في مصر والمنطقة.</span>
+          </div>
+          <button id="exportPdfBtn" class="primary-btn export-btn" type="button">فتح تصدير PDF</button>
+        </div>
+      </section>
+
+      <div class="data-actions">
+        <button id="exportDataBtn" class="secondary-btn" type="button">تصدير البيانات</button>
+        <label class="secondary-btn file-btn">استيراد البيانات<input id="importDataInput" type="file" accept="application/json" hidden /></label>
+        <button id="resetBtn" class="danger-btn" type="button">بدء CV جديد</button>
+      </div>
+    </section>
+
+    <aside class="panel preview-shell" aria-label="معاينة السيرة الذاتية">
+      <div class="preview-toolbar">
+        <div>
+          <div class="preview-title-row">
+            <strong>المعاينة</strong>
+            <span class="live-dot">Live</span>
+          </div>
+          <span id="previewMeta" class="muted">A4 / العربية / Classic ATS</span>
+        </div>
+        <div class="template-pills" aria-label="اختيار سريع للقالب">
+          <button type="button" data-template-quick="classic" class="template-pill active">Classic</button>
+          <button type="button" data-template-quick="executive" class="template-pill">Executive</button>
+          <button type="button" data-template-quick="minimal" class="template-pill">Minimal</button>
+          <button type="button" data-template-quick="compact" class="template-pill">Compact</button>
+        </div>
+      </div>
+
+      <div class="paper-stage">
+        <article id="cvPreview" class="cv-page template-classic format-a4" lang="ar" dir="rtl">
+          <header class="cv-header">
+            <h2 data-preview="fullName">اسمك الكامل</h2>
+            <p class="cv-title" data-preview="targetTitle">المسمى الوظيفي</p>
+            <p class="cv-contact" id="previewContact">email@example.com · +20... · مصر · LinkedIn</p>
+          </header>
+
+          <div id="cvSections">
+            <section data-section="summary">
+              <h3 id="summaryHeading">الملخص المهني</h3>
+              <p data-preview="summary">اكتب ملخصًا مهنيًا مختصرًا ومباشرًا.</p>
+            </section>
+
+            <section id="previewExperienceSection" data-section="experience">
+              <h3 id="previewExperienceTitle">التدريب والخبرة</h3>
+              <div id="previewExperience"></div>
+            </section>
+
+            <section data-section="education">
+              <h3 id="educationHeading">التعليم</h3>
+              <div id="previewEducation"></div>
+            </section>
+
+            <section id="previewProjectsSection" data-section="projects">
+              <h3 id="projectsHeading">المشروعات</h3>
+              <div id="previewProjects"></div>
+            </section>
+
+            <section data-section="skills">
+              <h3 id="skillsHeading">المهارات</h3>
+              <p id="previewSkills">أضف مهاراتك الأساسية.</p>
+            </section>
+          </div>
+        </article>
+      </div>
+    </aside>
+  </main>
+
+  <template id="experienceTemplate">
+    <div class="entry-card" data-entry="experience">
+      <div class="entry-grid">
+        <label>المسمى / الدور<input data-field="role" placeholder="مثال: Sales Specialist" /></label>
+        <label>الجهة<input data-field="company" placeholder="اسم الشركة أو جهة التدريب" /></label>
+        <label>الفترة<input data-field="period" placeholder="2024 — Present" /></label>
+      </div>
+      <label>الإنجازات<textarea data-field="bullets" rows="5" placeholder="كل إنجاز في سطر مستقل. مثال: زدت معدل التحويل 18% عبر إعادة تصميم مسار المتابعة."></textarea></label>
+      <div class="bullet-coach" data-coach aria-live="polite"></div>
+      <button class="text-danger remove-entry" type="button">حذف العنصر</button>
+    </div>
+  </template>
+
+  <template id="educationTemplate">
+    <div class="entry-card" data-entry="education">
+      <div class="entry-grid">
+        <label>الدرجة / التخصص<input data-field="degree" placeholder="B.Sc. in..." /></label>
+        <label>الجهة التعليمية<input data-field="school" placeholder="University / Institute" /></label>
+        <label>الفترة<input data-field="period" placeholder="2020 — 2024" /></label>
+      </div>
+      <button class="text-danger remove-entry" type="button">حذف العنصر</button>
+    </div>
+  </template>
+
+  <template id="projectTemplate">
+    <div class="entry-card" data-entry="project">
+      <div class="entry-grid">
+        <label>اسم المشروع<input data-field="name" placeholder="اسم المشروع" /></label>
+        <label>الدور / التقنية<input data-field="meta" placeholder="React · UX · Data Analysis..." /></label>
+      </div>
+      <label>الوصف والنتيجة<textarea data-field="description" rows="3" placeholder="ماذا بنيت؟ ما دورك؟ وما النتيجة؟"></textarea></label>
+      <button class="text-danger remove-entry" type="button">حذف العنصر</button>
+    </div>
+  </template>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
