@@ -28,3 +28,10 @@
 - لا يوجد إرسال ملفات متعددة يدويًا.
 - نسخة واحدة Canonical لكل Version.
 - START HERE + Quick Start + Troubleshooting موجودة داخل الحزمة.
+
+## حالة الدفع
+- الحالة: UNDER REVIEW — قيد المراجعة.
+- التحقق الحالي: Vodafone Cash يدوي.
+- بعد التحقق: التسليم والاستخدام Self-Service.
+- لا تعتبر هذه الخطوة Release Blocker في Passive Revenue OS v1.
+- يمكن أتمتتها لاحقًا عند اعتماد وسيلة دفع مناسبة.
