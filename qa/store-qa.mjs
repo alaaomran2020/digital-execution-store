@@ -88,11 +88,30 @@ for(const file of files.filter(f=>f.endsWith(".html")&&!f.startsWith("google")))
   }
 }
 
+const passiveRevenueManifestPath="data/passive-revenue-restock.json";
+if(!exists(passiveRevenueManifestPath)) fail("ReStock passive revenue manifest is missing");
+else{
+  try{
+    const passive=JSON.parse(read(passiveRevenueManifestPath));
+    if(passive.system_version!=="1.0") fail("ReStock passive revenue manifest must use system_version 1.0");
+    if(passive.product_slug!=="restock-desk") fail("ReStock passive revenue manifest product_slug mismatch");
+    for(const stage of ["traffic","lead_magnet","core_product","delivery","faq","upsell","bundle","repeat_purchase"]){
+      if(!passive.stages?.[stage]) fail("ReStock passive revenue stage missing: "+stage);
+    }
+  }catch(e){fail("ReStock passive revenue manifest is invalid JSON: "+e.message)}
+}
+
+const healthCheckJs=read("tools/inventory-health-check/inventory-health-check.js");
+for(const eventName of ["lead_magnet_start","lead_magnet_complete"]){
+  if(!healthCheckJs.includes(eventName)) fail("inventory-health-check: missing canonical event "+eventName);
+}
+
 const script=read("script.js");
 if(script.includes('product_slug:"restock-desk"')) fail("script.js contains legacy hardcoded ReStock product context");
 if(!script.includes("body.dataset.productSlug")) fail("script.js must derive product context from page data attributes");
 
 if(!script.includes('trackEvent("category_view"')) fail("script.js must emit category_view for the product catalog");
+if(!script.includes('trackEvent("buy_cta_click"')) fail("script.js must emit canonical buy_cta_click alias");
 if(!script.includes("order stays a verified business event")) fail("script.js must keep order as a verified business event");
 
 const studioHtml=read("tools/career-cv-studio/index.html");
