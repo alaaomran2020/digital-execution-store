@@ -38,7 +38,7 @@ for(const p of products){
     for(const [attr,value] of Object.entries(expected)){
       if(!body.includes(`${attr}="${value}"`)) fail(p.slug+": product body missing "+attr+"="+value);
     }
-    if(!html.includes('data-track="whatsapp_payment_click"')) fail(p.slug+": checkout WhatsApp tracking missing");
+    if(!html.includes('data-track="product_whatsapp_click"')) fail(p.slug+": checkout WhatsApp tracking missing");
     if(!/src="\.\.\/\.\.\/script\.js(?:\?[^"]*)?"/.test(html)) fail(p.slug+": unified script.js missing");
     const hasLegacyMobileNav=html.includes('id="menuToggle"')&&html.includes('id="mobileNav"');
     const hasDetailsMobileNav=html.includes('class="mobile-menu"')&&html.includes('class="menu-toggle"')&&html.includes('class="mobile-nav"');
@@ -49,6 +49,8 @@ for(const p of products){
       if(!html.includes('og:image:width" content="1200"')||!html.includes('og:image:height" content="630"')) fail("career-kit: social preview dimensions missing");
       if(!exists("assets/career-kit/career-kit-og.png")) fail("career-kit: PNG social preview file missing");
       if(!exists("assets/career-kit/career-kit-og.webp")) fail("career-kit: WebP social preview file missing");
+      if(!html.includes("../../tools/career-cv-studio/")) fail("career-kit: Career CV Studio CTA missing");
+      if(!html.includes("career_kit_cta_click")) fail("career-kit: Career CV Studio analytics CTA missing");
     }
   }else if(p.lifecycle?.published_version!==null){
     fail(p.slug+": unpublished product must have published_version=null");
@@ -89,6 +91,18 @@ for(const file of files.filter(f=>f.endsWith(".html")&&!f.startsWith("google")))
 const script=read("script.js");
 if(script.includes('product_slug:"restock-desk"')) fail("script.js contains legacy hardcoded ReStock product context");
 if(!script.includes("body.dataset.productSlug")) fail("script.js must derive product context from page data attributes");
+
+if(!script.includes('trackEvent("category_view"')) fail("script.js must emit category_view for the product catalog");
+if(!script.includes("order stays a verified business event")) fail("script.js must keep order as a verified business event");
+
+const studioHtml=read("tools/career-cv-studio/index.html");
+const studioJs=read("tools/career-cv-studio/app.js");
+if(!studioHtml.includes('name="robots" content="noindex, follow"')) fail("career-cv-studio: indexing policy must be noindex, follow");
+if(sitemap.includes("/tools/career-cv-studio/")) fail("career-cv-studio: noindex utility must not be in sitemap");
+if(!studioHtml.includes("../../products/career-kit/")) fail("career-cv-studio: return path to Career Kit missing");
+for(const eventName of ["cv_studio_open","cv_export"]){
+  if(!studioJs.includes(eventName)) fail("career-cv-studio: missing analytics event "+eventName);
+}
 
 if(errors.length){
   console.error("\nStore QA failed:");
