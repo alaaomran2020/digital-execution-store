@@ -39,14 +39,68 @@ const FUNNEL_STAGE_BY_EVENT={
   bundle_click:"bundle_intent"
 };
 
+const EVENT_STORAGE_KEY="de:production-events:v1";
+const EVENT_STORAGE_LIMIT=500;
+const EVENT_SESSION_KEY="de:event-session-id";
+
+function getEventSessionId(){
+  let id=sessionStorage.getItem(EVENT_SESSION_KEY);
+  if(!id){
+    id=(globalThis.crypto?.randomUUID?.()||("session-"+Date.now()+"-"+Math.random().toString(36).slice(2)));
+    sessionStorage.setItem(EVENT_SESSION_KEY,id);
+  }
+  return id;
+}
+
+function readStoredEvents(){
+  try{
+    const parsed=JSON.parse(localStorage.getItem(EVENT_STORAGE_KEY)||"[]");
+    return Array.isArray(parsed)?parsed:[];
+  }catch{return[]}
+}
+
+function persistEvent(detail){
+  try{
+    const events=readStoredEvents();
+    events.push(detail);
+    localStorage.setItem(EVENT_STORAGE_KEY,JSON.stringify(events.slice(-EVENT_STORAGE_LIMIT)));
+  }catch{}
+}
+
+function csvEscape(value){
+  const s=String(value??"");
+  return /[",\n\r]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s;
+}
+
+function exportStoredEvents(){
+  const events=readStoredEvents();
+  const headers=["timestamp","event","funnel_stage","session_id","path","landing_path","source","product_slug","cta_location","label","referrer","utm_source","utm_medium","utm_campaign"];
+  const rows=[headers.join(","),...events.map(e=>headers.map(h=>csvEscape(e[h])).join(","))];
+  const blob=new Blob([rows.join("\n")],{type:"text/csv;charset=utf-8"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download="digital-execution-production-events-"+new Date().toISOString().slice(0,10)+".csv";
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+window.DigitalExecutionAnalytics={
+  storageKey:EVENT_STORAGE_KEY,
+  getEvents:()=>readStoredEvents().map(e=>({...e})),
+  exportEvents:exportStoredEvents,
+  clearEvents:()=>localStorage.removeItem(EVENT_STORAGE_KEY)
+};
+
 function trackEvent(eventName,metadata={}){
   const detail={
     timestamp:new Date().toISOString(),
     event:eventName,
     funnel_stage:metadata.funnel_stage||FUNNEL_STAGE_BY_EVENT[eventName]||"",
+    session_id:getEventSessionId(),
     ...ATTRIBUTION_CONTEXT,
     ...metadata
   };
+  persistEvent(detail);
   window.dataLayer=window.dataLayer||[];
   window.dataLayer.push(detail);
   window.dispatchEvent(new CustomEvent("digital-execution:event",{detail}));
