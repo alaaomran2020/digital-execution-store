@@ -69,14 +69,44 @@ setupPurchase();
 
 const menuToggle=document.getElementById("menuToggle");
 const mobileNav=document.getElementById("mobileNav");
-if(menuToggle&&mobileNav) menuToggle.addEventListener("click",()=>{
-  const open=menuToggle.getAttribute("aria-expanded")==="true";
-  menuToggle.setAttribute("aria-expanded",String(!open));
-  mobileNav.hidden=open;
-});
-if(mobileNav&&menuToggle) mobileNav.addEventListener("click",event=>{
-  if(event.target.closest("a")){menuToggle.setAttribute("aria-expanded","false");mobileNav.hidden=true;}
-});
+
+function setMobileMenu(open){
+  if(!menuToggle||!mobileNav) return;
+  menuToggle.setAttribute("aria-expanded",String(open));
+  menuToggle.setAttribute("aria-label",open?"إغلاق قائمة التنقل":"فتح قائمة التنقل");
+  mobileNav.hidden=!open;
+  mobileNav.classList.toggle("is-open",open);
+}
+
+if(menuToggle&&mobileNav){
+  setMobileMenu(false);
+
+  menuToggle.addEventListener("click",event=>{
+    event.preventDefault();
+    event.stopPropagation();
+    setMobileMenu(menuToggle.getAttribute("aria-expanded")!=="true");
+  });
+
+  mobileNav.addEventListener("click",event=>{
+    if(event.target.closest("a")) setMobileMenu(false);
+  });
+
+  document.addEventListener("click",event=>{
+    if(menuToggle.getAttribute("aria-expanded")!=="true") return;
+    if(!mobileNav.contains(event.target)&&!menuToggle.contains(event.target)) setMobileMenu(false);
+  });
+
+  document.addEventListener("keydown",event=>{
+    if(event.key==="Escape"&&menuToggle.getAttribute("aria-expanded")==="true"){
+      setMobileMenu(false);
+      menuToggle.focus();
+    }
+  });
+
+  window.addEventListener("resize",()=>{
+    if(window.innerWidth>850) setMobileMenu(false);
+  });
+}
 
 const lightbox=document.getElementById("lightbox");
 const lightboxImage=document.getElementById("lightboxImage");
