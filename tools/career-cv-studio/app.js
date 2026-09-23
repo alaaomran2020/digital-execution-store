@@ -85,6 +85,13 @@ const STOP = new Set([
 const $ = (id) => document.getElementById(id);
 const fields = ["fullName","targetTitle","email","phone","location","linkedin","summary","skills","jobDescription"];
 
+function trackEvent(eventName,metadata={}){
+  const detail={timestamp:new Date().toISOString(),event:eventName,path:window.location.pathname,referrer:document.referrer||"",tool:"career-cv-studio",...metadata};
+  window.dataLayer=window.dataLayer||[];
+  window.dataLayer.push(detail);
+  window.dispatchEvent(new CustomEvent("digital-execution:event",{detail}));
+}
+
 function uid(){ return Math.random().toString(36).slice(2,9); }
 function safe(v=""){ return String(v).trim(); }
 function t(){ return I18N[state.language] || I18N.ar; }
@@ -514,6 +521,7 @@ function applyPrintPageStyle(){
 }
 let printTitleBackup="";
 function exportPdf(){
+  trackEvent("cv_export",{language:state.language,template:state.template,pdf_format:state.pdfFormat,career_track:state.track});
   persist();
   updateExportReadiness();
   applyPrintPageStyle();
@@ -547,6 +555,7 @@ function reset(){
 
 document.addEventListener("DOMContentLoaded",()=>{
   initTheme();load();
+  trackEvent("cv_studio_open",{language:state.language,template:state.template,pdf_format:state.pdfFormat,career_track:state.track});
   if(!$("experienceList").children.length)createExperience();
   if(!$("educationList").children.length)createEducation();
   if(!$("projectList").children.length)createProject();
