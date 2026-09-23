@@ -89,6 +89,8 @@ for(const file of files.filter(f=>f.endsWith(".html")&&!f.startsWith("google")))
 }
 
 if(!exists("products/business-control-pack/index.html")) fail("business-control-pack: product page missing");
+if(!exists("products/business-bundle/index.html")) fail("business-bundle: product page missing");
+if(!exists("after-purchase/business/index.html")) fail("repeat purchase entry page missing");
 const passiveRevenueManifestPath="data/passive-revenue-restock.json";
 if(!exists(passiveRevenueManifestPath)) fail("ReStock passive revenue manifest is missing");
 else{
@@ -98,6 +100,7 @@ else{
     if(passive.product_slug!=="restock-desk") fail("ReStock passive revenue manifest product_slug mismatch");
     for(const stage of ["traffic","lead_magnet","core_product","delivery","faq","upsell","bundle","repeat_purchase"]){
       if(!passive.stages?.[stage]) fail("ReStock passive revenue stage missing: "+stage);
+      if(["upsell","bundle","repeat_purchase"].includes(stage)&&passive.stages?.[stage]?.readiness!==100) fail("ReStock passive revenue stage must be 100%: "+stage);
     }
   }catch(e){fail("ReStock passive revenue manifest is invalid JSON: "+e.message)}
 }
