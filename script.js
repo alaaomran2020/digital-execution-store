@@ -67,6 +67,13 @@ document.addEventListener("click",event=>{
 
 setupPurchase();
 
+document.querySelectorAll(".mobile-menu").forEach(menu=>{
+  menu.addEventListener("click",event=>{
+    if(event.target.closest("a")) menu.removeAttribute("open");
+  });
+});
+
+
 const menuToggle=document.getElementById("menuToggle");
 const mobileNav=document.getElementById("mobileNav");
 
