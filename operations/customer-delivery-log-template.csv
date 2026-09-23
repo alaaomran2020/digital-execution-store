@@ -1,0 +1,2 @@
+order_id,original_order_id,customer_key,is_repeat_purchase,created_at,customer_name,phone,product,version,lead_source,lead_status,price_egp,payment_method,payment_reference,payment_verified_at,delivery_status,delivery_channel,delivered_at,file_or_release_id,follow_up_date,review_requested,review_received,notes
+DE-EXAMPLE-001,,,FALSE,2026-09-24T00:00:00+03:00,,,restock-desk,v1.0.0,example,QUALIFIED,0,,,,PENDING,,,,,NO,NO,EXAMPLE ONLY — do not store real customer data in the public repository
