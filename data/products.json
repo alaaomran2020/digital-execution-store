@@ -527,5 +527,101 @@
       "stage": "PUBLISHED",
       "published_version": "1.0.0"
     }
+  },
+  {
+    "schema_version": 3,
+    "slug": "business-bundle",
+    "name": "Business Bundle",
+    "category": "إدارة الأعمال",
+    "segment": "business",
+    "short_description": "ReStock Desk + Business Control Pack في حزمة واحدة لإدارة المخزون والمتابعة المالية المبسطة.",
+    "price": 549,
+    "currency": "EGP",
+    "image": "assets/restock/dashboard.png",
+    "version": "1.0.0",
+    "source_type": "Original Bundle",
+    "license_type": "Commercial Use",
+    "resell_allowed": false,
+    "editable": false,
+    "brandable": false,
+    "delivery_type": "Mixed Self-Service Delivery",
+    "lifetime_updates": false,
+    "demo_url": null,
+    "product_url": "products/business-bundle/",
+    "featured": true,
+    "last_updated": "2026-09-24",
+    "status": "published",
+    "identity": {
+      "product_type": "business_bundle",
+      "edition": "Self-Service Bundle",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "أصحاب المتاجر والمشروعات الصغيرة"
+      ],
+      "problem": "الحاجة لتنظيم المخزون والمتابعة المالية الأساسية بدون الاشتراك في أنظمة متعددة.",
+      "alternatives": [
+        "شراء الأدوات منفصلة",
+        "استخدام ملفات متفرقة"
+      ],
+      "differentiation": [
+        "ReStock Desk + Business Control Pack",
+        "سعر حزمة أقل من شراء المنتجين منفصلين",
+        "بدون اشتراك شهري",
+        "Self-Service"
+      ]
+    },
+    "offer": {
+      "outcome": "متابعة المخزون والنواقص والمبيعات والمصروفات والتدفق النقدي من نظامين متكاملين في حزمة واحدة.",
+      "mechanism": "ReStock Desk لإدارة المخزون وإعادة الطلب + Business Control Pack للمتابعة المالية التشغيلية.",
+      "contents": [
+        "ReStock Desk v1.2.2",
+        "Business Control Pack v1.0.0",
+        "Quick Start",
+        "FAQ & Troubleshooting"
+      ],
+      "limitations": [
+        "لا يشمل تركيبًا أو تخصيصًا فرديًا",
+        "Business Control Pack ليس نظام محاسبة قانونية أو ضريبية"
+      ]
+    },
+    "commerce": {
+      "price": 549,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": [
+        "restock-desk",
+        "business-control-pack"
+      ],
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "bundle_of_published_products",
+      "previews": [
+        "assets/restock/dashboard.png"
+      ],
+      "license": {
+        "type": "Commercial Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "Self-Service. لا يشمل تركيبًا أو تخصيصًا أو إدخال بيانات."
+    },
+    "delivery": {
+      "method": "post_verification_self_service_bundle",
+      "channel": "Google Drive + WhatsApp",
+      "includes_updates": false,
+      "update_policy": "ReStock Desk يتبع سياسة تحديثاته الحالية، وBusiness Control Pack يتبع سياسة الإصدار المشترى."
+    },
+    "analytics": {
+      "product_slug": "business-bundle",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    }
   }
 ]
