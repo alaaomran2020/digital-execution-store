@@ -38,25 +38,25 @@ const I18N = {
 };
 
 const TEMPLATE_NAMES = {
-  classic:"قالب كلاسيكي",executive:"قالب تنفيذي",minimal:"قالب بسيط",compact:"قالب مضغوط"
+  classic:"Classic ATS",executive:"Executive ATS",minimal:"Minimal ATS",compact:"Compact ATS"
 };
 
 const PDF_FORMATS = {
   a4:{
-    label:"مقاس أ٤ القياسي",
-    meta:"أ٤",
+    label:"A4 Standard",
+    meta:"A4",
     pageSize:"A4",
     hint:"مناسب لمعظم التقديمات في مصر والمنطقة."
   },
   "a4-compact":{
-    label:"مقاس أ٤ المضغوط",
-    meta:"أ٤ مضغوط",
+    label:"A4 Compact",
+    meta:"A4 Compact",
     pageSize:"A4",
     hint:"مناسب للـCV الأطول مع هوامش ومسافات أكثر كفاءة."
   },
   letter:{
-    label:"المقاس الأمريكي",
-    meta:"المقاس الأمريكي",
+    label:"US Letter",
+    meta:"US Letter",
     pageSize:"Letter",
     hint:"مناسب للتقديمات التي تطلب المقاس الأمريكي."
   }
@@ -177,7 +177,7 @@ function load(){
   try{
     const data=JSON.parse(raw);
     state.track=data.track||"fresh";
-    state.language="ar";
+    state.language=data.language||"ar";
     state.template=TEMPLATE_NAMES[data.template]?data.template:"classic";
     state.pdfFormat=normalizePdfFormat(data.pdfFormat);
     state.sectionOrder=normalizeOrder(data.sectionOrder);
@@ -194,11 +194,11 @@ function setTrack(track){
   $("experienceHeading").textContent=state.track==="fresh"?"التدريب / الخبرة":"الخبرة المهنية";
   updateAll();persist();
 }
-function setLanguage(){
-  state.language="ar";
-  document.documentElement.lang="ar";
-  document.documentElement.dir="rtl";
-  updateAll();
+function setLanguage(language){
+  state.language=language==="en"?"en":"ar";
+  $("languageSelect").value=state.language;
+  const cv=$("cvPreview");cv.lang=state.language;cv.dir=t().dir;
+  updateAll();renderSectionOrder();persist();
 }
 function applyPreviewClasses(){
   const cv=$("cvPreview");
@@ -508,7 +508,7 @@ function initTheme(){
 function exportData(){
   const blob=new Blob([JSON.stringify(getData(),null,2)],{type:"application/json"});
   const a=document.createElement("a");a.href=URL.createObjectURL(blob);
-  a.download=(safe($("fullName").value)||"السيرة-الذاتية").replace(/\s+/g,"-")+".json";a.click();URL.revokeObjectURL(a.href);
+  a.download=(safe($("fullName").value)||"career-kit-cv").replace(/\s+/g,"-")+".json";a.click();URL.revokeObjectURL(a.href);
 }
 function applyPrintPageStyle(){
   let style=document.getElementById("dynamicPrintPage");
@@ -567,6 +567,8 @@ document.addEventListener("DOMContentLoaded",()=>{
   document.querySelectorAll("[data-track]").forEach(btn=>btn.addEventListener("click",()=>setTrack(btn.dataset.track)));
   document.querySelectorAll("[data-template-quick]").forEach(btn=>btn.addEventListener("click",()=>setTemplate(btn.dataset.templateQuick)));
   document.querySelectorAll("[data-pdf-format]").forEach(btn=>btn.addEventListener("click",()=>setPdfFormat(btn.dataset.pdfFormat)));
+
+  $("languageSelect").addEventListener("change",e=>setLanguage(e.target.value));
   $("templateSelect").addEventListener("change",e=>setTemplate(e.target.value));
   $("pdfFormatSelect").addEventListener("change",e=>setPdfFormat(e.target.value));
   $("resetOrderBtn").addEventListener("click",()=>{state.sectionOrder=[...DEFAULT_SECTION_ORDER];renderSectionOrder();applySectionOrder();persist();});
