@@ -95,7 +95,8 @@
     "lifecycle": {
       "stage": "PUBLISHED",
       "published_version": "1.2.2"
-    }
+    },
+    "segment": "business"
   },
   {
     "schema_version": 3,
@@ -178,13 +179,13 @@
         "resell_allowed": false,
         "transferable": false
       },
-      "support_policy": null
+      "support_policy": "Self-Service. يشمل Guidebook وإرشادات الاستخدام، ولا يشمل كتابة CV أو LinkedIn نيابة عن العميل أو مراجعة فردية."
     },
     "delivery": {
       "method": "manual_after_payment_verification",
       "channel": "WhatsApp",
       "includes_updates": false,
-      "update_policy": null
+      "update_policy": "الإصدار v1.0.0 يُسلَّم كشراء مرة واحدة. أي تحديثات أو إصدارات لاحقة تُعلن شروطها بشكل مستقل."
     },
     "analytics": {
       "product_slug": "career-kit",
@@ -193,6 +194,7 @@
     "lifecycle": {
       "stage": "PUBLISHED",
       "published_version": "1.0.0"
-    }
+    },
+    "segment": "career"
   }
 ]
