@@ -84,7 +84,7 @@
     });
 
     const message=[
-      "مرحبًا Digital Execution، أريد تسجيل اهتمامي بمنتج قيد الاختبار.",
+      "مرحبًا Digital Execution، أنا مهتم بالمنتج ده.",
       "",
       "المنتج: "+candidate,
       "الاسم: "+leadName,
@@ -92,16 +92,11 @@
       "نوع النشاط: "+businessType,
       "الطريقة الحالية: "+(currentMethod||"غير مذكور"),
       "أكبر مشكلة: "+(biggestProblem||"غير مذكور"),
-      "",
-      "مصدر الوصول: "+campaignSource,
-      "الحملة: "+campaignName+(campaignMedium?" / "+campaignMedium:""),
-      "",
-      "أفهم أن المنتج ما زال في مرحلة اختبار الطلب وأن التسجيل لا يعتبر طلب شراء."
     ].join("\n");
 
     if(status){
       status.hidden=false;
-      status.textContent="تم تجهيز رسالة تسجيل الاهتمام. هتفتح واتساب لإرسالها إلى Digital Execution.";
+      status.textContent="هتفتح واتساب دلوقتي لإرسال رسالتك."
     }
     window.location.href="https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(message);
   });
