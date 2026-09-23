@@ -66,7 +66,7 @@ for(const p of products.filter(x=>x.status==="published")){
 const files=[];
 function walk(dir){
   for(const ent of fs.readdirSync(dir,{withFileTypes:true})){
-    if([".git","node_modules"].includes(ent.name)) continue;
+    if([".git","node_modules",".chrome-final-qa",".playwright-cli"].includes(ent.name)) continue;
     const rel=path.relative(root,path.join(dir,ent.name)).replaceAll("\\","/");
     if(ent.isDirectory()) walk(path.join(dir,ent.name));
     else files.push(rel);
