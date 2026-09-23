@@ -40,6 +40,8 @@ for(const p of products){
     }
     if(!html.includes('data-track="whatsapp_payment_click"')) fail(p.slug+": checkout WhatsApp tracking missing");
     if(!html.includes('src="../../script.js"')) fail(p.slug+": unified script.js missing");
+    if(!html.includes('id="menuToggle"')||!html.includes('id="mobileNav"')) fail(p.slug+": mobile navigation controls missing");
+    if(!html.includes('data-cta-location="header"')) fail(p.slug+": tracked header buy CTA missing");
   }else if(p.lifecycle?.published_version!==null){
     fail(p.slug+": unpublished product must have published_version=null");
   }
