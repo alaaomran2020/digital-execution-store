@@ -9,8 +9,26 @@ const PRODUCT_CONTEXT=pageType==="product"?{
   currency:body.dataset.productCurrency||"EGP"
 }:null;
 
+const FIRST_LANDING_KEY="de:first_landing_path";
+const CURRENT_URL=new URL(window.location.href);
+const LANDING_PATH=sessionStorage.getItem(FIRST_LANDING_KEY)||CURRENT_URL.pathname;
+if(!sessionStorage.getItem(FIRST_LANDING_KEY)) sessionStorage.setItem(FIRST_LANDING_KEY,LANDING_PATH);
+const ATTRIBUTION_CONTEXT={
+  path:CURRENT_URL.pathname,
+  landing_path:LANDING_PATH,
+  referrer:document.referrer||"",
+  utm_source:CURRENT_URL.searchParams.get("utm_source")||"",
+  utm_medium:CURRENT_URL.searchParams.get("utm_medium")||"",
+  utm_campaign:CURRENT_URL.searchParams.get("utm_campaign")||""
+};
+
 function trackEvent(eventName,metadata={}){
-  const detail={event:eventName,...metadata};
+  const detail={
+    timestamp:new Date().toISOString(),
+    event:eventName,
+    ...ATTRIBUTION_CONTEXT,
+    ...metadata
+  };
   window.dataLayer=window.dataLayer||[];
   window.dataLayer.push(detail);
   window.dispatchEvent(new CustomEvent("digital-execution:event",{detail}));
