@@ -1,3 +1,4 @@
+const STORAGE_KEY="de:seo-dashboard:v1";
 const state={pages:[],queries:[],events:[]};
 const $=s=>document.querySelector(s);
 const fmt=n=>Number.isFinite(n)?new Intl.NumberFormat("ar-EG",{maximumFractionDigits:2}).format(n):"—";
@@ -26,7 +27,9 @@ function normalizeSearchRows(rows,type){
  return {key:type==="page"?normalizePath(r[pKey]):r[pKey]||"",clicks,impressions,ctr:ctr||((impressions&&clicks/impressions)||0),position:num(r[posKey])};}).filter(r=>r.key);
 }
 function normalizeEvents(rows){return rows.map(r=>({timestamp:r.timestamp||r.time||r.datetime||"",event:r.event||r.event_name||"",path:normalizePath(r.path||r.page_path||r.landing_path||r.url||""),landing_path:normalizePath(r.landing_path||r.path||r.page_path||""),source:r.source||"",product_slug:r.product_slug||"",cta_location:r.cta_location||""})).filter(r=>r.event)}
-async function readFile(input,kind){const file=input.files?.[0];if(!file)return;const rows=parseCSV(await file.text());if(kind==="pages")state.pages=normalizeSearchRows(rows,"page");if(kind==="queries")state.queries=normalizeSearchRows(rows,"query");if(kind==="events")state.events=normalizeEvents(rows);render()}
+function saveState(){localStorage.setItem(STORAGE_KEY,JSON.stringify(state))}
+function loadState(){try{const saved=JSON.parse(localStorage.getItem(STORAGE_KEY)||"null");if(saved){state.pages=Array.isArray(saved.pages)?saved.pages:[];state.queries=Array.isArray(saved.queries)?saved.queries:[];state.events=Array.isArray(saved.events)?saved.events:[]}}catch{}}
+async function readFile(input,kind){const file=input.files?.[0];if(!file)return;const rows=parseCSV(await file.text());if(kind==="pages")state.pages=normalizeSearchRows(rows,"page");if(kind==="queries")state.queries=normalizeSearchRows(rows,"query");if(kind==="events")state.events=normalizeEvents(rows);saveState();render()}
 function countEvent(name,filter=()=>true){return state.events.filter(e=>e.event===name&&filter(e)).length}
 function weightedPosition(rows){const imp=rows.reduce((a,r)=>a+r.impressions,0);return imp?rows.reduce((a,r)=>a+r.position*r.impressions,0)/imp:0}
 function render(){
@@ -56,4 +59,4 @@ function renderFunnel(){
 }
 function csvEscape(v){const s=String(v??"");return /[",\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s}
 function downloadSummary(){const lines=[["metric","value"],["organic_clicks",state.pages.reduce((a,r)=>a+r.clicks,0)],["impressions",state.pages.reduce((a,r)=>a+r.impressions,0)],["guide_product_click",countEvent("guide_product_click")],["buy_intent_click",countEvent("buy_intent_click")],["whatsapp_payment_click",countEvent("whatsapp_payment_click")]];const blob=new Blob([lines.map(r=>r.map(csvEscape).join(",")).join("\n")],{type:"text/csv;charset=utf-8"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="digital-execution-seo-summary.csv";a.click();URL.revokeObjectURL(a.href)}
-$("#pagesFile").addEventListener("change",e=>readFile(e.target,"pages"));$("#queriesFile").addEventListener("change",e=>readFile(e.target,"queries"));$("#eventsFile").addEventListener("change",e=>readFile(e.target,"events"));$("#resetBtn").addEventListener("click",()=>{state.pages=[];state.queries=[];state.events=[];["pagesFile","queriesFile","eventsFile"].forEach(id=>$("#"+id).value="");render()});$("#downloadSummaryBtn").addEventListener("click",downloadSummary);render();
+$("#pagesFile").addEventListener("change",e=>readFile(e.target,"pages"));$("#queriesFile").addEventListener("change",e=>readFile(e.target,"queries"));$("#eventsFile").addEventListener("change",e=>readFile(e.target,"events"));$("#resetBtn").addEventListener("click",()=>{state.pages=[];state.queries=[];state.events=[];localStorage.removeItem(STORAGE_KEY);["pagesFile","queriesFile","eventsFile"].forEach(id=>$("#"+id).value="");render()});$("#downloadSummaryBtn").addEventListener("click",downloadSummary);$("#downloadEventsBtn").addEventListener("click",downloadEvents);$("#addManualEventBtn").addEventListener("click",addManualEvent);loadState();render();
