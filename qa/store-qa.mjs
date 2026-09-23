@@ -39,8 +39,10 @@ for(const p of products){
       if(!body.includes(`${attr}="${value}"`)) fail(p.slug+": product body missing "+attr+"="+value);
     }
     if(!html.includes('data-track="whatsapp_payment_click"')) fail(p.slug+": checkout WhatsApp tracking missing");
-    if(!html.includes('src="../../script.js"')) fail(p.slug+": unified script.js missing");
-    if(!html.includes('id="menuToggle"')||!html.includes('id="mobileNav"')) fail(p.slug+": mobile navigation controls missing");
+    if(!/src="\.\.\/\.\.\/script\.js(?:\?[^"]*)?"/.test(html)) fail(p.slug+": unified script.js missing");
+    const hasLegacyMobileNav=html.includes('id="menuToggle"')&&html.includes('id="mobileNav"');
+    const hasDetailsMobileNav=html.includes('class="mobile-menu"')&&html.includes('class="menu-toggle"')&&html.includes('class="mobile-nav"');
+    if(!hasLegacyMobileNav&&!hasDetailsMobileNav) fail(p.slug+": mobile navigation controls missing");
     if(!html.includes('data-cta-location="header"')) fail(p.slug+": tracked header buy CTA missing");
     if(p.slug==="career-kit"){
       if(!html.includes('career-kit-og.png')) fail("career-kit: PNG social preview missing from metadata");
