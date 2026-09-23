@@ -22,10 +22,28 @@ const ATTRIBUTION_CONTEXT={
   utm_campaign:CURRENT_URL.searchParams.get("utm_campaign")||""
 };
 
+const FUNNEL_STAGE_BY_EVENT={
+  product_view:"product_view",
+  lead_magnet_click:"lead_magnet",
+  health_check_click:"lead_magnet",
+  demo_click:"consideration",
+  buy_intent_click:"purchase_intent",
+  buy_cta_click:"purchase_intent",
+  product_whatsapp_click:"conversation",
+  copy_payment_number:"payment_intent",
+  qualified_lead:"qualified_lead",
+  order:"sale",
+  upsell_view:"upsell",
+  upsell_click:"upsell_intent",
+  bundle_view:"bundle",
+  bundle_click:"bundle_intent"
+};
+
 function trackEvent(eventName,metadata={}){
   const detail={
     timestamp:new Date().toISOString(),
     event:eventName,
+    funnel_stage:metadata.funnel_stage||FUNNEL_STAGE_BY_EVENT[eventName]||"",
     ...ATTRIBUTION_CONTEXT,
     ...metadata
   };
@@ -84,8 +102,9 @@ document.addEventListener("click",event=>{
   };
   const eventName=tracked.dataset.track;
   trackEvent(eventName,metadata);
-  // Passive Revenue OS v1 canonical alias. Keep legacy event names for continuity.
+  // Passive Revenue OS v1 canonical aliases. Keep legacy event names for continuity.
   if(eventName==="buy_intent_click") trackEvent("buy_cta_click",{...metadata,legacy_event:eventName});
+  if(eventName==="health_check_click") trackEvent("lead_magnet_click",{...metadata,legacy_event:eventName});
 });
 
 setupPurchase();
