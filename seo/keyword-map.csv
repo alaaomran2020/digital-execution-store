@@ -6,18 +6,18 @@ restock,template,/guides/inventory-tracking-template/,نموذج متابعة ا
 restock,mistakes,/guides/inventory-management-mistakes/,أخطاء إدارة المخزون,مشاكل المخزون|نفاد المخزون|العجز في المخزون|فروقات الجرد|أخطاء الجرد,informational,TOFU,live
 restock,tool,/tools/inventory-health-check/,كشف صحة المخزون,تقييم المخزون|تحليل المخزون|مؤشر صحة المخزون|اختبار المخزون,tool/lead,MOFU,live
 restock,product,/products/restock-desk/,برنامج إدارة المخزون للمحلات,برنامج مخزون عربي|برنامج مخزون بدون اشتراك|برنامج نواقص المخزون|برنامج إعادة الطلب|برنامج مخزون بدون سيرفر,commercial/transactional,BOFU,live
-restock,future-stockout,/guides/stockout-prevention/,منع نفاد المخزون,تجنب نفاد الأصناف|الأصناف الناقصة|Stockout|نقص المخزون,informational,TOFU,planned
-restock,future-safety-stock,/guides/safety-stock/,مخزون الأمان,Safety Stock|كمية الأمان|حساب مخزون الأمان|مخزون احتياطي,informational,TOFU,planned
-restock,future-slow-moving,/guides/slow-moving-inventory/,المخزون الراكد,الأصناف الراكدة|البضاعة الراكدة|Slow Moving Inventory|تحريك المخزون,informational,TOFU,planned
-restock,future-supplier-order,/guides/supplier-order-planning/,تجميع طلبات الموردين,طلبات الموردين|تخطيط المشتريات|احتياجات الموردين|إعادة الطلب حسب المورد,informational,MOFU,planned
+restock,future-stockout,/guides/stockout-prevention/,منع نفاد المخزون,تجنب نفاد الأصناف|الأصناف الناقصة|Stockout|نقص المخزون,informational,TOFU,live
+restock,future-safety-stock,/guides/safety-stock/,مخزون الأمان,Safety Stock|كمية الأمان|حساب مخزون الأمان|مخزون احتياطي,informational,TOFU,live
+restock,future-slow-moving,/guides/slow-moving-inventory/,المخزون الراكد,الأصناف الراكدة|البضاعة الراكدة|Slow Moving Inventory|تحريك المخزون,informational,TOFU,live
+restock,future-supplier-order,/guides/supplier-order-planning/,تجميع طلبات الموردين,طلبات الموردين|تخطيط المشتريات|احتياجات الموردين|إعادة الطلب حسب المورد,informational,MOFU,live
 career,pillar,/guides/ats-cv-arabic/,CV بنظام ATS,سيرة ذاتية ATS|CV متوافق مع ATS|سيرة ذاتية متوافقة مع ATS|كتابة CV احترافي,informational/commercial,MOFU,live
 career,fresh,/guides/cv-fresh-graduates/,CV للخريجين الجدد,سيرة ذاتية حديث تخرج|CV بدون خبرة|CV Fresh Graduate|نموذج CV خريج,informational,TOFU,live
 career,experienced,/guides/cv-experienced/,CV لأصحاب الخبرة,سيرة ذاتية لأصحاب الخبرة|Professional CV|CV خبرة|إنجازات السيرة الذاتية,informational,TOFU,live
 career,linkedin,/guides/linkedin-profile-job-search/,تحسين LinkedIn للبحث عن وظيفة,LinkedIn Profile|تحسين لينكدإن|LinkedIn للوظائف|LinkedIn Headline|LinkedIn About,informational,TOFU/MOFU,live
 career,cover-letter,/guides/cover-letter-guide/,Cover Letter,خطاب تقديم للوظيفة|رسالة تقديم وظيفة|Cover Letter عربي|Cover Letter English|نموذج خطاب تقديم,informational,TOFU/MOFU,live
 career,product,/products/career-kit/,Career Kit,قوالب CV ATS|CV عربي وإنجليزي|Job Tracker|LinkedIn Kit|Cover Letter Kit|Interview Prep,commercial/transactional,BOFU,live
-career,future-summary,/guides/cv-summary-examples/,Summary للـCV,Professional Summary|ملخص السيرة الذاتية|Objective CV|نبذة CV,informational,TOFU,planned
-career,future-skills,/guides/cv-skills/,المهارات في السيرة الذاتية,Skills CV|مهارات السيرة الذاتية|مهارات الخريجين|مهارات أصحاب الخبرة,informational,TOFU,planned
-career,future-achievements,/guides/cv-achievements/,الإنجازات في السيرة الذاتية,Achievements CV|تحويل المهام لإنجازات|أرقام في CV|صياغة الإنجازات,informational,TOFU,planned
-career,future-ats-keywords,/guides/ats-keywords/,كلمات ATS,كلمات مفتاحية للسيرة الذاتية|Job Description Keywords|ATS Keywords|تخصيص CV للوظيفة,informational,TOFU,planned
-career,future-interview,/guides/star-interview/,STAR Interview,طريقة STAR|أسئلة المقابلة|تحضير المقابلة|Interview Prep,informational,TOFU/MOFU,planned
+career,future-summary,/guides/cv-summary-examples/,Summary للـCV,Professional Summary|ملخص السيرة الذاتية|Objective CV|نبذة CV,informational,TOFU,live
+career,future-skills,/guides/cv-skills/,المهارات في السيرة الذاتية,Skills CV|مهارات السيرة الذاتية|مهارات الخريجين|مهارات أصحاب الخبرة,informational,TOFU,live
+career,future-achievements,/guides/cv-achievements/,الإنجازات في السيرة الذاتية,Achievements CV|تحويل المهام لإنجازات|أرقام في CV|صياغة الإنجازات,informational,TOFU,live
+career,future-ats-keywords,/guides/ats-keywords/,كلمات ATS,كلمات مفتاحية للسيرة الذاتية|Job Description Keywords|ATS Keywords|تخصيص CV للوظيفة,informational,TOFU,live
+career,future-interview,/guides/star-interview/,STAR Interview,طريقة STAR|أسئلة المقابلة|تحضير المقابلة|Interview Prep,informational,TOFU/MOFU,live
