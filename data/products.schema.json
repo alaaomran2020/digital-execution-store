@@ -28,6 +28,7 @@
       "slug": { "type": "string", "minLength": 1 },
       "name": { "type": "string", "minLength": 1 },
       "category": { "type": "string", "minLength": 1 },
+      "segment": { "type": "string", "enum": ["business", "career", "assets", "other"] },
       "short_description": { "type": "string" },
       "price": { "type": "number", "minimum": 0 },
       "currency": { "type": "string", "minLength": 3, "maxLength": 3 },
