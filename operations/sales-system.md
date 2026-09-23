@@ -91,3 +91,7 @@ Sales System يعتبر شغال فعليًا عندما يتم تسجيل كل 
 - ReStock Desk: 399 EGP.
 - Business Control Pack: 249 EGP.
 - Business Bundle: 549 EGP بدل 648 EGP منفصلين.
+
+
+## Passive Revenue v1 — Definition of Done
+يعتبر النظام مغلقًا معماريًا عندما تكون المراحل الثمانية مطبقة ومترابطة ومقاسة ومحميّة بالـQA. في v1 يظل التحقق من Vodafone Cash يدويًا كقيد مقصود، ثم يبدأ التسليم الذاتي بعد التحقق. بيانات Conversion وUpsell وRepeat Purchase الحقيقية تُصنَّف Performance Validation وليست Release Blocker.
