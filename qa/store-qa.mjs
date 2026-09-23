@@ -42,6 +42,12 @@ for(const p of products){
     if(!html.includes('src="../../script.js"')) fail(p.slug+": unified script.js missing");
     if(!html.includes('id="menuToggle"')||!html.includes('id="mobileNav"')) fail(p.slug+": mobile navigation controls missing");
     if(!html.includes('data-cta-location="header"')) fail(p.slug+": tracked header buy CTA missing");
+    if(p.slug==="career-kit"){
+      if(!html.includes('career-kit-og.png')) fail("career-kit: PNG social preview missing from metadata");
+      if(!html.includes('og:image:width" content="1200"')||!html.includes('og:image:height" content="630"')) fail("career-kit: social preview dimensions missing");
+      if(!exists("assets/career-kit/career-kit-og.png")) fail("career-kit: PNG social preview file missing");
+      if(!exists("assets/career-kit/career-kit-og.webp")) fail("career-kit: WebP social preview file missing");
+    }
   }else if(p.lifecycle?.published_version!==null){
     fail(p.slug+": unpublished product must have published_version=null");
   }
