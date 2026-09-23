@@ -76,7 +76,7 @@
     const currentMethod=String(data.get("currentMethod")||"").trim();
     const biggestProblem=String(data.get("biggestProblem")||"").trim();
 
-    track("candidate_lead",{
+    track("qualified_lead",{
       candidate_name:candidate,
       business_type:businessType,
       has_current_method:Boolean(currentMethod),
