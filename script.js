@@ -42,9 +42,6 @@ const FUNNEL_STAGE_BY_EVENT={
 const EVENT_STORAGE_KEY="de:production-events:v1";
 const EVENT_STORAGE_LIMIT=500;
 const EVENT_SESSION_KEY="de:event-session-id";
-const REMOTE_QUEUE_KEY="de:analytics-remote-queue:v1";
-const REMOTE_QUEUE_LIMIT=200;
-const ANALYTICS_ENDPOINT=document.querySelector('meta[name="de-analytics-endpoint"]')?.content?.trim()||"";
 
 function getEventSessionId(){
   let id=sessionStorage.getItem(EVENT_SESSION_KEY);
@@ -70,59 +67,6 @@ function persistEvent(detail){
   }catch{}
 }
 
-function readRemoteQueue(){
-  try{
-    const parsed=JSON.parse(localStorage.getItem(REMOTE_QUEUE_KEY)||"[]");
-    return Array.isArray(parsed)?parsed:[];
-  }catch{return[]}
-}
-
-function writeRemoteQueue(events){
-  try{localStorage.setItem(REMOTE_QUEUE_KEY,JSON.stringify(events.slice(-REMOTE_QUEUE_LIMIT)))}catch{}
-}
-
-function enqueueRemoteEvent(detail){
-  const queue=readRemoteQueue();
-  queue.push(detail);
-  writeRemoteQueue(queue);
-  flushRemoteEvents();
-}
-
-let remoteFlushInFlight=false;
-async function flushRemoteEvents(){
-  if(!ANALYTICS_ENDPOINT||remoteFlushInFlight||!navigator.onLine) return;
-  const queue=readRemoteQueue();
-  if(!queue.length) return;
-  remoteFlushInFlight=true;
-  const batch=queue.slice(0,25);
-  try{
-    await fetch(ANALYTICS_ENDPOINT,{
-      method:"POST",
-      mode:"no-cors",
-      keepalive:true,
-      headers:{"Content-Type":"text/plain;charset=UTF-8"},
-      body:JSON.stringify({events:batch})
-    });
-    writeRemoteQueue(queue.slice(batch.length));
-  }catch{}
-  finally{
-    remoteFlushInFlight=false;
-    if(readRemoteQueue().length) setTimeout(flushRemoteEvents,1500);
-  }
-}
-
-function beaconRemoteEvents(){
-  if(!ANALYTICS_ENDPOINT||!navigator.sendBeacon) return;
-  const batch=readRemoteQueue().slice(0,25);
-  if(!batch.length) return;
-  try{
-    navigator.sendBeacon(
-      ANALYTICS_ENDPOINT,
-      new Blob([JSON.stringify({events:batch})],{type:"text/plain;charset=UTF-8"})
-    );
-  }catch{}
-}
-
 function csvEscape(value){
   const s=String(value??"");
   return /[",\n\r]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s;
@@ -145,8 +89,6 @@ window.DigitalExecutionAnalytics={
   getEvents:()=>readStoredEvents().map(e=>({...e})),
   exportEvents:exportStoredEvents,
   clearEvents:()=>localStorage.removeItem(EVENT_STORAGE_KEY),
-  pendingRemoteEvents:()=>readRemoteQueue().length,
-  flushRemoteEvents
 };
 
 function trackEvent(eventName,metadata={}){
@@ -161,7 +103,6 @@ function trackEvent(eventName,metadata={}){
     ...metadata
   };
   persistEvent(detail);
-  enqueueRemoteEvent(detail);
   window.dataLayer=window.dataLayer||[];
   window.dataLayer.push(detail);
   window.dispatchEvent(new CustomEvent("digital-execution:event",{detail}));
@@ -223,9 +164,6 @@ document.addEventListener("click",event=>{
 });
 
 setupPurchase();
-window.addEventListener("online",flushRemoteEvents);
-window.addEventListener("pagehide",beaconRemoteEvents);
-setTimeout(flushRemoteEvents,400);
 
 document.querySelectorAll(".mobile-menu").forEach(menu=>{
   menu.addEventListener("click",event=>{
