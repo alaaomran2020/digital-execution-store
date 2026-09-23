@@ -187,12 +187,12 @@ textarea{resize:vertical}
 }
 @media print{
   :root,:root[data-theme="dark"]{color-scheme:light}
-  body{background:#fff}
+  html,body{margin:0!important;padding:0!important;min-height:0!important;background:#fff}
   .app-header,.editor-panel,.preview-toolbar{display:none!important}
-  .workspace{display:block;padding:0;margin:0}
+  .workspace{display:block;width:100%;padding:0;margin:0}
   .preview-shell,.paper-stage{border:0;box-shadow:none;padding:0;background:#fff;overflow:visible}
-  .cv-page{box-shadow:none;border-radius:0;margin:0;max-width:none;aspect-ratio:auto}
-  body[data-print-format="a4"] .cv-page{width:210mm;min-height:297mm;padding:14mm 16mm}
-  body[data-print-format="a4-compact"] .cv-page{width:210mm;min-height:297mm;padding:10mm 12mm;font-size:10pt}
-  body[data-print-format="letter"] .cv-page{width:8.5in;min-height:11in;padding:.55in .62in}
+  .cv-page{width:100%!important;min-height:0!important;box-shadow:none;border-radius:0;margin:0;max-width:none;aspect-ratio:auto}
+  body[data-print-format="a4"] .cv-page{padding:14mm 16mm}
+  body[data-print-format="a4-compact"] .cv-page{padding:10mm 12mm;font-size:10pt}
+  body[data-print-format="letter"] .cv-page{padding:.55in .62in}
 }
