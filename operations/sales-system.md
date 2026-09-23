@@ -78,3 +78,16 @@ Traffic → Product Page → WhatsApp Inquiry → Qualification → Payment → 
 
 ## شرط الإغلاق
 Sales System يعتبر شغال فعليًا عندما يتم تسجيل كل Lead وكل بيع بنفس المراحل لمدة 30 يومًا بدون استثناء.
+
+
+## Repeat Purchase Loop
+بعد DELIVERED يتم إرسال صفحة /after-purchase/business/ للعميل في المتابعة المناسبة.
+- repeat_offer_view = عرض مسار الشراء التالي.
+- repeat_purchase_click = اهتمام/نقرة، وليست عملية شراء.
+- repeat_purchase = يسجل فقط بعد تحقق طلب جديد مدفوع لنفس customer_key.
+- original_order_id يربط الطلب الجديد بأول طلب عند الإمكان.
+
+## Business Bundle
+- ReStock Desk: 399 EGP.
+- Business Control Pack: 249 EGP.
+- Business Bundle: 549 EGP بدل 648 EGP منفصلين.
