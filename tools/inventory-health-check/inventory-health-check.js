@@ -4,6 +4,18 @@ const form=document.getElementById("healthForm");
 const result=document.getElementById("result");
 const formError=document.getElementById("formError");
 if(!form||!result)return;
+let leadMagnetStarted=false;
+function pushEvent(event,metadata={}){
+window.dataLayer=window.dataLayer||[];
+window.dataLayer.push({event,product_slug:"restock-desk",lead_magnet:"inventory-health-check",source:"health_check",...metadata});
+}
+function markLeadMagnetStart(){
+if(leadMagnetStarted)return;
+leadMagnetStarted=true;
+pushEvent("lead_magnet_start");
+}
+form.addEventListener("input",markLeadMagnetStart,{once:true});
+form.addEventListener("focusin",markLeadMagnetStart,{once:true});
 
 const bands=[
 {min:80,key:"good",label:"80–100 · وضع جيد",title:"مؤشرات المخزون عندك جيدة.",description:"النواقص محدودة وتغطية إعادة الطلب جيدة نسبيًا. حافظ على نفس الانضباط وراقب أي زيادة في الأصناف أو ضغط التشغيل.",next:"الخطوة المناسبة: ثبّت نفس الروتين، ولو المتابعة اليدوية بتاخد وقت فـ ReStock Desk يساعدك تختصر التنفيذ."},
@@ -52,8 +64,8 @@ document.getElementById("resultWhatsApp").href=`https://wa.me/${WA_NUMBER}?text=
 result.hidden=false;
 result.focus({preventScroll:true});
 result.scrollIntoView({behavior:"smooth",block:"start"});
-window.dataLayer=window.dataLayer||[];
-window.dataLayer.push({event:"health_check_complete",score:data.score,result_band:data.band.key,source:"health_check"});
+pushEvent("health_check_complete",{score:data.score,result_band:data.band.key});
+pushEvent("lead_magnet_complete",{score:data.score,result_band:data.band.key});
 }
 form.addEventListener("submit",event=>{event.preventDefault();const values=read(),error=validate(values);if(error){formError.textContent=error;formError.hidden=false;return}formError.hidden=true;render(calculate(values))});
 document.getElementById("restartCheck")?.addEventListener("click",()=>{form.reset();result.hidden=true;formError.hidden=true;document.getElementById("check")?.scrollIntoView({behavior:"smooth",block:"start"})});
