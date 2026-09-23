@@ -784,3 +784,23 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
 @media(prefers-color-scheme:light), (prefers-color-scheme:dark){
   :root{color-scheme:dark}
 }
+
+
+/* Mobile navigation reliability fix */
+@media(max-width:850px){
+  .topbar{overflow:visible}
+  .nav{position:relative;z-index:70}
+  .menu-toggle{position:relative;z-index:72;flex:0 0 44px}
+  .mobile-nav{
+    z-index:71;
+    top:calc(100% + 10px);
+    left:0;
+    right:0;
+    width:100%;
+    max-height:calc(100vh - 96px);
+    overflow:auto;
+    isolation:isolate;
+  }
+  .mobile-nav.is-open{display:grid}
+  .mobile-nav[hidden]{display:none!important}
+}
