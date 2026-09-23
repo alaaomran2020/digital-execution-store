@@ -23,12 +23,14 @@ Search → Guide/Tool → Product → WhatsApp/Purchase.
 ## Career Cluster
 **Core semantic field:** CV ATS، سيرة ذاتية ATS، CV للخريجين، CV لأصحاب الخبرة، الكلمات المفتاحية، الإنجازات، LinkedIn Profile، Cover Letter، Job Tracker، Interview Prep.
 
-نتائج البحث الحالية تكرر بوضوح: ATS، الكلمات المفتاحية من Job Description، قوالب بسيطة قابلة للقراءة، فصل محتوى Fresh Graduate عن Experienced، LinkedIn، وCover Letter. لذلك الـCluster الحالي مناسب، مع فرصة توسع لاحقة في Summary، Skills، Achievements، ATS Keywords، وSTAR Interview.
+نتائج البحث الحالية تكرر بوضوح: ATS، الكلمات المفتاحية من Job Description، قوالب بسيطة قابلة للقراءة، فصل محتوى Fresh Graduate عن Experienced، LinkedIn، وCover Letter. لذلك تم توسيع الـCluster فعليًا ليشمل Summary، Skills، Achievements، ATS Keywords، وSTAR Interview مع الحفاظ على Intent مستقل لكل صفحة.
 
-## الصفحات القادمة المقترحة
+## الصفحات المتخصصة المنفذة
 ReStock: منع نفاد المخزون → مخزون الأمان → المخزون الراكد → تجميع طلبات الموردين.
 
 Career: Summary للـCV → المهارات في السيرة الذاتية → الإنجازات في CV → كلمات ATS → STAR Interview.
+
+الحالة: جميعها Live داخل الـCluster بعد اجتياز Store QA وStructured Data وSitemap وInternal Linking.
 
 ## Cannibalization Guard
 - "إدارة مخزون المحلات" تبقى للـPillar؛ صفحة المنتج تستهدف "برنامج إدارة المخزون للمحلات".
