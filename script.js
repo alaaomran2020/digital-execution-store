@@ -82,7 +82,10 @@ document.addEventListener("click",event=>{
     cta_location:tracked.dataset.ctaLocation||"unknown",
     ...productMetadataFrom(tracked)
   };
-  trackEvent(tracked.dataset.track,metadata);
+  const eventName=tracked.dataset.track;
+  trackEvent(eventName,metadata);
+  // Passive Revenue OS v1 canonical alias. Keep legacy event names for continuity.
+  if(eventName==="buy_intent_click") trackEvent("buy_cta_click",{...metadata,legacy_event:eventName});
 });
 
 setupPurchase();
