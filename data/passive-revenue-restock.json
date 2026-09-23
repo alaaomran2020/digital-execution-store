@@ -40,10 +40,11 @@
     },
     "delivery": {
       "status": "POST_VERIFICATION_SELF_SERVICE",
-      "readiness": 78,
+      "readiness": 85,
       "method": "manual payment verification → canonical delivery asset → START HERE / Quick Start / FAQ",
       "channel": "WhatsApp",
-      "blocker": "Payment verification remains manual while Vodafone Cash is the payment method."
+      "blocker": "Payment verification remains manual while Vodafone Cash is the payment method.",
+      "security": "Canonical delivery asset is private on Google Drive; buyer access is granted only after payment verification."
     },
     "faq": {
       "status": "ACTIVE",
