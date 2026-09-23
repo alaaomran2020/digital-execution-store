@@ -196,5 +196,242 @@
       "published_version": "1.0.0"
     },
     "segment": "career"
+  },
+  {
+    "schema_version": 3,
+    "slug": "order-desk",
+    "name": "Order Desk",
+    "category": "إدارة الطلبات",
+    "segment": "business",
+    "short_description": "نظّم الطلبات من التسجيل حتى التسليم والمرتجع.",
+    "price": 0,
+    "currency": "EGP",
+    "image": "",
+    "version": "0.0.0",
+    "source_type": "Original",
+    "license_type": "TBD",
+    "resell_allowed": false,
+    "editable": false,
+    "brandable": false,
+    "delivery_type": "TBD",
+    "lifetime_updates": false,
+    "demo_url": null,
+    "product_url": "products/#validation",
+    "featured": false,
+    "last_updated": "2026-09-23",
+    "status": "validating",
+    "identity": {
+      "product_type": "business_tool",
+      "edition": null,
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "أصحاب المشروعات الصغيرة والمتاجر"
+      ],
+      "problem": "نظّم الطلبات من التسجيل حتى التسليم والمرتجع.",
+      "alternatives": [],
+      "differentiation": [
+        "قيد التحقق من الطلب قبل البناء"
+      ]
+    },
+    "offer": {
+      "outcome": "متابعة الطلبات والعملاء وحالات التنفيذ بشكل أوضح.",
+      "mechanism": "يتم تحديده بعد إغلاق مرحلة التحقق من الطلب.",
+      "contents": [],
+      "limitations": [
+        "المنتج غير متاح للبيع حاليًا."
+      ]
+    },
+    "commerce": {
+      "price": 0,
+      "currency": "EGP",
+      "billing": "TBD",
+      "bundle": null,
+      "upgrade": null,
+      "payment_method": null
+    },
+    "trust": {
+      "preview_type": "validation_only",
+      "previews": [],
+      "license": {
+        "type": "TBD",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "يتم تحديد سياسة الدعم قبل الانتقال إلى OFFER_READY."
+    },
+    "delivery": {
+      "method": "TBD",
+      "channel": null,
+      "includes_updates": false,
+      "update_policy": "يتم تحديد سياسة التحديث قبل النشر التجاري."
+    },
+    "analytics": {
+      "product_slug": "order-desk",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "VALIDATING",
+      "published_version": null
+    }
+  },
+  {
+    "schema_version": 3,
+    "slug": "cash-desk",
+    "name": "Cash Desk",
+    "category": "الإدارة المالية",
+    "segment": "business",
+    "short_description": "تابع المقبوضات والمدفوعات والخزنة اليومية.",
+    "price": 0,
+    "currency": "EGP",
+    "image": "",
+    "version": "0.0.0",
+    "source_type": "Original",
+    "license_type": "TBD",
+    "resell_allowed": false,
+    "editable": false,
+    "brandable": false,
+    "delivery_type": "TBD",
+    "lifetime_updates": false,
+    "demo_url": null,
+    "product_url": "products/#validation",
+    "featured": false,
+    "last_updated": "2026-09-23",
+    "status": "validating",
+    "identity": {
+      "product_type": "business_tool",
+      "edition": null,
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "أصحاب المشروعات الصغيرة والمتاجر"
+      ],
+      "problem": "تابع المقبوضات والمدفوعات والخزنة اليومية.",
+      "alternatives": [],
+      "differentiation": [
+        "قيد التحقق من الطلب قبل البناء"
+      ]
+    },
+    "offer": {
+      "outcome": "معرفة حركة الأموال والرصيد المتوقع والفعلي بشكل أوضح.",
+      "mechanism": "يتم تحديده بعد إغلاق مرحلة التحقق من الطلب.",
+      "contents": [],
+      "limitations": [
+        "المنتج غير متاح للبيع حاليًا."
+      ]
+    },
+    "commerce": {
+      "price": 0,
+      "currency": "EGP",
+      "billing": "TBD",
+      "bundle": null,
+      "upgrade": null,
+      "payment_method": null
+    },
+    "trust": {
+      "preview_type": "validation_only",
+      "previews": [],
+      "license": {
+        "type": "TBD",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "يتم تحديد سياسة الدعم قبل الانتقال إلى OFFER_READY."
+    },
+    "delivery": {
+      "method": "TBD",
+      "channel": null,
+      "includes_updates": false,
+      "update_policy": "يتم تحديد سياسة التحديث قبل النشر التجاري."
+    },
+    "analytics": {
+      "product_slug": "cash-desk",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "VALIDATING",
+      "published_version": null
+    }
+  },
+  {
+    "schema_version": 3,
+    "slug": "supplier-desk",
+    "name": "Supplier Desk",
+    "category": "إدارة الموردين",
+    "segment": "business",
+    "short_description": "نظّم الموردين والمشتريات والمدفوع والمتبقي.",
+    "price": 0,
+    "currency": "EGP",
+    "image": "",
+    "version": "0.0.0",
+    "source_type": "Original",
+    "license_type": "TBD",
+    "resell_allowed": false,
+    "editable": false,
+    "brandable": false,
+    "delivery_type": "TBD",
+    "lifetime_updates": false,
+    "demo_url": null,
+    "product_url": "products/#validation",
+    "featured": false,
+    "last_updated": "2026-09-23",
+    "status": "validating",
+    "identity": {
+      "product_type": "business_tool",
+      "edition": null,
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "أصحاب المشروعات الصغيرة والمتاجر"
+      ],
+      "problem": "نظّم الموردين والمشتريات والمدفوع والمتبقي.",
+      "alternatives": [],
+      "differentiation": [
+        "قيد التحقق من الطلب قبل البناء"
+      ]
+    },
+    "offer": {
+      "outcome": "متابعة الموردين والمشتريات والاستحقاقات وآخر أسعار الشراء.",
+      "mechanism": "يتم تحديده بعد إغلاق مرحلة التحقق من الطلب.",
+      "contents": [],
+      "limitations": [
+        "المنتج غير متاح للبيع حاليًا."
+      ]
+    },
+    "commerce": {
+      "price": 0,
+      "currency": "EGP",
+      "billing": "TBD",
+      "bundle": null,
+      "upgrade": null,
+      "payment_method": null
+    },
+    "trust": {
+      "preview_type": "validation_only",
+      "previews": [],
+      "license": {
+        "type": "TBD",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "يتم تحديد سياسة الدعم قبل الانتقال إلى OFFER_READY."
+    },
+    "delivery": {
+      "method": "TBD",
+      "channel": null,
+      "includes_updates": false,
+      "update_policy": "يتم تحديد سياسة التحديث قبل النشر التجاري."
+    },
+    "analytics": {
+      "product_slug": "supplier-desk",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "VALIDATING",
+      "published_version": null
+    }
   }
 ]
