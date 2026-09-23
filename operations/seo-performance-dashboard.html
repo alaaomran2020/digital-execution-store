@@ -14,7 +14,7 @@
 <body data-page="internal_dashboard">
 <header class="topbar"><div class="container nav"><a class="brand" href="../"><span class="mark">DE</span><span>Digital Execution</span></a><span class="status">Internal · noindex</span></div></header>
 <main class="seo-dashboard"><div class="container">
-<div class="section-title"><span class="eyebrow">SEO Performance</span><h1>Search → Page → Product → WhatsApp</h1><p class="lead">استورد CSV من Search Console وملف Funnel Events. كل الحسابات تتم داخل المتصفح ولا يتم رفع الملفات لأي جهة.</p></div>
+<div class="section-title"><span class="eyebrow">SEO Performance</span><h1>Search → Page → Product → WhatsApp</h1><p class="lead">وضع التشغيل المؤقت: استورد CSV أو سجل Funnel Events يدويًا. البيانات تُحفظ محليًا في نفس المتصفح فقط، ولا يتم رفعها لأي جهة.</p></div><div class="panel" style="margin-top:14px"><strong>Temporary Manual Baseline Mode</strong><p class="muted">مغلق تشغيليًا مؤقتًا بدون Backend: Search Console بالاستيراد اليدوي، والـFunnel بالتسجيل/الاستيراد اليدوي حتى تفعيل التجميع المركزي لاحقًا.</p></div>
 
 <div class="upload-grid">
 <label class="file"><strong>Search Console — Pages</strong><span class="muted">Page, Clicks, Impressions, CTR, Position</span><input id="pagesFile" type="file" accept=".csv,text/csv"></label>
@@ -22,7 +22,7 @@
 <label class="file"><strong>Funnel Events</strong><span class="muted">timestamp,event,path,source,product_slug...</span><input id="eventsFile" type="file" accept=".csv,text/csv"></label>
 </div>
 
-<div class="controls"><button class="btn secondary" id="resetBtn" type="button">مسح البيانات</button><button class="btn secondary" id="downloadSummaryBtn" type="button">تنزيل الملخص CSV</button><span id="loadStatus" class="muted">لم يتم تحميل بيانات بعد.</span></div>
+<div class="controls"><button class="btn secondary" id="resetBtn" type="button">مسح البيانات</button><button class="btn secondary" id="downloadSummaryBtn" type="button">تنزيل الملخص CSV</button><button class="btn secondary" id="downloadEventsBtn" type="button">تنزيل Funnel Events CSV</button><span id="loadStatus" class="muted">لم يتم تحميل بيانات بعد.</span></div>
 
 <section class="dash-grid" style="margin-top:22px">
 <div class="kpi"><span>Organic Clicks</span><strong id="kpiClicks">—</strong><small id="kpiClicksSub" class="muted">Search Console</small></div>
@@ -33,6 +33,17 @@
 <div class="kpi"><span>Buy Intent</span><strong id="kpiBuyIntent">—</strong><small class="muted">buy_intent_click</small></div>
 <div class="kpi"><span>WhatsApp Clicks</span><strong id="kpiWhatsapp">—</strong><small class="muted">whatsapp_payment_click</small></div>
 <div class="kpi"><span>SEO → WhatsApp Rate</span><strong id="kpiSeoWaRate">—</strong><small class="muted">WhatsApp ÷ Organic Clicks</small></div>
+</section>
+
+
+<section class="panel">
+<div class="section-title"><span class="eyebrow">Manual Funnel Log</span><h2>تسجيل Event يدوي مؤقت</h2><p class="lead">استخدمه لتسجيل WhatsApp أو Buy Intent أو انتقال Guide → Product لحد ما يتفعل التجميع المركزي.</p></div>
+<div class="upload-grid">
+<label class="file"><strong>Event</strong><select id="manualEvent"><option value="guide_product_click">guide_product_click</option><option value="product_view">product_view</option><option value="buy_intent_click">buy_intent_click</option><option value="whatsapp_payment_click">whatsapp_payment_click</option></select></label>
+<label class="file"><strong>Path</strong><input id="manualPath" type="text" placeholder="/guides/reorder-point/"></label>
+<label class="file"><strong>Product</strong><select id="manualProduct"><option value="">—</option><option value="restock-desk">restock-desk</option><option value="career-kit">career-kit</option></select></label>
+</div>
+<div class="controls"><button class="btn primary" id="addManualEventBtn" type="button">إضافة Event</button><span class="muted">يتم الحفظ محليًا فورًا.</span></div>
 </section>
 
 <section class="panel"><div class="section-title"><span class="eyebrow">Pages</span><h2>أداء صفحات SEO</h2><p class="lead">الجدول يربط Search Console بالـFunnel حسب مسار الصفحة.</p></div><div id="pagesTableWrap" class="empty">حمّل Search Console Pages CSV.</div></section>
