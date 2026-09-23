@@ -68,6 +68,8 @@ function setupPurchase(){
 }
 
 if(pageType==="store") trackEvent("store_view",{source:"homepage"});
+const SEARCH_TERM=CURRENT_URL.searchParams.get("q")||CURRENT_URL.searchParams.get("search")||"";
+if(SEARCH_TERM) trackEvent("search",{source:"url_query",query_length:SEARCH_TERM.length});
 if(pageType==="product_list") trackEvent("category_view",{source:"products",category:"all_products"});
 if(PRODUCT_CONTEXT?.product_slug) trackEvent("product_view",{...PRODUCT_CONTEXT,source:"product_page"});
 
