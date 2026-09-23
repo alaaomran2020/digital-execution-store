@@ -93,7 +93,6 @@ function renderFunnel(){
  $("#funnelTableWrap").innerHTML=`<table><thead><tr><th>المنتج</th><th>Views</th><th>Guide → Product</th><th>Buy Intent</th><th>WhatsApp</th><th>Qualified</th><th>Paid</th><th>Delivered</th><th>Repeat</th><th>View → WA</th><th>Paid → Delivered</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.p}</td><td>${fmt(r.views)}</td><td>${fmt(r.guide)}</td><td>${fmt(r.buy)}</td><td>${fmt(r.wa)}</td><td>${fmt(r.qualified)}</td><td>${fmt(r.paid)}</td><td>${fmt(r.delivered)}</td><td>${fmt(r.repeat)}</td><td>${pct(r.views?r.wa/r.views:NaN)}</td><td>${pct(r.paid?r.delivered/r.paid:NaN)}</td></tr>`).join("")}</tbody></table>`;
 }
 function csvEscape(v){const s=String(v??"");return /[",\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s}
-function downloadSummary(){const lines=[["metric","value"],["organic_clicks",state.pages.reduce((a,r)=>a+r.clicks,0)],["impressions",state.pages.reduce((a,r)=>a+r.impressions,0)],["guide_product_click",countEvent("guide_product_click")],["buy_intent_click",countEvent("buy_intent_click")],["whatsapp_payment_click",countEvent("whatsapp_payment_click")]];const blob=new Blob([lines.map(r=>r.map(csvEscape).join(",")).join("\n")],{type:"text/csv;charset=utf-8"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="digital-execution-seo-summary.csv";a.click();URL.revokeObjectURL(a.href)}
 function downloadEvents(){
  const headers=["timestamp","event","path","landing_path","source","product_slug","cta_location"];
  const lines=[headers,...state.events.map(e=>headers.map(h=>e[h]||""))];
