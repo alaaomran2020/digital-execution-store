@@ -1,0 +1,2 @@
+order_id,created_at,customer_name,phone,product,version,lead_source,lead_status,price_egp,payment_method,payment_reference,payment_verified_at,delivery_status,delivery_channel,delivered_at,file_or_release_id,follow_up_date,review_requested,review_received,notes
+DE-0001,,,,,,,,,,,,PENDING,WhatsApp,,,,NO,NO,
