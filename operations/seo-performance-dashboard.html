@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>SEO Performance Dashboard | Digital Execution</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../brand.css?v=20260923-2">
+<style>
+.seo-dashboard{padding:48px 0 80px}.seo-dashboard .dash-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.seo-dashboard .kpi,.seo-dashboard .panel{border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:18px}.seo-dashboard .kpi strong{display:block;font-size:2rem;margin-top:6px}.seo-dashboard .upload-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:22px 0}.seo-dashboard label.file{display:block;border:1px dashed var(--line-strong);border-radius:16px;padding:18px;cursor:pointer}.seo-dashboard label.file input{display:block;margin-top:10px;max-width:100%}.seo-dashboard .panel{margin-top:18px;overflow:auto}.seo-dashboard table{width:100%;border-collapse:collapse;min-width:760px}.seo-dashboard th,.seo-dashboard td{text-align:right;padding:11px;border-bottom:1px solid var(--line);vertical-align:top}.seo-dashboard th{white-space:nowrap}.seo-dashboard .muted{color:var(--muted)}.seo-dashboard .status{display:inline-block;padding:5px 8px;border-radius:999px;border:1px solid var(--line);font-size:.8rem}.seo-dashboard .good{font-weight:700}.seo-dashboard .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.seo-dashboard .empty{padding:28px;text-align:center;color:var(--muted)}@media(max-width:900px){.seo-dashboard .dash-grid,.seo-dashboard .upload-grid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.seo-dashboard .dash-grid,.seo-dashboard .upload-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="internal_dashboard">
+<header class="topbar"><div class="container nav"><a class="brand" href="../"><span class="mark">DE</span><span>Digital Execution</span></a><span class="status">Internal · noindex</span></div></header>
+<main class="seo-dashboard"><div class="container">
+<div class="section-title"><span class="eyebrow">SEO Performance</span><h1>Search → Page → Product → WhatsApp</h1><p class="lead">استورد CSV من Search Console وملف Funnel Events. كل الحسابات تتم داخل المتصفح ولا يتم رفع الملفات لأي جهة.</p></div>
+
+<div class="upload-grid">
+<label class="file"><strong>Search Console — Pages</strong><span class="muted">Page, Clicks, Impressions, CTR, Position</span><input id="pagesFile" type="file" accept=".csv,text/csv"></label>
+<label class="file"><strong>Search Console — Queries</strong><span class="muted">Query, Clicks, Impressions, CTR, Position</span><input id="queriesFile" type="file" accept=".csv,text/csv"></label>
+<label class="file"><strong>Funnel Events</strong><span class="muted">timestamp,event,path,source,product_slug...</span><input id="eventsFile" type="file" accept=".csv,text/csv"></label>
+</div>
+
+<div class="controls"><button class="btn secondary" id="resetBtn" type="button">مسح البيانات</button><button class="btn secondary" id="downloadSummaryBtn" type="button">تنزيل الملخص CSV</button><span id="loadStatus" class="muted">لم يتم تحميل بيانات بعد.</span></div>
+
+<section class="dash-grid" style="margin-top:22px">
+<div class="kpi"><span>Organic Clicks</span><strong id="kpiClicks">—</strong><small id="kpiClicksSub" class="muted">Search Console</small></div>
+<div class="kpi"><span>Impressions</span><strong id="kpiImpressions">—</strong><small class="muted">Search Console</small></div>
+<div class="kpi"><span>Average CTR</span><strong id="kpiCtr">—</strong><small class="muted">Clicks ÷ Impressions</small></div>
+<div class="kpi"><span>Average Position</span><strong id="kpiPosition">—</strong><small class="muted">Weighted by impressions</small></div>
+<div class="kpi"><span>Guide → Product</span><strong id="kpiGuideProduct">—</strong><small class="muted">guide_product_click</small></div>
+<div class="kpi"><span>Buy Intent</span><strong id="kpiBuyIntent">—</strong><small class="muted">buy_intent_click</small></div>
+<div class="kpi"><span>WhatsApp Clicks</span><strong id="kpiWhatsapp">—</strong><small class="muted">whatsapp_payment_click</small></div>
+<div class="kpi"><span>SEO → WhatsApp Rate</span><strong id="kpiSeoWaRate">—</strong><small class="muted">WhatsApp ÷ Organic Clicks</small></div>
+</section>
+
+<section class="panel"><div class="section-title"><span class="eyebrow">Pages</span><h2>أداء صفحات SEO</h2><p class="lead">الجدول يربط Search Console بالـFunnel حسب مسار الصفحة.</p></div><div id="pagesTableWrap" class="empty">حمّل Search Console Pages CSV.</div></section>
+
+<section class="panel"><div class="section-title"><span class="eyebrow">Queries</span><h2>فرص الكلمات المفتاحية</h2><p class="lead">الأولوية للكلمات ذات Impressions مرتفعة وCTR ضعيف أو Position قريب من الصفحة الأولى.</p></div><div id="queriesTableWrap" class="empty">حمّل Search Console Queries CSV.</div></section>
+
+<section class="panel"><div class="section-title"><span class="eyebrow">Funnel</span><h2>SEO Funnel حسب المنتج</h2></div><div id="funnelTableWrap" class="empty">حمّل Funnel Events CSV.</div></section>
+</div></main>
+<script src="seo-performance-dashboard.js?v=20260923-1" defer></script>
+</body></html>
