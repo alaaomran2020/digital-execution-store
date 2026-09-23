@@ -39,11 +39,11 @@
       "version": "1.2.2"
     },
     "delivery": {
-      "status": "MANUAL",
-      "readiness": 55,
-      "method": "manual_after_payment_verification",
+      "status": "POST_VERIFICATION_SELF_SERVICE",
+      "readiness": 78,
+      "method": "manual payment verification → canonical delivery asset → START HERE / Quick Start / FAQ",
       "channel": "WhatsApp",
-      "blocker": "No self-service delivery handoff after verified payment"
+      "blocker": "Payment verification remains manual while Vodafone Cash is the payment method."
     },
     "faq": {
       "status": "ACTIVE",
@@ -56,10 +56,12 @@
       ]
     },
     "upsell": {
-      "status": "PLANNED",
-      "readiness": 15,
+      "status": "ACTIVE",
+      "readiness": 88,
       "next_product": "business-control-pack",
-      "blocker": "Upsell product is not commercially published yet"
+      "blocker": "Upsell product is not commercially published yet",
+      "asset": "/products/business-control-pack/",
+      "price_egp": 249
     },
     "bundle": {
       "status": "PLANNED",
@@ -102,10 +104,9 @@
   "release_gate": {
     "p0_blockers": 0,
     "passive_revenue_blockers": [
-      "self-service delivery is not live",
-      "upsell is not published",
-      "bundle is not published",
-      "repeat-purchase loop is not live"
+      "payment verification remains manual under Vodafone Cash",
+      "business bundle is not published",
+      "repeat-purchase loop is not yet measured"
     ]
   }
 }
