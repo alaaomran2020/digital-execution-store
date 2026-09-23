@@ -46,11 +46,11 @@
       "readiness": 85,
       "method": "manual payment verification → canonical delivery asset → START HERE / Quick Start / FAQ",
       "channel": "WhatsApp",
-      "blocker": "Payment verification remains manual while Vodafone Cash is the payment method.",
       "security": "Canonical delivery asset is private on Google Drive; buyer access is granted only after payment verification.",
       "implementation_readiness": 100,
       "operating_model": "manual payment verification + self-service fulfillment",
-      "release_blocker": false
+      "release_blocker": false,
+      "payment_verification_status": "UNDER_REVIEW"
     },
     "faq": {
       "status": "ACTIVE",
@@ -143,5 +143,12 @@
     "architecture_readiness": 100,
     "release_readiness": 100,
     "performance_validation": "PENDING_REAL_DATA"
+  },
+  "payment_verification": {
+    "status": "UNDER_REVIEW",
+    "current_method": "Vodafone Cash manual verification",
+    "post_verification_flow": "Self-Service",
+    "release_blocker": false,
+    "note": "يمكن أتمتة التحقق لاحقًا إذا تم اعتماد وسيلة دفع مناسبة؛ الوضع الحالي لا يمنع جاهزية Passive Revenue OS v1."
   }
 }
