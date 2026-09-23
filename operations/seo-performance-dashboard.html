@@ -14,12 +14,13 @@
 <body data-page="internal_dashboard">
 <header class="topbar"><div class="container nav"><a class="brand" href="../"><span class="mark">DE</span><span>Digital Execution</span></a><span class="status">Internal · noindex</span></div></header>
 <main class="seo-dashboard"><div class="container">
-<div class="section-title"><span class="eyebrow">SEO Performance</span><h1>Search → Page → Product → WhatsApp</h1><p class="lead">وضع التشغيل المؤقت: استورد CSV أو سجل Funnel Events يدويًا. البيانات تُحفظ محليًا في نفس المتصفح فقط، ولا يتم رفعها لأي جهة.</p></div><div class="panel" style="margin-top:14px"><strong>Temporary Manual Baseline Mode</strong><p class="muted">مغلق تشغيليًا مؤقتًا بدون Backend: Search Console بالاستيراد اليدوي، والـFunnel بالتسجيل/الاستيراد اليدوي حتى تفعيل التجميع المركزي لاحقًا.</p></div>
+<div class="section-title"><span class="eyebrow">SEO Performance</span><h1>Search → Page → Product → WhatsApp</h1><p class="lead">وضع التشغيل المحلي: استورد Search Console وFunnel Events وCustomer/Delivery Log. البيانات تُقرأ وتُحفظ محليًا في نفس المتصفح فقط، ولا يتم رفعها لأي جهة.</p></div><div class="panel" style="margin-top:14px"><strong>Temporary Manual Baseline Mode</strong><p class="muted">بدون Backend مركزي: أحداث التصفح تُلتقط محليًا، ومراحل البيع والدفع والتسليم تُقرأ من Customer/Delivery Log. التقرير لا يحتسب Template أو Placeholder كبيانات فعلية.</p></div>
 
 <div class="upload-grid">
 <label class="file"><strong>Search Console — Pages</strong><span class="muted">Page, Clicks, Impressions, CTR, Position</span><input id="pagesFile" type="file" accept=".csv,text/csv"></label>
 <label class="file"><strong>Search Console — Queries</strong><span class="muted">Query, Clicks, Impressions, CTR, Position</span><input id="queriesFile" type="file" accept=".csv,text/csv"></label>
 <label class="file"><strong>Funnel Events</strong><span class="muted">timestamp,event,path,source,product_slug...</span><input id="eventsFile" type="file" accept=".csv,text/csv"></label>
+<label class="file"><strong>Customer / Delivery Log</strong><span class="muted">order_id, product, lead_status, payment_verified_at, delivery_status...</span><input id="ordersFile" type="file" accept=".csv,text/csv"></label>
 </div>
 
 <div class="controls"><button class="btn secondary" id="resetBtn" type="button">مسح البيانات</button><button class="btn secondary" id="downloadSummaryBtn" type="button">تنزيل الملخص CSV</button><button class="btn secondary" id="downloadEventsBtn" type="button">تنزيل Funnel Events CSV</button><span id="loadStatus" class="muted">لم يتم تحميل بيانات بعد.</span></div>
@@ -33,6 +34,10 @@
 <div class="kpi"><span>Buy Intent</span><strong id="kpiBuyIntent">—</strong><small class="muted">buy_intent_click</small></div>
 <div class="kpi"><span>WhatsApp Clicks</span><strong id="kpiWhatsapp">—</strong><small class="muted">whatsapp_payment_click</small></div>
 <div class="kpi"><span>SEO → WhatsApp Rate</span><strong id="kpiSeoWaRate">—</strong><small class="muted">WhatsApp ÷ Organic Clicks</small></div>
+<div class="kpi"><span>Qualified Leads</span><strong id="kpiQualified">—</strong><small class="muted">Customer / Delivery Log + verified events</small></div>
+<div class="kpi"><span>Paid Orders</span><strong id="kpiPaid">—</strong><small class="muted">payment verified</small></div>
+<div class="kpi"><span>Delivered Orders</span><strong id="kpiDelivered">—</strong><small class="muted">delivery completed</small></div>
+<div class="kpi"><span>Repeat Purchases</span><strong id="kpiRepeat">—</strong><small class="muted">repeat + paid</small></div>
 </section>
 
 
@@ -50,7 +55,7 @@
 
 <section class="panel"><div class="section-title"><span class="eyebrow">Queries</span><h2>فرص الكلمات المفتاحية</h2><p class="lead">الأولوية للكلمات ذات Impressions مرتفعة وCTR ضعيف أو Position قريب من الصفحة الأولى.</p></div><div id="queriesTableWrap" class="empty">حمّل Search Console Queries CSV.</div></section>
 
-<section class="panel"><div class="section-title"><span class="eyebrow">Funnel</span><h2>SEO Funnel حسب المنتج</h2></div><div id="funnelTableWrap" class="empty">حمّل Funnel Events CSV.</div></section>
+<section class="panel"><div class="section-title"><span class="eyebrow">Funnel</span><h2>Product → WhatsApp → Qualified → Paid → Delivered → Repeat</h2></div><div id="funnelTableWrap" class="empty">حمّل Funnel Events CSV.</div></section>
 </div></main>
-<script src="seo-performance-dashboard.js?v=20260923-1" defer></script>
+<script src="seo-performance-dashboard.js?v=20260924-2" defer></script>
 </body></html>
