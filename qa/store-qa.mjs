@@ -88,6 +88,7 @@ for(const file of files.filter(f=>f.endsWith(".html")&&!f.startsWith("google")))
   }
 }
 
+if(!exists("products/business-control-pack/index.html")) fail("business-control-pack: product page missing");
 const passiveRevenueManifestPath="data/passive-revenue-restock.json";
 if(!exists(passiveRevenueManifestPath)) fail("ReStock passive revenue manifest is missing");
 else{
