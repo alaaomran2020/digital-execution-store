@@ -100,6 +100,8 @@ else{
     if(passive.product_slug!=="restock-desk") fail("ReStock passive revenue manifest product_slug mismatch");
     if(passive.overall?.architecture_readiness!==100) fail("ReStock passive revenue architecture must be 100%");
     if(passive.release_gate?.release_status!=="PASS") fail("ReStock passive revenue release gate must PASS");
+    if(passive.payment_verification?.status!=="UNDER_REVIEW") fail("ReStock payment verification must remain explicitly UNDER_REVIEW until automation is approved");
+    if(passive.payment_verification?.release_blocker!==false) fail("ReStock payment verification must not block v1 release");
     for(const stage of ["traffic","lead_magnet","core_product","delivery","faq","upsell","bundle","repeat_purchase"]){
       if(!passive.stages?.[stage]) fail("ReStock passive revenue stage missing: "+stage);
       if(passive.stages?.[stage]?.implementation_readiness!==100) fail("ReStock passive revenue implementation must be 100%: "+stage);
