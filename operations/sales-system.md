@@ -94,4 +94,13 @@ Sales System يعتبر شغال فعليًا عندما يتم تسجيل كل 
 
 
 ## Passive Revenue v1 — Definition of Done
-يعتبر النظام مغلقًا معماريًا عندما تكون المراحل الثمانية مطبقة ومترابطة ومقاسة ومحميّة بالـQA. في v1 يظل التحقق من Vodafone Cash يدويًا كقيد مقصود، ثم يبدأ التسليم الذاتي بعد التحقق. بيانات Conversion وUpsell وRepeat Purchase الحقيقية تُصنَّف Performance Validation وليست Release Blocker.
+يعتبر النظام مغلقًا معماريًا عندما تكون المراحل الثمانية مطبقة ومترابطة ومقاسة ومحميّة بالـQA.
+
+### Payment Verification
+الحالة: UNDER REVIEW — قيد المراجعة.
+
+حاليًا يتم التحقق من دفع Vodafone Cash يدويًا، وبعد تأكيد الدفع يكمل العميل باقي مسار الاستلام والاستخدام بنظام Self-Service.
+
+هذه الخطوة لا تعتبر Gap أو Release Blocker في v1. يمكن أتمتتها لاحقًا إذا تم اعتماد وسيلة دفع مناسبة.
+
+بيانات Conversion وUpsell وRepeat Purchase الحقيقية تُصنَّف Performance Validation وليست Release Blocker.
