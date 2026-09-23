@@ -68,7 +68,7 @@ function setupPurchase(){
 }
 
 if(pageType==="store") trackEvent("store_view",{source:"homepage"});
-if(pageType==="product_list") trackEvent("product_list_view",{source:"products"});
+if(pageType==="product_list") trackEvent("category_view",{source:"products",category:"all_products"});
 if(PRODUCT_CONTEXT?.product_slug) trackEvent("product_view",{...PRODUCT_CONTEXT,source:"product_page"});
 
 document.addEventListener("click",event=>{
@@ -166,4 +166,4 @@ if("IntersectionObserver" in window){
   document.querySelectorAll("[data-observe]").forEach(section=>observer.observe(section));
 }
 
-// purchase_confirmed stays a verified business event; it is never emitted from the public client.
+// order stays a verified business event; it is never emitted from the public client before payment/order confirmation.
