@@ -58,22 +58,32 @@
     },
     "upsell": {
       "status": "ACTIVE",
-      "readiness": 88,
+      "readiness": 100,
       "next_product": "business-control-pack",
-      "blocker": "Upsell product is not commercially published yet",
       "asset": "/products/business-control-pack/",
       "price_egp": 249
     },
     "bundle": {
-      "status": "PLANNED",
-      "readiness": 5,
+      "status": "ACTIVE",
+      "readiness": 100,
       "bundle": "business-bundle",
-      "blocker": "Bundle is not commercially published yet"
+      "asset": "/products/business-bundle/",
+      "price_egp": 549,
+      "contents": [
+        "restock-desk",
+        "business-control-pack"
+      ]
     },
     "repeat_purchase": {
-      "status": "OPEN",
-      "readiness": 10,
-      "blocker": "No live post-purchase repeat-purchase path or measured repeat_purchase event yet"
+      "status": "ACTIVE",
+      "readiness": 100,
+      "asset": "/after-purchase/business/",
+      "canonical_events": [
+        "repeat_offer_view",
+        "repeat_purchase_click",
+        "repeat_purchase"
+      ],
+      "verification": "repeat_purchase is recorded only after a verified subsequent order"
     }
   },
   "analytics": {
@@ -105,9 +115,7 @@
   "release_gate": {
     "p0_blockers": 0,
     "passive_revenue_blockers": [
-      "payment verification remains manual under Vodafone Cash",
-      "business bundle is not published",
-      "repeat-purchase loop is not yet measured"
+      "payment verification remains manual under Vodafone Cash"
     ]
   }
 }
