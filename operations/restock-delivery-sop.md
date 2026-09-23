@@ -6,7 +6,8 @@
 ## الأصل التجاري المعتمد
 - ReStock Desk v1.2.2 Commercial ZIP.
 - SHA256 موجود بجانب الأصل التجاري.
-- المصدر الأساسي: private GitHub release والنسخة التشغيلية على Google Drive.
+- المصدر الأساسي: private GitHub release + نسخة Google Drive خاصة (غير عامة) داخل مجلد Commercial Delivery.
+- النسخ القديمة ذات مشاركة anyone-with-link لا تُستخدم كأصل تسليم Canonical.
 - لا يتم وضع رابط الأصل التجاري داخل صفحات عامة أو ملفات عامة في المستودع.
 
 ## المسار
