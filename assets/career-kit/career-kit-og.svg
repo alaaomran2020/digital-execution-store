@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f8fafc"/>
+  <circle cx="1090" cy="50" r="190" fill="#EFF6FF"/>
+  <circle cx="60" cy="610" r="180" fill="#F1F5F9"/>
+  <rect x="56" y="46" rx="18" width="295" height="52" fill="#0B1220"/>
+  <text x="78" y="80" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#fff">Digital Execution</text>
+  <rect x="56" y="124" rx="14" width="245" height="44" fill="#DBEAFE"/>
+  <text x="76" y="153" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#2563EB">CAREER KIT v1.0</text>
+  <text x="56" y="245" font-family="Arial,sans-serif" font-size="58" font-weight="700" fill="#0B1220">Career Kit</text>
+  <text x="56" y="292" font-family="Arial,sans-serif" font-size="27" fill="#64748B">A practical job-application toolkit</text>
+  <g font-family="Arial,sans-serif" font-size="17" font-weight="700">
+    <rect x="56" y="336" rx="14" width="116" height="42" fill="#fff" stroke="#E2E8F0"/><text x="72" y="363" fill="#2563EB">ATS Clean</text>
+    <rect x="186" y="336" rx="14" width="272" height="42" fill="#fff" stroke="#E2E8F0"/><text x="204" y="363" fill="#0B1220">Fresh Graduate + Experienced</text>
+    <rect x="472" y="336" rx="14" width="162" height="42" fill="#fff" stroke="#E2E8F0"/><text x="489" y="363" fill="#22c55e">Arabic + English</text>
+  </g>
+  <text x="56" y="548" font-family="Arial,sans-serif" font-size="19" fill="#64748B">CV templates + LinkedIn + Cover Letter + Job Tracker + Interview Prep</text>
+  <g>
+    <rect x="700" y="92" rx="22" width="250" height="466" fill="#fff" stroke="#E2E8F0" stroke-width="2"/>
+    <text x="722" y="132" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#0B1220">FRESH GRADUATE</text>
+    <rect x="722" y="148" width="206" height="4" fill="#2563EB"/>
+    <g fill="#CBD5E1"><rect x="722" y="182" rx="4" width="170" height="8"/><rect x="722" y="220" rx="4" width="128" height="8"/><rect x="722" y="258" rx="4" width="188" height="8"/><rect x="722" y="296" rx="4" width="158" height="8"/><rect x="722" y="334" rx="4" width="140" height="8"/><rect x="722" y="372" rx="4" width="180" height="8"/><rect x="722" y="410" rx="4" width="148" height="8"/><rect x="722" y="448" rx="4" width="126" height="8"/></g>
+    <rect x="914" y="132" rx="22" width="230" height="430" fill="#fff" stroke="#E2E8F0" stroke-width="2"/>
+    <text x="936" y="172" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#0B1220">EXPERIENCED</text>
+    <rect x="936" y="188" width="186" height="4" fill="#0B1220"/>
+    <g fill="#CBD5E1"><rect x="936" y="222" rx="4" width="162" height="8"/><rect x="936" y="260" rx="4" width="124" height="8"/><rect x="936" y="298" rx="4" width="174" height="8"/><rect x="936" y="336" rx="4" width="142" height="8"/><rect x="936" y="374" rx="4" width="168" height="8"/><rect x="936" y="412" rx="4" width="150" height="8"/><rect x="936" y="450" rx="4" width="178" height="8"/></g>
+  </g>
+</svg>
