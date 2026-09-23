@@ -18,12 +18,11 @@
 - Private release assets
 - Customer delivery files
 
-## المنتج الأول
-**ReStock Desk v1.2.2**
+## المنتجات المنشورة
+- **ReStock Desk v1.2.2** — أدوات الأعمال — 399 EGP.
+- **Career Kit v1.0.0** — أدوات مهنية — 249 EGP.
 
-السعر الحالي: 399 EGP  
-الدفع: Vodafone Cash  
-رقم الدفع / واتساب: 01011673107
+الدفع الحالي للمنتجات المنشورة: Vodafone Cash، والتسليم بعد التحقق عبر WhatsApp.
 
 ## الاستضافة
 المستودع مصمم للعمل كـ Static Site على:
@@ -33,10 +32,11 @@
 ## Single Source of Truth
 هذا المستودع هو المصدر الوحيد للواجهة العامة لمتجر Digital Execution.
 
-## Store Architecture v2
+## Store Architecture Finalization
 - الصفحة الرئيسية تمثل علامة Digital Execution بدل منتج واحد.
 - كتالوج المنتجات: `/products/`.
 - صفحة ReStock Desk: `/products/restock-desk/`.
+- صفحة Career Kit: `/products/career-kit/`.
 - سجل المنتجات العام: `/data/products.json`.
 - دليل التراخيص: `/licenses.html`.
 - المنتجات التجارية المدفوعة وملفات التسليم تظل خارج هذا المستودع.
@@ -60,3 +60,6 @@
 `IDEA → VALIDATING → VALIDATED → BUILDING → OFFER_READY → DELIVERY_READY → COMMERCIAL_QA → PUBLISHED → OPTIMIZING → SCALING`
 
 **مهم:** Product Schema v3 لا ينقل أي ملفات تجارية مدفوعة إلى المستودع العام، ولا يغيّر صفحات البيع أو التصميم الحالي.
+
+## Store QA
+يتم تشغيل `qa/store-qa.mjs` تلقائيًا عبر GitHub Actions على Pull Requests وعلى `main` لفحص اتساق Product Registry، بيانات صفحات المنتجات، Tracking، Sitemap والروابط المحلية.
