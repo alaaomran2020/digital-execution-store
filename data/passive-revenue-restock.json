@@ -1,0 +1,111 @@
+{
+  "system_version": "1.0",
+  "product_slug": "restock-desk",
+  "product_line": "business",
+  "funnel": [
+    "traffic",
+    "lead_magnet",
+    "core_product",
+    "delivery",
+    "faq",
+    "upsell",
+    "bundle",
+    "repeat_purchase"
+  ],
+  "stages": {
+    "traffic": {
+      "status": "ACTIVE",
+      "readiness": 88,
+      "evidence": [
+        "SEO guides",
+        "marketing execution plan",
+        "product catalog and direct product routes"
+      ]
+    },
+    "lead_magnet": {
+      "status": "ACTIVE",
+      "readiness": 85,
+      "asset": "/tools/inventory-health-check/",
+      "canonical_events": [
+        "lead_magnet_start",
+        "lead_magnet_complete"
+      ]
+    },
+    "core_product": {
+      "status": "ACTIVE",
+      "readiness": 96,
+      "asset": "/products/restock-desk/",
+      "price_egp": 399,
+      "version": "1.2.2"
+    },
+    "delivery": {
+      "status": "MANUAL",
+      "readiness": 55,
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "blocker": "No self-service delivery handoff after verified payment"
+    },
+    "faq": {
+      "status": "ACTIVE",
+      "readiness": 90,
+      "evidence": [
+        "Product-page FAQ",
+        "Arabic usage guide",
+        "Troubleshooting guide",
+        "Self-Service policy"
+      ]
+    },
+    "upsell": {
+      "status": "PLANNED",
+      "readiness": 15,
+      "next_product": "business-control-pack",
+      "blocker": "Upsell product is not commercially published yet"
+    },
+    "bundle": {
+      "status": "PLANNED",
+      "readiness": 5,
+      "bundle": "business-bundle",
+      "blocker": "Bundle is not commercially published yet"
+    },
+    "repeat_purchase": {
+      "status": "OPEN",
+      "readiness": 10,
+      "blocker": "No live post-purchase repeat-purchase path or measured repeat_purchase event yet"
+    }
+  },
+  "analytics": {
+    "canonical_events": [
+      "product_view",
+      "lead_magnet_start",
+      "lead_magnet_complete",
+      "buy_cta_click",
+      "product_whatsapp_click",
+      "qualified_lead",
+      "order",
+      "delivery_complete",
+      "upsell_view",
+      "upsell_click",
+      "upsell_purchase",
+      "bundle_view",
+      "bundle_purchase",
+      "repeat_purchase"
+    ],
+    "verified_business_events": [
+      "qualified_lead",
+      "order",
+      "delivery_complete",
+      "upsell_purchase",
+      "bundle_purchase",
+      "repeat_purchase"
+    ]
+  },
+  "release_gate": {
+    "p0_blockers": 0,
+    "passive_revenue_blockers": [
+      "self-service delivery is not live",
+      "upsell is not published",
+      "bundle is not published",
+      "repeat-purchase loop is not live"
+    ]
+  }
+}
