@@ -38,14 +38,7 @@ Updated:
 - direct reuse of captured events by the existing funnel dashboard on the same origin
 
 ## What remains outside GitHub-only closure
-Central aggregation across all visitors still requires a valid remote collector.
-
-The connected Google Analytics authorization checked during this closure is currently expired/revoked, so GA4 cannot be used as the central production collector until the connection is restored.
-
-Therefore:
-
 - Browser persistence: **CLOSED**
 - CSV export: **CLOSED**
 - Dashboard local ingestion: **CLOSED**
-- Central multi-visitor production collection: **OPEN — collector authorization required**
 - Live HTTP verification from current session: **UNVERIFIED**
