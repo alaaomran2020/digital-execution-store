@@ -1,4 +1,4 @@
 timestamp,event,path,landing_path,source,product_slug,cta_location,label,referrer,utm_source,utm_medium,utm_campaign
 2026-09-23T12:00:00+03:00,guide_product_click,/guides/reorder-point/,/guides/reorder-point/,reorder_point_guide,restock-desk,final_cta,شوف ReStock Desk,https://www.google.com/,google,organic,
 2026-09-23T12:02:00+03:00,product_view,/products/restock-desk/,/guides/reorder-point/,product_page,restock-desk,unknown,,https://digital-execution.cc/guides/reorder-point/,google,organic,
-2026-09-23T12:04:00+03:00,whatsapp_payment_click,/products/restock-desk/,/guides/reorder-point/,product_page,restock-desk,checkout,أرسل إثبات الدفع واستلم ReStock Desk,https://digital-execution.cc/products/restock-desk/,google,organic,
+2026-09-23T12:04:00+03:00,product_whatsapp_click,/products/restock-desk/,/guides/reorder-point/,product_page,restock-desk,checkout,أرسل إثبات الدفع واستلم ReStock Desk,https://digital-execution.cc/products/restock-desk/,google,organic,
