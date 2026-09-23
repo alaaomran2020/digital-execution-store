@@ -433,5 +433,99 @@
       "stage": "VALIDATING",
       "published_version": null
     }
+  },
+  {
+    "schema_version": 3,
+    "slug": "business-control-pack",
+    "name": "Business Control Pack",
+    "category": "إدارة الأعمال",
+    "segment": "business",
+    "short_description": "نظام Google Sheets بسيط لمتابعة المبيعات والمصروفات والتدفق النقدي والربح.",
+    "price": 249,
+    "currency": "EGP",
+    "image": "assets/restock/dashboard.png",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Commercial Use",
+    "resell_allowed": false,
+    "editable": true,
+    "brandable": false,
+    "delivery_type": "Restricted Google Drive Copy",
+    "lifetime_updates": false,
+    "demo_url": null,
+    "product_url": "products/business-control-pack/",
+    "featured": false,
+    "last_updated": "2026-09-24",
+    "status": "published",
+    "identity": {
+      "product_type": "business_toolkit",
+      "edition": "Self-Service Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "أصحاب المتاجر والمشروعات الصغيرة",
+        "مستخدمو ReStock Desk الذين يحتاجون متابعة مالية أبسط"
+      ],
+      "problem": "المبيعات والمصروفات والتدفق النقدي موزعة بين دفاتر وملفات مختلفة بدون ملخص واحد واضح.",
+      "alternatives": [
+        "جداول منفصلة غير مترابطة",
+        "متابعة يدوية بدون Dashboard"
+      ],
+      "differentiation": [
+        "Google Sheets جاهز",
+        "Dashboard تلقائي",
+        "بدون اشتراك شهري",
+        "Self-Service"
+      ]
+    },
+    "offer": {
+      "outcome": "متابعة المبيعات والمصروفات وصافي الربح والتدفق النقدي من ملف واحد.",
+      "mechanism": "تسجيل العمليات في جداول بسيطة ثم تلخيصها تلقائيًا داخل Dashboard.",
+      "contents": [
+        "Dashboard",
+        "Sales Tracker",
+        "Expenses Tracker",
+        "Cash Flow Tracker",
+        "Setup & License"
+      ],
+      "limitations": [
+        "لا يشمل محاسبة قانونية أو ضريبية",
+        "لا يشمل إدخال بيانات أو تخصيص فردي",
+        "يتطلب حساب Google لاستخدام Google Sheets"
+      ]
+    },
+    "commerce": {
+      "price": 249,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": null,
+      "upgrade": "business-bundle",
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "product_description",
+      "previews": [],
+      "license": {
+        "type": "Commercial Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "Self-Service بدون إدخال بيانات أو تخصيص أو دعم فردي."
+    },
+    "delivery": {
+      "method": "restricted_drive_copy_after_payment_verification",
+      "channel": "Google Drive + WhatsApp",
+      "includes_updates": false,
+      "update_policy": "يشمل الإصدار الذي تم شراؤه؛ أي إصدارات رئيسية جديدة تُحدد سياستها عند الإصدار."
+    },
+    "analytics": {
+      "product_slug": "business-control-pack",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    }
   }
 ]
