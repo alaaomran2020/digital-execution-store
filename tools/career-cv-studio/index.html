@@ -8,10 +8,10 @@
   <meta name="build" content="career-cv-studio-production" />
   <meta name="robots" content="noindex, follow" />
   <title>Career CV Studio | جهّز CV مناسب للوظيفة | Digital Execution</title>
-  <meta name="description" content="Career CV Studio يساعدك تبني وتراجع CV عربي أو إنجليزي، تحلل Job Description والكلمات المفتاحية، وتحسن المحتوى قبل التقديم." />
+  <meta name="description" content="Career CV Studio يساعدك تبني وتراجع CV عربي أو إنجليزي، تحلل وصف الوظيفة والكلمات المفتاحية، وتحسن المحتوى قبل التقديم." />
   <link rel="canonical" href="https://digital-execution.cc/tools/career-cv-studio/" />
   <meta property="og:title" content="Career CV Studio | Digital Execution" />
-  <meta property="og:description" content="أداة تجهيز ومراجعة CV للوظيفة: محتوى، Job Description، كلمات مفتاحية، وPDF جاهز للتقديم." />
+  <meta property="og:description" content="أداة تجهيز ومراجعة CV للوظيفة: محتوى، وصف الوظيفة، كلمات مفتاحية، وPDF جاهز للتقديم." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://digital-execution.cc/tools/career-cv-studio/" />
   <meta property="og:image" content="https://digital-execution.cc/assets/career-kit/career-kit-og.png" />
@@ -30,7 +30,7 @@
       <p class="eyebrow">أداة تجهيز ومراجعة الـCV للوظيفة</p>
       <div class="title-row">
         <h1>Career CV Studio</h1>
-        <span class="status-badge">Local-first</span>
+        <span class="status-badge">محلي على جهازك</span>
       </div>
       <p class="muted">جهّز CV مناسب للوظيفة اللي بتستهدفها — من المحتوى وتحليل الوصف الوظيفي لحد PDF جاهز للتقديم.</p>
     </div>
@@ -47,7 +47,7 @@
     <section class="panel editor-panel" aria-label="محرر السيرة الذاتية">
       <div class="panel-head">
         <div>
-          <p class="eyebrow">CV Content</p>
+          <p class="eyebrow">محتوى السيرة الذاتية</p>
           <h2>بيانات الـCV</h2>
           <p class="muted">ابدأ بالوظيفة المستهدفة، وابنِ المحتوى اللي يدعمها. كل تعديل يظهر فورًا ويُحفظ محليًا على جهازك.</p>
         </div>
@@ -58,25 +58,19 @@
       </div>
 
       <section class="studio-controls" aria-label="إعدادات الاستوديو">
-        <label>لغة الـCV
-          <select id="languageSelect">
-            <option value="ar">العربية</option>
-            <option value="en">English</option>
-          </select>
-        </label>
         <label>قالب ATS
           <select id="templateSelect">
-            <option value="classic">Classic ATS</option>
-            <option value="executive">Executive ATS</option>
-            <option value="minimal">Minimal ATS</option>
-            <option value="compact">Compact ATS</option>
+            <option value="classic">قالب كلاسيكي</option>
+            <option value="executive">قالب تنفيذي</option>
+            <option value="minimal">قالب بسيط</option>
+            <option value="compact">قالب مضغوط</option>
           </select>
         </label>
         <label>تنسيق PDF
           <select id="pdfFormatSelect">
-            <option value="a4">A4 Standard</option>
-            <option value="a4-compact">A4 Compact</option>
-            <option value="letter">US Letter</option>
+            <option value="a4">مقاس أ٤ القياسي</option>
+            <option value="a4-compact">مقاس أ٤ المضغوط</option>
+            <option value="letter">المقاس الأمريكي</option>
           </select>
         </label>
       </section>
@@ -84,7 +78,7 @@
       <section class="section-order-card" aria-labelledby="sectionOrderTitle">
         <div class="section-row compact-row">
           <div>
-            <p class="eyebrow">Layout</p>
+            <p class="eyebrow">الترتيب</p>
             <h3 id="sectionOrderTitle">ترتيب أقسام الـCV</h3>
             <p class="muted">اسحب الأقسام أو استخدم الأسهم. الهيدر ثابت دائمًا.</p>
           </div>
@@ -101,7 +95,7 @@
         <label>البريد الإلكتروني<input id="email" type="email" autocomplete="email" placeholder="name@example.com" /></label>
         <label>رقم الهاتف<input id="phone" autocomplete="tel" placeholder="+20..." /></label>
         <label>الموقع<input id="location" placeholder="طنطا، مصر / Tanta, Egypt" /></label>
-        <label>LinkedIn<input id="linkedin" inputmode="url" placeholder="linkedin.com/in/..." /></label>
+        <label>الملف المهني<input id="linkedin" inputmode="url" placeholder="linkedin.com/in/..." /></label>
       </div>
 
       <label class="block-label">الملخص المهني
@@ -147,7 +141,7 @@
       <section class="ats-card" aria-labelledby="atsTitle">
         <div class="ats-head">
           <div>
-            <p class="eyebrow">ATS Check</p>
+            <p class="eyebrow">مراجعة أنظمة الفرز</p>
             <h3 id="atsTitle">مراجعة جاهزية الـCV</h3>
           </div>
           <strong id="atsScore" class="score">0%</strong>
@@ -159,30 +153,30 @@
       <section class="analyzer-card" aria-labelledby="analyzerTitle">
         <div class="ats-head">
           <div>
-            <p class="eyebrow">Job Description Analyzer</p>
+            <p class="eyebrow">تحليل وصف الوظيفة</p>
             <h3 id="analyzerTitle">تحليل الوظيفة والكلمات المفتاحية</h3>
           </div>
           <strong id="matchScore" class="score">0%</strong>
         </div>
         <label class="block-label">وصف الوظيفة
-          <textarea id="jobDescription" rows="7" placeholder="الصق Job Description هنا علشان تراجع الكلمات المهمة الموجودة في الـCV والكلمات اللي محتاجة مراجعة. التحليل يتم على جهازك فقط بدون إرسال البيانات لأي سيرفر."></textarea>
+          <textarea id="jobDescription" rows="7" placeholder="الصق وصف الوظيفة هنا علشان تراجع الكلمات المهمة الموجودة في الـCV والكلمات اللي محتاجة مراجعة. التحليل يتم على جهازك فقط بدون إرسال البيانات لأي سيرفر."></textarea>
         </label>
         <div class="analyzer-grid">
-          <div class="metric-box"><span>Keyword Coverage</span><strong id="keywordCoverage">0%</strong></div>
-          <div class="metric-box"><span>Title Alignment</span><strong id="titleAlignment">0%</strong></div>
-          <div class="metric-box"><span>CV Terms Found</span><strong id="matchedCount">0</strong></div>
-          <div class="metric-box"><span>Missing Terms</span><strong id="missingCount">0</strong></div>
+          <div class="metric-box"><span>تغطية الكلمات المفتاحية</span><strong id="keywordCoverage">0%</strong></div>
+          <div class="metric-box"><span>توافق المسمى</span><strong id="titleAlignment">0%</strong></div>
+          <div class="metric-box"><span>الكلمات الموجودة</span><strong id="matchedCount">0</strong></div>
+          <div class="metric-box"><span>الكلمات الناقصة</span><strong id="missingCount">0</strong></div>
         </div>
         <div class="keyword-group">
-          <h4>Matched Keywords</h4>
+          <h4>الكلمات المتطابقة</h4>
           <div id="matchedKeywords" class="keyword-chips"><span class="empty-chip">—</span></div>
         </div>
         <div class="keyword-group">
-          <h4>Missing Keywords</h4>
+          <h4>الكلمات الناقصة</h4>
           <div id="missingKeywords" class="keyword-chips"><span class="empty-chip">—</span></div>
         </div>
         <div class="keyword-group">
-          <h4>Priority Terms from Job Description</h4>
+          <h4>الكلمات ذات الأولوية من وصف الوظيفة</h4>
           <div id="priorityKeywords" class="keyword-chips"><span class="empty-chip">—</span></div>
         </div>
         <p class="analyzer-note">المؤشر إرشادي لتحسين التغطية النصية، وليس ضمانًا للقبول أو نتيجة نظام ATS بعينه.</p>
@@ -190,19 +184,19 @@
 
       <section class="export-card" aria-labelledby="exportTitle">
         <div>
-          <p class="eyebrow">Export Center</p>
+          <p class="eyebrow">مركز التصدير</p>
           <h3 id="exportTitle">راجع ثم صدّر نسخة جاهزة للتقديم</h3>
           <p class="muted">اختار التنسيق المناسب، راجع جاهزية المحتوى والصفحات، وبعدها صدّر النسخة النهائية PDF.</p>
         </div>
         <div class="export-presets" role="group" aria-label="تنسيق ملف PDF">
           <button type="button" class="export-preset active" data-pdf-format="a4">
-            <strong>A4 Standard</strong><span>210 × 297 mm</span>
+            <strong>مقاس أ٤ القياسي</strong><span>210 × 297 mm</span>
           </button>
           <button type="button" class="export-preset" data-pdf-format="a4-compact">
-            <strong>A4 Compact</strong><span>هوامش أضيق</span>
+            <strong>مقاس أ٤ المضغوط</strong><span>هوامش أضيق</span>
           </button>
           <button type="button" class="export-preset" data-pdf-format="letter">
-            <strong>US Letter</strong><span>8.5 × 11 in</span>
+            <strong>المقاس الأمريكي</strong><span>8.5 × 11 in</span>
           </button>
         </div>
         <div class="export-readiness" aria-live="polite">
@@ -212,7 +206,7 @@
               <span id="exportReadyStatus" class="readiness-status">قيد المراجعة</span>
             </div>
             <div class="page-fit">
-              <span id="pageFitStatus">Page Fit</span>
+              <span id="pageFitStatus">ملاءمة الصفحات</span>
               <strong id="pageEstimate">≈ 1 صفحة</strong>
             </div>
           </div>
@@ -223,7 +217,7 @@
         </div>
         <div class="export-footer">
           <div>
-            <strong id="exportFormatLabel">A4 Standard</strong>
+            <strong id="exportFormatLabel">مقاس أ٤ القياسي</strong>
             <span id="exportHint" class="muted">مناسب لمعظم التقديمات في مصر والمنطقة.</span>
           </div>
           <button id="exportPdfBtn" class="primary-btn export-btn" type="button">فتح تصدير PDF</button>
@@ -242,9 +236,9 @@
         <div>
           <div class="preview-title-row">
             <strong>المعاينة</strong>
-            <span class="live-dot">Live</span>
+            <span class="live-dot">مباشر</span>
           </div>
-          <span id="previewMeta" class="muted">A4 / العربية / Classic ATS</span>
+          <span id="previewMeta" class="muted">A4 / العربية / قالب كلاسيكي</span>
         </div>
         <div class="template-pills" aria-label="اختيار سريع للقالب">
           <button type="button" data-template-quick="classic" class="template-pill active">Classic</button>
@@ -259,7 +253,7 @@
           <header class="cv-header">
             <h2 data-preview="fullName">اسمك الكامل</h2>
             <p class="cv-title" data-preview="targetTitle">المسمى الوظيفي</p>
-            <p class="cv-contact" id="previewContact">email@example.com · +20... · مصر · LinkedIn</p>
+            <p class="cv-contact" id="previewContact">email@example.com · +20... · مصر · الملف المهني</p>
           </header>
 
           <div id="cvSections">
