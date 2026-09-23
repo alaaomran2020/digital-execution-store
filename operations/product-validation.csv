@@ -1,0 +1,4 @@
+candidate_id,product_name,segment,problem_statement,target_customer,interviews_count,problem_confirmed_count,willing_to_pay_count,preorder_or_waitlist_count,competitor_or_alternative,expected_price_egp,build_effort_1_5,support_effort_1_5,repeatability_1_5,demand_score_1_5,decision,next_action,review_date,notes
+PV-001,Order Desk,business,تنظيم الطلبات من التسجيل حتى التسليم والمرتجع,أصحاب المشروعات الصغيرة والمتاجر,0,0,0,0,,0,0,0,0,0,VALIDATING,,,
+PV-002,Cash Desk,business,متابعة المقبوضات والمدفوعات والخزنة اليومية,أصحاب المشروعات الصغيرة والمتاجر,0,0,0,0,,0,0,0,0,0,VALIDATING,,,
+PV-003,Supplier Desk,business,تنظيم الموردين والمشتريات والمدفوع والمتبقي,أصحاب المشروعات الصغيرة والمتاجر,0,0,0,0,,0,0,0,0,0,VALIDATING,,,
