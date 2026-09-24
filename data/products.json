@@ -623,5 +623,99 @@
       "stage": "PUBLISHED",
       "published_version": "1.0.0"
     }
+  },
+  {
+    "schema_version": 3,
+    "slug": "pricing-calculator",
+    "name": "حاسبة تسعير المنتجات",
+    "category": "أدوات الأعمال",
+    "short_description": "أداة عربية لحساب سعر البيع والربح والهامش ومقارنة سيناريوهات التسعير.",
+    "price": 149,
+    "currency": "EGP",
+    "image": "",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Personal Use",
+    "resell_allowed": false,
+    "editable": false,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": false,
+    "demo_url": "https://digital-execution.cc/tools/pricing-calculator/",
+    "product_url": "products/pricing-calculator/",
+    "featured": true,
+    "last_updated": "2026-09-24",
+    "status": "published",
+    "identity": {
+      "product_type": "business_calculator",
+      "edition": "Commercial Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "أصحاب المشروعات الصغيرة والمتاجر",
+        "البائعون أونلاين"
+      ],
+      "problem": "صعوبة تحويل تكلفة المنتج والمصاريف إلى سعر بيع واضح مع فهم الربح والهامش.",
+      "alternatives": [],
+      "differentiation": [
+        "3 طرق حساب",
+        "مقارنة سيناريوهات",
+        "بدون API",
+        "بدون سيرفر",
+        "بدون اشتراك شهري"
+      ]
+    },
+    "offer": {
+      "outcome": "اتخاذ قرار تسعير أسرع مع رؤية واضحة للتكلفة والربح والهامش.",
+      "mechanism": "إدخال التكلفة والمصاريف ثم الحساب بنسبة الزيادة أو هامش الربح المستهدف أو سعر البيع المستهدف.",
+      "contents": [
+        "حاسبة تسعير المنتجات v1.0.0",
+        "3 طرق حساب",
+        "مقارنة سيناريوهات",
+        "نسخ النتائج",
+        "دليل استخدام مختصر"
+      ],
+      "limitations": [
+        "لا تمثل توصية بسعر السوق",
+        "لا تشمل استشارة محاسبية أو ضريبية",
+        "إعادة البيع أو التوزيع غير مسموح"
+      ]
+    },
+    "commerce": {
+      "price": 149,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": null,
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "live_demo",
+      "previews": [
+        "tools/pricing-calculator/"
+      ],
+      "license": {
+        "type": "Personal Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "Self-Service. يشمل دليل استخدام مختصر ولا يشمل تخصيصًا أو استشارة تسعير فردية."
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": false,
+      "update_policy": "الإصدار v1.0.0 شراء مرة واحدة، وأي إصدارات مستقبلية تُعلن شروطها بشكل مستقل."
+    },
+    "analytics": {
+      "product_slug": "pricing-calculator",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    },
+    "segment": "business"
   }
 ]
