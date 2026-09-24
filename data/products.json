@@ -717,5 +717,97 @@
       "published_version": "1.0.0"
     },
     "segment": "business"
+  },
+  {
+    "schema_version": 3,
+    "slug": "customer-sales-tracker",
+    "name": "متابعة العملاء والمبيعات",
+    "category": "قوالب وأدوات أعمال",
+    "short_description": "قالب عملي لإدارة العملاء وفرص البيع والمتابعات اليومية مع لوحة متابعة تلقائية.",
+    "price": 129,
+    "currency": "EGP",
+    "image": "",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Personal Use",
+    "resell_allowed": false,
+    "editable": true,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": false,
+    "demo_url": null,
+    "product_url": "products/customer-sales-tracker/",
+    "featured": true,
+    "last_updated": "2026-09-24",
+    "status": "published",
+    "identity": {
+      "product_type": "business_spreadsheet",
+      "edition": "Commercial Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "أصحاب المشروعات الصغيرة",
+        "البائعون عبر واتساب والسوشيال"
+      ],
+      "problem": "تشتت العملاء والمتابعات ومراحل البيع بين الرسائل والملاحظات وعدم معرفة من يحتاج متابعة.",
+      "alternatives": [],
+      "differentiation": [
+        "لوحة متابعة تلقائية",
+        "تنبيه للمتابعات المتأخرة",
+        "مراحل بيع موحدة",
+        "بدون اشتراك شهري"
+      ]
+    },
+    "offer": {
+      "outcome": "تنظيم العملاء وفرص البيع والمتابعة اليومية في ملف واحد واضح.",
+      "mechanism": "تسجيل كل عميل في صف واحد وتحديث مرحلة البيع وحالة الدفع والتسليم ومواعيد المتابعة، بينما تتحدث لوحة المتابعة تلقائيًا.",
+      "contents": [
+        "ملف XLSX جاهز",
+        "لوحة متابعة تلقائية",
+        "قوائم منسدلة للمراحل والمصادر",
+        "تنبيهات متابعة",
+        "رسوم ملخصة",
+        "دليل استخدام داخل الملف"
+      ],
+      "limitations": [
+        "لا يشمل خدمة CRM سحابية",
+        "لا يشمل تخصيصًا فرديًا",
+        "إعادة البيع أو التوزيع غير مسموح"
+      ]
+    },
+    "commerce": {
+      "price": 129,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": null,
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "product_description",
+      "previews": [],
+      "license": {
+        "type": "Personal Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "Self-Service. يشمل دليل استخدام داخل الملف ولا يشمل تخصيصًا أو إعدادًا نيابة عن العميل."
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": false,
+      "update_policy": "الإصدار v1.0.0 شراء مرة واحدة، وأي إصدارات مستقبلية تُعلن شروطها بشكل مستقل."
+    },
+    "analytics": {
+      "product_slug": "customer-sales-tracker",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    },
+    "segment": "business"
   }
 ]
