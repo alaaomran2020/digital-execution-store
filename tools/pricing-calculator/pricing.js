@@ -1,0 +1,5 @@
+const form=document.getElementById("pricingForm");
+const money=new Intl.NumberFormat("ar-EG",{style:"currency",currency:"EGP",maximumFractionDigits:2});
+const percent=new Intl.NumberFormat("ar-EG",{maximumFractionDigits:1});
+const value=id=>Math.max(0,Number(document.getElementById(id)?.value||0));
+form?.addEventListener("submit",event=>{event.preventDefault();const total=value("cost")+value("shipping")+value("extra");const markup=value("markup");const sale=total*(1+markup/100);const profit=sale-total;const margin=sale>0?(profit/sale)*100:0;document.getElementById("totalCost").textContent=money.format(total);document.getElementById("salePrice").textContent=money.format(sale);document.getElementById("profit").textContent=money.format(profit);document.getElementById("margin").textContent=percent.format(margin)+"٪";});
