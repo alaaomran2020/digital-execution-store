@@ -809,5 +809,101 @@
       "published_version": "1.0.0"
     },
     "segment": "business"
+  },
+  {
+    "schema_version": 3,
+    "slug": "break-even-calculator",
+    "name": "حاسبة نقطة التعادل والأرباح",
+    "category": "أدوات الأعمال",
+    "short_description": "أداة عربية لحساب نقطة التعادل والربح المستهدف وهامش الأمان ومقارنة السيناريوهات.",
+    "price": 149,
+    "currency": "EGP",
+    "image": "",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Personal Use",
+    "resell_allowed": false,
+    "editable": false,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": false,
+    "demo_url": "https://digital-execution.cc/tools/break-even-calculator/",
+    "product_url": "products/break-even-calculator/",
+    "featured": true,
+    "last_updated": "2026-09-25",
+    "status": "published",
+    "identity": {
+      "product_type": "business_calculator",
+      "edition": "Commercial Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "أصحاب المشروعات الصغيرة والمتاجر",
+        "البائعون أونلاين"
+      ],
+      "problem": "عدم وضوح أقل حجم مبيعات يغطي المصاريف وحجم المبيعات المطلوب لتحقيق ربح مستهدف.",
+      "alternatives": [],
+      "differentiation": [
+        "نقطة تعادل بالوحدات وبالجنيه",
+        "ربح مستهدف",
+        "هامش أمان",
+        "مقارنة سيناريوهات",
+        "بدون API",
+        "بدون سيرفر"
+      ]
+    },
+    "offer": {
+      "outcome": "معرفة نقطة التعادل وحجم المبيعات المطلوب للربح المستهدف قبل اتخاذ قرار السعر أو التكلفة.",
+      "mechanism": "إدخال المصاريف الثابتة وسعر البيع والتكلفة المتغيرة ثم حساب التعادل والربح المستهدف وهامش الأمان.",
+      "contents": [
+        "حاسبة نقطة التعادل والأرباح v1.0.0",
+        "ربح مستهدف",
+        "هامش أمان",
+        "مقارنة سيناريوهات",
+        "نسخ النتائج",
+        "دليل استخدام مختصر"
+      ],
+      "limitations": [
+        "لا تمثل استشارة محاسبية أو مالية",
+        "تعتمد النتائج على دقة المدخلات",
+        "إعادة البيع أو التوزيع غير مسموح"
+      ]
+    },
+    "commerce": {
+      "price": 149,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": null,
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "live_demo",
+      "previews": [
+        "tools/break-even-calculator/"
+      ],
+      "license": {
+        "type": "Personal Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "Self-Service. يشمل دليل استخدام ولا يشمل استشارة محاسبية أو تخصيصًا فرديًا."
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": false,
+      "update_policy": "الإصدار v1.0.0 شراء مرة واحدة، وأي إصدارات مستقبلية تُعلن شروطها بشكل مستقل."
+    },
+    "analytics": {
+      "product_slug": "break-even-calculator",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    },
+    "segment": "business"
   }
 ]
