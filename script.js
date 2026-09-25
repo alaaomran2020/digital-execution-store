@@ -362,3 +362,47 @@ function setupProductCards(){
   refreshFavoriteUI();
 }
 setupProductCards();
+
+
+// Professional site footer: shared across pages that load the main script.
+function setupProfessionalFooter(){
+  const footer=document.querySelector("footer");
+  if(!footer) return;
+
+  footer.className="site-footer-pro";
+  footer.innerHTML=
+    '<div class="container">'+
+      '<div class="footer-brand-block">'+
+        '<span class="footer-brand-mark" aria-hidden="true">DE</span>'+
+        '<strong>Digital Execution</strong>'+
+        '<p>منتجات رقمية عملية جاهزة، بترخيص وسعر وطريقة استلام واضحة.</p>'+
+      '</div>'+
+      '<div class="footer-contact-grid" aria-label="بيانات التواصل">'+
+        '<a class="footer-contact-card" href="mailto:contact@digital-execution.cc">'+
+          '<span>البريد الإلكتروني</span>'+
+          '<strong>contact@digital-execution.cc</strong>'+
+        '</a>'+
+        '<a class="footer-contact-card" href="https://wa.me/201011673107" target="_blank" rel="noopener noreferrer">'+
+          '<span>واتساب</span>'+
+          '<strong>01011673107</strong>'+
+        '</a>'+
+        '<div class="footer-contact-card">'+
+          '<span>فودافون كاش</span>'+
+          '<strong>01011673107</strong>'+
+        '</div>'+
+      '</div>'+
+      '<nav class="footer-nav-pro" aria-label="روابط الفوتر">'+
+        '<a href="/products/">المنتجات</a>'+
+        '<a href="/licenses.html">التراخيص</a>'+
+        '<a href="/updates/">التحديثات</a>'+
+        '<a href="/terms.html">الشروط</a>'+
+        '<a href="/privacy.html">الخصوصية</a>'+
+      '</nav>'+
+      '<div class="footer-divider" aria-hidden="true"></div>'+
+      '<div class="footer-bottom">'+
+        '<p class="footer-payment-note">الدفع عبر فودافون كاش على نفس رقم واتساب.</p>'+
+        '<p>© 2026 Digital Execution — جميع الحقوق محفوظة.</p>'+
+      '</div>'+
+    '</div>';
+}
+setupProfessionalFooter();
