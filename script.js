@@ -247,3 +247,118 @@ if("IntersectionObserver" in window){
 }
 
 // order stays a verified business event; it is never emitted from the public client before payment/order confirmation.
+
+
+// Product card interactions: favorites, filtering, sharing and lightweight feedback.
+const FAVORITES_KEY="de:favorites:v1";
+function readFavorites(){
+  try{
+    const value=JSON.parse(localStorage.getItem(FAVORITES_KEY)||"[]");
+    return Array.isArray(value)?new Set(value.filter(Boolean)):new Set();
+  }catch{return new Set()}
+}
+function writeFavorites(favorites){
+  try{localStorage.setItem(FAVORITES_KEY,JSON.stringify([...favorites]))}catch{}
+}
+function ensureToast(){
+  let toast=document.querySelector(".de-toast");
+  if(toast) return toast;
+  toast=document.createElement("div");
+  toast.className="de-toast";
+  toast.setAttribute("role","status");
+  toast.setAttribute("aria-live","polite");
+  document.body.appendChild(toast);
+  return toast;
+}
+let toastTimer=null;
+function showToast(message){
+  const toast=ensureToast();
+  toast.textContent=message;
+  toast.classList.add("is-visible");
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>toast.classList.remove("is-visible"),1800);
+}
+function setupProductCards(){
+  const cards=[...document.querySelectorAll("[data-product-card]")];
+  if(!cards.length) return;
+
+  let favorites=readFavorites();
+  const countEl=document.querySelector("[data-favorites-count]");
+  const filterBtn=document.querySelector("[data-favorites-filter]");
+  const emptyEl=document.querySelector("[data-favorites-empty]");
+
+  function applyFilter(){
+    const onlyFavorites=filterBtn?.getAttribute("aria-pressed")==="true";
+    let visible=0;
+    cards.forEach(card=>{
+      const show=!onlyFavorites||favorites.has(card.dataset.productSlug||"");
+      card.hidden=!show;
+      if(show) visible++;
+    });
+    if(emptyEl) emptyEl.hidden=!(onlyFavorites&&visible===0);
+  }
+
+  function refreshFavoriteUI(){
+    cards.forEach(card=>{
+      const slug=card.dataset.productSlug||"";
+      const active=favorites.has(slug);
+      const btn=card.querySelector("[data-favorite-toggle]");
+      if(btn){
+        btn.setAttribute("aria-pressed",String(active));
+        const icon=btn.querySelector("span");
+        if(icon) icon.textContent=active?"♥":"♡";
+        const title=card.dataset.productTitle||"المنتج";
+        btn.setAttribute("aria-label",(active?"إزالة ":"إضافة ")+title+(active?" من المفضلة":" إلى المفضلة"));
+      }
+    });
+    if(countEl) countEl.textContent=String(favorites.size);
+    applyFilter();
+  }
+
+  cards.forEach(card=>{
+    const favoriteBtn=card.querySelector("[data-favorite-toggle]");
+    favoriteBtn?.addEventListener("click",()=>{
+      const slug=card.dataset.productSlug||"";
+      const title=card.dataset.productTitle||"المنتج";
+      if(!slug) return;
+      const adding=!favorites.has(slug);
+      if(adding) favorites.add(slug); else favorites.delete(slug);
+      writeFavorites(favorites);
+      refreshFavoriteUI();
+      trackEvent(adding?"favorite_add":"favorite_remove",{product_slug:slug,source:"homepage",cta_location:"product_card"});
+      showToast(adding?"تمت إضافة "+title+" للمفضلة":"تمت إزالة "+title+" من المفضلة");
+    });
+
+    card.querySelector("[data-share-product]")?.addEventListener("click",async()=>{
+      const title=card.dataset.productTitle||"Digital Execution";
+      const relative=card.dataset.productUrl||"";
+      const url=new URL(relative,window.location.href).href;
+      try{
+        if(navigator.share){
+          await navigator.share({title,text:"شوف "+title+" على Digital Execution",url});
+        }else{
+          await navigator.clipboard.writeText(url);
+          showToast("تم نسخ رابط المنتج");
+        }
+        trackEvent("product_share",{product_slug:card.dataset.productSlug||"",source:"homepage",cta_location:"product_card"});
+      }catch(error){
+        if(error?.name!=="AbortError"){
+          try{
+            await navigator.clipboard.writeText(url);
+            showToast("تم نسخ رابط المنتج");
+          }catch{}
+        }
+      }
+    });
+  });
+
+  filterBtn?.addEventListener("click",()=>{
+    const active=filterBtn.getAttribute("aria-pressed")==="true";
+    filterBtn.setAttribute("aria-pressed",String(!active));
+    applyFilter();
+    trackEvent("favorites_filter",{source:"homepage",active:!active,favorites_count:favorites.size});
+  });
+
+  refreshFavoriteUI();
+}
+setupProductCards();
