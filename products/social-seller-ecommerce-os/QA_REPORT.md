@@ -1,4 +1,4 @@
-﻿# QA Report — v1.0.0
+# QA Report — v1.0.0
 
 ## Product Gate
 - Freelancer residue removal: PASS
@@ -22,8 +22,8 @@
 - Professional artwork: PASS — production PNG added and hash verified
 - OG artwork binding: PASS
 - ZIP + SHA256: PASS — delivery archive rebuilt without corrupt backup/temp files
-- Final QA: PENDING
+- Final QA: PASS — JavaScript syntax and Store QA passed on release candidate
 - Registry / Storefront publication: PASS — registry entry, storefront card and sitemap added
-- PR / Merge / Deploy / Live Verification: PENDING
+- PR: PASS — #63 opened; Merge / Deploy / Live Verification: PENDING
 
 Product Gate status: PASS for implemented v1.0.0 scope. Release pipeline has not started.
