@@ -21,4 +21,4 @@
 - Archive includes closed service files: PASS
 - Final approved delivery required before closure: PASS
 
-Product Gate: P1 CLOSED — final functional QA remains before 100%.
+## Final Functional QA`r`n- End-to-end workflow: PASS — lead → client → request → accepted quote → service case → task/appointment/follow-up/document/delivery → invoice → payment → expense → close.`r`n- Negative relationship and financial guards: PASS.`r`n- Case closure blockers: PASS.`r`n- Profitability calculation: PASS — test case revenue 1000, expense 200, cash profit 800.`r`n- Backup JSON roundtrip: PASS.`r`n- Restore validation: PASS — all 13 required collections verified and missing collection rejected.`r`n- JavaScript syntax: PASS.`r`n- Legacy Graphic Designer residue scan: PASS.`r`n`r`nProduct Gate: PASS — 100% for v1.0.0 implemented scope.
