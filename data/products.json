@@ -1852,5 +1852,115 @@
       "published_version": "1.0.0"
     },
     "image": "assets/social/product-clinic-medical-center-os-20260926.png"
+  },
+  {
+    "schema_version": 3,
+    "slug": "graphic-designer-business-os",
+    "name": "باكدج إدارة أعمال مصمم الجرافيك الاحترافي",
+    "category": "إدارة أعمال المصممين",
+    "segment": "professional",
+    "short_description": "نظام عربي لإدارة العملاء وطلبات التصميم وعروض الأسعار والمشاريع والمهام والتسليمات والتعديلات والتحصيل والربحية.",
+    "price": 699,
+    "currency": "EGP",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Professional Use",
+    "resell_allowed": false,
+    "editable": true,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": true,
+    "product_url": "products/graphic-designer-business-os/",
+    "featured": true,
+    "last_updated": "2026-09-26",
+    "status": "published",
+    "identity": {
+      "product_type": "graphic_designer_business_os",
+      "edition": "Graphic Designer Business OS",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "المصممون المستقلون",
+        "المطورون المستقلون",
+        "المسوقون والكتاب والمونتيرون والمترجمون والمستشارون المستقلون"
+      ],
+      "problem": "تشتت العملاء والمشاريع وعروض الأسعار والفواتير والتحصيل والمصروفات والمواعيد بين أدوات وملفات منفصلة.",
+      "alternatives": [
+        "جداول منفصلة",
+        "ملاحظات ومحادثات",
+        "أدوات باشتراكات شهرية"
+      ],
+      "differentiation": [
+        "Workflow مترابط من Lead إلى التحصيل",
+        "حاسبة تسعير",
+        "ربحية لكل مشروع",
+        "Backup / Restore",
+        "بدون API أو خادم أو اشتراك شهري"
+      ]
+    },
+    "offer": {
+      "outcome": "إدارة أعمال مصمم الجرافيك من طلب التصميم والـBrief حتى التسليم والتعديلات والتحصيل والربحية.",
+      "mechanism": "ربط العميل بطلب التصميم وعرض السعر والمشروع والمهام والتسليمات والتعديلات والفواتير والتحصيل.",
+      "contents": [
+        "لوحة التحكم",
+        "العملاء المحتملون",
+        "العملاء",
+        "طلبات التصميم والـBrief",
+        "عروض الأسعار",
+        "المشاريع",
+        "المهام",
+        "التسليمات والتعديلات",
+        "الفواتير",
+        "المدفوعات",
+        "المصروفات",
+        "حاسبة التسعير",
+        "التقارير والربحية",
+        "فحص الجودة",
+        "الأرشيف",
+        "Backup / Restore"
+      ],
+      "limitations": [
+        "نظام إدارة أعمال محلي",
+        "لا ينشئ التصميمات",
+        "لا يستبدل برامج التصميم",
+        "ليس نظام فوترة ضريبية معتمدًا"
+      ]
+    },
+    "commerce": {
+      "price": 699,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": "Graphic Designer Business OS",
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "product_system",
+      "previews": [
+        "assets/social/product-graphic-designer-business-os-20260926.png"
+      ],
+      "license": {
+        "type": "Professional Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "استخدام ذاتي مع دليل تشغيل؛ لا يشمل إدارة العملاء أو المشاريع نيابة عن المستخدم."
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": true,
+      "update_policy": "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
+    },
+    "analytics": {
+      "product_slug": "graphic-designer-business-os",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    },
+    "image": "assets/social/product-graphic-designer-business-os-20260926.png"
   }
 ]
