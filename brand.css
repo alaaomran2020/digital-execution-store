@@ -144,6 +144,11 @@ body:before{display:none}
 .home-product-card h3,.catalog-card h2{color:var(--de-navy)}
 .featured-card picture img{border:0;border-radius:0}
 
+/* Unified product cover system */
+.catalog-card>picture{aspect-ratio:1/1;width:100%;overflow:hidden;display:grid;place-items:center;background:#0b1220}
+.catalog-card>picture img{width:100%;height:100%;object-fit:contain;display:block}
+
+
 .product-hero{
   padding:8px;border:1px solid var(--line);border-radius:var(--radius-lg);
   background:var(--de-surface);box-shadow:var(--shadow-md)
