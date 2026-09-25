@@ -1006,7 +1006,7 @@
     "category": "أدوات مهنية هندسية",
     "segment": "professional",
     "short_description": "نظام عربي متكامل من الحصر وBOQ حتى المستخلصات والموقع والمشتريات والمكتب الفني.",
-    "price": 899,
+    "price": 699,
     "currency": "EGP",
     "image": "assets/social/product-civil-engineer-toolkit-20260925.webp",
     "version": "1.2.1",
@@ -1067,7 +1067,7 @@
       ]
     },
     "commerce": {
-      "price": 899,
+      "price": 699,
       "currency": "EGP",
       "billing": "one_time",
       "bundle": "Civil Engineer Professional Toolkit",
@@ -1108,7 +1108,7 @@
     "category": "أدوات مهنية محاسبية",
     "segment": "professional",
     "short_description": "نظام محاسبي عربي مترابط من القيود اليومية حتى الأستاذ وميزان المراجعة والعملاء والموردين والفواتير والقوائم المالية.",
-    "price": 799,
+    "price": 699,
     "currency": "EGP",
     "image": "assets/social/product-accountant-professional-toolkit-20260925.webp",
     "version": "1.2.0",
@@ -1167,7 +1167,7 @@
       ]
     },
     "commerce": {
-      "price": 799,
+      "price": 699,
       "currency": "EGP",
       "billing": "one_time",
       "bundle": "Accountant Professional Toolkit",
@@ -1208,7 +1208,7 @@
     "category": "أدوات مهنية قانونية",
     "segment": "professional",
     "short_description": "نظام عربي مترابط لإدارة العملاء والقضايا والجلسات والمهام والمستندات والإجراءات والأتعاب والمصروفات حتى الأرشفة والإغلاق.",
-    "price": 799,
+    "price": 699,
     "currency": "EGP",
     "image": "assets/social/product-lawyer-professional-toolkit-20260925.webp",
     "version": "1.0.0",
@@ -1279,7 +1279,7 @@
       ]
     },
     "commerce": {
-      "price": 799,
+      "price": 699,
       "currency": "EGP",
       "billing": "one_time",
       "bundle": "Lawyer Professional Toolkit",
@@ -1318,7 +1318,7 @@
     "name": "باكدج المهندس الزراعي الاحترافي",
     "category": "أدوات مهنية زراعية",
     "segment": "professional",
-    "price": 799,
+    "price": 699,
     "currency": "EGP",
     "version": "1.0.0",
     "editable": true,
@@ -1391,7 +1391,7 @@
       ]
     },
     "commerce": {
-      "price": 799,
+      "price": 699,
       "currency": "EGP",
       "billing": "one_time",
       "bundle": "Agricultural Engineer Toolkit",
