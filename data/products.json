@@ -1008,7 +1008,7 @@
     "short_description": "نظام عربي متكامل من الحصر وBOQ حتى المستخلصات والموقع والمشتريات والمكتب الفني.",
     "price": 699,
     "currency": "EGP",
-    "image": "assets/social/product-civil-engineer-toolkit-20260925.webp",
+    "image": "assets/social/ChatGPT Image Sep 25, 2026, 05_02_57 PM.png",
     "version": "1.2.1",
     "source_type": "Original",
     "license_type": "Professional Use",
@@ -1077,7 +1077,7 @@
     "trust": {
       "preview_type": "real_product_workbook",
       "previews": [
-        "assets/social/product-civil-engineer-toolkit-20260925.webp"
+        "assets/social/ChatGPT Image Sep 25, 2026, 05_02_57 PM.png"
       ],
       "license": {
         "type": "Professional Use",
@@ -1110,7 +1110,7 @@
     "short_description": "نظام محاسبي عربي مترابط من القيود اليومية حتى الأستاذ وميزان المراجعة والعملاء والموردين والفواتير والقوائم المالية.",
     "price": 699,
     "currency": "EGP",
-    "image": "assets/social/product-accountant-professional-toolkit-20260925.webp",
+    "image": "assets/social/ChatGPT Image Sep 25, 2026, 05_04_20 PM.png",
     "version": "1.2.0",
     "source_type": "Original",
     "license_type": "Professional Use",
@@ -1177,7 +1177,7 @@
     "trust": {
       "preview_type": "product_description",
       "previews": [
-        "assets/social/product-accountant-professional-toolkit-20260925.webp"
+        "assets/social/ChatGPT Image Sep 25, 2026, 05_04_20 PM.png"
       ],
       "license": {
         "type": "Professional Use",
@@ -1210,7 +1210,7 @@
     "short_description": "نظام عربي مترابط لإدارة العملاء والقضايا والجلسات والمهام والمستندات والإجراءات والأتعاب والمصروفات حتى الأرشفة والإغلاق.",
     "price": 699,
     "currency": "EGP",
-    "image": "assets/social/product-lawyer-professional-toolkit-20260925.webp",
+    "image": "assets/social/ChatGPT Image Sep 25, 2026, 05_02_54 PM.png",
     "version": "1.0.0",
     "source_type": "Original",
     "license_type": "Professional Use",
@@ -1289,7 +1289,7 @@
     "trust": {
       "preview_type": "product_system",
       "previews": [
-        "assets/social/product-lawyer-professional-toolkit-20260925.webp"
+        "assets/social/ChatGPT Image Sep 25, 2026, 05_02_54 PM.png"
       ],
       "license": {
         "type": "Professional Use",
@@ -1401,7 +1401,7 @@
     "trust": {
       "preview_type": "product_system",
       "previews": [
-        "assets/social/product-agricultural-engineer-toolkit-20260925.webp"
+        "assets/social/ChatGPT Image Sep 25, 2026, 05_02_50 PM.png"
       ],
       "license": {
         "type": "Professional Use",
@@ -1424,7 +1424,7 @@
       "includes_updates": true,
       "update_policy": "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
     },
-    "image": "assets/social/product-agricultural-engineer-toolkit-20260925.webp"
+    "image": "assets/social/ChatGPT Image Sep 25, 2026, 05_02_50 PM.png"
   },
   {
     "schema_version": 3,
@@ -1512,7 +1512,7 @@
     "trust": {
       "preview_type": "product_system",
       "previews": [
-        "assets/social/product-teacher-professional-toolkit-20260925.webp"
+        "assets/social/ChatGPT Image Sep 25, 2026, 05_02_34 PM.png"
       ],
       "license": {
         "type": "Professional Use",
@@ -1535,6 +1535,6 @@
       "stage": "PUBLISHED",
       "published_version": "1.0.0"
     },
-    "image": "assets/social/product-teacher-professional-toolkit-20260925.webp"
+    "image": "assets/social/ChatGPT Image Sep 25, 2026, 05_02_34 PM.png"
   }
 ]
