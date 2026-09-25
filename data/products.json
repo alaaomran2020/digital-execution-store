@@ -1422,5 +1422,113 @@
       "includes_updates": true,
       "update_policy": "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
     }
+  },
+  {
+    "schema_version": 3,
+    "slug": "teacher-professional-toolkit",
+    "name": "باكدج المدرس الاحترافي",
+    "category": "أدوات مهنية تعليمية",
+    "segment": "professional",
+    "short_description": "نظام عربي لإدارة الطلاب والمجموعات والحصص والحضور والواجبات والتقييمات والتحصيل والمتابعة.",
+    "price": 699,
+    "currency": "EGP",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Professional Use",
+    "resell_allowed": false,
+    "editable": true,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": true,
+    "product_url": "products/teacher-professional-toolkit/",
+    "featured": true,
+    "last_updated": "2026-09-25",
+    "status": "validating",
+    "identity": {
+      "product_type": "professional_teacher_management_bundle",
+      "edition": "Teacher Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "المعلمون",
+        "المدرسون الخصوصيون",
+        "مقدمو المجموعات التعليمية"
+      ],
+      "problem": "تشتت بيانات الطلاب والحصص والحضور والتقييمات والتحصيل والمتابعة.",
+      "alternatives": [
+        "دفاتر ورقية",
+        "جداول منفصلة",
+        "تطبيقات عامة غير مترابطة"
+      ],
+      "differentiation": [
+        "واجهة عربية RTL",
+        "ربط الطالب بالمجموعة والحصة",
+        "متابعة الحضور والواجبات والتقييم",
+        "المستحقات والتحصيل",
+        "فحص جودة وأرشفة",
+        "بدون API أو خادم"
+      ]
+    },
+    "offer": {
+      "outcome": "إدارة العمل التعليمي اليومي في نظام واحد مترابط.",
+      "mechanism": "ربط الطالب بالمجموعة ثم الحصص والحضور والواجبات والتقييمات والرسوم والمدفوعات والمتابعة.",
+      "contents": [
+        "لوحة التحكم",
+        "الطلاب",
+        "المجموعات والتسجيل",
+        "الحصص",
+        "الحضور",
+        "الواجبات والتسليم",
+        "التقييمات",
+        "الرسوم والمدفوعات",
+        "المتابعة",
+        "التقارير",
+        "فحص الجودة",
+        "الأرشفة",
+        "نسخ احتياطي واستعادة",
+        "دليل تشغيل",
+        "ترخيص",
+        "CHANGELOG",
+        "تقرير QA"
+      ],
+      "limitations": [
+        "أداة تنظيم وإدارة وليست منصة تعليم إلكتروني",
+        "لا تولد محتوى دراسيًا أو إجابات تلقائيًا",
+        "لا تستبدل التقييم التربوي للمدرس"
+      ]
+    },
+    "commerce": {
+      "price": 699,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": "Teacher Professional Toolkit",
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "product_system",
+      "previews": [],
+      "license": {
+        "type": "Professional Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "استخدام ذاتي مع دليل تشغيل؛ لا يشمل إعداد المحتوى الدراسي أو التدريس نيابة عن العميل."
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": true,
+      "update_policy": "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
+    },
+    "analytics": {
+      "product_slug": "teacher-professional-toolkit",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "VALIDATING",
+      "published_version": null
+    }
   }
 ]
