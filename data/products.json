@@ -1321,17 +1321,106 @@
     "price": 799,
     "currency": "EGP",
     "version": "1.0.0",
-    "license": "Professional Use",
-    "resell": false,
     "editable": true,
     "brandable": false,
-    "delivery": "Manual",
     "lifetime_updates": true,
-    "url": "products/agricultural-engineer-toolkit/",
     "featured": true,
     "last_updated": "2026-09-25",
     "status": "validating",
-    "product_type": "professional_agricultural_management_bundle",
-    "lifecycle_stage": "VALIDATING"
+    "schema_version": 3,
+    "short_description": "نظام عربي مترابط لإدارة المزارع والحقول والمواسم والعمليات والري والتسميد والمكافحة والمدخلات والمصروفات والحصاد.",
+    "source_type": "Original",
+    "license_type": "Professional Use",
+    "resell_allowed": false,
+    "delivery_type": "Manual",
+    "product_url": "products/agricultural-engineer-toolkit/",
+    "identity": {
+      "product_type": "professional_agricultural_management_bundle",
+      "edition": "Agricultural Engineer Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "المهندسون الزراعيون",
+        "مديرو المزارع",
+        "المشروعات الزراعية الصغيرة والمتوسطة"
+      ],
+      "problem": "تشتت بيانات الحقول والمواسم والعمليات والمدخلات والمصروفات والحصاد وصعوبة متابعة حالة الموسم.",
+      "alternatives": [
+        "جداول منفصلة",
+        "دفاتر ورقية",
+        "ملفات متابعة غير مترابطة"
+      ],
+      "differentiation": [
+        "واجهة عربية RTL",
+        "الموسم محور الربط",
+        "متابعة مخزون ومصروفات",
+        "ضوابط إغلاق الموسم",
+        "نسخ احتياطي محلي",
+        "بدون API أو سيرفر"
+      ]
+    },
+    "offer": {
+      "outcome": "إدارة دورة الموسم الزراعي من الحقل والخطة حتى الحصاد والإغلاق في نظام واحد.",
+      "mechanism": "ربط المزرعة بالحقل والموسم ثم العمليات والري والتسميد والمكافحة والمدخلات والمصروفات والحصاد.",
+      "contents": [
+        "لوحة تحكم",
+        "المزارع والحقول",
+        "المواسم والمحاصيل",
+        "العمليات والمهام",
+        "الري",
+        "التسميد",
+        "المكافحة والمتابعة",
+        "العمالة",
+        "المخزون والمدخلات",
+        "المصروفات",
+        "الحصاد والإنتاجية",
+        "إغلاق الموسم",
+        "فحص الجودة",
+        "نسخ احتياطي واستعادة",
+        "دليل تشغيل",
+        "ترخيص",
+        "CHANGELOG",
+        "تقرير QA"
+      ],
+      "limitations": [
+        "أداة تنظيم وإدارة وليست بديلًا عن المهندس الزراعي",
+        "لا تقدم تشخيصًا آليًا للأمراض",
+        "لا تقدم جرعات مبيدات أو أسمدة كتوصية",
+        "لا تعتمد على أسعار سوق أو طقس حي"
+      ]
+    },
+    "commerce": {
+      "price": 799,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": "Agricultural Engineer Toolkit",
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "product_system",
+      "previews": [],
+      "license": {
+        "type": "Professional Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "استخدام ذاتي مع دليل تشغيل؛ لا يشمل تقديم استشارات أو توصيات زراعية مهنية نيابة عن العميل."
+    },
+    "analytics": {
+      "product_slug": "agricultural-engineer-toolkit",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "VALIDATING",
+      "published_version": null
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": true,
+      "update_policy": "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
+    }
   }
 ]
