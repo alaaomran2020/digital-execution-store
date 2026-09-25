@@ -1443,7 +1443,7 @@
     "product_url": "products/teacher-professional-toolkit/",
     "featured": true,
     "last_updated": "2026-09-25",
-    "status": "validating",
+    "status": "published",
     "identity": {
       "product_type": "professional_teacher_management_bundle",
       "edition": "Teacher Edition",
@@ -1527,8 +1527,8 @@
       "trackable": true
     },
     "lifecycle": {
-      "stage": "VALIDATING",
-      "published_version": null
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
     }
   }
 ]
