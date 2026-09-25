@@ -1009,7 +1009,7 @@
     "price": 199,
     "currency": "EGP",
     "image": "assets/social/product-civil-quantity-takeoff.svg",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "source_type": "Original",
     "license_type": "Professional Use",
     "resell_allowed": false,
@@ -1043,6 +1043,8 @@
       "differentiation": [
         "واجهة عربية منظمة",
         "Workflow من القياس حتى الملخص",
+        "كود WBS لربط القياسات بالبند",
+        "قيمة تقديرية اختيارية من صافي الكمية وسعر الوحدة",
         "فحص جودة قبل الاعتماد",
         "بدون ماكرو أو API أو سيرفر",
         "حماية للصيغ مع مدخلات قابلة للتحرير"
@@ -1052,7 +1054,7 @@
       "outcome": "تنظيم قياسات المشروع وتحويلها إلى كميات صافية وكميات شراء قابلة للمراجعة مع ملخص حسب القسم.",
       "mechanism": "إدخال القياسات والأبعاد والخصومات ثم حساب الإجمالي والصافي والهالك تلقائيًا وتجميع النتائج في ملخص وفحص جودة.",
       "contents": [
-        "Civil Quantity Takeoff v1.0.0 XLSX",
+        "Civil Quantity Takeoff v1.1.0 XLSX",
         "بيانات Demo",
         "دليل استخدام عربي",
         "QA Checklist",
@@ -1096,7 +1098,7 @@
     },
     "lifecycle": {
       "stage": "PUBLISHED",
-      "published_version": "1.0.0"
+      "published_version": "1.1.0"
     }
   }
 ]
