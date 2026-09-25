@@ -1711,7 +1711,7 @@
     "short_description": "نظام محاسبي عربي مترابط من القيود اليومية حتى الأستاذ وميزان المراجعة والعملاء والموردين والفواتير والقوائم المالية.",
     "price": 799,
     "currency": "EGP",
-    "image": "assets/social/product-accountant-professional-toolkit.webp",
+    "image": "assets/social/product-accountant-professional-toolkit.svg",
     "version": "1.0.0",
     "source_type": "Original",
     "license_type": "Professional Use",
@@ -1778,7 +1778,7 @@
     "trust": {
       "preview_type": "product_description",
       "previews": [
-        "assets/social/product-accountant-professional-toolkit.webp"
+        "assets/social/product-accountant-professional-toolkit.svg"
       ],
       "license": {
         "type": "Professional Use",
