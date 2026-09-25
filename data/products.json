@@ -1747,5 +1747,110 @@
       "published_version": "1.0.0"
     },
     "image": "assets/social/product-social-seller-ecommerce-os-20260925.png"
+  },
+  {
+    "schema_version": 3,
+    "slug": "clinic-medical-center-os",
+    "name": "باكدج إدارة العيادات والمراكز الاحترافي",
+    "category": "إدارة العيادات والمراكز",
+    "segment": "professional",
+    "short_description": "نظام عربي لإدارة المرضى إداريًا والمواعيد والزيارات والخدمات والتحصيل والمصروفات والمتابعة والتقارير.",
+    "price": 699,
+    "currency": "EGP",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Professional Use",
+    "resell_allowed": false,
+    "editable": true,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": true,
+    "product_url": "products/clinic-medical-center-os/",
+    "featured": true,
+    "last_updated": "2026-09-26",
+    "status": "published",
+    "identity": {
+      "product_type": "clinic_medical_center_operations_os",
+      "edition": "Clinic / Medical Center Operations Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "أصحاب العيادات",
+        "مديرو المراكز الطبية الصغيرة",
+        "فرق الاستقبال والإدارة"
+      ],
+      "problem": "تشتت بيانات المرضى الإدارية والمواعيد والزيارات والتحصيل والمصروفات والمتابعة بين سجلات وأدوات منفصلة.",
+      "alternatives": [
+        "جداول منفصلة",
+        "دفاتر ورقية",
+        "أنظمة باشتراكات شهرية"
+      ],
+      "differentiation": [
+        "Workflow إداري مترابط",
+        "متابعة المواعيد والحضور",
+        "التحصيل والمبالغ المستحقة",
+        "Backup / Restore",
+        "بدون API أو خادم أو اشتراك شهري"
+      ]
+    },
+    "offer": {
+      "outcome": "إدارة دورة التشغيل الإداري للعيادة من تسجيل المريض والموعد حتى الزيارة والتحصيل والمتابعة والتقارير.",
+      "mechanism": "ربط المريض بالموعد والزيارة والخدمة والتحصيل ثم متابعة المصروفات والمتابعات والتقارير.",
+      "contents": [
+        "لوحة التحكم",
+        "المرضى",
+        "المواعيد",
+        "الزيارات والخدمات",
+        "التحصيل",
+        "المصروفات",
+        "المتابعة الإدارية",
+        "التقارير",
+        "فحص الجودة",
+        "الأرشيف",
+        "Backup / Restore"
+      ],
+      "limitations": [
+        "نظام تشغيل إداري محلي",
+        "لا يخزن تشخيصات أو وصفات أو نتائج فحوصات",
+        "ليس نظام سجلات طبية إلكترونية",
+        "لا يقدم قرارًا طبيًا"
+      ]
+    },
+    "commerce": {
+      "price": 699,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": "Clinic / Medical Center Operations OS",
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "product_system",
+      "previews": [
+        "assets/social/product-clinic-medical-center-os-20260926.png"
+      ],
+      "license": {
+        "type": "Professional Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "استخدام ذاتي مع دليل تشغيل؛ لا يشمل إدارة العيادة نيابة عن المستخدم."
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": true,
+      "update_policy": "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
+    },
+    "analytics": {
+      "product_slug": "clinic-medical-center-os",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    },
+    "image": "assets/social/product-clinic-medical-center-os-20260926.png"
   }
 ]
