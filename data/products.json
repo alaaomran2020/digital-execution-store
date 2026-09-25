@@ -1658,7 +1658,7 @@
         "trust":  {
                       "preview_type":  "product_system",
                       "previews":  [
-
+                                       "assets/social/product-freelancer-business-os-20260925.png"
                                    ],
                       "license":  {
                                       "type":  "Professional Use",
@@ -1681,6 +1681,6 @@
                           "stage":  "PUBLISHED",
                           "published_version":  "1.0.0"
                       },
-        "image":  ""
+        "image":  "assets/social/product-freelancer-business-os-20260925.png"
     }
 ]
