@@ -30,3 +30,11 @@
 - كشف الواجبات بلا تسليم: PASS
 
 ملاحظة QA: تم ربط تغيير حالة الحصة بعنصر تحكم ظاهر في الواجهة. Final source-level functional QA: PASS.
+
+## إغلاق النشر — 25 سبتمبر 2026
+- Store QA النهائي: PASS — run 36139493688 على HEAD 2aa9cd1d6e2d079c8d68c11e0364443ebc0322d4.
+- GitHub Pages النهائي: PASS — run 36139493748 على نفس HEAD.
+- Registry: PUBLISHED — v1.0.0.
+- Sitemap: PASS.
+- Production Verification عبر HTTP الخارجي: BLOCKED — أداة التحقق الخارجية لا تستطيع الوصول إلى digital-execution.cc من بيئة الفحص الحالية. هذا لا يلغي إثبات نجاح النشر، لكنه يمنع تسجيل فحص HTTP الحي كـPASS.
+- رقم الإصدار: بقي v1.0.0؛ لا توجد زيادة إصدار صورية.
