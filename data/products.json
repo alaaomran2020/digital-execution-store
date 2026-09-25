@@ -1609,7 +1609,7 @@
     "short_description": "نظام عربي متكامل من الحصر وBOQ حتى المستخلصات والموقع والمشتريات والمكتب الفني.",
     "price": 899,
     "currency": "EGP",
-    "image": "assets/social/product-civil-engineer-toolkit-20260925.webp",
+    "image": "assets/social/product-civil-engineer-toolkit.webp",
     "version": "1.0.0",
     "source_type": "Original",
     "license_type": "Professional Use",
@@ -1678,7 +1678,7 @@
     "trust": {
       "preview_type": "real_product_workbook",
       "previews": [
-        "assets/social/product-civil-engineer-toolkit-20260925.webp"
+        "assets/social/product-civil-engineer-toolkit.webp"
       ],
       "license": {
         "type": "Professional Use",
@@ -1695,6 +1695,106 @@
     },
     "analytics": {
       "product_slug": "civil-engineer-toolkit",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    }
+  },
+  {
+    "schema_version": 3,
+    "slug": "accountant-professional-toolkit",
+    "name": "باكدج المحاسب الاحترافي",
+    "category": "أدوات مهنية محاسبية",
+    "segment": "professional",
+    "short_description": "نظام محاسبي عربي مترابط من القيود اليومية حتى الأستاذ وميزان المراجعة والعملاء والموردين والفواتير والقوائم المالية.",
+    "price": 799,
+    "currency": "EGP",
+    "image": "assets/social/product-accountant-professional-toolkit.webp",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Professional Use",
+    "resell_allowed": false,
+    "editable": true,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": true,
+    "demo_url": null,
+    "product_url": "products/accountant-professional-toolkit/",
+    "featured": true,
+    "last_updated": "2026-09-25",
+    "status": "published",
+    "identity": {
+      "product_type": "professional_accounting_bundle",
+      "edition": "Accountant Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "المحاسبون",
+        "أصحاب المشروعات الصغيرة والمتوسطة",
+        "مسؤولو الحسابات"
+      ],
+      "problem": "تشتت القيود والأستاذ وأرصدة العملاء والموردين والفواتير والقوائم المالية بين ملفات منفصلة بدون مسار محاسبي واحد.",
+      "alternatives": [
+        "ملفات Excel منفصلة",
+        "متابعة محاسبية يدوية متفرقة"
+      ],
+      "differentiation": [
+        "واجهة عربية",
+        "مسار مترابط من المستند حتى القوائم المالية",
+        "مفاتيح ربط موحدة للحسابات والأطراف والمستندات",
+        "بدون API أو سيرفر أو ماكرو"
+      ]
+    },
+    "offer": {
+      "outcome": "تشغيل دورة محاسبية منظمة من القيود اليومية حتى التقارير والقوائم المالية من حزمة واحدة.",
+      "mechanism": "استخدام أكواد موحدة للمنشأة والحساب والطرف والمستند عبر الأنظمة.",
+      "contents": [
+        "نظام الحسابات اليومية 1.0.0",
+        "دفتر الأستاذ وميزان المراجعة المتقدم 1.0.0",
+        "العملاء والموردون المحاسبي 1.0.0",
+        "المبيعات والمشتريات المحاسبية 1.0.0",
+        "القوائم المالية 1.0.0",
+        "لوحة المحاسب المركزية 1.0.0",
+        "دليل تشغيل موحد",
+        "فحص تكامل"
+      ],
+      "limitations": [
+        "لا يستبدل المحاسب المختص أو النظام القانوني المعتمد",
+        "لا يتضمن نسب ضرائب مفترضة",
+        "لا يشمل تقديم الإقرارات أو الاستشارات الضريبية"
+      ]
+    },
+    "commerce": {
+      "price": 799,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": "Accountant Professional Toolkit",
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "product_description",
+      "previews": [
+        "assets/social/product-accountant-professional-toolkit.webp"
+      ],
+      "license": {
+        "type": "Professional Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "Self-Service مع دليل تشغيل. لا يشمل إدخال البيانات أو مسك الحسابات نيابة عن العميل."
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": true,
+      "update_policy": "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
+    },
+    "analytics": {
+      "product_slug": "accountant-professional-toolkit",
       "trackable": true
     },
     "lifecycle": {
