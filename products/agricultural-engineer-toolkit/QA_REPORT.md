@@ -1,0 +1,18 @@
+# تقرير QA — v1.0.0
+
+تاريخ البداية: 25 سبتمبر 2026
+
+- Scope: PASS
+- Duplicate Gate: PASS — لا يوجد منتج زراعي مسجل حاليًا في Product Registry.
+- Data Model: PASS مبدئي
+- التطبيق التشغيلي: OPEN
+- CRUD والعلاقات: OPEN
+- Dashboard/Alerts: OPEN
+- حزمة التسليم: OPEN
+- صفحة البيع: OPEN
+- Registry: OPEN
+- Store QA: OPEN
+- Pages Deployment: OPEN
+- Production Verification: OPEN
+
+الحالة: الإصدار قيد البناء ولا يُعلن جاهزًا للبيع.
