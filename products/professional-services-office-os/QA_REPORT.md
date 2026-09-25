@@ -10,4 +10,15 @@
 - Case closure controls: PASS
 - Backup / Restore schema validation: PASS
 
-Product Gate: NOT FINAL — P1 and final functional QA remain.
+## P1 Closure
+- Dashboard operational KPIs: PASS
+- Reports and per-case cash profitability: PASS
+- Quote → request → client integrity: PASS
+- Accepted quote required when quote is supplied: PASS
+- Duplicate service-request execution blocked: PASS
+- Invoice cap and payment overrun controls: PASS
+- Quality checks for orphan and overdue records: PASS
+- Archive includes closed service files: PASS
+- Final approved delivery required before closure: PASS
+
+Product Gate: P1 CLOSED — final functional QA remains before 100%.
