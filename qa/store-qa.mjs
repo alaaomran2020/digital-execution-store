@@ -57,6 +57,11 @@ for(const p of products){
   }
 }
 
+const homepage=read("index.html");
+for(const p of products.filter(x=>x.status==="published"&&x.segment==="professional")){
+  if(!homepage.includes(`data-product-slug="${p.slug}"`)) fail(p.slug+": published professional package missing from homepage storefront");
+  if(!homepage.includes(`href="${p.product_url}`)) fail(p.slug+": homepage storefront link missing");
+}
 const sitemap=read("sitemap.xml");
 for(const p of products.filter(x=>x.status==="published")){
   const url="https://digital-execution.cc/"+p.product_url;
