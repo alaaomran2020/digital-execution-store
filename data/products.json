@@ -1,1686 +1,1751 @@
 [
-    {
-        "schema_version":  3,
-        "slug":  "restock-desk",
-        "name":  "ReStock Desk",
-        "category":  "برامج وأنظمة",
-        "short_description":  "برنامج عربي لإدارة المخزون والنواقص وإعادة الطلب للمتاجر.",
-        "price":  399,
-        "currency":  "EGP",
-        "image":  "assets/restock/dashboard.png",
-        "version":  "1.2.2",
-        "source_type":  "Original",
-        "license_type":  "Commercial Use",
-        "resell_allowed":  false,
-        "editable":  false,
-        "brandable":  false,
-        "delivery_type":  "Manual",
-        "lifetime_updates":  true,
-        "demo_url":  "https://restock-desk.pages.dev",
-        "product_url":  "products/restock-desk/",
-        "featured":  true,
-        "last_updated":  "2026-09-22",
-        "status":  "published",
-        "identity":  {
-                         "product_type":  "software",
-                         "edition":  "Self-Service Edition",
-                         "brand":  "Digital Execution"
-                     },
-        "market":  {
-                       "audience":  [
-                                        "أصحاب المتاجر",
-                                        "الأنشطة التي تحتاج متابعة المخزون والنواقص وإعادة الطلب"
-                                    ],
-                       "problem":  "صعوبة معرفة الأصناف الناقصة وتجميع احتياجات إعادة الطلب حسب المورد بسرعة ووضوح.",
-                       "alternatives":  [
-
-                                        ],
-                       "differentiation":  [
-                                               "يعمل محليًا على الكمبيوتر",
-                                               "بدون API",
-                                               "بدون سيرفر",
-                                               "بدون اشتراك شهري"
-                                           ]
-                   },
-        "offer":  {
-                      "outcome":  "معرفة النواقص وتحديث الكميات وتجميع احتياجات الموردين من مكان واحد.",
-                      "mechanism":  "تحديث المخزون ثم تحديد الأصناف عند حد إعادة الطلب وتجميع الاحتياج حسب المورد.",
-                      "contents":  [
-                                       "ReStock Desk v1.2.2",
-                                       "قالب CSV جاهز للاستيراد",
-                                       "بيانات Demo",
-                                       "دليل استخدام عربي",
-                                       "دليل حل المشاكل",
-                                       "Backup / Restore",
-                                       "ترخيص استخدام"
-                                   ],
-                      "limitations":  [
-                                          "Self-Service بدون تركيب عن بُعد",
-                                          "لا يشمل تخصيصًا",
-                                          "لا يشمل دعمًا فنيًا فرديًا",
-                                          "البيانات محفوظة محليًا في المتصفح ويُنصح بعمل Backup دوري"
-                                      ]
-                  },
-        "commerce":  {
-                         "price":  399,
-                         "currency":  "EGP",
-                         "billing":  "one_time",
-                         "bundle":  null,
-                         "upgrade":  null,
-                         "payment_method":  "Vodafone Cash"
-                     },
-        "trust":  {
-                      "preview_type":  "real_product_screenshots",
-                      "previews":  [
-                                       "assets/restock/dashboard.png",
-                                       "assets/restock/inventory.png",
-                                       "assets/restock/shortages.png",
-                                       "assets/restock/suppliers.png"
-                                   ],
-                      "license":  {
-                                      "type":  "Commercial Use",
-                                      "resell_allowed":  false,
-                                      "transferable":  false
-                                  },
-                      "support_policy":  "Self-Service بدون تركيب أو تخصيص أو دعم فردي."
-                  },
-        "delivery":  {
-                         "method":  "manual_after_payment_verification",
-                         "channel":  "WhatsApp",
-                         "includes_updates":  true,
-                         "update_policy":  "تحديثات ReStock Desk الرسمية مدى الحياة."
-                     },
-        "analytics":  {
-                          "product_slug":  "restock-desk",
-                          "trackable":  true
-                      },
-        "lifecycle":  {
-                          "stage":  "PUBLISHED",
-                          "published_version":  "1.2.2"
-                      },
-        "segment":  "business"
+  {
+    "schema_version": 3,
+    "slug": "restock-desk",
+    "name": "ReStock Desk",
+    "category": "برامج وأنظمة",
+    "short_description": "برنامج عربي لإدارة المخزون والنواقص وإعادة الطلب للمتاجر.",
+    "price": 399,
+    "currency": "EGP",
+    "image": "assets/restock/dashboard.png",
+    "version": "1.2.2",
+    "source_type": "Original",
+    "license_type": "Commercial Use",
+    "resell_allowed": false,
+    "editable": false,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": true,
+    "demo_url": "https://restock-desk.pages.dev",
+    "product_url": "products/restock-desk/",
+    "featured": true,
+    "last_updated": "2026-09-22",
+    "status": "published",
+    "identity": {
+      "product_type": "software",
+      "edition": "Self-Service Edition",
+      "brand": "Digital Execution"
     },
-    {
-        "schema_version":  3,
-        "slug":  "career-kit",
-        "name":  "Career Kit",
-        "category":  "قوالب وأدوات مهنية",
-        "short_description":  "باكدج عملي لتجهيز CV وLinkedIn والتقديم للوظائف للخريجين وأصحاب الخبرة.",
-        "price":  249,
-        "currency":  "EGP",
-        "image":  "assets/career-kit/career-kit-cover.svg",
-        "version":  "1.0.0",
-        "source_type":  "Original",
-        "license_type":  "Personal Use",
-        "resell_allowed":  false,
-        "editable":  true,
-        "brandable":  false,
-        "delivery_type":  "Manual",
-        "lifetime_updates":  false,
-        "demo_url":  null,
-        "product_url":  "products/career-kit/",
-        "featured":  true,
-        "last_updated":  "2026-09-23",
-        "status":  "published",
-        "identity":  {
-                         "product_type":  "career_toolkit",
-                         "edition":  "Fresh Graduate + Experienced",
-                         "brand":  "Digital Execution"
-                     },
-        "market":  {
-                       "audience":  [
-                                        "الخريجون الجدد",
-                                        "الموظفون وأصحاب الخبرة الباحثون عن فرصة جديدة"
-                                    ],
-                       "problem":  "تشتت تجهيز ملف التقديم للوظائف بين الـCV وLinkedIn وCover Letter ومتابعة التقديم والاستعداد للمقابلة.",
-                       "alternatives":  [
-
-                                        ],
-                       "differentiation":  [
-                                               "مسار Fresh Graduate مستقل",
-                                               "مسار Experienced مستقل",
-                                               "Workflow متكامل من تجهيز الـCV حتى متابعة التقديم وتحضير المقابلة",
-                                               "Arabic + English"
-                                           ]
-                   },
-        "offer":  {
-                      "outcome":  "تجهيز وتنظيم ملف التقديم المهني ومتابعة التقديمات في Workflow واحد.",
-                      "mechanism":  "اختيار المسار المهني ثم تجهيز CV وLinkedIn وCover Letter ومتابعة الطلبات والاستعداد للمقابلات.",
-                      "contents":  [
-                                       "CV Templates",
-                                       "Cover Letter Kit",
-                                       "LinkedIn Kit",
-                                       "Content Builder",
-                                       "Job Application Tracker",
-                                       "Interview Starter Pack",
-                                       "PDF Previews",
-                                       "Guidebook",
-                                       "License"
-                                   ],
-                      "limitations":  [
-                                          "لا يضمن الحصول على وظيفة",
-                                          "لا يضمن اجتياز ATS بعينه",
-                                          "إعادة البيع أو التوزيع أو مشاركة ملفات المصدر غير مسموح"
-                                      ]
-                  },
-        "commerce":  {
-                         "price":  249,
-                         "currency":  "EGP",
-                         "billing":  "one_time",
-                         "bundle":  null,
-                         "upgrade":  null,
-                         "payment_method":  "Vodafone Cash"
-                     },
-        "trust":  {
-                      "preview_type":  "product_previews",
-                      "previews":  [
-                                       "assets/career-kit/career-kit-preview-fresh.svg",
-                                       "assets/career-kit/career-kit-preview-experienced.svg",
-                                       "assets/career-kit/career-kit-preview-tracker.svg"
-                                   ],
-                      "license":  {
-                                      "type":  "Personal Use",
-                                      "resell_allowed":  false,
-                                      "transferable":  false
-                                  },
-                      "support_policy":  "Self-Service. يشمل Guidebook وإرشادات الاستخدام، ولا يشمل كتابة CV أو LinkedIn نيابة عن العميل أو مراجعة فردية."
-                  },
-        "delivery":  {
-                         "method":  "manual_after_payment_verification",
-                         "channel":  "WhatsApp",
-                         "includes_updates":  false,
-                         "update_policy":  "الإصدار v1.0.0 يُسلَّم كشراء مرة واحدة. أي تحديثات أو إصدارات لاحقة تُعلن شروطها بشكل مستقل."
-                     },
-        "analytics":  {
-                          "product_slug":  "career-kit",
-                          "trackable":  true
-                      },
-        "lifecycle":  {
-                          "stage":  "PUBLISHED",
-                          "published_version":  "1.0.0"
-                      },
-        "segment":  "career"
+    "market": {
+      "audience": [
+        "أصحاب المتاجر",
+        "الأنشطة التي تحتاج متابعة المخزون والنواقص وإعادة الطلب"
+      ],
+      "problem": "صعوبة معرفة الأصناف الناقصة وتجميع احتياجات إعادة الطلب حسب المورد بسرعة ووضوح.",
+      "alternatives": [],
+      "differentiation": [
+        "يعمل محليًا على الكمبيوتر",
+        "بدون API",
+        "بدون سيرفر",
+        "بدون اشتراك شهري"
+      ]
     },
-    {
-        "schema_version":  3,
-        "slug":  "order-desk",
-        "name":  "Order Desk",
-        "category":  "إدارة الطلبات",
-        "segment":  "business",
-        "short_description":  "نظّم الطلبات من التسجيل حتى التسليم والمرتجع.",
-        "price":  0,
-        "currency":  "EGP",
-        "image":  "",
-        "version":  "0.0.0",
-        "source_type":  "Original",
-        "license_type":  "TBD",
-        "resell_allowed":  false,
-        "editable":  false,
-        "brandable":  false,
-        "delivery_type":  "TBD",
-        "lifetime_updates":  false,
-        "demo_url":  null,
-        "product_url":  "products/#validation",
-        "featured":  false,
-        "last_updated":  "2026-09-23",
-        "status":  "validating",
-        "identity":  {
-                         "product_type":  "business_tool",
-                         "edition":  null,
-                         "brand":  "Digital Execution"
-                     },
-        "market":  {
-                       "audience":  [
-                                        "أصحاب المشروعات الصغيرة والمتاجر"
-                                    ],
-                       "problem":  "نظّم الطلبات من التسجيل حتى التسليم والمرتجع.",
-                       "alternatives":  [
-
-                                        ],
-                       "differentiation":  [
-                                               "قيد التحقق من الطلب قبل البناء"
-                                           ]
-                   },
-        "offer":  {
-                      "outcome":  "متابعة الطلبات والعملاء وحالات التنفيذ بشكل أوضح.",
-                      "mechanism":  "يتم تحديده بعد إغلاق مرحلة التحقق من الطلب.",
-                      "contents":  [
-
-                                   ],
-                      "limitations":  [
-                                          "المنتج غير متاح للبيع حاليًا."
-                                      ]
-                  },
-        "commerce":  {
-                         "price":  0,
-                         "currency":  "EGP",
-                         "billing":  "TBD",
-                         "bundle":  null,
-                         "upgrade":  null,
-                         "payment_method":  null
-                     },
-        "trust":  {
-                      "preview_type":  "validation_only",
-                      "previews":  [
-
-                                   ],
-                      "license":  {
-                                      "type":  "TBD",
-                                      "resell_allowed":  false,
-                                      "transferable":  false
-                                  },
-                      "support_policy":  "يتم تحديد سياسة الدعم قبل الانتقال إلى OFFER_READY."
-                  },
-        "delivery":  {
-                         "method":  "TBD",
-                         "channel":  null,
-                         "includes_updates":  false,
-                         "update_policy":  "يتم تحديد سياسة التحديث قبل النشر التجاري."
-                     },
-        "analytics":  {
-                          "product_slug":  "order-desk",
-                          "trackable":  true
-                      },
-        "lifecycle":  {
-                          "stage":  "VALIDATING",
-                          "published_version":  null
-                      }
+    "offer": {
+      "outcome": "معرفة النواقص وتحديث الكميات وتجميع احتياجات الموردين من مكان واحد.",
+      "mechanism": "تحديث المخزون ثم تحديد الأصناف عند حد إعادة الطلب وتجميع الاحتياج حسب المورد.",
+      "contents": [
+        "ReStock Desk v1.2.2",
+        "قالب CSV جاهز للاستيراد",
+        "بيانات Demo",
+        "دليل استخدام عربي",
+        "دليل حل المشاكل",
+        "Backup / Restore",
+        "ترخيص استخدام"
+      ],
+      "limitations": [
+        "Self-Service بدون تركيب عن بُعد",
+        "لا يشمل تخصيصًا",
+        "لا يشمل دعمًا فنيًا فرديًا",
+        "البيانات محفوظة محليًا في المتصفح ويُنصح بعمل Backup دوري"
+      ]
     },
-    {
-        "schema_version":  3,
-        "slug":  "cash-desk",
-        "name":  "Cash Desk",
-        "category":  "الإدارة المالية",
-        "segment":  "business",
-        "short_description":  "تابع المقبوضات والمدفوعات والخزنة اليومية.",
-        "price":  0,
-        "currency":  "EGP",
-        "image":  "",
-        "version":  "0.0.0",
-        "source_type":  "Original",
-        "license_type":  "TBD",
-        "resell_allowed":  false,
-        "editable":  false,
-        "brandable":  false,
-        "delivery_type":  "TBD",
-        "lifetime_updates":  false,
-        "demo_url":  null,
-        "product_url":  "products/#validation",
-        "featured":  false,
-        "last_updated":  "2026-09-23",
-        "status":  "validating",
-        "identity":  {
-                         "product_type":  "business_tool",
-                         "edition":  null,
-                         "brand":  "Digital Execution"
-                     },
-        "market":  {
-                       "audience":  [
-                                        "أصحاب المشروعات الصغيرة والمتاجر"
-                                    ],
-                       "problem":  "تابع المقبوضات والمدفوعات والخزنة اليومية.",
-                       "alternatives":  [
-
-                                        ],
-                       "differentiation":  [
-                                               "قيد التحقق من الطلب قبل البناء"
-                                           ]
-                   },
-        "offer":  {
-                      "outcome":  "معرفة حركة الأموال والرصيد المتوقع والفعلي بشكل أوضح.",
-                      "mechanism":  "يتم تحديده بعد إغلاق مرحلة التحقق من الطلب.",
-                      "contents":  [
-
-                                   ],
-                      "limitations":  [
-                                          "المنتج غير متاح للبيع حاليًا."
-                                      ]
-                  },
-        "commerce":  {
-                         "price":  0,
-                         "currency":  "EGP",
-                         "billing":  "TBD",
-                         "bundle":  null,
-                         "upgrade":  null,
-                         "payment_method":  null
-                     },
-        "trust":  {
-                      "preview_type":  "validation_only",
-                      "previews":  [
-
-                                   ],
-                      "license":  {
-                                      "type":  "TBD",
-                                      "resell_allowed":  false,
-                                      "transferable":  false
-                                  },
-                      "support_policy":  "يتم تحديد سياسة الدعم قبل الانتقال إلى OFFER_READY."
-                  },
-        "delivery":  {
-                         "method":  "TBD",
-                         "channel":  null,
-                         "includes_updates":  false,
-                         "update_policy":  "يتم تحديد سياسة التحديث قبل النشر التجاري."
-                     },
-        "analytics":  {
-                          "product_slug":  "cash-desk",
-                          "trackable":  true
-                      },
-        "lifecycle":  {
-                          "stage":  "VALIDATING",
-                          "published_version":  null
-                      }
+    "commerce": {
+      "price": 399,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": null,
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
     },
-    {
-        "schema_version":  3,
-        "slug":  "supplier-desk",
-        "name":  "Supplier Desk",
-        "category":  "إدارة الموردين",
-        "segment":  "business",
-        "short_description":  "نظّم الموردين والمشتريات والمدفوع والمتبقي.",
-        "price":  0,
-        "currency":  "EGP",
-        "image":  "",
-        "version":  "0.0.0",
-        "source_type":  "Original",
-        "license_type":  "TBD",
-        "resell_allowed":  false,
-        "editable":  false,
-        "brandable":  false,
-        "delivery_type":  "TBD",
-        "lifetime_updates":  false,
-        "demo_url":  null,
-        "product_url":  "products/#validation",
-        "featured":  false,
-        "last_updated":  "2026-09-23",
-        "status":  "validating",
-        "identity":  {
-                         "product_type":  "business_tool",
-                         "edition":  null,
-                         "brand":  "Digital Execution"
-                     },
-        "market":  {
-                       "audience":  [
-                                        "أصحاب المشروعات الصغيرة والمتاجر"
-                                    ],
-                       "problem":  "نظّم الموردين والمشتريات والمدفوع والمتبقي.",
-                       "alternatives":  [
-
-                                        ],
-                       "differentiation":  [
-                                               "قيد التحقق من الطلب قبل البناء"
-                                           ]
-                   },
-        "offer":  {
-                      "outcome":  "متابعة الموردين والمشتريات والاستحقاقات وآخر أسعار الشراء.",
-                      "mechanism":  "يتم تحديده بعد إغلاق مرحلة التحقق من الطلب.",
-                      "contents":  [
-
-                                   ],
-                      "limitations":  [
-                                          "المنتج غير متاح للبيع حاليًا."
-                                      ]
-                  },
-        "commerce":  {
-                         "price":  0,
-                         "currency":  "EGP",
-                         "billing":  "TBD",
-                         "bundle":  null,
-                         "upgrade":  null,
-                         "payment_method":  null
-                     },
-        "trust":  {
-                      "preview_type":  "validation_only",
-                      "previews":  [
-
-                                   ],
-                      "license":  {
-                                      "type":  "TBD",
-                                      "resell_allowed":  false,
-                                      "transferable":  false
-                                  },
-                      "support_policy":  "يتم تحديد سياسة الدعم قبل الانتقال إلى OFFER_READY."
-                  },
-        "delivery":  {
-                         "method":  "TBD",
-                         "channel":  null,
-                         "includes_updates":  false,
-                         "update_policy":  "يتم تحديد سياسة التحديث قبل النشر التجاري."
-                     },
-        "analytics":  {
-                          "product_slug":  "supplier-desk",
-                          "trackable":  true
-                      },
-        "lifecycle":  {
-                          "stage":  "VALIDATING",
-                          "published_version":  null
-                      }
+    "trust": {
+      "preview_type": "real_product_screenshots",
+      "previews": [
+        "assets/restock/dashboard.png",
+        "assets/restock/inventory.png",
+        "assets/restock/shortages.png",
+        "assets/restock/suppliers.png"
+      ],
+      "license": {
+        "type": "Commercial Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "Self-Service بدون تركيب أو تخصيص أو دعم فردي."
     },
-    {
-        "schema_version":  3,
-        "slug":  "business-control-pack",
-        "name":  "Business Control Pack",
-        "category":  "إدارة الأعمال",
-        "segment":  "business",
-        "short_description":  "نظام Google Sheets بسيط لمتابعة المبيعات والمصروفات والتدفق النقدي والربح.",
-        "price":  249,
-        "currency":  "EGP",
-        "image":  "assets/restock/dashboard.png",
-        "version":  "1.0.0",
-        "source_type":  "Original",
-        "license_type":  "Commercial Use",
-        "resell_allowed":  false,
-        "editable":  true,
-        "brandable":  false,
-        "delivery_type":  "Restricted Google Drive Copy",
-        "lifetime_updates":  false,
-        "demo_url":  null,
-        "product_url":  "products/business-control-pack/",
-        "featured":  false,
-        "last_updated":  "2026-09-24",
-        "status":  "published",
-        "identity":  {
-                         "product_type":  "business_toolkit",
-                         "edition":  "Self-Service Edition",
-                         "brand":  "Digital Execution"
-                     },
-        "market":  {
-                       "audience":  [
-                                        "أصحاب المتاجر والمشروعات الصغيرة",
-                                        "مستخدمو ReStock Desk الذين يحتاجون متابعة مالية أبسط"
-                                    ],
-                       "problem":  "المبيعات والمصروفات والتدفق النقدي موزعة بين دفاتر وملفات مختلفة بدون ملخص واحد واضح.",
-                       "alternatives":  [
-                                            "جداول منفصلة غير مترابطة",
-                                            "متابعة يدوية بدون Dashboard"
-                                        ],
-                       "differentiation":  [
-                                               "Google Sheets جاهز",
-                                               "Dashboard تلقائي",
-                                               "بدون اشتراك شهري",
-                                               "Self-Service"
-                                           ]
-                   },
-        "offer":  {
-                      "outcome":  "متابعة المبيعات والمصروفات وصافي الربح والتدفق النقدي من ملف واحد.",
-                      "mechanism":  "تسجيل العمليات في جداول بسيطة ثم تلخيصها تلقائيًا داخل Dashboard.",
-                      "contents":  [
-                                       "Dashboard",
-                                       "Sales Tracker",
-                                       "Expenses Tracker",
-                                       "Cash Flow Tracker",
-                                       "Setup \u0026 License"
-                                   ],
-                      "limitations":  [
-                                          "لا يشمل محاسبة قانونية أو ضريبية",
-                                          "لا يشمل إدخال بيانات أو تخصيص فردي",
-                                          "يتطلب حساب Google لاستخدام Google Sheets"
-                                      ]
-                  },
-        "commerce":  {
-                         "price":  249,
-                         "currency":  "EGP",
-                         "billing":  "one_time",
-                         "bundle":  null,
-                         "upgrade":  "business-bundle",
-                         "payment_method":  "Vodafone Cash"
-                     },
-        "trust":  {
-                      "preview_type":  "product_description",
-                      "previews":  [
-
-                                   ],
-                      "license":  {
-                                      "type":  "Commercial Use",
-                                      "resell_allowed":  false,
-                                      "transferable":  false
-                                  },
-                      "support_policy":  "Self-Service بدون إدخال بيانات أو تخصيص أو دعم فردي."
-                  },
-        "delivery":  {
-                         "method":  "restricted_drive_copy_after_payment_verification",
-                         "channel":  "Google Drive + WhatsApp",
-                         "includes_updates":  false,
-                         "update_policy":  "يشمل الإصدار الذي تم شراؤه؛ أي إصدارات رئيسية جديدة تُحدد سياستها عند الإصدار."
-                     },
-        "analytics":  {
-                          "product_slug":  "business-control-pack",
-                          "trackable":  true
-                      },
-        "lifecycle":  {
-                          "stage":  "PUBLISHED",
-                          "published_version":  "1.0.0"
-                      }
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": true,
+      "update_policy": "تحديثات ReStock Desk الرسمية مدى الحياة."
     },
-    {
-        "schema_version":  3,
-        "slug":  "business-bundle",
-        "name":  "Business Bundle",
-        "category":  "إدارة الأعمال",
-        "segment":  "business",
-        "short_description":  "ReStock Desk + Business Control Pack في حزمة واحدة لإدارة المخزون والمتابعة المالية المبسطة.",
-        "price":  549,
-        "currency":  "EGP",
-        "image":  "assets/restock/dashboard.png",
-        "version":  "1.0.0",
-        "source_type":  "Original Bundle",
-        "license_type":  "Commercial Use",
-        "resell_allowed":  false,
-        "editable":  false,
-        "brandable":  false,
-        "delivery_type":  "Mixed Self-Service Delivery",
-        "lifetime_updates":  false,
-        "demo_url":  null,
-        "product_url":  "products/business-bundle/",
-        "featured":  true,
-        "last_updated":  "2026-09-24",
-        "status":  "published",
-        "identity":  {
-                         "product_type":  "business_bundle",
-                         "edition":  "Self-Service Bundle",
-                         "brand":  "Digital Execution"
-                     },
-        "market":  {
-                       "audience":  [
-                                        "أصحاب المتاجر والمشروعات الصغيرة"
-                                    ],
-                       "problem":  "الحاجة لتنظيم المخزون والمتابعة المالية الأساسية بدون الاشتراك في أنظمة متعددة.",
-                       "alternatives":  [
-                                            "شراء الأدوات منفصلة",
-                                            "استخدام ملفات متفرقة"
-                                        ],
-                       "differentiation":  [
-                                               "ReStock Desk + Business Control Pack",
-                                               "سعر حزمة أقل من شراء المنتجين منفصلين",
-                                               "بدون اشتراك شهري",
-                                               "Self-Service"
-                                           ]
-                   },
-        "offer":  {
-                      "outcome":  "متابعة المخزون والنواقص والمبيعات والمصروفات والتدفق النقدي من نظامين متكاملين في حزمة واحدة.",
-                      "mechanism":  "ReStock Desk لإدارة المخزون وإعادة الطلب + Business Control Pack للمتابعة المالية التشغيلية.",
-                      "contents":  [
-                                       "ReStock Desk v1.2.2",
-                                       "Business Control Pack v1.0.0",
-                                       "Quick Start",
-                                       "FAQ \u0026 Troubleshooting"
-                                   ],
-                      "limitations":  [
-                                          "لا يشمل تركيبًا أو تخصيصًا فرديًا",
-                                          "Business Control Pack ليس نظام محاسبة قانونية أو ضريبية"
-                                      ]
-                  },
-        "commerce":  {
-                         "price":  549,
-                         "currency":  "EGP",
-                         "billing":  "one_time",
-                         "bundle":  [
-                                        "restock-desk",
-                                        "business-control-pack"
-                                    ],
-                         "upgrade":  null,
-                         "payment_method":  "Vodafone Cash"
-                     },
-        "trust":  {
-                      "preview_type":  "bundle_of_published_products",
-                      "previews":  [
-                                       "assets/restock/dashboard.png"
-                                   ],
-                      "license":  {
-                                      "type":  "Commercial Use",
-                                      "resell_allowed":  false,
-                                      "transferable":  false
-                                  },
-                      "support_policy":  "Self-Service. لا يشمل تركيبًا أو تخصيصًا أو إدخال بيانات."
-                  },
-        "delivery":  {
-                         "method":  "post_verification_self_service_bundle",
-                         "channel":  "Google Drive + WhatsApp",
-                         "includes_updates":  false,
-                         "update_policy":  "ReStock Desk يتبع سياسة تحديثاته الحالية، وBusiness Control Pack يتبع سياسة الإصدار المشترى."
-                     },
-        "analytics":  {
-                          "product_slug":  "business-bundle",
-                          "trackable":  true
-                      },
-        "lifecycle":  {
-                          "stage":  "PUBLISHED",
-                          "published_version":  "1.0.0"
-                      }
+    "analytics": {
+      "product_slug": "restock-desk",
+      "trackable": true
     },
-    {
-        "schema_version":  3,
-        "slug":  "pricing-calculator",
-        "name":  "حاسبة تسعير المنتجات",
-        "category":  "أدوات الأعمال",
-        "short_description":  "أداة عربية لحساب سعر البيع والربح والهامش ومقارنة سيناريوهات التسعير.",
-        "price":  149,
-        "currency":  "EGP",
-        "image":  "assets/social/product-pricing-calculator.webp",
-        "version":  "1.0.0",
-        "source_type":  "Original",
-        "license_type":  "Personal Use",
-        "resell_allowed":  false,
-        "editable":  false,
-        "brandable":  false,
-        "delivery_type":  "Manual",
-        "lifetime_updates":  false,
-        "demo_url":  "https://digital-execution.cc/tools/pricing-calculator/",
-        "product_url":  "products/pricing-calculator/",
-        "featured":  true,
-        "last_updated":  "2026-09-24",
-        "status":  "published",
-        "identity":  {
-                         "product_type":  "business_calculator",
-                         "edition":  "Commercial Edition",
-                         "brand":  "Digital Execution"
-                     },
-        "market":  {
-                       "audience":  [
-                                        "أصحاب المشروعات الصغيرة والمتاجر",
-                                        "البائعون أونلاين"
-                                    ],
-                       "problem":  "صعوبة تحويل تكلفة المنتج والمصاريف إلى سعر بيع واضح مع فهم الربح والهامش.",
-                       "alternatives":  [
-
-                                        ],
-                       "differentiation":  [
-                                               "3 طرق حساب",
-                                               "مقارنة سيناريوهات",
-                                               "بدون API",
-                                               "بدون سيرفر",
-                                               "بدون اشتراك شهري"
-                                           ]
-                   },
-        "offer":  {
-                      "outcome":  "اتخاذ قرار تسعير أسرع مع رؤية واضحة للتكلفة والربح والهامش.",
-                      "mechanism":  "إدخال التكلفة والمصاريف ثم الحساب بنسبة الزيادة أو هامش الربح المستهدف أو سعر البيع المستهدف.",
-                      "contents":  [
-                                       "حاسبة تسعير المنتجات v1.0.0",
-                                       "3 طرق حساب",
-                                       "مقارنة سيناريوهات",
-                                       "نسخ النتائج",
-                                       "دليل استخدام مختصر"
-                                   ],
-                      "limitations":  [
-                                          "لا تمثل توصية بسعر السوق",
-                                          "لا تشمل استشارة محاسبية أو ضريبية",
-                                          "إعادة البيع أو التوزيع غير مسموح"
-                                      ]
-                  },
-        "commerce":  {
-                         "price":  149,
-                         "currency":  "EGP",
-                         "billing":  "one_time",
-                         "bundle":  null,
-                         "upgrade":  null,
-                         "payment_method":  "Vodafone Cash"
-                     },
-        "trust":  {
-                      "preview_type":  "live_demo",
-                      "previews":  [
-                                       "tools/pricing-calculator/"
-                                   ],
-                      "license":  {
-                                      "type":  "Personal Use",
-                                      "resell_allowed":  false,
-                                      "transferable":  false
-                                  },
-                      "support_policy":  "Self-Service. يشمل دليل استخدام مختصر ولا يشمل تخصيصًا أو استشارة تسعير فردية."
-                  },
-        "delivery":  {
-                         "method":  "manual_after_payment_verification",
-                         "channel":  "WhatsApp",
-                         "includes_updates":  false,
-                         "update_policy":  "الإصدار v1.0.0 شراء مرة واحدة، وأي إصدارات مستقبلية تُعلن شروطها بشكل مستقل."
-                     },
-        "analytics":  {
-                          "product_slug":  "pricing-calculator",
-                          "trackable":  true
-                      },
-        "lifecycle":  {
-                          "stage":  "PUBLISHED",
-                          "published_version":  "1.0.0"
-                      },
-        "segment":  "business"
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.2.2"
     },
-    {
-        "schema_version":  3,
-        "slug":  "customer-sales-tracker",
-        "name":  "متابعة العملاء والمبيعات",
-        "category":  "قوالب وأدوات أعمال",
-        "short_description":  "قالب عملي لإدارة العملاء وفرص البيع والمتابعات اليومية مع لوحة متابعة تلقائية.",
-        "price":  129,
-        "currency":  "EGP",
-        "image":  "assets/social/product-customer-sales-tracker.webp",
-        "version":  "1.0.0",
-        "source_type":  "Original",
-        "license_type":  "Personal Use",
-        "resell_allowed":  false,
-        "editable":  true,
-        "brandable":  false,
-        "delivery_type":  "Manual",
-        "lifetime_updates":  false,
-        "demo_url":  null,
-        "product_url":  "products/customer-sales-tracker/",
-        "featured":  true,
-        "last_updated":  "2026-09-24",
-        "status":  "published",
-        "identity":  {
-                         "product_type":  "business_spreadsheet",
-                         "edition":  "Commercial Edition",
-                         "brand":  "Digital Execution"
-                     },
-        "market":  {
-                       "audience":  [
-                                        "أصحاب المشروعات الصغيرة",
-                                        "البائعون عبر واتساب والسوشيال"
-                                    ],
-                       "problem":  "تشتت العملاء والمتابعات ومراحل البيع بين الرسائل والملاحظات وعدم معرفة من يحتاج متابعة.",
-                       "alternatives":  [
-
-                                        ],
-                       "differentiation":  [
-                                               "لوحة متابعة تلقائية",
-                                               "تنبيه للمتابعات المتأخرة",
-                                               "مراحل بيع موحدة",
-                                               "بدون اشتراك شهري"
-                                           ]
-                   },
-        "offer":  {
-                      "outcome":  "تنظيم العملاء وفرص البيع والمتابعة اليومية في ملف واحد واضح.",
-                      "mechanism":  "تسجيل كل عميل في صف واحد وتحديث مرحلة البيع وحالة الدفع والتسليم ومواعيد المتابعة، بينما تتحدث لوحة المتابعة تلقائيًا.",
-                      "contents":  [
-                                       "ملف XLSX جاهز",
-                                       "لوحة متابعة تلقائية",
-                                       "قوائم منسدلة للمراحل والمصادر",
-                                       "تنبيهات متابعة",
-                                       "رسوم ملخصة",
-                                       "دليل استخدام داخل الملف"
-                                   ],
-                      "limitations":  [
-                                          "لا يشمل خدمة CRM سحابية",
-                                          "لا يشمل تخصيصًا فرديًا",
-                                          "إعادة البيع أو التوزيع غير مسموح"
-                                      ]
-                  },
-        "commerce":  {
-                         "price":  129,
-                         "currency":  "EGP",
-                         "billing":  "one_time",
-                         "bundle":  null,
-                         "upgrade":  null,
-                         "payment_method":  "Vodafone Cash"
-                     },
-        "trust":  {
-                      "preview_type":  "product_description",
-                      "previews":  [
-
-                                   ],
-                      "license":  {
-                                      "type":  "Personal Use",
-                                      "resell_allowed":  false,
-                                      "transferable":  false
-                                  },
-                      "support_policy":  "Self-Service. يشمل دليل استخدام داخل الملف ولا يشمل تخصيصًا أو إعدادًا نيابة عن العميل."
-                  },
-        "delivery":  {
-                         "method":  "manual_after_payment_verification",
-                         "channel":  "WhatsApp",
-                         "includes_updates":  false,
-                         "update_policy":  "الإصدار v1.0.0 شراء مرة واحدة، وأي إصدارات مستقبلية تُعلن شروطها بشكل مستقل."
-                     },
-        "analytics":  {
-                          "product_slug":  "customer-sales-tracker",
-                          "trackable":  true
-                      },
-        "lifecycle":  {
-                          "stage":  "PUBLISHED",
-                          "published_version":  "1.0.0"
-                      },
-        "segment":  "business"
+    "segment": "business"
+  },
+  {
+    "schema_version": 3,
+    "slug": "career-kit",
+    "name": "Career Kit",
+    "category": "قوالب وأدوات مهنية",
+    "short_description": "باكدج عملي لتجهيز CV وLinkedIn والتقديم للوظائف للخريجين وأصحاب الخبرة.",
+    "price": 249,
+    "currency": "EGP",
+    "image": "assets/career-kit/career-kit-cover.svg",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Personal Use",
+    "resell_allowed": false,
+    "editable": true,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": false,
+    "demo_url": null,
+    "product_url": "products/career-kit/",
+    "featured": true,
+    "last_updated": "2026-09-23",
+    "status": "published",
+    "identity": {
+      "product_type": "career_toolkit",
+      "edition": "Fresh Graduate + Experienced",
+      "brand": "Digital Execution"
     },
-    {
-        "schema_version":  3,
-        "slug":  "break-even-calculator",
-        "name":  "حاسبة نقطة التعادل والأرباح",
-        "category":  "أدوات الأعمال",
-        "short_description":  "أداة عربية لحساب نقطة التعادل والربح المستهدف وهامش الأمان ومقارنة السيناريوهات.",
-        "price":  149,
-        "currency":  "EGP",
-        "image":  "assets/social/product-break-even-calculator.webp",
-        "version":  "1.0.0",
-        "source_type":  "Original",
-        "license_type":  "Personal Use",
-        "resell_allowed":  false,
-        "editable":  false,
-        "brandable":  false,
-        "delivery_type":  "Manual",
-        "lifetime_updates":  false,
-        "demo_url":  "https://digital-execution.cc/tools/break-even-calculator/",
-        "product_url":  "products/break-even-calculator/",
-        "featured":  true,
-        "last_updated":  "2026-09-25",
-        "status":  "published",
-        "identity":  {
-                         "product_type":  "business_calculator",
-                         "edition":  "Commercial Edition",
-                         "brand":  "Digital Execution"
-                     },
-        "market":  {
-                       "audience":  [
-                                        "أصحاب المشروعات الصغيرة والمتاجر",
-                                        "البائعون أونلاين"
-                                    ],
-                       "problem":  "عدم وضوح أقل حجم مبيعات يغطي المصاريف وحجم المبيعات المطلوب لتحقيق ربح مستهدف.",
-                       "alternatives":  [
-
-                                        ],
-                       "differentiation":  [
-                                               "نقطة تعادل بالوحدات وبالجنيه",
-                                               "ربح مستهدف",
-                                               "هامش أمان",
-                                               "مقارنة سيناريوهات",
-                                               "بدون API",
-                                               "بدون سيرفر"
-                                           ]
-                   },
-        "offer":  {
-                      "outcome":  "معرفة نقطة التعادل وحجم المبيعات المطلوب للربح المستهدف قبل اتخاذ قرار السعر أو التكلفة.",
-                      "mechanism":  "إدخال المصاريف الثابتة وسعر البيع والتكلفة المتغيرة ثم حساب التعادل والربح المستهدف وهامش الأمان.",
-                      "contents":  [
-                                       "حاسبة نقطة التعادل والأرباح v1.0.0",
-                                       "ربح مستهدف",
-                                       "هامش أمان",
-                                       "مقارنة سيناريوهات",
-                                       "نسخ النتائج",
-                                       "دليل استخدام مختصر"
-                                   ],
-                      "limitations":  [
-                                          "لا تمثل استشارة محاسبية أو مالية",
-                                          "تعتمد النتائج على دقة المدخلات",
-                                          "إعادة البيع أو التوزيع غير مسموح"
-                                      ]
-                  },
-        "commerce":  {
-                         "price":  149,
-                         "currency":  "EGP",
-                         "billing":  "one_time",
-                         "bundle":  null,
-                         "upgrade":  null,
-                         "payment_method":  "Vodafone Cash"
-                     },
-        "trust":  {
-                      "preview_type":  "live_demo",
-                      "previews":  [
-                                       "tools/break-even-calculator/"
-                                   ],
-                      "license":  {
-                                      "type":  "Personal Use",
-                                      "resell_allowed":  false,
-                                      "transferable":  false
-                                  },
-                      "support_policy":  "Self-Service. يشمل دليل استخدام ولا يشمل استشارة محاسبية أو تخصيصًا فرديًا."
-                  },
-        "delivery":  {
-                         "method":  "manual_after_payment_verification",
-                         "channel":  "WhatsApp",
-                         "includes_updates":  false,
-                         "update_policy":  "الإصدار v1.0.0 شراء مرة واحدة، وأي إصدارات مستقبلية تُعلن شروطها بشكل مستقل."
-                     },
-        "analytics":  {
-                          "product_slug":  "break-even-calculator",
-                          "trackable":  true
-                      },
-        "lifecycle":  {
-                          "stage":  "PUBLISHED",
-                          "published_version":  "1.0.0"
-                      },
-        "segment":  "business"
+    "market": {
+      "audience": [
+        "الخريجون الجدد",
+        "الموظفون وأصحاب الخبرة الباحثون عن فرصة جديدة"
+      ],
+      "problem": "تشتت تجهيز ملف التقديم للوظائف بين الـCV وLinkedIn وCover Letter ومتابعة التقديم والاستعداد للمقابلة.",
+      "alternatives": [],
+      "differentiation": [
+        "مسار Fresh Graduate مستقل",
+        "مسار Experienced مستقل",
+        "Workflow متكامل من تجهيز الـCV حتى متابعة التقديم وتحضير المقابلة",
+        "Arabic + English"
+      ]
     },
-    {
-        "schema_version":  3,
-        "slug":  "expense-profit-tracker",
-        "name":  "متابعة المصروفات والأرباح",
-        "category":  "الإدارة المالية",
-        "segment":  "business",
-        "short_description":  "قالب Excel عربي لمتابعة الإيرادات والمصروفات وصافي الربح وهامش الربح.",
-        "price":  129,
-        "currency":  "EGP",
-        "image":  "assets/social/product-expense-profit-tracker.webp",
-        "version":  "1.0.0",
-        "source_type":  "Original",
-        "license_type":  "Personal Use",
-        "resell_allowed":  false,
-        "editable":  true,
-        "brandable":  false,
-        "delivery_type":  "Manual",
-        "lifetime_updates":  false,
-        "demo_url":  null,
-        "product_url":  "products/expense-profit-tracker/",
-        "featured":  true,
-        "last_updated":  "2026-09-25",
-        "status":  "published",
-        "identity":  {
-                         "product_type":  "financial_tracker",
-                         "edition":  "Commercial Edition",
-                         "brand":  "Digital Execution"
-                     },
-        "market":  {
-                       "audience":  [
-                                        "أصحاب المشروعات الصغيرة والمتاجر",
-                                        "البائعون أونلاين"
-                                    ],
-                       "problem":  "تشتت تسجيل الإيرادات والمصروفات وعدم وضوح صافي الربح وهامش الربح شهريًا.",
-                       "alternatives":  [
-
-                                        ],
-                       "differentiation":  [
-                                               "Excel جاهز",
-                                               "Dashboard تلقائي",
-                                               "ملخص شهري",
-                                               "بدون API",
-                                               "بدون سيرفر"
-                                           ]
-                   },
-        "offer":  {
-                      "outcome":  "معرفة حركة الإيرادات والمصروفات وصافي الربح وهامش الربح من ملف واحد.",
-                      "mechanism":  "تسجيل كل حركة مالية ثم تجميعها تلقائيًا في لوحة أرباح وملخص شهري وتحليل للفئات.",
-                      "contents":  [
-                                       "Expense Profit Tracker v1.0.0",
-                                       "لوحة الأرباح",
-                                       "سجل الإيرادات والمصروفات",
-                                       "تحليل فئات المصروفات",
-                                       "ملخص شهري",
-                                       "دليل استخدام"
-                                   ],
-                      "limitations":  [
-                                          "لا يمثل نظامًا محاسبيًا قانونيًا",
-                                          "لا يشمل استشارة ضريبية أو محاسبية",
-                                          "إعادة البيع أو التوزيع غير مسموح"
-                                      ]
-                  },
-        "commerce":  {
-                         "price":  129,
-                         "currency":  "EGP",
-                         "billing":  "one_time",
-                         "bundle":  null,
-                         "upgrade":  null,
-                         "payment_method":  "Vodafone Cash"
-                     },
-        "trust":  {
-                      "preview_type":  "product_page",
-                      "previews":  [
-
-                                   ],
-                      "license":  {
-                                      "type":  "Personal Use",
-                                      "resell_allowed":  false,
-                                      "transferable":  false
-                                  },
-                      "support_policy":  "Self-Service. يشمل دليل استخدام ولا يشمل تخصيصًا أو إدخال بيانات نيابة عن العميل."
-                  },
-        "delivery":  {
-                         "method":  "manual_after_payment_verification",
-                         "channel":  "WhatsApp",
-                         "includes_updates":  false,
-                         "update_policy":  "الإصدار v1.0.0 شراء مرة واحدة، وأي إصدارات مستقبلية تُعلن شروطها بشكل مستقل."
-                     },
-        "analytics":  {
-                          "product_slug":  "expense-profit-tracker",
-                          "trackable":  true
-                      },
-        "lifecycle":  {
-                          "stage":  "PUBLISHED",
-                          "published_version":  "1.0.0"
-                      }
+    "offer": {
+      "outcome": "تجهيز وتنظيم ملف التقديم المهني ومتابعة التقديمات في Workflow واحد.",
+      "mechanism": "اختيار المسار المهني ثم تجهيز CV وLinkedIn وCover Letter ومتابعة الطلبات والاستعداد للمقابلات.",
+      "contents": [
+        "CV Templates",
+        "Cover Letter Kit",
+        "LinkedIn Kit",
+        "Content Builder",
+        "Job Application Tracker",
+        "Interview Starter Pack",
+        "PDF Previews",
+        "Guidebook",
+        "License"
+      ],
+      "limitations": [
+        "لا يضمن الحصول على وظيفة",
+        "لا يضمن اجتياز ATS بعينه",
+        "إعادة البيع أو التوزيع أو مشاركة ملفات المصدر غير مسموح"
+      ]
     },
-    {
-        "schema_version":  3,
-        "slug":  "civil-engineer-toolkit",
-        "name":  "باكدج المهندس المدني الاحترافي",
-        "category":  "أدوات مهنية هندسية",
-        "segment":  "professional",
-        "short_description":  "نظام عربي متكامل من الحصر وBOQ حتى المستخلصات والموقع والمشتريات والمكتب الفني.",
-        "price":  699,
-        "currency":  "EGP",
-        "image":  "assets/social/product-civil-engineer-toolkit-20260925.webp",
-        "version":  "1.2.1",
-        "source_type":  "Original",
-        "license_type":  "Professional Use",
-        "resell_allowed":  false,
-        "editable":  true,
-        "brandable":  false,
-        "delivery_type":  "Manual",
-        "lifetime_updates":  true,
-        "demo_url":  null,
-        "product_url":  "products/civil-engineer-toolkit/",
-        "featured":  true,
-        "last_updated":  "2026-09-25",
-        "status":  "published",
-        "identity":  {
-                         "product_type":  "professional_engineering_bundle",
-                         "edition":  "Civil Engineer Edition",
-                         "brand":  "Digital Execution"
-                     },
-        "market":  {
-                       "audience":  [
-                                        "المهندسون المدنيون",
-                                        "مهندسو المكتب الفني",
-                                        "مهندسو حصر الكميات",
-                                        "مهندسو الموقع",
-                                        "المقاولون الصغار والمتوسطون"
-                                    ],
-                       "problem":  "نظام عربي متكامل من الحصر وBOQ حتى المستخلصات والموقع والمشتريات والمكتب الفني.",
-                       "alternatives":  [
-                                            "ملفات Excel منفصلة",
-                                            "متابعة يدوية متفرقة"
-                                        ],
-                       "differentiation":  [
-                                               "واجهة عربية RTL",
-                                               "مفتاح ربط موحد: رقم المشروع + كود WBS",
-                                               "بدون API أو سيرفر أو ماكرو",
-                                               "Self-Service"
-                                           ]
-                   },
-        "offer":  {
-                      "outcome":  "نظام عربي متكامل من الحصر وBOQ حتى المستخلصات والموقع والمشتريات والمكتب الفني.",
-                      "mechanism":  "تشغيل الأدوات على نفس تعريف المشروع وكود WBS.",
-                      "contents":  [
-                                       "حصر الكميات 1.1.0",
-                                       "مدير جدول الكميات 1.0.0",
-                                       "نظام المستخلصات 1.0.0",
-                                       "التقرير اليومي للموقع 1.0.0",
-                                       "متابعة المواد والمشتريات 1.0.0",
-                                       "أدوات المكتب الفني 1.0.0",
-                                       "مركز تحكم موحد",
-                                       "دليل تشغيل موحد"
-                                   ],
-                      "limitations":  [
-                                          "لا يستبدل المراجعة الهندسية أو التعاقدية",
-                                          "لا يقرأ الرسومات تلقائيًا",
-                                          "لا يعتمد على أسعار سوق تلقائية"
-                                      ]
-                  },
-        "commerce":  {
-                         "price":  699,
-                         "currency":  "EGP",
-                         "billing":  "one_time",
-                         "bundle":  "Civil Engineer Professional Toolkit",
-                         "upgrade":  null,
-                         "payment_method":  "Vodafone Cash"
-                     },
-        "trust":  {
-                      "preview_type":  "real_product_workbook",
-                      "previews":  [
-                                       "assets/social/product-civil-engineer-toolkit-20260925.webp"
-                                   ],
-                      "license":  {
-                                      "type":  "Professional Use",
-                                      "resell_allowed":  false,
-                                      "transferable":  false
-                                  },
-                      "support_policy":  "Self-Service مع دليل استخدام. لا يشمل تنفيذ المشروع أو إدخال البيانات نيابة عن العميل."
-                  },
-        "delivery":  {
-                         "method":  "manual_after_payment_verification",
-                         "channel":  "WhatsApp",
-                         "includes_updates":  true,
-                         "update_policy":  "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
-                     },
-        "analytics":  {
-                          "product_slug":  "civil-engineer-toolkit",
-                          "trackable":  true
-                      },
-        "lifecycle":  {
-                          "stage":  "PUBLISHED",
-                          "published_version":  "1.2.1"
-                      }
+    "commerce": {
+      "price": 249,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": null,
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
     },
-    {
-        "schema_version":  3,
-        "slug":  "accountant-professional-toolkit",
-        "name":  "باكدج المحاسب الاحترافي",
-        "category":  "أدوات مهنية محاسبية",
-        "segment":  "professional",
-        "short_description":  "نظام محاسبي عربي مترابط من القيود اليومية حتى الأستاذ وميزان المراجعة والعملاء والموردين والفواتير والقوائم المالية.",
-        "price":  699,
-        "currency":  "EGP",
-        "image":  "assets/social/product-accountant-professional-toolkit-20260925.webp",
-        "version":  "1.2.0",
-        "source_type":  "Original",
-        "license_type":  "Professional Use",
-        "resell_allowed":  false,
-        "editable":  true,
-        "brandable":  false,
-        "delivery_type":  "Manual",
-        "lifetime_updates":  true,
-        "demo_url":  null,
-        "product_url":  "products/accountant-professional-toolkit/",
-        "featured":  true,
-        "last_updated":  "2026-09-25",
-        "status":  "published",
-        "identity":  {
-                         "product_type":  "professional_accounting_bundle",
-                         "edition":  "Accountant Edition",
-                         "brand":  "Digital Execution"
-                     },
-        "market":  {
-                       "audience":  [
-                                        "المحاسبون",
-                                        "أصحاب المشروعات الصغيرة والمتوسطة",
-                                        "مسؤولو الحسابات"
-                                    ],
-                       "problem":  "تشتت القيود والأستاذ وأرصدة العملاء والموردين والفواتير والقوائم المالية بين ملفات منفصلة بدون مسار محاسبي واحد.",
-                       "alternatives":  [
-                                            "ملفات Excel منفصلة",
-                                            "متابعة محاسبية يدوية متفرقة"
-                                        ],
-                       "differentiation":  [
-                                               "واجهة عربية",
-                                               "مسار مترابط من المستند حتى القوائم المالية",
-                                               "مفاتيح ربط موحدة للحسابات والأطراف والمستندات",
-                                               "بدون API أو سيرفر أو ماكرو"
-                                           ]
-                   },
-        "offer":  {
-                      "outcome":  "تشغيل دورة محاسبية منظمة من القيود اليومية حتى التقارير والقوائم المالية من حزمة واحدة.",
-                      "mechanism":  "استخدام أكواد موحدة للمنشأة والحساب والطرف والمستند عبر الأنظمة.",
-                      "contents":  [
-                                       "نظام الحسابات اليومية 1.0.0",
-                                       "دفتر الأستاذ وميزان المراجعة المتقدم 1.0.0",
-                                       "العملاء والموردون المحاسبي 1.0.0",
-                                       "المبيعات والمشتريات المحاسبية 1.0.0",
-                                       "القوائم المالية 1.0.0",
-                                       "لوحة المحاسب المركزية 1.2.0",
-                                       "دليل تشغيل موحد",
-                                       "فحص تكامل"
-                                   ],
-                      "limitations":  [
-                                          "لا يستبدل المحاسب المختص أو النظام القانوني المعتمد",
-                                          "لا يتضمن نسب ضرائب مفترضة",
-                                          "لا يشمل تقديم الإقرارات أو الاستشارات الضريبية"
-                                      ]
-                  },
-        "commerce":  {
-                         "price":  699,
-                         "currency":  "EGP",
-                         "billing":  "one_time",
-                         "bundle":  "Accountant Professional Toolkit",
-                         "upgrade":  null,
-                         "payment_method":  "Vodafone Cash"
-                     },
-        "trust":  {
-                      "preview_type":  "product_description",
-                      "previews":  [
-                                       "assets/social/product-accountant-professional-toolkit-20260925.webp"
-                                   ],
-                      "license":  {
-                                      "type":  "Professional Use",
-                                      "resell_allowed":  false,
-                                      "transferable":  false
-                                  },
-                      "support_policy":  "Self-Service مع دليل تشغيل. لا يشمل إدخال البيانات أو مسك الحسابات نيابة عن العميل."
-                  },
-        "delivery":  {
-                         "method":  "manual_after_payment_verification",
-                         "channel":  "WhatsApp",
-                         "includes_updates":  true,
-                         "update_policy":  "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
-                     },
-        "analytics":  {
-                          "product_slug":  "accountant-professional-toolkit",
-                          "trackable":  true
-                      },
-        "lifecycle":  {
-                          "stage":  "PUBLISHED",
-                          "published_version":  "1.2.0"
-                      }
+    "trust": {
+      "preview_type": "product_previews",
+      "previews": [
+        "assets/career-kit/career-kit-preview-fresh.svg",
+        "assets/career-kit/career-kit-preview-experienced.svg",
+        "assets/career-kit/career-kit-preview-tracker.svg"
+      ],
+      "license": {
+        "type": "Personal Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "Self-Service. يشمل Guidebook وإرشادات الاستخدام، ولا يشمل كتابة CV أو LinkedIn نيابة عن العميل أو مراجعة فردية."
     },
-    {
-        "schema_version":  3,
-        "slug":  "lawyer-professional-toolkit",
-        "name":  "باكدج المحامي الاحترافي",
-        "category":  "أدوات مهنية قانونية",
-        "segment":  "professional",
-        "short_description":  "نظام عربي مترابط لإدارة العملاء والقضايا والجلسات والمهام والمستندات والإجراءات والأتعاب والمصروفات حتى الأرشفة والإغلاق.",
-        "price":  699,
-        "currency":  "EGP",
-        "image":  "assets/social/product-lawyer-professional-toolkit-20260925.webp",
-        "version":  "1.0.0",
-        "source_type":  "Original",
-        "license_type":  "Professional Use",
-        "resell_allowed":  false,
-        "editable":  true,
-        "brandable":  false,
-        "delivery_type":  "Manual",
-        "lifetime_updates":  true,
-        "demo_url":  null,
-        "product_url":  "products/lawyer-professional-toolkit/",
-        "featured":  true,
-        "last_updated":  "2026-09-25",
-        "status":  "published",
-        "identity":  {
-                         "product_type":  "professional_legal_management_bundle",
-                         "edition":  "Lawyer Edition",
-                         "brand":  "Digital Execution"
-                     },
-        "market":  {
-                       "audience":  [
-                                        "المحامون",
-                                        "مكاتب المحاماة الصغيرة والمتوسطة",
-                                        "فرق المتابعة القانونية"
-                                    ],
-                       "problem":  "تشتت بيانات العملاء والقضايا والجلسات والمهام والمستندات والحركات المالية بين ملفات منفصلة وصعوبة معرفة حالة الملف ومواعيده وموقفه المالي بسرعة.",
-                       "alternatives":  [
-                                            "ملفات Excel منفصلة",
-                                            "دفاتر المتابعة الورقية",
-                                            "تقويم ومجلدات منفصلة"
-                                        ],
-                       "differentiation":  [
-                                               "واجهة عربية RTL",
-                                               "القضية محور الربط بين جميع الوحدات",
-                                               "مركز تنبيهات تشغيلي",
-                                               "متابعة الأتعاب والمصروفات دون تحويل المنتج إلى نظام محاسبي",
-                                               "فحص جودة قبل الإغلاق",
-                                               "بدون API أو سيرفر أو محتوى قانوني متغير"
-                                           ]
-                   },
-        "offer":  {
-                      "outcome":  "إدارة دورة العمل القانوني اليومية من تسجيل العميل والقضية حتى المتابعة والأرشفة والإغلاق في نظام واحد مترابط.",
-                      "mechanism":  "ربط كود العميل بكود القضية ثم الجلسات والإجراءات والمستندات والحركات المالية مع حالات تشغيل وتنبيهات وفحص جودة.",
-                      "contents":  [
-                                       "مركز تحكم رئيسي",
-                                       "سجل العملاء والموكلين",
-                                       "إدارة القضايا",
-                                       "الجلسات والمواعيد",
-                                       "المهام القانونية",
-                                       "فهرس المستندات والمذكرات",
-                                       "سجل الإجراءات",
-                                       "الأتعاب والمصروفات",
-                                       "الأرشيف وإغلاق القضية",
-                                       "مركز التنبيهات",
-                                       "فحص الجودة",
-                                       "بيانات تجريبية",
-                                       "دليل تشغيل عربي",
-                                       "ترخيص استخدام مهني",
-                                       "CHANGELOG",
-                                       "تقرير QA"
-                                   ],
-                      "limitations":  [
-                                          "أداة تنظيم وإدارة عمل قانوني وليست مصدرًا للاستشارة القانونية",
-                                          "لا تتضمن مكتبة عقود أو قوانين أو أحكام قضائية",
-                                          "لا تولد مذكرات قانونية تلقائيًا",
-                                          "لا تستبدل المراجعة المهنية للمحامي"
-                                      ]
-                  },
-        "commerce":  {
-                         "price":  699,
-                         "currency":  "EGP",
-                         "billing":  "one_time",
-                         "bundle":  "Lawyer Professional Toolkit",
-                         "upgrade":  null,
-                         "payment_method":  "Vodafone Cash"
-                     },
-        "trust":  {
-                      "preview_type":  "product_system",
-                      "previews":  [
-                                       "assets/social/product-lawyer-professional-toolkit-20260925.webp"
-                                   ],
-                      "license":  {
-                                      "type":  "Professional Use",
-                                      "resell_allowed":  false,
-                                      "transferable":  false
-                                  },
-                      "support_policy":  "استخدام ذاتي مع دليل تشغيل؛ لا يشمل تقديم استشارة قانونية أو إعداد مستندات أو مذكرات نيابة عن العميل."
-                  },
-        "delivery":  {
-                         "method":  "manual_after_payment_verification",
-                         "channel":  "WhatsApp",
-                         "includes_updates":  true,
-                         "update_policy":  "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
-                     },
-        "analytics":  {
-                          "product_slug":  "lawyer-professional-toolkit",
-                          "trackable":  true
-                      },
-        "lifecycle":  {
-                          "stage":  "PUBLISHED",
-                          "published_version":  "1.0.0"
-                      }
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": false,
+      "update_policy": "الإصدار v1.0.0 يُسلَّم كشراء مرة واحدة. أي تحديثات أو إصدارات لاحقة تُعلن شروطها بشكل مستقل."
     },
-    {
-        "slug":  "agricultural-engineer-toolkit",
-        "name":  "باكدج المهندس الزراعي الاحترافي",
-        "category":  "أدوات مهنية زراعية",
-        "segment":  "professional",
-        "price":  699,
-        "currency":  "EGP",
-        "version":  "1.0.0",
-        "editable":  true,
-        "brandable":  false,
-        "lifetime_updates":  true,
-        "featured":  true,
-        "last_updated":  "2026-09-25",
-        "status":  "published",
-        "schema_version":  3,
-        "short_description":  "نظام عربي مترابط لإدارة المزارع والحقول والمواسم والعمليات والري والتسميد والمكافحة والمدخلات والمصروفات والحصاد.",
-        "source_type":  "Original",
-        "license_type":  "Professional Use",
-        "resell_allowed":  false,
-        "delivery_type":  "Manual",
-        "product_url":  "products/agricultural-engineer-toolkit/",
-        "identity":  {
-                         "product_type":  "professional_agricultural_management_bundle",
-                         "edition":  "Agricultural Engineer Edition",
-                         "brand":  "Digital Execution"
-                     },
-        "market":  {
-                       "audience":  [
-                                        "المهندسون الزراعيون",
-                                        "مديرو المزارع",
-                                        "المشروعات الزراعية الصغيرة والمتوسطة"
-                                    ],
-                       "problem":  "تشتت بيانات الحقول والمواسم والعمليات والمدخلات والمصروفات والحصاد وصعوبة متابعة حالة الموسم.",
-                       "alternatives":  [
-                                            "جداول منفصلة",
-                                            "دفاتر ورقية",
-                                            "ملفات متابعة غير مترابطة"
-                                        ],
-                       "differentiation":  [
-                                               "واجهة عربية RTL",
-                                               "الموسم محور الربط",
-                                               "متابعة مخزون ومصروفات",
-                                               "ضوابط إغلاق الموسم",
-                                               "نسخ احتياطي محلي",
-                                               "بدون API أو سيرفر"
-                                           ]
-                   },
-        "offer":  {
-                      "outcome":  "إدارة دورة الموسم الزراعي من الحقل والخطة حتى الحصاد والإغلاق في نظام واحد.",
-                      "mechanism":  "ربط المزرعة بالحقل والموسم ثم العمليات والري والتسميد والمكافحة والمدخلات والمصروفات والحصاد.",
-                      "contents":  [
-                                       "لوحة تحكم",
-                                       "المزارع والحقول",
-                                       "المواسم والمحاصيل",
-                                       "العمليات والمهام",
-                                       "الري",
-                                       "التسميد",
-                                       "المكافحة والمتابعة",
-                                       "العمالة",
-                                       "المخزون والمدخلات",
-                                       "المصروفات",
-                                       "الحصاد والإنتاجية",
-                                       "إغلاق الموسم",
-                                       "فحص الجودة",
-                                       "نسخ احتياطي واستعادة",
-                                       "دليل تشغيل",
-                                       "ترخيص",
-                                       "CHANGELOG",
-                                       "تقرير QA"
-                                   ],
-                      "limitations":  [
-                                          "أداة تنظيم وإدارة وليست بديلًا عن المهندس الزراعي",
-                                          "لا تقدم تشخيصًا آليًا للأمراض",
-                                          "لا تقدم جرعات مبيدات أو أسمدة كتوصية",
-                                          "لا تعتمد على أسعار سوق أو طقس حي"
-                                      ]
-                  },
-        "commerce":  {
-                         "price":  699,
-                         "currency":  "EGP",
-                         "billing":  "one_time",
-                         "bundle":  "Agricultural Engineer Toolkit",
-                         "upgrade":  null,
-                         "payment_method":  "Vodafone Cash"
-                     },
-        "trust":  {
-                      "preview_type":  "product_system",
-                      "previews":  [
-                                       "assets/social/product-agricultural-engineer-toolkit-20260925.webp"
-                                   ],
-                      "license":  {
-                                      "type":  "Professional Use",
-                                      "resell_allowed":  false,
-                                      "transferable":  false
-                                  },
-                      "support_policy":  "استخدام ذاتي مع دليل تشغيل؛ لا يشمل تقديم استشارات أو توصيات زراعية مهنية نيابة عن العميل."
-                  },
-        "analytics":  {
-                          "product_slug":  "agricultural-engineer-toolkit",
-                          "trackable":  true
-                      },
-        "lifecycle":  {
-                          "stage":  "PUBLISHED",
-                          "published_version":  "1.0.0"
-                      },
-        "delivery":  {
-                         "method":  "manual_after_payment_verification",
-                         "channel":  "WhatsApp",
-                         "includes_updates":  true,
-                         "update_policy":  "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
-                     },
-        "image":  "assets/social/product-agricultural-engineer-toolkit-20260925.webp"
+    "analytics": {
+      "product_slug": "career-kit",
+      "trackable": true
     },
-    {
-        "schema_version":  3,
-        "slug":  "teacher-professional-toolkit",
-        "name":  "باكدج المدرس الاحترافي",
-        "category":  "أدوات مهنية تعليمية",
-        "segment":  "professional",
-        "short_description":  "نظام عربي لإدارة الطلاب والمجموعات والحصص والحضور والواجبات والتقييمات والتحصيل والمتابعة.",
-        "price":  699,
-        "currency":  "EGP",
-        "version":  "1.0.0",
-        "source_type":  "Original",
-        "license_type":  "Professional Use",
-        "resell_allowed":  false,
-        "editable":  true,
-        "brandable":  false,
-        "delivery_type":  "Manual",
-        "lifetime_updates":  true,
-        "product_url":  "products/teacher-professional-toolkit/",
-        "featured":  true,
-        "last_updated":  "2026-09-25",
-        "status":  "published",
-        "identity":  {
-                         "product_type":  "professional_teacher_management_bundle",
-                         "edition":  "Teacher Edition",
-                         "brand":  "Digital Execution"
-                     },
-        "market":  {
-                       "audience":  [
-                                        "المعلمون",
-                                        "المدرسون الخصوصيون",
-                                        "مقدمو المجموعات التعليمية"
-                                    ],
-                       "problem":  "تشتت بيانات الطلاب والحصص والحضور والتقييمات والتحصيل والمتابعة.",
-                       "alternatives":  [
-                                            "دفاتر ورقية",
-                                            "جداول منفصلة",
-                                            "تطبيقات عامة غير مترابطة"
-                                        ],
-                       "differentiation":  [
-                                               "واجهة عربية RTL",
-                                               "ربط الطالب بالمجموعة والحصة",
-                                               "متابعة الحضور والواجبات والتقييم",
-                                               "المستحقات والتحصيل",
-                                               "فحص جودة وأرشفة",
-                                               "بدون API أو خادم"
-                                           ]
-                   },
-        "offer":  {
-                      "outcome":  "إدارة العمل التعليمي اليومي في نظام واحد مترابط.",
-                      "mechanism":  "ربط الطالب بالمجموعة ثم الحصص والحضور والواجبات والتقييمات والرسوم والمدفوعات والمتابعة.",
-                      "contents":  [
-                                       "لوحة التحكم",
-                                       "الطلاب",
-                                       "المجموعات والتسجيل",
-                                       "الحصص",
-                                       "الحضور",
-                                       "الواجبات والتسليم",
-                                       "التقييمات",
-                                       "الرسوم والمدفوعات",
-                                       "المتابعة",
-                                       "التقارير",
-                                       "فحص الجودة",
-                                       "الأرشفة",
-                                       "نسخ احتياطي واستعادة",
-                                       "دليل تشغيل",
-                                       "ترخيص",
-                                       "CHANGELOG",
-                                       "تقرير QA"
-                                   ],
-                      "limitations":  [
-                                          "أداة تنظيم وإدارة وليست منصة تعليم إلكتروني",
-                                          "لا تولد محتوى دراسيًا أو إجابات تلقائيًا",
-                                          "لا تستبدل التقييم التربوي للمدرس"
-                                      ]
-                  },
-        "commerce":  {
-                         "price":  699,
-                         "currency":  "EGP",
-                         "billing":  "one_time",
-                         "bundle":  "Teacher Professional Toolkit",
-                         "upgrade":  null,
-                         "payment_method":  "Vodafone Cash"
-                     },
-        "trust":  {
-                      "preview_type":  "product_system",
-                      "previews":  [
-                                       "assets/social/product-teacher-professional-toolkit-20260925.webp"
-                                   ],
-                      "license":  {
-                                      "type":  "Professional Use",
-                                      "resell_allowed":  false,
-                                      "transferable":  false
-                                  },
-                      "support_policy":  "استخدام ذاتي مع دليل تشغيل؛ لا يشمل إعداد المحتوى الدراسي أو التدريس نيابة عن العميل."
-                  },
-        "delivery":  {
-                         "method":  "manual_after_payment_verification",
-                         "channel":  "WhatsApp",
-                         "includes_updates":  true,
-                         "update_policy":  "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
-                     },
-        "analytics":  {
-                          "product_slug":  "teacher-professional-toolkit",
-                          "trackable":  true
-                      },
-        "lifecycle":  {
-                          "stage":  "PUBLISHED",
-                          "published_version":  "1.0.0"
-                      },
-        "image":  "assets/social/product-teacher-professional-toolkit-20260925.webp"
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
     },
-    {
-        "schema_version":  3,
-        "slug":  "freelancer-business-os",
-        "name":  "باكدج الفريلانسر الاحترافي",
-        "category":  "إدارة الأعمال والعمل الحر",
-        "segment":  "professional",
-        "short_description":  "نظام عربي لإدارة العملاء والفرص وعروض الأسعار والمشاريع والمهام والتسليمات والفواتير والمدفوعات والمصروفات والربحية.",
-        "price":  599,
-        "currency":  "EGP",
-        "version":  "1.0.0",
-        "source_type":  "Original",
-        "license_type":  "Professional Use",
-        "resell_allowed":  false,
-        "editable":  true,
-        "brandable":  false,
-        "delivery_type":  "Manual",
-        "lifetime_updates":  true,
-        "product_url":  "products/freelancer-business-os/",
-        "featured":  true,
-        "last_updated":  "2026-09-25",
-        "status":  "published",
-        "identity":  {
-                         "product_type":  "freelancer_business_os",
-                         "edition":  "Freelancer Edition",
-                         "brand":  "Digital Execution"
-                     },
-        "market":  {
-                       "audience":  [
-                                        "المصممون المستقلون",
-                                        "المطورون المستقلون",
-                                        "المسوقون والكتاب والمونتيرون والمترجمون والمستشارون المستقلون"
-                                    ],
-                       "problem":  "تشتت العملاء والمشاريع وعروض الأسعار والفواتير والتحصيل والمصروفات والمواعيد بين أدوات وملفات منفصلة.",
-                       "alternatives":  [
-                                            "جداول منفصلة",
-                                            "ملاحظات ومحادثات",
-                                            "أدوات باشتراكات شهرية"
-                                        ],
-                       "differentiation":  [
-                                               "Workflow مترابط من Lead إلى التحصيل",
-                                               "حاسبة تسعير",
-                                               "ربحية لكل مشروع",
-                                               "Backup / Restore",
-                                               "بدون API أو خادم أو اشتراك شهري"
-                                           ]
-                   },
-        "offer":  {
-                      "outcome":  "إدارة دورة العمل الحر من أول فرصة وحتى التحصيل وقياس الربحية في نظام واحد.",
-                      "mechanism":  "ربط العميل المحتمل بالعميل ثم Brief وعرض السعر والمشروع والمهام والتسليم والفاتورة والمدفوعات والمصروفات والربحية.",
-                      "contents":  [
-                                       "لوحة التحكم",
-                                       "Leads والعملاء",
-                                       "Briefs",
-                                       "عروض الأسعار",
-                                       "المشاريع والمهام",
-                                       "التسليمات والتعديلات",
-                                       "الفواتير والمدفوعات",
-                                       "المصروفات",
-                                       "حاسبة التسعير",
-                                       "تقارير الربحية",
-                                       "فحص الجودة",
-                                       "الأرشيف",
-                                       "Backup / Restore",
-                                       "دليل التشغيل",
-                                       "الترخيص",
-                                       "CHANGELOG",
-                                       "QA Report"
-                                   ],
-                      "limitations":  [
-                                          "أداة تنظيم وإدارة وليست نظام فوترة ضريبية معتمدًا",
-                                          "البيانات محفوظة محليًا ويُنصح بعمل Backup دوري",
-                                          "لا يشمل تنفيذ خدمات الفريلانسر نيابة عن العميل"
-                                      ]
-                  },
-        "commerce":  {
-                         "price":  599,
-                         "currency":  "EGP",
-                         "billing":  "one_time",
-                         "bundle":  "Freelancer Business OS",
-                         "upgrade":  null,
-                         "payment_method":  "Vodafone Cash"
-                     },
-        "trust":  {
-                      "preview_type":  "product_system",
-                      "previews":  [
-                                       "assets/social/product-freelancer-business-os-20260925.png"
-                                   ],
-                      "license":  {
-                                      "type":  "Professional Use",
-                                      "resell_allowed":  false,
-                                      "transferable":  false
-                                  },
-                      "support_policy":  "استخدام ذاتي مع دليل تشغيل؛ لا يشمل إدارة العملاء أو المشاريع نيابة عن المستخدم."
-                  },
-        "delivery":  {
-                         "method":  "manual_after_payment_verification",
-                         "channel":  "WhatsApp",
-                         "includes_updates":  true,
-                         "update_policy":  "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
-                     },
-        "analytics":  {
-                          "product_slug":  "freelancer-business-os",
-                          "trackable":  true
-                      },
-        "lifecycle":  {
-                          "stage":  "PUBLISHED",
-                          "published_version":  "1.0.0"
-                      },
-        "image":  "assets/social/product-freelancer-business-os-20260925.png"
+    "segment": "career"
+  },
+  {
+    "schema_version": 3,
+    "slug": "order-desk",
+    "name": "Order Desk",
+    "category": "إدارة الطلبات",
+    "segment": "business",
+    "short_description": "نظّم الطلبات من التسجيل حتى التسليم والمرتجع.",
+    "price": 0,
+    "currency": "EGP",
+    "image": "",
+    "version": "0.0.0",
+    "source_type": "Original",
+    "license_type": "TBD",
+    "resell_allowed": false,
+    "editable": false,
+    "brandable": false,
+    "delivery_type": "TBD",
+    "lifetime_updates": false,
+    "demo_url": null,
+    "product_url": "products/#validation",
+    "featured": false,
+    "last_updated": "2026-09-23",
+    "status": "validating",
+    "identity": {
+      "product_type": "business_tool",
+      "edition": null,
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "أصحاب المشروعات الصغيرة والمتاجر"
+      ],
+      "problem": "نظّم الطلبات من التسجيل حتى التسليم والمرتجع.",
+      "alternatives": [],
+      "differentiation": [
+        "قيد التحقق من الطلب قبل البناء"
+      ]
+    },
+    "offer": {
+      "outcome": "متابعة الطلبات والعملاء وحالات التنفيذ بشكل أوضح.",
+      "mechanism": "يتم تحديده بعد إغلاق مرحلة التحقق من الطلب.",
+      "contents": [],
+      "limitations": [
+        "المنتج غير متاح للبيع حاليًا."
+      ]
+    },
+    "commerce": {
+      "price": 0,
+      "currency": "EGP",
+      "billing": "TBD",
+      "bundle": null,
+      "upgrade": null,
+      "payment_method": null
+    },
+    "trust": {
+      "preview_type": "validation_only",
+      "previews": [],
+      "license": {
+        "type": "TBD",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "يتم تحديد سياسة الدعم قبل الانتقال إلى OFFER_READY."
+    },
+    "delivery": {
+      "method": "TBD",
+      "channel": null,
+      "includes_updates": false,
+      "update_policy": "يتم تحديد سياسة التحديث قبل النشر التجاري."
+    },
+    "analytics": {
+      "product_slug": "order-desk",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "VALIDATING",
+      "published_version": null
     }
+  },
+  {
+    "schema_version": 3,
+    "slug": "cash-desk",
+    "name": "Cash Desk",
+    "category": "الإدارة المالية",
+    "segment": "business",
+    "short_description": "تابع المقبوضات والمدفوعات والخزنة اليومية.",
+    "price": 0,
+    "currency": "EGP",
+    "image": "",
+    "version": "0.0.0",
+    "source_type": "Original",
+    "license_type": "TBD",
+    "resell_allowed": false,
+    "editable": false,
+    "brandable": false,
+    "delivery_type": "TBD",
+    "lifetime_updates": false,
+    "demo_url": null,
+    "product_url": "products/#validation",
+    "featured": false,
+    "last_updated": "2026-09-23",
+    "status": "validating",
+    "identity": {
+      "product_type": "business_tool",
+      "edition": null,
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "أصحاب المشروعات الصغيرة والمتاجر"
+      ],
+      "problem": "تابع المقبوضات والمدفوعات والخزنة اليومية.",
+      "alternatives": [],
+      "differentiation": [
+        "قيد التحقق من الطلب قبل البناء"
+      ]
+    },
+    "offer": {
+      "outcome": "معرفة حركة الأموال والرصيد المتوقع والفعلي بشكل أوضح.",
+      "mechanism": "يتم تحديده بعد إغلاق مرحلة التحقق من الطلب.",
+      "contents": [],
+      "limitations": [
+        "المنتج غير متاح للبيع حاليًا."
+      ]
+    },
+    "commerce": {
+      "price": 0,
+      "currency": "EGP",
+      "billing": "TBD",
+      "bundle": null,
+      "upgrade": null,
+      "payment_method": null
+    },
+    "trust": {
+      "preview_type": "validation_only",
+      "previews": [],
+      "license": {
+        "type": "TBD",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "يتم تحديد سياسة الدعم قبل الانتقال إلى OFFER_READY."
+    },
+    "delivery": {
+      "method": "TBD",
+      "channel": null,
+      "includes_updates": false,
+      "update_policy": "يتم تحديد سياسة التحديث قبل النشر التجاري."
+    },
+    "analytics": {
+      "product_slug": "cash-desk",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "VALIDATING",
+      "published_version": null
+    }
+  },
+  {
+    "schema_version": 3,
+    "slug": "supplier-desk",
+    "name": "Supplier Desk",
+    "category": "إدارة الموردين",
+    "segment": "business",
+    "short_description": "نظّم الموردين والمشتريات والمدفوع والمتبقي.",
+    "price": 0,
+    "currency": "EGP",
+    "image": "",
+    "version": "0.0.0",
+    "source_type": "Original",
+    "license_type": "TBD",
+    "resell_allowed": false,
+    "editable": false,
+    "brandable": false,
+    "delivery_type": "TBD",
+    "lifetime_updates": false,
+    "demo_url": null,
+    "product_url": "products/#validation",
+    "featured": false,
+    "last_updated": "2026-09-23",
+    "status": "validating",
+    "identity": {
+      "product_type": "business_tool",
+      "edition": null,
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "أصحاب المشروعات الصغيرة والمتاجر"
+      ],
+      "problem": "نظّم الموردين والمشتريات والمدفوع والمتبقي.",
+      "alternatives": [],
+      "differentiation": [
+        "قيد التحقق من الطلب قبل البناء"
+      ]
+    },
+    "offer": {
+      "outcome": "متابعة الموردين والمشتريات والاستحقاقات وآخر أسعار الشراء.",
+      "mechanism": "يتم تحديده بعد إغلاق مرحلة التحقق من الطلب.",
+      "contents": [],
+      "limitations": [
+        "المنتج غير متاح للبيع حاليًا."
+      ]
+    },
+    "commerce": {
+      "price": 0,
+      "currency": "EGP",
+      "billing": "TBD",
+      "bundle": null,
+      "upgrade": null,
+      "payment_method": null
+    },
+    "trust": {
+      "preview_type": "validation_only",
+      "previews": [],
+      "license": {
+        "type": "TBD",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "يتم تحديد سياسة الدعم قبل الانتقال إلى OFFER_READY."
+    },
+    "delivery": {
+      "method": "TBD",
+      "channel": null,
+      "includes_updates": false,
+      "update_policy": "يتم تحديد سياسة التحديث قبل النشر التجاري."
+    },
+    "analytics": {
+      "product_slug": "supplier-desk",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "VALIDATING",
+      "published_version": null
+    }
+  },
+  {
+    "schema_version": 3,
+    "slug": "business-control-pack",
+    "name": "Business Control Pack",
+    "category": "إدارة الأعمال",
+    "segment": "business",
+    "short_description": "نظام Google Sheets بسيط لمتابعة المبيعات والمصروفات والتدفق النقدي والربح.",
+    "price": 249,
+    "currency": "EGP",
+    "image": "assets/restock/dashboard.png",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Commercial Use",
+    "resell_allowed": false,
+    "editable": true,
+    "brandable": false,
+    "delivery_type": "Restricted Google Drive Copy",
+    "lifetime_updates": false,
+    "demo_url": null,
+    "product_url": "products/business-control-pack/",
+    "featured": false,
+    "last_updated": "2026-09-24",
+    "status": "published",
+    "identity": {
+      "product_type": "business_toolkit",
+      "edition": "Self-Service Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "أصحاب المتاجر والمشروعات الصغيرة",
+        "مستخدمو ReStock Desk الذين يحتاجون متابعة مالية أبسط"
+      ],
+      "problem": "المبيعات والمصروفات والتدفق النقدي موزعة بين دفاتر وملفات مختلفة بدون ملخص واحد واضح.",
+      "alternatives": [
+        "جداول منفصلة غير مترابطة",
+        "متابعة يدوية بدون Dashboard"
+      ],
+      "differentiation": [
+        "Google Sheets جاهز",
+        "Dashboard تلقائي",
+        "بدون اشتراك شهري",
+        "Self-Service"
+      ]
+    },
+    "offer": {
+      "outcome": "متابعة المبيعات والمصروفات وصافي الربح والتدفق النقدي من ملف واحد.",
+      "mechanism": "تسجيل العمليات في جداول بسيطة ثم تلخيصها تلقائيًا داخل Dashboard.",
+      "contents": [
+        "Dashboard",
+        "Sales Tracker",
+        "Expenses Tracker",
+        "Cash Flow Tracker",
+        "Setup & License"
+      ],
+      "limitations": [
+        "لا يشمل محاسبة قانونية أو ضريبية",
+        "لا يشمل إدخال بيانات أو تخصيص فردي",
+        "يتطلب حساب Google لاستخدام Google Sheets"
+      ]
+    },
+    "commerce": {
+      "price": 249,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": null,
+      "upgrade": "business-bundle",
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "product_description",
+      "previews": [],
+      "license": {
+        "type": "Commercial Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "Self-Service بدون إدخال بيانات أو تخصيص أو دعم فردي."
+    },
+    "delivery": {
+      "method": "restricted_drive_copy_after_payment_verification",
+      "channel": "Google Drive + WhatsApp",
+      "includes_updates": false,
+      "update_policy": "يشمل الإصدار الذي تم شراؤه؛ أي إصدارات رئيسية جديدة تُحدد سياستها عند الإصدار."
+    },
+    "analytics": {
+      "product_slug": "business-control-pack",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    }
+  },
+  {
+    "schema_version": 3,
+    "slug": "business-bundle",
+    "name": "Business Bundle",
+    "category": "إدارة الأعمال",
+    "segment": "business",
+    "short_description": "ReStock Desk + Business Control Pack في حزمة واحدة لإدارة المخزون والمتابعة المالية المبسطة.",
+    "price": 549,
+    "currency": "EGP",
+    "image": "assets/restock/dashboard.png",
+    "version": "1.0.0",
+    "source_type": "Original Bundle",
+    "license_type": "Commercial Use",
+    "resell_allowed": false,
+    "editable": false,
+    "brandable": false,
+    "delivery_type": "Mixed Self-Service Delivery",
+    "lifetime_updates": false,
+    "demo_url": null,
+    "product_url": "products/business-bundle/",
+    "featured": true,
+    "last_updated": "2026-09-24",
+    "status": "published",
+    "identity": {
+      "product_type": "business_bundle",
+      "edition": "Self-Service Bundle",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "أصحاب المتاجر والمشروعات الصغيرة"
+      ],
+      "problem": "الحاجة لتنظيم المخزون والمتابعة المالية الأساسية بدون الاشتراك في أنظمة متعددة.",
+      "alternatives": [
+        "شراء الأدوات منفصلة",
+        "استخدام ملفات متفرقة"
+      ],
+      "differentiation": [
+        "ReStock Desk + Business Control Pack",
+        "سعر حزمة أقل من شراء المنتجين منفصلين",
+        "بدون اشتراك شهري",
+        "Self-Service"
+      ]
+    },
+    "offer": {
+      "outcome": "متابعة المخزون والنواقص والمبيعات والمصروفات والتدفق النقدي من نظامين متكاملين في حزمة واحدة.",
+      "mechanism": "ReStock Desk لإدارة المخزون وإعادة الطلب + Business Control Pack للمتابعة المالية التشغيلية.",
+      "contents": [
+        "ReStock Desk v1.2.2",
+        "Business Control Pack v1.0.0",
+        "Quick Start",
+        "FAQ & Troubleshooting"
+      ],
+      "limitations": [
+        "لا يشمل تركيبًا أو تخصيصًا فرديًا",
+        "Business Control Pack ليس نظام محاسبة قانونية أو ضريبية"
+      ]
+    },
+    "commerce": {
+      "price": 549,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": [
+        "restock-desk",
+        "business-control-pack"
+      ],
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "bundle_of_published_products",
+      "previews": [
+        "assets/restock/dashboard.png"
+      ],
+      "license": {
+        "type": "Commercial Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "Self-Service. لا يشمل تركيبًا أو تخصيصًا أو إدخال بيانات."
+    },
+    "delivery": {
+      "method": "post_verification_self_service_bundle",
+      "channel": "Google Drive + WhatsApp",
+      "includes_updates": false,
+      "update_policy": "ReStock Desk يتبع سياسة تحديثاته الحالية، وBusiness Control Pack يتبع سياسة الإصدار المشترى."
+    },
+    "analytics": {
+      "product_slug": "business-bundle",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    }
+  },
+  {
+    "schema_version": 3,
+    "slug": "pricing-calculator",
+    "name": "حاسبة تسعير المنتجات",
+    "category": "أدوات الأعمال",
+    "short_description": "أداة عربية لحساب سعر البيع والربح والهامش ومقارنة سيناريوهات التسعير.",
+    "price": 149,
+    "currency": "EGP",
+    "image": "assets/social/product-pricing-calculator.webp",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Personal Use",
+    "resell_allowed": false,
+    "editable": false,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": false,
+    "demo_url": "https://digital-execution.cc/tools/pricing-calculator/",
+    "product_url": "products/pricing-calculator/",
+    "featured": true,
+    "last_updated": "2026-09-24",
+    "status": "published",
+    "identity": {
+      "product_type": "business_calculator",
+      "edition": "Commercial Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "أصحاب المشروعات الصغيرة والمتاجر",
+        "البائعون أونلاين"
+      ],
+      "problem": "صعوبة تحويل تكلفة المنتج والمصاريف إلى سعر بيع واضح مع فهم الربح والهامش.",
+      "alternatives": [],
+      "differentiation": [
+        "3 طرق حساب",
+        "مقارنة سيناريوهات",
+        "بدون API",
+        "بدون سيرفر",
+        "بدون اشتراك شهري"
+      ]
+    },
+    "offer": {
+      "outcome": "اتخاذ قرار تسعير أسرع مع رؤية واضحة للتكلفة والربح والهامش.",
+      "mechanism": "إدخال التكلفة والمصاريف ثم الحساب بنسبة الزيادة أو هامش الربح المستهدف أو سعر البيع المستهدف.",
+      "contents": [
+        "حاسبة تسعير المنتجات v1.0.0",
+        "3 طرق حساب",
+        "مقارنة سيناريوهات",
+        "نسخ النتائج",
+        "دليل استخدام مختصر"
+      ],
+      "limitations": [
+        "لا تمثل توصية بسعر السوق",
+        "لا تشمل استشارة محاسبية أو ضريبية",
+        "إعادة البيع أو التوزيع غير مسموح"
+      ]
+    },
+    "commerce": {
+      "price": 149,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": null,
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "live_demo",
+      "previews": [
+        "tools/pricing-calculator/"
+      ],
+      "license": {
+        "type": "Personal Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "Self-Service. يشمل دليل استخدام مختصر ولا يشمل تخصيصًا أو استشارة تسعير فردية."
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": false,
+      "update_policy": "الإصدار v1.0.0 شراء مرة واحدة، وأي إصدارات مستقبلية تُعلن شروطها بشكل مستقل."
+    },
+    "analytics": {
+      "product_slug": "pricing-calculator",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    },
+    "segment": "business"
+  },
+  {
+    "schema_version": 3,
+    "slug": "customer-sales-tracker",
+    "name": "متابعة العملاء والمبيعات",
+    "category": "قوالب وأدوات أعمال",
+    "short_description": "قالب عملي لإدارة العملاء وفرص البيع والمتابعات اليومية مع لوحة متابعة تلقائية.",
+    "price": 129,
+    "currency": "EGP",
+    "image": "assets/social/product-customer-sales-tracker.webp",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Personal Use",
+    "resell_allowed": false,
+    "editable": true,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": false,
+    "demo_url": null,
+    "product_url": "products/customer-sales-tracker/",
+    "featured": true,
+    "last_updated": "2026-09-24",
+    "status": "published",
+    "identity": {
+      "product_type": "business_spreadsheet",
+      "edition": "Commercial Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "أصحاب المشروعات الصغيرة",
+        "البائعون عبر واتساب والسوشيال"
+      ],
+      "problem": "تشتت العملاء والمتابعات ومراحل البيع بين الرسائل والملاحظات وعدم معرفة من يحتاج متابعة.",
+      "alternatives": [],
+      "differentiation": [
+        "لوحة متابعة تلقائية",
+        "تنبيه للمتابعات المتأخرة",
+        "مراحل بيع موحدة",
+        "بدون اشتراك شهري"
+      ]
+    },
+    "offer": {
+      "outcome": "تنظيم العملاء وفرص البيع والمتابعة اليومية في ملف واحد واضح.",
+      "mechanism": "تسجيل كل عميل في صف واحد وتحديث مرحلة البيع وحالة الدفع والتسليم ومواعيد المتابعة، بينما تتحدث لوحة المتابعة تلقائيًا.",
+      "contents": [
+        "ملف XLSX جاهز",
+        "لوحة متابعة تلقائية",
+        "قوائم منسدلة للمراحل والمصادر",
+        "تنبيهات متابعة",
+        "رسوم ملخصة",
+        "دليل استخدام داخل الملف"
+      ],
+      "limitations": [
+        "لا يشمل خدمة CRM سحابية",
+        "لا يشمل تخصيصًا فرديًا",
+        "إعادة البيع أو التوزيع غير مسموح"
+      ]
+    },
+    "commerce": {
+      "price": 129,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": null,
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "product_description",
+      "previews": [],
+      "license": {
+        "type": "Personal Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "Self-Service. يشمل دليل استخدام داخل الملف ولا يشمل تخصيصًا أو إعدادًا نيابة عن العميل."
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": false,
+      "update_policy": "الإصدار v1.0.0 شراء مرة واحدة، وأي إصدارات مستقبلية تُعلن شروطها بشكل مستقل."
+    },
+    "analytics": {
+      "product_slug": "customer-sales-tracker",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    },
+    "segment": "business"
+  },
+  {
+    "schema_version": 3,
+    "slug": "break-even-calculator",
+    "name": "حاسبة نقطة التعادل والأرباح",
+    "category": "أدوات الأعمال",
+    "short_description": "أداة عربية لحساب نقطة التعادل والربح المستهدف وهامش الأمان ومقارنة السيناريوهات.",
+    "price": 149,
+    "currency": "EGP",
+    "image": "assets/social/product-break-even-calculator.webp",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Personal Use",
+    "resell_allowed": false,
+    "editable": false,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": false,
+    "demo_url": "https://digital-execution.cc/tools/break-even-calculator/",
+    "product_url": "products/break-even-calculator/",
+    "featured": true,
+    "last_updated": "2026-09-25",
+    "status": "published",
+    "identity": {
+      "product_type": "business_calculator",
+      "edition": "Commercial Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "أصحاب المشروعات الصغيرة والمتاجر",
+        "البائعون أونلاين"
+      ],
+      "problem": "عدم وضوح أقل حجم مبيعات يغطي المصاريف وحجم المبيعات المطلوب لتحقيق ربح مستهدف.",
+      "alternatives": [],
+      "differentiation": [
+        "نقطة تعادل بالوحدات وبالجنيه",
+        "ربح مستهدف",
+        "هامش أمان",
+        "مقارنة سيناريوهات",
+        "بدون API",
+        "بدون سيرفر"
+      ]
+    },
+    "offer": {
+      "outcome": "معرفة نقطة التعادل وحجم المبيعات المطلوب للربح المستهدف قبل اتخاذ قرار السعر أو التكلفة.",
+      "mechanism": "إدخال المصاريف الثابتة وسعر البيع والتكلفة المتغيرة ثم حساب التعادل والربح المستهدف وهامش الأمان.",
+      "contents": [
+        "حاسبة نقطة التعادل والأرباح v1.0.0",
+        "ربح مستهدف",
+        "هامش أمان",
+        "مقارنة سيناريوهات",
+        "نسخ النتائج",
+        "دليل استخدام مختصر"
+      ],
+      "limitations": [
+        "لا تمثل استشارة محاسبية أو مالية",
+        "تعتمد النتائج على دقة المدخلات",
+        "إعادة البيع أو التوزيع غير مسموح"
+      ]
+    },
+    "commerce": {
+      "price": 149,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": null,
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "live_demo",
+      "previews": [
+        "tools/break-even-calculator/"
+      ],
+      "license": {
+        "type": "Personal Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "Self-Service. يشمل دليل استخدام ولا يشمل استشارة محاسبية أو تخصيصًا فرديًا."
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": false,
+      "update_policy": "الإصدار v1.0.0 شراء مرة واحدة، وأي إصدارات مستقبلية تُعلن شروطها بشكل مستقل."
+    },
+    "analytics": {
+      "product_slug": "break-even-calculator",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    },
+    "segment": "business"
+  },
+  {
+    "schema_version": 3,
+    "slug": "expense-profit-tracker",
+    "name": "متابعة المصروفات والأرباح",
+    "category": "الإدارة المالية",
+    "segment": "business",
+    "short_description": "قالب Excel عربي لمتابعة الإيرادات والمصروفات وصافي الربح وهامش الربح.",
+    "price": 129,
+    "currency": "EGP",
+    "image": "assets/social/product-expense-profit-tracker.webp",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Personal Use",
+    "resell_allowed": false,
+    "editable": true,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": false,
+    "demo_url": null,
+    "product_url": "products/expense-profit-tracker/",
+    "featured": true,
+    "last_updated": "2026-09-25",
+    "status": "published",
+    "identity": {
+      "product_type": "financial_tracker",
+      "edition": "Commercial Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "أصحاب المشروعات الصغيرة والمتاجر",
+        "البائعون أونلاين"
+      ],
+      "problem": "تشتت تسجيل الإيرادات والمصروفات وعدم وضوح صافي الربح وهامش الربح شهريًا.",
+      "alternatives": [],
+      "differentiation": [
+        "Excel جاهز",
+        "Dashboard تلقائي",
+        "ملخص شهري",
+        "بدون API",
+        "بدون سيرفر"
+      ]
+    },
+    "offer": {
+      "outcome": "معرفة حركة الإيرادات والمصروفات وصافي الربح وهامش الربح من ملف واحد.",
+      "mechanism": "تسجيل كل حركة مالية ثم تجميعها تلقائيًا في لوحة أرباح وملخص شهري وتحليل للفئات.",
+      "contents": [
+        "Expense Profit Tracker v1.0.0",
+        "لوحة الأرباح",
+        "سجل الإيرادات والمصروفات",
+        "تحليل فئات المصروفات",
+        "ملخص شهري",
+        "دليل استخدام"
+      ],
+      "limitations": [
+        "لا يمثل نظامًا محاسبيًا قانونيًا",
+        "لا يشمل استشارة ضريبية أو محاسبية",
+        "إعادة البيع أو التوزيع غير مسموح"
+      ]
+    },
+    "commerce": {
+      "price": 129,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": null,
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "product_page",
+      "previews": [],
+      "license": {
+        "type": "Personal Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "Self-Service. يشمل دليل استخدام ولا يشمل تخصيصًا أو إدخال بيانات نيابة عن العميل."
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": false,
+      "update_policy": "الإصدار v1.0.0 شراء مرة واحدة، وأي إصدارات مستقبلية تُعلن شروطها بشكل مستقل."
+    },
+    "analytics": {
+      "product_slug": "expense-profit-tracker",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    }
+  },
+  {
+    "schema_version": 3,
+    "slug": "civil-engineer-toolkit",
+    "name": "باكدج المهندس المدني الاحترافي",
+    "category": "أدوات مهنية هندسية",
+    "segment": "professional",
+    "short_description": "نظام عربي متكامل من الحصر وBOQ حتى المستخلصات والموقع والمشتريات والمكتب الفني.",
+    "price": 699,
+    "currency": "EGP",
+    "image": "assets/social/product-civil-engineer-toolkit-20260925.webp",
+    "version": "1.2.1",
+    "source_type": "Original",
+    "license_type": "Professional Use",
+    "resell_allowed": false,
+    "editable": true,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": true,
+    "demo_url": null,
+    "product_url": "products/civil-engineer-toolkit/",
+    "featured": true,
+    "last_updated": "2026-09-25",
+    "status": "published",
+    "identity": {
+      "product_type": "professional_engineering_bundle",
+      "edition": "Civil Engineer Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "المهندسون المدنيون",
+        "مهندسو المكتب الفني",
+        "مهندسو حصر الكميات",
+        "مهندسو الموقع",
+        "المقاولون الصغار والمتوسطون"
+      ],
+      "problem": "نظام عربي متكامل من الحصر وBOQ حتى المستخلصات والموقع والمشتريات والمكتب الفني.",
+      "alternatives": [
+        "ملفات Excel منفصلة",
+        "متابعة يدوية متفرقة"
+      ],
+      "differentiation": [
+        "واجهة عربية RTL",
+        "مفتاح ربط موحد: رقم المشروع + كود WBS",
+        "بدون API أو سيرفر أو ماكرو",
+        "Self-Service"
+      ]
+    },
+    "offer": {
+      "outcome": "نظام عربي متكامل من الحصر وBOQ حتى المستخلصات والموقع والمشتريات والمكتب الفني.",
+      "mechanism": "تشغيل الأدوات على نفس تعريف المشروع وكود WBS.",
+      "contents": [
+        "حصر الكميات 1.1.0",
+        "مدير جدول الكميات 1.0.0",
+        "نظام المستخلصات 1.0.0",
+        "التقرير اليومي للموقع 1.0.0",
+        "متابعة المواد والمشتريات 1.0.0",
+        "أدوات المكتب الفني 1.0.0",
+        "مركز تحكم موحد",
+        "دليل تشغيل موحد"
+      ],
+      "limitations": [
+        "لا يستبدل المراجعة الهندسية أو التعاقدية",
+        "لا يقرأ الرسومات تلقائيًا",
+        "لا يعتمد على أسعار سوق تلقائية"
+      ]
+    },
+    "commerce": {
+      "price": 699,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": "Civil Engineer Professional Toolkit",
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "real_product_workbook",
+      "previews": [
+        "assets/social/product-civil-engineer-toolkit-20260925.webp"
+      ],
+      "license": {
+        "type": "Professional Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "Self-Service مع دليل استخدام. لا يشمل تنفيذ المشروع أو إدخال البيانات نيابة عن العميل."
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": true,
+      "update_policy": "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
+    },
+    "analytics": {
+      "product_slug": "civil-engineer-toolkit",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.2.1"
+    }
+  },
+  {
+    "schema_version": 3,
+    "slug": "accountant-professional-toolkit",
+    "name": "باكدج المحاسب الاحترافي",
+    "category": "أدوات مهنية محاسبية",
+    "segment": "professional",
+    "short_description": "نظام محاسبي عربي مترابط من القيود اليومية حتى الأستاذ وميزان المراجعة والعملاء والموردين والفواتير والقوائم المالية.",
+    "price": 699,
+    "currency": "EGP",
+    "image": "assets/social/product-accountant-professional-toolkit-20260925.webp",
+    "version": "1.2.0",
+    "source_type": "Original",
+    "license_type": "Professional Use",
+    "resell_allowed": false,
+    "editable": true,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": true,
+    "demo_url": null,
+    "product_url": "products/accountant-professional-toolkit/",
+    "featured": true,
+    "last_updated": "2026-09-25",
+    "status": "published",
+    "identity": {
+      "product_type": "professional_accounting_bundle",
+      "edition": "Accountant Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "المحاسبون",
+        "أصحاب المشروعات الصغيرة والمتوسطة",
+        "مسؤولو الحسابات"
+      ],
+      "problem": "تشتت القيود والأستاذ وأرصدة العملاء والموردين والفواتير والقوائم المالية بين ملفات منفصلة بدون مسار محاسبي واحد.",
+      "alternatives": [
+        "ملفات Excel منفصلة",
+        "متابعة محاسبية يدوية متفرقة"
+      ],
+      "differentiation": [
+        "واجهة عربية",
+        "مسار مترابط من المستند حتى القوائم المالية",
+        "مفاتيح ربط موحدة للحسابات والأطراف والمستندات",
+        "بدون API أو سيرفر أو ماكرو"
+      ]
+    },
+    "offer": {
+      "outcome": "تشغيل دورة محاسبية منظمة من القيود اليومية حتى التقارير والقوائم المالية من حزمة واحدة.",
+      "mechanism": "استخدام أكواد موحدة للمنشأة والحساب والطرف والمستند عبر الأنظمة.",
+      "contents": [
+        "نظام الحسابات اليومية 1.0.0",
+        "دفتر الأستاذ وميزان المراجعة المتقدم 1.0.0",
+        "العملاء والموردون المحاسبي 1.0.0",
+        "المبيعات والمشتريات المحاسبية 1.0.0",
+        "القوائم المالية 1.0.0",
+        "لوحة المحاسب المركزية 1.2.0",
+        "دليل تشغيل موحد",
+        "فحص تكامل"
+      ],
+      "limitations": [
+        "لا يستبدل المحاسب المختص أو النظام القانوني المعتمد",
+        "لا يتضمن نسب ضرائب مفترضة",
+        "لا يشمل تقديم الإقرارات أو الاستشارات الضريبية"
+      ]
+    },
+    "commerce": {
+      "price": 699,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": "Accountant Professional Toolkit",
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "product_description",
+      "previews": [
+        "assets/social/product-accountant-professional-toolkit-20260925.webp"
+      ],
+      "license": {
+        "type": "Professional Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "Self-Service مع دليل تشغيل. لا يشمل إدخال البيانات أو مسك الحسابات نيابة عن العميل."
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": true,
+      "update_policy": "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
+    },
+    "analytics": {
+      "product_slug": "accountant-professional-toolkit",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.2.0"
+    }
+  },
+  {
+    "schema_version": 3,
+    "slug": "lawyer-professional-toolkit",
+    "name": "باكدج المحامي الاحترافي",
+    "category": "أدوات مهنية قانونية",
+    "segment": "professional",
+    "short_description": "نظام عربي مترابط لإدارة العملاء والقضايا والجلسات والمهام والمستندات والإجراءات والأتعاب والمصروفات حتى الأرشفة والإغلاق.",
+    "price": 699,
+    "currency": "EGP",
+    "image": "assets/social/product-lawyer-professional-toolkit-20260925.webp",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Professional Use",
+    "resell_allowed": false,
+    "editable": true,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": true,
+    "demo_url": null,
+    "product_url": "products/lawyer-professional-toolkit/",
+    "featured": true,
+    "last_updated": "2026-09-25",
+    "status": "published",
+    "identity": {
+      "product_type": "professional_legal_management_bundle",
+      "edition": "Lawyer Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "المحامون",
+        "مكاتب المحاماة الصغيرة والمتوسطة",
+        "فرق المتابعة القانونية"
+      ],
+      "problem": "تشتت بيانات العملاء والقضايا والجلسات والمهام والمستندات والحركات المالية بين ملفات منفصلة وصعوبة معرفة حالة الملف ومواعيده وموقفه المالي بسرعة.",
+      "alternatives": [
+        "ملفات Excel منفصلة",
+        "دفاتر المتابعة الورقية",
+        "تقويم ومجلدات منفصلة"
+      ],
+      "differentiation": [
+        "واجهة عربية RTL",
+        "القضية محور الربط بين جميع الوحدات",
+        "مركز تنبيهات تشغيلي",
+        "متابعة الأتعاب والمصروفات دون تحويل المنتج إلى نظام محاسبي",
+        "فحص جودة قبل الإغلاق",
+        "بدون API أو سيرفر أو محتوى قانوني متغير"
+      ]
+    },
+    "offer": {
+      "outcome": "إدارة دورة العمل القانوني اليومية من تسجيل العميل والقضية حتى المتابعة والأرشفة والإغلاق في نظام واحد مترابط.",
+      "mechanism": "ربط كود العميل بكود القضية ثم الجلسات والإجراءات والمستندات والحركات المالية مع حالات تشغيل وتنبيهات وفحص جودة.",
+      "contents": [
+        "مركز تحكم رئيسي",
+        "سجل العملاء والموكلين",
+        "إدارة القضايا",
+        "الجلسات والمواعيد",
+        "المهام القانونية",
+        "فهرس المستندات والمذكرات",
+        "سجل الإجراءات",
+        "الأتعاب والمصروفات",
+        "الأرشيف وإغلاق القضية",
+        "مركز التنبيهات",
+        "فحص الجودة",
+        "بيانات تجريبية",
+        "دليل تشغيل عربي",
+        "ترخيص استخدام مهني",
+        "CHANGELOG",
+        "تقرير QA"
+      ],
+      "limitations": [
+        "أداة تنظيم وإدارة عمل قانوني وليست مصدرًا للاستشارة القانونية",
+        "لا تتضمن مكتبة عقود أو قوانين أو أحكام قضائية",
+        "لا تولد مذكرات قانونية تلقائيًا",
+        "لا تستبدل المراجعة المهنية للمحامي"
+      ]
+    },
+    "commerce": {
+      "price": 699,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": "Lawyer Professional Toolkit",
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "product_system",
+      "previews": [
+        "assets/social/product-lawyer-professional-toolkit-20260925.webp"
+      ],
+      "license": {
+        "type": "Professional Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "استخدام ذاتي مع دليل تشغيل؛ لا يشمل تقديم استشارة قانونية أو إعداد مستندات أو مذكرات نيابة عن العميل."
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": true,
+      "update_policy": "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
+    },
+    "analytics": {
+      "product_slug": "lawyer-professional-toolkit",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    }
+  },
+  {
+    "slug": "agricultural-engineer-toolkit",
+    "name": "باكدج المهندس الزراعي الاحترافي",
+    "category": "أدوات مهنية زراعية",
+    "segment": "professional",
+    "price": 699,
+    "currency": "EGP",
+    "version": "1.0.0",
+    "editable": true,
+    "brandable": false,
+    "lifetime_updates": true,
+    "featured": true,
+    "last_updated": "2026-09-25",
+    "status": "published",
+    "schema_version": 3,
+    "short_description": "نظام عربي مترابط لإدارة المزارع والحقول والمواسم والعمليات والري والتسميد والمكافحة والمدخلات والمصروفات والحصاد.",
+    "source_type": "Original",
+    "license_type": "Professional Use",
+    "resell_allowed": false,
+    "delivery_type": "Manual",
+    "product_url": "products/agricultural-engineer-toolkit/",
+    "identity": {
+      "product_type": "professional_agricultural_management_bundle",
+      "edition": "Agricultural Engineer Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "المهندسون الزراعيون",
+        "مديرو المزارع",
+        "المشروعات الزراعية الصغيرة والمتوسطة"
+      ],
+      "problem": "تشتت بيانات الحقول والمواسم والعمليات والمدخلات والمصروفات والحصاد وصعوبة متابعة حالة الموسم.",
+      "alternatives": [
+        "جداول منفصلة",
+        "دفاتر ورقية",
+        "ملفات متابعة غير مترابطة"
+      ],
+      "differentiation": [
+        "واجهة عربية RTL",
+        "الموسم محور الربط",
+        "متابعة مخزون ومصروفات",
+        "ضوابط إغلاق الموسم",
+        "نسخ احتياطي محلي",
+        "بدون API أو سيرفر"
+      ]
+    },
+    "offer": {
+      "outcome": "إدارة دورة الموسم الزراعي من الحقل والخطة حتى الحصاد والإغلاق في نظام واحد.",
+      "mechanism": "ربط المزرعة بالحقل والموسم ثم العمليات والري والتسميد والمكافحة والمدخلات والمصروفات والحصاد.",
+      "contents": [
+        "لوحة تحكم",
+        "المزارع والحقول",
+        "المواسم والمحاصيل",
+        "العمليات والمهام",
+        "الري",
+        "التسميد",
+        "المكافحة والمتابعة",
+        "العمالة",
+        "المخزون والمدخلات",
+        "المصروفات",
+        "الحصاد والإنتاجية",
+        "إغلاق الموسم",
+        "فحص الجودة",
+        "نسخ احتياطي واستعادة",
+        "دليل تشغيل",
+        "ترخيص",
+        "CHANGELOG",
+        "تقرير QA"
+      ],
+      "limitations": [
+        "أداة تنظيم وإدارة وليست بديلًا عن المهندس الزراعي",
+        "لا تقدم تشخيصًا آليًا للأمراض",
+        "لا تقدم جرعات مبيدات أو أسمدة كتوصية",
+        "لا تعتمد على أسعار سوق أو طقس حي"
+      ]
+    },
+    "commerce": {
+      "price": 699,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": "Agricultural Engineer Toolkit",
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "product_system",
+      "previews": [
+        "assets/social/product-agricultural-engineer-toolkit-20260925.webp"
+      ],
+      "license": {
+        "type": "Professional Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "استخدام ذاتي مع دليل تشغيل؛ لا يشمل تقديم استشارات أو توصيات زراعية مهنية نيابة عن العميل."
+    },
+    "analytics": {
+      "product_slug": "agricultural-engineer-toolkit",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": true,
+      "update_policy": "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
+    },
+    "image": "assets/social/product-agricultural-engineer-toolkit-20260925.webp"
+  },
+  {
+    "schema_version": 3,
+    "slug": "teacher-professional-toolkit",
+    "name": "باكدج المدرس الاحترافي",
+    "category": "أدوات مهنية تعليمية",
+    "segment": "professional",
+    "short_description": "نظام عربي لإدارة الطلاب والمجموعات والحصص والحضور والواجبات والتقييمات والتحصيل والمتابعة.",
+    "price": 699,
+    "currency": "EGP",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Professional Use",
+    "resell_allowed": false,
+    "editable": true,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": true,
+    "product_url": "products/teacher-professional-toolkit/",
+    "featured": true,
+    "last_updated": "2026-09-25",
+    "status": "published",
+    "identity": {
+      "product_type": "professional_teacher_management_bundle",
+      "edition": "Teacher Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "المعلمون",
+        "المدرسون الخصوصيون",
+        "مقدمو المجموعات التعليمية"
+      ],
+      "problem": "تشتت بيانات الطلاب والحصص والحضور والتقييمات والتحصيل والمتابعة.",
+      "alternatives": [
+        "دفاتر ورقية",
+        "جداول منفصلة",
+        "تطبيقات عامة غير مترابطة"
+      ],
+      "differentiation": [
+        "واجهة عربية RTL",
+        "ربط الطالب بالمجموعة والحصة",
+        "متابعة الحضور والواجبات والتقييم",
+        "المستحقات والتحصيل",
+        "فحص جودة وأرشفة",
+        "بدون API أو خادم"
+      ]
+    },
+    "offer": {
+      "outcome": "إدارة العمل التعليمي اليومي في نظام واحد مترابط.",
+      "mechanism": "ربط الطالب بالمجموعة ثم الحصص والحضور والواجبات والتقييمات والرسوم والمدفوعات والمتابعة.",
+      "contents": [
+        "لوحة التحكم",
+        "الطلاب",
+        "المجموعات والتسجيل",
+        "الحصص",
+        "الحضور",
+        "الواجبات والتسليم",
+        "التقييمات",
+        "الرسوم والمدفوعات",
+        "المتابعة",
+        "التقارير",
+        "فحص الجودة",
+        "الأرشفة",
+        "نسخ احتياطي واستعادة",
+        "دليل تشغيل",
+        "ترخيص",
+        "CHANGELOG",
+        "تقرير QA"
+      ],
+      "limitations": [
+        "أداة تنظيم وإدارة وليست منصة تعليم إلكتروني",
+        "لا تولد محتوى دراسيًا أو إجابات تلقائيًا",
+        "لا تستبدل التقييم التربوي للمدرس"
+      ]
+    },
+    "commerce": {
+      "price": 699,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": "Teacher Professional Toolkit",
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "product_system",
+      "previews": [
+        "assets/social/product-teacher-professional-toolkit-20260925.webp"
+      ],
+      "license": {
+        "type": "Professional Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "استخدام ذاتي مع دليل تشغيل؛ لا يشمل إعداد المحتوى الدراسي أو التدريس نيابة عن العميل."
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": true,
+      "update_policy": "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
+    },
+    "analytics": {
+      "product_slug": "teacher-professional-toolkit",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    },
+    "image": "assets/social/product-teacher-professional-toolkit-20260925.webp"
+  },
+  {
+    "schema_version": 3,
+    "slug": "freelancer-business-os",
+    "name": "باكدج الفريلانسر الاحترافي",
+    "category": "إدارة الأعمال والعمل الحر",
+    "segment": "professional",
+    "short_description": "نظام عربي لإدارة العملاء والفرص وعروض الأسعار والمشاريع والمهام والتسليمات والفواتير والمدفوعات والمصروفات والربحية.",
+    "price": 599,
+    "currency": "EGP",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Professional Use",
+    "resell_allowed": false,
+    "editable": true,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": true,
+    "product_url": "products/freelancer-business-os/",
+    "featured": true,
+    "last_updated": "2026-09-25",
+    "status": "published",
+    "identity": {
+      "product_type": "freelancer_business_os",
+      "edition": "Freelancer Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "المصممون المستقلون",
+        "المطورون المستقلون",
+        "المسوقون والكتاب والمونتيرون والمترجمون والمستشارون المستقلون"
+      ],
+      "problem": "تشتت العملاء والمشاريع وعروض الأسعار والفواتير والتحصيل والمصروفات والمواعيد بين أدوات وملفات منفصلة.",
+      "alternatives": [
+        "جداول منفصلة",
+        "ملاحظات ومحادثات",
+        "أدوات باشتراكات شهرية"
+      ],
+      "differentiation": [
+        "Workflow مترابط من Lead إلى التحصيل",
+        "حاسبة تسعير",
+        "ربحية لكل مشروع",
+        "Backup / Restore",
+        "بدون API أو خادم أو اشتراك شهري"
+      ]
+    },
+    "offer": {
+      "outcome": "إدارة دورة العمل الحر من أول فرصة وحتى التحصيل وقياس الربحية في نظام واحد.",
+      "mechanism": "ربط العميل المحتمل بالعميل ثم Brief وعرض السعر والمشروع والمهام والتسليم والفاتورة والمدفوعات والمصروفات والربحية.",
+      "contents": [
+        "لوحة التحكم",
+        "Leads والعملاء",
+        "Briefs",
+        "عروض الأسعار",
+        "المشاريع والمهام",
+        "التسليمات والتعديلات",
+        "الفواتير والمدفوعات",
+        "المصروفات",
+        "حاسبة التسعير",
+        "تقارير الربحية",
+        "فحص الجودة",
+        "الأرشيف",
+        "Backup / Restore",
+        "دليل التشغيل",
+        "الترخيص",
+        "CHANGELOG",
+        "QA Report"
+      ],
+      "limitations": [
+        "أداة تنظيم وإدارة وليست نظام فوترة ضريبية معتمدًا",
+        "البيانات محفوظة محليًا ويُنصح بعمل Backup دوري",
+        "لا يشمل تنفيذ خدمات الفريلانسر نيابة عن العميل"
+      ]
+    },
+    "commerce": {
+      "price": 599,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": "Freelancer Business OS",
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "product_system",
+      "previews": [
+        "assets/social/product-freelancer-business-os-20260925.png"
+      ],
+      "license": {
+        "type": "Professional Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "استخدام ذاتي مع دليل تشغيل؛ لا يشمل إدارة العملاء أو المشاريع نيابة عن المستخدم."
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": true,
+      "update_policy": "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
+    },
+    "analytics": {
+      "product_slug": "freelancer-business-os",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    },
+    "image": "assets/social/product-freelancer-business-os-20260925.png"
+  },
+  {
+    "schema_version": 3,
+    "slug": "social-seller-ecommerce-os",
+    "name": "باكدج إدارة البيع أونلاين الاحترافي",
+    "category": "إدارة البيع أونلاين والتجارة الإلكترونية",
+    "segment": "professional",
+    "short_description": "نظام عربي لإدارة الاستفسارات والعملاء والمنتجات والمخزون والطلبات والتجهيز والشحن والتحصيل والمرتجعات والمصروفات والربحية.",
+    "price": 699,
+    "currency": "EGP",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Professional Use",
+    "resell_allowed": false,
+    "editable": true,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": true,
+    "product_url": "products/social-seller-ecommerce-os/",
+    "featured": true,
+    "last_updated": "2026-09-25",
+    "status": "published",
+    "identity": {
+      "product_type": "social_seller_ecommerce_operations_os",
+      "edition": "Social Seller / E-commerce Operations Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "البائعون عبر السوشيال ميديا",
+        "أصحاب المتاجر الصغيرة والمتوسطة"
+      ],
+      "problem": "تشتت دورة البيع أونلاين بين أدوات وملفات منفصلة.",
+      "alternatives": [
+        "جداول منفصلة",
+        "أنظمة باشتراكات شهرية"
+      ],
+      "differentiation": [
+        "Workflow مترابط من الاستفسار حتى الربحية",
+        "متابعة المخزون وتكلفة البضاعة",
+        "الشحن والتحصيل والمرتجعات",
+        "Backup / Restore"
+      ]
+    },
+    "offer": {
+      "outcome": "إدارة دورة البيع أونلاين من الاستفسار حتى الربحية في نظام واحد.",
+      "mechanism": "ربط العميل والمنتج بالطلب ثم متابعة التجهيز والشحن والتحصيل والمرتجعات والمصروفات.",
+      "contents": [
+        "لوحة التحكم",
+        "الاستفسارات والعملاء",
+        "المنتجات والمخزون",
+        "الطلبات",
+        "التجهيز والشحن والتحصيل",
+        "المرتجعات",
+        "المصروفات",
+        "تقارير الربحية",
+        "فحص الجودة",
+        "الأرشيف",
+        "Backup / Restore"
+      ],
+      "limitations": [
+        "نظام تشغيل محلي لإدارة البيع أونلاين",
+        "ليس نظام فوترة ضريبية معتمدًا",
+        "ليس شركة شحن أو بوابة دفع"
+      ]
+    },
+    "commerce": {
+      "price": 699,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": "Social Seller / E-commerce Operations OS",
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "product_system",
+      "previews": [
+        "assets/social/product-social-seller-ecommerce-os-20260925.png"
+      ],
+      "license": {
+        "type": "Professional Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "استخدام ذاتي مع دليل تشغيل؛ لا يشمل إدارة المتجر نيابة عن المستخدم."
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": true,
+      "update_policy": "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
+    },
+    "analytics": {
+      "product_slug": "social-seller-ecommerce-os",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    },
+    "image": "assets/social/product-social-seller-ecommerce-os-20260925.png"
+  }
 ]
