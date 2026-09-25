@@ -1305,5 +1305,401 @@
       "stage": "PUBLISHED",
       "published_version": "1.0.0"
     }
+  },
+  {
+    "schema_version": 3,
+    "slug": "site-daily-report",
+    "name": "التقرير اليومي للموقع",
+    "category": "أدوات مهنية هندسية",
+    "segment": "professional",
+    "short_description": "سجل تنفيذ الموقع والعمالة والمعدات والمواد والمعوقات على نفس WBS.",
+    "price": 199,
+    "currency": "EGP",
+    "image": "assets/social/product-site-daily-report.svg",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Professional Use",
+    "resell_allowed": false,
+    "editable": true,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": true,
+    "demo_url": null,
+    "product_url": "products/site-daily-report/",
+    "featured": true,
+    "last_updated": "2026-09-25",
+    "status": "published",
+    "identity": {
+      "product_type": "professional_engineering_tool",
+      "edition": "Civil Engineer Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "المهندسون المدنيون",
+        "مهندسو المكتب الفني",
+        "مهندسو حصر الكميات",
+        "مهندسو الموقع",
+        "المقاولون الصغار والمتوسطون"
+      ],
+      "problem": "سجل تنفيذ الموقع والعمالة والمعدات والمواد والمعوقات على نفس WBS.",
+      "alternatives": [
+        "ملفات Excel منفصلة",
+        "متابعة يدوية متفرقة"
+      ],
+      "differentiation": [
+        "واجهة عربية RTL",
+        "مفتاح ربط موحد: رقم المشروع + كود WBS",
+        "بدون API أو سيرفر أو ماكرو",
+        "Self-Service"
+      ]
+    },
+    "offer": {
+      "outcome": "سجل تنفيذ الموقع والعمالة والمعدات والمواد والمعوقات على نفس WBS.",
+      "mechanism": "تشغيل الأدوات على نفس تعريف المشروع وكود WBS.",
+      "contents": [
+        "ملف XLSX عربي",
+        "بيانات تجريبية",
+        "دليل استخدام",
+        "ترخيص مهني"
+      ],
+      "limitations": [
+        "لا يستبدل المراجعة الهندسية أو التعاقدية",
+        "لا يقرأ الرسومات تلقائيًا",
+        "لا يعتمد على أسعار سوق تلقائية"
+      ]
+    },
+    "commerce": {
+      "price": 199,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": "Civil Engineer Professional Toolkit",
+      "upgrade": "civil-engineer-toolkit",
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "real_product_workbook",
+      "previews": [
+        "assets/social/product-site-daily-report.svg"
+      ],
+      "license": {
+        "type": "Professional Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "Self-Service مع دليل استخدام. لا يشمل تنفيذ المشروع أو إدخال البيانات نيابة عن العميل."
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": true,
+      "update_policy": "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
+    },
+    "analytics": {
+      "product_slug": "site-daily-report",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    }
+  },
+  {
+    "schema_version": 3,
+    "slug": "material-procurement-tracker",
+    "name": "متابعة المواد والمشتريات",
+    "category": "أدوات مهنية هندسية",
+    "segment": "professional",
+    "short_description": "اربط احتياجات الموقع بأوامر الشراء والموردين والاستلام على نفس WBS.",
+    "price": 249,
+    "currency": "EGP",
+    "image": "assets/social/product-material-procurement-tracker.svg",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Professional Use",
+    "resell_allowed": false,
+    "editable": true,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": true,
+    "demo_url": null,
+    "product_url": "products/material-procurement-tracker/",
+    "featured": true,
+    "last_updated": "2026-09-25",
+    "status": "published",
+    "identity": {
+      "product_type": "professional_engineering_tool",
+      "edition": "Civil Engineer Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "المهندسون المدنيون",
+        "مهندسو المكتب الفني",
+        "مهندسو حصر الكميات",
+        "مهندسو الموقع",
+        "المقاولون الصغار والمتوسطون"
+      ],
+      "problem": "اربط احتياجات الموقع بأوامر الشراء والموردين والاستلام على نفس WBS.",
+      "alternatives": [
+        "ملفات Excel منفصلة",
+        "متابعة يدوية متفرقة"
+      ],
+      "differentiation": [
+        "واجهة عربية RTL",
+        "مفتاح ربط موحد: رقم المشروع + كود WBS",
+        "بدون API أو سيرفر أو ماكرو",
+        "Self-Service"
+      ]
+    },
+    "offer": {
+      "outcome": "اربط احتياجات الموقع بأوامر الشراء والموردين والاستلام على نفس WBS.",
+      "mechanism": "تشغيل الأدوات على نفس تعريف المشروع وكود WBS.",
+      "contents": [
+        "ملف XLSX عربي",
+        "بيانات تجريبية",
+        "دليل استخدام",
+        "ترخيص مهني"
+      ],
+      "limitations": [
+        "لا يستبدل المراجعة الهندسية أو التعاقدية",
+        "لا يقرأ الرسومات تلقائيًا",
+        "لا يعتمد على أسعار سوق تلقائية"
+      ]
+    },
+    "commerce": {
+      "price": 249,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": "Civil Engineer Professional Toolkit",
+      "upgrade": "civil-engineer-toolkit",
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "real_product_workbook",
+      "previews": [
+        "assets/social/product-material-procurement-tracker.svg"
+      ],
+      "license": {
+        "type": "Professional Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "Self-Service مع دليل استخدام. لا يشمل تنفيذ المشروع أو إدخال البيانات نيابة عن العميل."
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": true,
+      "update_policy": "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
+    },
+    "analytics": {
+      "product_slug": "material-procurement-tracker",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    }
+  },
+  {
+    "schema_version": 3,
+    "slug": "technical-office-toolkit",
+    "name": "أدوات المكتب الفني",
+    "category": "أدوات مهنية هندسية",
+    "segment": "professional",
+    "short_description": "سجل الاستفسارات والاعتمادات والتغييرات والرسومات والإصدارات في نظام عربي مترابط.",
+    "price": 249,
+    "currency": "EGP",
+    "image": "assets/social/product-technical-office-toolkit.svg",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Professional Use",
+    "resell_allowed": false,
+    "editable": true,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": true,
+    "demo_url": null,
+    "product_url": "products/technical-office-toolkit/",
+    "featured": true,
+    "last_updated": "2026-09-25",
+    "status": "published",
+    "identity": {
+      "product_type": "professional_engineering_tool",
+      "edition": "Civil Engineer Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "المهندسون المدنيون",
+        "مهندسو المكتب الفني",
+        "مهندسو حصر الكميات",
+        "مهندسو الموقع",
+        "المقاولون الصغار والمتوسطون"
+      ],
+      "problem": "سجل الاستفسارات والاعتمادات والتغييرات والرسومات والإصدارات في نظام عربي مترابط.",
+      "alternatives": [
+        "ملفات Excel منفصلة",
+        "متابعة يدوية متفرقة"
+      ],
+      "differentiation": [
+        "واجهة عربية RTL",
+        "مفتاح ربط موحد: رقم المشروع + كود WBS",
+        "بدون API أو سيرفر أو ماكرو",
+        "Self-Service"
+      ]
+    },
+    "offer": {
+      "outcome": "سجل الاستفسارات والاعتمادات والتغييرات والرسومات والإصدارات في نظام عربي مترابط.",
+      "mechanism": "تشغيل الأدوات على نفس تعريف المشروع وكود WBS.",
+      "contents": [
+        "ملف XLSX عربي",
+        "بيانات تجريبية",
+        "دليل استخدام",
+        "ترخيص مهني"
+      ],
+      "limitations": [
+        "لا يستبدل المراجعة الهندسية أو التعاقدية",
+        "لا يقرأ الرسومات تلقائيًا",
+        "لا يعتمد على أسعار سوق تلقائية"
+      ]
+    },
+    "commerce": {
+      "price": 249,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": "Civil Engineer Professional Toolkit",
+      "upgrade": "civil-engineer-toolkit",
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "real_product_workbook",
+      "previews": [
+        "assets/social/product-technical-office-toolkit.svg"
+      ],
+      "license": {
+        "type": "Professional Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "Self-Service مع دليل استخدام. لا يشمل تنفيذ المشروع أو إدخال البيانات نيابة عن العميل."
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": true,
+      "update_policy": "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
+    },
+    "analytics": {
+      "product_slug": "technical-office-toolkit",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    }
+  },
+  {
+    "schema_version": 3,
+    "slug": "civil-engineer-toolkit",
+    "name": "باكدج المهندس المدني الاحترافي",
+    "category": "أدوات مهنية هندسية",
+    "segment": "professional",
+    "short_description": "نظام عربي متكامل من الحصر وBOQ حتى المستخلصات والموقع والمشتريات والمكتب الفني.",
+    "price": 899,
+    "currency": "EGP",
+    "image": "assets/social/product-civil-engineer-toolkit.svg",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Professional Use",
+    "resell_allowed": false,
+    "editable": true,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": true,
+    "demo_url": null,
+    "product_url": "products/civil-engineer-toolkit/",
+    "featured": true,
+    "last_updated": "2026-09-25",
+    "status": "published",
+    "identity": {
+      "product_type": "professional_engineering_bundle",
+      "edition": "Civil Engineer Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "المهندسون المدنيون",
+        "مهندسو المكتب الفني",
+        "مهندسو حصر الكميات",
+        "مهندسو الموقع",
+        "المقاولون الصغار والمتوسطون"
+      ],
+      "problem": "نظام عربي متكامل من الحصر وBOQ حتى المستخلصات والموقع والمشتريات والمكتب الفني.",
+      "alternatives": [
+        "ملفات Excel منفصلة",
+        "متابعة يدوية متفرقة"
+      ],
+      "differentiation": [
+        "واجهة عربية RTL",
+        "مفتاح ربط موحد: رقم المشروع + كود WBS",
+        "بدون API أو سيرفر أو ماكرو",
+        "Self-Service"
+      ]
+    },
+    "offer": {
+      "outcome": "نظام عربي متكامل من الحصر وBOQ حتى المستخلصات والموقع والمشتريات والمكتب الفني.",
+      "mechanism": "تشغيل الأدوات على نفس تعريف المشروع وكود WBS.",
+      "contents": [
+        "حصر الكميات 1.1.0",
+        "مدير جدول الكميات 1.0.0",
+        "نظام المستخلصات 1.0.0",
+        "التقرير اليومي للموقع 1.0.0",
+        "متابعة المواد والمشتريات 1.0.0",
+        "أدوات المكتب الفني 1.0.0",
+        "مركز تحكم موحد",
+        "دليل تشغيل موحد"
+      ],
+      "limitations": [
+        "لا يستبدل المراجعة الهندسية أو التعاقدية",
+        "لا يقرأ الرسومات تلقائيًا",
+        "لا يعتمد على أسعار سوق تلقائية"
+      ]
+    },
+    "commerce": {
+      "price": 899,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": "Civil Engineer Professional Toolkit",
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "real_product_workbook",
+      "previews": [
+        "assets/social/product-civil-engineer-toolkit.svg"
+      ],
+      "license": {
+        "type": "Professional Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "Self-Service مع دليل استخدام. لا يشمل تنفيذ المشروع أو إدخال البيانات نيابة عن العميل."
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": true,
+      "update_policy": "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
+    },
+    "analytics": {
+      "product_slug": "civil-engineer-toolkit",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    }
   }
 ]
