@@ -12,7 +12,7 @@ function render(){
   '<div class="footer-contact-card"><span class="footer-contact-icon" aria-hidden="true">VC</span><span>فودافون كاش</span><strong>'+phone+'</strong><button class="footer-copy-btn" type="button" data-copy-footer-cash>نسخ رقم الدفع</button></div></div>'+
   '<div class="footer-service-row"><span><b>الدفع:</b> فودافون كاش</span><span><b>التواصل:</b> واتساب والبريد الرسمي</span><span><b>الاستلام:</b> رقمي بعد التحقق من الدفع</span></div>'+
   '<nav class="footer-nav-pro" aria-label="روابط مهمة"><a href="/products/">المنتجات</a><a href="/licenses.html">التراخيص</a><a href="/updates/">التحديثات</a><a href="/terms.html">الشروط</a><a href="/privacy.html">الخصوصية</a></nav>'+
-  '<div class="footer-divider" aria-hidden="true"></div><div class="footer-bottom"><p><strong>Alaa Omran</strong> — Founder & Digital Product Designer</p><p>© 2026 Digital Execution — جميع الحقوق محفوظة.</p></div></div>';
+  '<div class="footer-divider" aria-hidden="true"></div><div class="footer-bottom"><p><strong>Alaa Omran</strong> — Digital Product Designer</p><p>© 2026 Digital Execution — جميع الحقوق محفوظة.</p></div></div>';
   const btn=footer.querySelector("[data-copy-footer-cash]");
   btn?.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(phone);const old=btn.textContent;btn.textContent="تم نسخ الرقم";setTimeout(()=>btn.textContent=old,1400)}catch{alert("رقم فودافون كاش: "+phone)}});
 }
