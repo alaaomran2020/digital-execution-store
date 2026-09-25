@@ -1200,5 +1200,117 @@
       "stage": "PUBLISHED",
       "published_version": "1.2.0"
     }
+  },
+  {
+    "schema_version": 3,
+    "slug": "lawyer-professional-toolkit",
+    "name": "باكدج المحامي الاحترافي",
+    "category": "أدوات مهنية قانونية",
+    "segment": "professional",
+    "short_description": "نظام عربي مترابط لإدارة العملاء والقضايا والجلسات والمهام والمستندات والإجراءات والأتعاب والمصروفات حتى الأرشفة والإغلاق.",
+    "price": 799,
+    "currency": "EGP",
+    "image": "assets/social/product-lawyer-professional-toolkit.svg",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Professional Use",
+    "resell_allowed": false,
+    "editable": true,
+    "brandable": false,
+    "delivery_type": "Manual",
+    "lifetime_updates": true,
+    "demo_url": null,
+    "product_url": "products/lawyer-professional-toolkit/",
+    "featured": true,
+    "last_updated": "2026-09-25",
+    "status": "published",
+    "identity": {
+      "product_type": "professional_legal_management_bundle",
+      "edition": "Lawyer Edition",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "المحامون",
+        "مكاتب المحاماة الصغيرة والمتوسطة",
+        "فرق المتابعة القانونية"
+      ],
+      "problem": "تشتت بيانات العملاء والقضايا والجلسات والمهام والمستندات والحركات المالية بين ملفات منفصلة وصعوبة معرفة حالة الملف ومواعيده وموقفه المالي بسرعة.",
+      "alternatives": [
+        "ملفات Excel منفصلة",
+        "دفاتر المتابعة الورقية",
+        "تقويم ومجلدات منفصلة"
+      ],
+      "differentiation": [
+        "واجهة عربية RTL",
+        "القضية محور الربط بين جميع الوحدات",
+        "مركز تنبيهات تشغيلي",
+        "متابعة الأتعاب والمصروفات دون تحويل المنتج إلى نظام محاسبي",
+        "فحص جودة قبل الإغلاق",
+        "بدون API أو سيرفر أو محتوى قانوني متغير"
+      ]
+    },
+    "offer": {
+      "outcome": "إدارة دورة العمل القانوني اليومية من تسجيل العميل والقضية حتى المتابعة والأرشفة والإغلاق في نظام واحد مترابط.",
+      "mechanism": "ربط كود العميل بكود القضية ثم الجلسات والإجراءات والمستندات والحركات المالية مع حالات تشغيل وتنبيهات وفحص جودة.",
+      "contents": [
+        "مركز تحكم رئيسي",
+        "سجل العملاء والموكلين",
+        "إدارة القضايا",
+        "الجلسات والمواعيد",
+        "المهام القانونية",
+        "فهرس المستندات والمذكرات",
+        "سجل الإجراءات",
+        "الأتعاب والمصروفات",
+        "الأرشيف وإغلاق القضية",
+        "مركز التنبيهات",
+        "فحص الجودة",
+        "بيانات تجريبية",
+        "دليل تشغيل عربي",
+        "ترخيص استخدام مهني",
+        "CHANGELOG",
+        "تقرير QA"
+      ],
+      "limitations": [
+        "أداة تنظيم وإدارة عمل قانوني وليست مصدرًا للاستشارة القانونية",
+        "لا تتضمن مكتبة عقود أو قوانين أو أحكام قضائية",
+        "لا تولد مذكرات قانونية تلقائيًا",
+        "لا تستبدل المراجعة المهنية للمحامي"
+      ]
+    },
+    "commerce": {
+      "price": 799,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": "Lawyer Professional Toolkit",
+      "upgrade": null,
+      "payment_method": "Vodafone Cash"
+    },
+    "trust": {
+      "preview_type": "product_system",
+      "previews": [
+        "assets/social/product-lawyer-professional-toolkit.svg"
+      ],
+      "license": {
+        "type": "Professional Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "استخدام ذاتي مع دليل تشغيل؛ لا يشمل تقديم استشارة قانونية أو إعداد مستندات أو مذكرات نيابة عن العميل."
+    },
+    "delivery": {
+      "method": "manual_after_payment_verification",
+      "channel": "WhatsApp",
+      "includes_updates": true,
+      "update_policy": "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
+    },
+    "analytics": {
+      "product_slug": "lawyer-professional-toolkit",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    }
   }
 ]
