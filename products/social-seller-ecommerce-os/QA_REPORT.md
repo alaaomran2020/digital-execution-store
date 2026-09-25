@@ -4,7 +4,7 @@
 - Freelancer residue removal: PASS
 - JavaScript syntax: PASS
 - Encoding corruption: PASS — no replacement characters or damaged Arabic sequences
-- Arabic UI cleanup: PASS — temporary Data/Order/Sales/Online labels removed
+- Arabic UI cleanup: PASS — temporary Data/Order/Online labels removed
 - Core ecommerce workflow model: PASS
 - Inventory deduction / insufficient-stock guard: PASS
 - Cancellation stock restoration guard: PASS
@@ -19,11 +19,11 @@
 - No API / server / monthly subscription dependency: PASS
 
 ## Release-only gates
-- Professional artwork: PENDING — starts only after Product Gate
-- OG artwork binding: PENDING
-- ZIP + SHA256: PENDING
+- Professional artwork: PASS — production PNG added and hash verified
+- OG artwork binding: PASS
+- ZIP + SHA256: PASS — delivery archive rebuilt without corrupt backup/temp files
 - Final QA: PENDING
-- Registry / Storefront publication: PENDING
+- Registry / Storefront publication: PASS — registry entry, storefront card and sitemap added
 - PR / Merge / Deploy / Live Verification: PENDING
 
 Product Gate status: PASS for implemented v1.0.0 scope. Release pipeline has not started.
