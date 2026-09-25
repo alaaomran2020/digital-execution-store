@@ -1312,5 +1312,26 @@
       "stage": "PUBLISHED",
       "published_version": "1.0.0"
     }
+  },
+  {
+    "slug": "agricultural-engineer-toolkit",
+    "name": "باكدج المهندس الزراعي الاحترافي",
+    "category": "أدوات مهنية زراعية",
+    "segment": "professional",
+    "price": 799,
+    "currency": "EGP",
+    "version": "1.0.0",
+    "license": "Professional Use",
+    "resell": false,
+    "editable": true,
+    "brandable": false,
+    "delivery": "Manual",
+    "lifetime_updates": true,
+    "url": "products/agricultural-engineer-toolkit/",
+    "featured": true,
+    "last_updated": "2026-09-25",
+    "status": "validating",
+    "product_type": "professional_agricultural_management_bundle",
+    "lifecycle_stage": "VALIDATING"
   }
 ]
