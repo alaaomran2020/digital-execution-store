@@ -11,10 +11,10 @@
 - No API / server / monthly subscription dependency: PASS
 
 ## Release-only gates
-- Professional artwork: READY — Product Gate reached 100%; artwork is next
-- Registry / Storefront: PENDING
-- ZIP + SHA256: PENDING
-- Final QA: PENDING
+- Professional artwork: PASS — production PNG added and verified
+- Registry / Storefront: PASS — registry entry, storefront card and sitemap added
+- ZIP + SHA256: PASS
+- Final QA: PASS — JavaScript syntax and Store QA passed on release candidate
 - PR / Merge / Deploy / Live Verification: PENDING
 
 Product Gate status: PASS — 100% for v1.0.0 implemented scope.
