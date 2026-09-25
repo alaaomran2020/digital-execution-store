@@ -374,24 +374,36 @@ function setupProfessionalFooter(){
     '<div class="container">'+
       '<div class="footer-brand-block">'+
         '<span class="footer-brand-mark" aria-hidden="true">DE</span>'+
+        '<span class="footer-trust-pill"><i aria-hidden="true"></i> متجر منتجات رقمية جاهزة</span>'+
         '<strong>Digital Execution</strong>'+
-        '<p>منتجات رقمية عملية جاهزة، بترخيص وسعر وطريقة استلام واضحة.</p>'+
+        '<p>منتجات رقمية عملية تساعدك تنجز المهمة أسرع، مع سعر وترخيص وطريقة شراء واستلام واضحة قبل الدفع.</p>'+
       '</div>'+
-      '<div class="footer-contact-grid" aria-label="بيانات التواصل">'+
-        '<a class="footer-contact-card" href="mailto:contact@digital-execution.cc">'+
-          '<span>البريد الإلكتروني</span>'+
+      '<div class="footer-contact-grid" aria-label="بيانات التواصل والدفع">'+
+        '<a class="footer-contact-card" href="mailto:contact@digital-execution.cc" data-track="footer_email_click" data-source="footer" data-cta-location="contact">'+
+          '<span class="footer-contact-icon" aria-hidden="true">@</span>'+
+          '<span>البريد الرسمي</span>'+
           '<strong>contact@digital-execution.cc</strong>'+
+          '<small>للتواصل والاستفسارات</small>'+
         '</a>'+
-        '<a class="footer-contact-card" href="https://wa.me/201011673107" target="_blank" rel="noopener noreferrer">'+
+        '<a class="footer-contact-card" href="https://wa.me/201011673107" target="_blank" rel="noopener noreferrer" data-track="footer_whatsapp_click" data-source="footer" data-cta-location="contact">'+
+          '<span class="footer-contact-icon" aria-hidden="true">WA</span>'+
           '<span>واتساب</span>'+
           '<strong>01011673107</strong>'+
+          '<small>للتواصل وإرسال إثبات الدفع</small>'+
         '</a>'+
         '<div class="footer-contact-card">'+
+          '<span class="footer-contact-icon" aria-hidden="true">VC</span>'+
           '<span>فودافون كاش</span>'+
           '<strong>01011673107</strong>'+
+          '<button class="footer-copy-btn" type="button" data-copy-footer-cash>نسخ رقم الدفع</button>'+
         '</div>'+
       '</div>'+
-      '<nav class="footer-nav-pro" aria-label="روابط الفوتر">'+
+      '<div class="footer-service-row" aria-label="معلومات الخدمة">'+
+        '<span><b>الدفع:</b> فودافون كاش</span>'+
+        '<span><b>التواصل:</b> واتساب والبريد الرسمي</span>'+
+        '<span><b>الاستلام:</b> رقمي بعد التحقق من الدفع</span>'+
+      '</div>'+
+      '<nav class="footer-nav-pro" aria-label="روابط مهمة">'+
         '<a href="/products/">المنتجات</a>'+
         '<a href="/licenses.html">التراخيص</a>'+
         '<a href="/updates/">التحديثات</a>'+
@@ -400,9 +412,22 @@ function setupProfessionalFooter(){
       '</nav>'+
       '<div class="footer-divider" aria-hidden="true"></div>'+
       '<div class="footer-bottom">'+
-        '<p class="footer-payment-note">الدفع عبر فودافون كاش على نفس رقم واتساب.</p>'+
+        '<p>رقم واتساب هو نفسه رقم فودافون كاش المعتمد للدفع.</p>'+
         '<p>© 2026 Digital Execution — جميع الحقوق محفوظة.</p>'+
       '</div>'+
     '</div>';
+
+  const cashCopy=footer.querySelector("[data-copy-footer-cash]");
+  cashCopy?.addEventListener("click",async()=>{
+    try{
+      await navigator.clipboard.writeText(STORE_CONTEXT.phone);
+      const old=cashCopy.textContent;
+      cashCopy.textContent="تم نسخ الرقم";
+      trackEvent("footer_cash_copy",{source:"footer",cta_location:"payment"});
+      setTimeout(()=>cashCopy.textContent=old,1400);
+    }catch{
+      alert("رقم فودافون كاش: "+STORE_CONTEXT.phone);
+    }
+  });
 }
 setupProfessionalFooter();
