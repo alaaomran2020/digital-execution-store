@@ -1008,7 +1008,7 @@
     "short_description": "نظام عربي متكامل من الحصر وBOQ حتى المستخلصات والموقع والمشتريات والمكتب الفني.",
     "price": 899,
     "currency": "EGP",
-    "image": "assets/social/product-civil-engineer-toolkit.webp",
+    "image": "assets/social/product-civil-engineer-toolkit-20260925.webp",
     "version": "1.2.1",
     "source_type": "Original",
     "license_type": "Professional Use",
@@ -1077,7 +1077,7 @@
     "trust": {
       "preview_type": "real_product_workbook",
       "previews": [
-        "assets/social/product-civil-engineer-toolkit.webp"
+        "assets/social/product-civil-engineer-toolkit-20260925.webp"
       ],
       "license": {
         "type": "Professional Use",
@@ -1110,7 +1110,7 @@
     "short_description": "نظام محاسبي عربي مترابط من القيود اليومية حتى الأستاذ وميزان المراجعة والعملاء والموردين والفواتير والقوائم المالية.",
     "price": 799,
     "currency": "EGP",
-    "image": "assets/social/product-accountant-professional-toolkit.svg",
+    "image": "assets/social/product-accountant-professional-toolkit-20260925.webp",
     "version": "1.2.0",
     "source_type": "Original",
     "license_type": "Professional Use",
@@ -1177,7 +1177,7 @@
     "trust": {
       "preview_type": "product_description",
       "previews": [
-        "assets/social/product-accountant-professional-toolkit.svg"
+        "assets/social/product-accountant-professional-toolkit-20260925.webp"
       ],
       "license": {
         "type": "Professional Use",
@@ -1210,7 +1210,7 @@
     "short_description": "نظام عربي مترابط لإدارة العملاء والقضايا والجلسات والمهام والمستندات والإجراءات والأتعاب والمصروفات حتى الأرشفة والإغلاق.",
     "price": 799,
     "currency": "EGP",
-    "image": "assets/social/product-lawyer-professional-toolkit.svg",
+    "image": "assets/social/product-lawyer-professional-toolkit-20260925.webp",
     "version": "1.0.0",
     "source_type": "Original",
     "license_type": "Professional Use",
@@ -1289,7 +1289,7 @@
     "trust": {
       "preview_type": "product_system",
       "previews": [
-        "assets/social/product-lawyer-professional-toolkit.svg"
+        "assets/social/product-lawyer-professional-toolkit-20260925.webp"
       ],
       "license": {
         "type": "Professional Use",
@@ -1400,7 +1400,9 @@
     },
     "trust": {
       "preview_type": "product_system",
-      "previews": [],
+      "previews": [
+        "assets/social/product-agricultural-engineer-toolkit-20260925.webp"
+      ],
       "license": {
         "type": "Professional Use",
         "resell_allowed": false,
@@ -1421,7 +1423,8 @@
       "channel": "WhatsApp",
       "includes_updates": true,
       "update_policy": "تحديثات المنتج الرسمية لنفس خط المنتج متاحة للعملاء الحاليين."
-    }
+    },
+    "image": "assets/social/product-agricultural-engineer-toolkit-20260925.webp"
   },
   {
     "schema_version": 3,
@@ -1508,7 +1511,9 @@
     },
     "trust": {
       "preview_type": "product_system",
-      "previews": [],
+      "previews": [
+        "assets/social/product-teacher-professional-toolkit-20260925.webp"
+      ],
       "license": {
         "type": "Professional Use",
         "resell_allowed": false,
@@ -1529,6 +1534,7 @@
     "lifecycle": {
       "stage": "PUBLISHED",
       "published_version": "1.0.0"
-    }
+    },
+    "image": "assets/social/product-teacher-professional-toolkit-20260925.webp"
   }
 ]
