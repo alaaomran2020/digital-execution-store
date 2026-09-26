@@ -12,7 +12,7 @@ function renderHeader(){
       '<span class="site-announcement-item"><i aria-hidden="true"></i> استلام رقمي بعد التحقق من الدفع</span>'+
       '<span class="site-announcement-item" aria-hidden="true"><i></i> منتجات رقمية عملية جاهزة للاستخدام</span>'+
       '<span class="site-announcement-item" aria-hidden="true"><i></i> دفع مرة واحدة بدون اشتراك شهري</span>'+
-      '<a class="site-announcement-item" href="/updates/" aria-hidden="true"><i></i> اطلب أحدث نسخة من أي منتج اشتريته</a>'+
+      '<span class="site-announcement-item" aria-hidden="true"><i></i> اطلب أحدث نسخة من أي منتج اشتريته</span>'+
       '<span class="site-announcement-item" aria-hidden="true"><i></i> استلام رقمي بعد التحقق من الدفع</span>'+
     '</div></div>'+
     '<div class="site-header-nav">'+
@@ -28,7 +28,7 @@ function renderHeader(){
         '<button class="site-header-menu-btn" type="button" aria-expanded="false" aria-controls="siteHeaderMobile" aria-label="فتح القائمة">☰</button>'+
       '</div>'+
     '</div>'+
-    '<nav class="site-header-mobile" id="siteHeaderMobile" aria-label="قائمة الموبايل">'+
+    '<nav class="site-header-mobile" id="siteHeaderMobile" aria-label="قائمة الموبايل" hidden>'+
       '<a href="/">الرئيسية</a>'+
       '<a href="/products/">المنتجات</a>'+
       '<a href="/updates/">التحديثات</a>'+
@@ -52,6 +52,7 @@ function renderHeader(){
     btn.setAttribute("aria-label",open?"إغلاق القائمة":"فتح القائمة");
     btn.textContent=open?"×":"☰";
     menu.classList.toggle("is-open",open);
+    menu.hidden=!open;
   };
   btn.addEventListener("click",()=>setOpen(btn.getAttribute("aria-expanded")!=="true"));
   menu.addEventListener("click",e=>{if(e.target.closest("a"))setOpen(false)});
