@@ -19,10 +19,19 @@
 - Customer delivery files
 
 ## المنتجات المنشورة
-- **ReStock Desk v1.2.2** — أدوات الأعمال — 399 EGP.
-- **Career Kit v1.0.0** — أدوات مهنية — 249 EGP.
+سجل المنتجات العام `/data/products.json` هو المرجع المعتمد للحالة والسعر والإصدار ومسار صفحة البيع. لا تُحفظ قائمة منشورة يدويًا هنا حتى لا تنفصل عن الـRegistry.
 
-الدفع الحالي للمنتجات المنشورة: Vodafone Cash، والتسليم بعد التحقق عبر WhatsApp.
+صفحة `/products/` والـSitemap وبيانات ItemList يجب أن تتطابق مع حالة `published` في الـRegistry، ويمنع Store QA أي اختلاف.
+
+## بنية المستودعات ومصدر الحقيقة
+- `digital-execution-store` ? **Public**: storefront, sales pages, and public assets only.
+- `restock-desk` ? **Private**: Source of Truth for ReStock Desk.
+- `career-kit` ? **Private**: Source of Truth for Career Kit / Career CV Studio.
+- `digital-execution-products-private` ? **Private**: Source of Truth for commercial packages without a dedicated repository.
+
+القاعدة: **كل منتج له Source of Truth واحد فقط**. لا يوضع المصدر التجاري أو ملفات التسليم الخاصة أو تقارير QA الداخلية في المستودع العام.
+
+مكونات باكدج المهندس المدني العامة (`civil-quantity-takeoff`, `boq-manager`, `payment-certificates`, `site-daily-report`, `material-procurement-tracker`, `technical-office-toolkit`) صفحات مكونات للباكدج وليست منتجات مستقلة في Registry الحالي.
 
 ## الاستضافة
 المستودع مصمم للعمل كـ Static Site على:
