@@ -1787,7 +1787,7 @@
     "short_description": "نظام عربي لإدارة المرضى إداريًا والمواعيد والزيارات والخدمات والتحصيل والمصروفات والمتابعة والتقارير.",
     "price": 699,
     "currency": "EGP",
-    "version": "1.0.0",
+    "version": "6.3.0",
     "source_type": "Original",
     "license_type": "Professional Use",
     "resell_allowed": false,
@@ -1881,7 +1881,7 @@
     },
     "lifecycle": {
       "stage": "PUBLISHED",
-      "published_version": "1.0.0"
+      "published_version": "6.3.0"
     },
     "image": "assets/social/product-clinic-medical-center-os-20260926.png"
   },
