@@ -325,3 +325,80 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .price-list s,.card-price s{color:var(--muted);font-size:.82em}.price-sale,.card-price strong{font-weight:900}.price-save,.card-price span{color:var(--accent);font-weight:800}.card-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px}.card-price s{width:100%}
 
 .unified-offer s{color:var(--muted);font-size:.85em}.unified-offer{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px}.unified-offer .price-save,.unified-offer span{font-weight:800}
+
+
+/* Pricing layout: clear RTL hierarchy on cards and product pages */
+.product-showcase-meta{
+  align-items:flex-end;
+  gap:14px;
+}
+.product-showcase-meta>div:first-child{
+  min-width:0;
+  flex:1 1 auto;
+}
+.card-price{
+  display:grid;
+  grid-template-columns:auto auto;
+  grid-template-areas:
+    "old old"
+    "sale save";
+  justify-content:start;
+  align-items:center;
+  column-gap:10px;
+  row-gap:4px;
+  direction:rtl;
+  line-height:1.2;
+}
+.card-price s{
+  grid-area:old;
+  width:auto;
+  color:var(--muted);
+  font-size:.78rem;
+  font-weight:600;
+  opacity:.82;
+  white-space:nowrap;
+}
+.card-price strong{
+  grid-area:sale;
+  font-size:1.12rem;
+  font-weight:900;
+  white-space:nowrap;
+}
+.card-price span{
+  grid-area:save;
+  display:inline-flex;
+  align-items:center;
+  width:max-content;
+  padding:4px 8px;
+  border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);
+  border-radius:999px;
+  background:color-mix(in srgb,var(--accent) 10%,transparent);
+  color:var(--accent);
+  font-size:.72rem;
+  font-weight:800;
+  white-space:nowrap;
+}
+.product-showcase-meta small{
+  display:block;
+  margin-top:4px;
+  color:var(--muted);
+  font-size:.68rem;
+}
+.product-buy-btn{
+  line-height:1.35;
+}
+@media (max-width:640px){
+  .product-showcase-meta{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+  .card-price{
+    grid-template-columns:auto auto;
+  }
+  .product-card-actions{
+    grid-template-columns:1fr;
+  }
+  .product-buy-btn,.product-details-btn{
+    width:100%;
+  }
+}
