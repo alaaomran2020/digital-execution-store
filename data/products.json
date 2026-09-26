@@ -1544,7 +1544,7 @@
     "category": "إدارة الأعمال والعمل الحر",
     "segment": "professional",
     "short_description": "نظام عربي لإدارة العملاء والفرص وعروض الأسعار والمشاريع والمهام والتسليمات والفواتير والمدفوعات والمصروفات والربحية.",
-    "price": 599,
+    "price": 699,
     "currency": "EGP",
     "version": "5.3.0",
     "source_type": "Original",
@@ -1612,7 +1612,7 @@
       ]
     },
     "commerce": {
-      "price": 599,
+      "price": 699,
       "currency": "EGP",
       "billing": "one_time",
       "bundle": "Freelancer Business OS",
