@@ -26,7 +26,7 @@ function normalizeSearchRows(rows,type){
  const impressions=num(r[iKey]),clicks=num(r[cKey]);let ctr=num(r[ctrKey]);if(String(r[ctrKey]||"").includes("%"))ctr/=100;else if(ctr>1)ctr/=100;
  return {key:type==="page"?normalizePath(r[pKey]):r[pKey]||"",clicks,impressions,ctr:ctr||((impressions&&clicks/impressions)||0),position:num(r[posKey])};}).filter(r=>r.key);
 }
-function normalizeEvents(rows){return rows.map(r=>({timestamp:r.timestamp||r.time||r.datetime||"",event:r.event||r.event_name||"",path:normalizePath(r.path||r.page_path||r.landing_path||r.url||""),landing_path:normalizePath(r.landing_path||r.path||r.page_path||""),source:r.source||"",product_slug:r.product_slug||"",cta_location:r.cta_location||""})).filter(r=>r.event)}
+function normalizeEvents(rows){return rows.map(r=>({timestamp:r.timestamp||r.time||r.datetime||"",event:r.event||r.event_name||"",path:normalizePath(r.path||r.page_path||r.landing_path||r.url||""),landing_path:normalizePath(r.landing_path||r.path||r.page_path||""),source:r.source||"",product_slug:r.product_slug||"",guide_slug:r.guide_slug||"",utm_source:r.utm_source||"",utm_medium:r.utm_medium||"",utm_campaign:r.utm_campaign||"",cta_location:r.cta_location||""})).filter(r=>r.event)}
 function normalizeOrders(rows){return rows.map(r=>({
  order_id:r.order_id||"",
  original_order_id:r.original_order_id||"",
@@ -61,7 +61,7 @@ function render(){
  $("#kpiGuideProduct").textContent=fmt(gp);$("#kpiBuyIntent").textContent=fmt(bi);$("#kpiWhatsapp").textContent=fmt(wa);$("#kpiSeoWaRate").textContent=pct(clicks?wa/clicks:NaN);
  $("#kpiQualified").textContent=fmt(qualified);$("#kpiPaid").textContent=fmt(paid);$("#kpiDelivered").textContent=fmt(delivered);$("#kpiRepeat").textContent=fmt(repeat);
  $("#loadStatus").textContent=`Pages: ${state.pages.length} · Queries: ${state.queries.length} · Events: ${state.events.length} · Orders: ${state.orders.length}`;
- renderPages();renderQueries();renderFunnel();
+ renderPages();renderQueries();renderFunnel();renderAcquisition();
 }
 function renderPages(){
  if(!state.pages.length){$("#pagesTableWrap").className="empty";$("#pagesTableWrap").textContent="حمّل Search Console Pages CSV.";return}
@@ -92,9 +92,32 @@ function renderFunnel(){
  $("#funnelTableWrap").className="";
  $("#funnelTableWrap").innerHTML=`<table><thead><tr><th>المنتج</th><th>Views</th><th>Guide → Product</th><th>Buy Intent</th><th>WhatsApp</th><th>Qualified</th><th>Paid</th><th>Delivered</th><th>Repeat</th><th>View → WA</th><th>Paid → Delivered</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.p}</td><td>${fmt(r.views)}</td><td>${fmt(r.guide)}</td><td>${fmt(r.buy)}</td><td>${fmt(r.wa)}</td><td>${fmt(r.qualified)}</td><td>${fmt(r.paid)}</td><td>${fmt(r.delivered)}</td><td>${fmt(r.repeat)}</td><td>${pct(r.views?r.wa/r.views:NaN)}</td><td>${pct(r.paid?r.delivered/r.paid:NaN)}</td></tr>`).join("")}</tbody></table>`;
 }
+
+function renderAcquisition(){
+ const map=new Map();
+ for(const e of state.events){
+  const source=e.utm_source||e.source||"direct";
+  const campaign=e.utm_campaign||"—";
+  const guide=e.guide_slug||(e.landing_path.startsWith("/guides/")?e.landing_path.split("/")[2]:"—");
+  const product=e.product_slug||"—";
+  const key=[source,campaign,guide,product].join("|");
+  if(!map.has(key))map.set(key,{source,campaign,guide,product,guideViews:0,productClicks:0,productViews:0,wa:0,qualified:0,orders:0});
+  const r=map.get(key);
+  if(e.event==="guide_view")r.guideViews++;
+  if(e.event==="guide_product_click")r.productClicks++;
+  if(e.event==="product_view")r.productViews++;
+  if(e.event==="product_whatsapp_click"||e.event==="whatsapp_payment_click")r.wa++;
+  if(e.event==="qualified_lead")r.qualified++;
+  if(e.event==="order")r.orders++;
+ }
+ const rows=[...map.values()].filter(r=>r.guideViews||r.productClicks||r.productViews||r.wa||r.qualified||r.orders).sort((a,b)=>(b.orders-a.orders)||(b.wa-a.wa)||(b.productClicks-a.productClicks));
+ const wrap=$("#acquisitionTableWrap");if(!wrap)return;
+ if(!rows.length){wrap.className="empty";wrap.textContent="لا توجد بيانات Acquisition فعلية بعد.";return}
+ wrap.className="";wrap.innerHTML=`<table><thead><tr><th>Source</th><th>Campaign</th><th>Guide</th><th>Product</th><th>Guide Views</th><th>Product Clicks</th><th>Product Views</th><th>WhatsApp</th><th>Qualified</th><th>Orders</th><th>Guide → Product</th><th>جاهز للإعلان؟</th></tr></thead><tbody>${rows.map(r=>{const rate=r.guideViews?r.productClicks/r.guideViews:0;const ready=r.guideViews>=30&&r.productClicks>=5&&r.wa>=2?"مرشح للاختبار المدفوع":"اجمع بيانات أكثر";return `<tr><td>${r.source}</td><td>${r.campaign}</td><td>${r.guide}</td><td>${r.product}</td><td>${fmt(r.guideViews)}</td><td>${fmt(r.productClicks)}</td><td>${fmt(r.productViews)}</td><td>${fmt(r.wa)}</td><td>${fmt(r.qualified)}</td><td>${fmt(r.orders)}</td><td>${pct(rate)}</td><td><span class="status">${ready}</span></td></tr>`}).join("")}</tbody></table>`;
+}
 function csvEscape(v){const s=String(v??"");return /[",\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s}
 function downloadEvents(){
- const headers=["timestamp","event","path","landing_path","source","product_slug","cta_location"];
+ const headers=["timestamp","event","path","landing_path","source","guide_slug","product_slug","cta_location","utm_source","utm_medium","utm_campaign"];
  const lines=[headers,...state.events.map(e=>headers.map(h=>e[h]||""))];
  const blob=new Blob([lines.map(r=>r.map(csvEscape).join(",")).join("\n")],{type:"text/csv;charset=utf-8"});
  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="digital-execution-funnel-events.csv";a.click();URL.revokeObjectURL(a.href);
