@@ -1,6 +1,7 @@
 const STORE_CONTEXT={phone:"01011673107",whatsapp:"201011673107",brand:"Digital Execution"};
 const body=document.body;
 const pageType=body.dataset.page||"unknown";
+const GUIDE_CONTEXT=pageType==="guide"?{guide_slug:body.dataset.guideSlug||"",product_slug:body.dataset.guideProduct||""}:null;
 const PRODUCT_CONTEXT=pageType==="product"?{
   product_slug:body.dataset.productSlug||"",
   product_name:body.dataset.productName||"",
@@ -23,6 +24,8 @@ const ATTRIBUTION_CONTEXT={
 };
 
 const FUNNEL_STAGE_BY_EVENT={
+  guide_view:"awareness",
+  guide_product_click:"consideration",
   product_view:"product_view",
   lead_magnet_click:"lead_magnet",
   health_check_click:"lead_magnet",
@@ -141,11 +144,17 @@ function setupPurchase(){
   });
 }
 
+if(GUIDE_CONTEXT?.guide_slug) trackEvent("guide_view",{...GUIDE_CONTEXT,source:"guide"});
 if(pageType==="store") trackEvent("store_view",{source:"homepage"});
 const SEARCH_TERM=CURRENT_URL.searchParams.get("q")||CURRENT_URL.searchParams.get("search")||"";
 if(SEARCH_TERM) trackEvent("search",{source:"url_query",query_length:SEARCH_TERM.length});
 if(pageType==="product_list") trackEvent("category_view",{source:"products",category:"all_products"});
 if(PRODUCT_CONTEXT?.product_slug) trackEvent("product_view",{...PRODUCT_CONTEXT,source:"product_page"});
+
+document.querySelectorAll('a[href^="/products/"]').forEach(a=>{
+  if(!ATTRIBUTION_CONTEXT.utm_source&&!ATTRIBUTION_CONTEXT.utm_medium&&!ATTRIBUTION_CONTEXT.utm_campaign) return;
+  try{const u=new URL(a.href,location.origin);["utm_source","utm_medium","utm_campaign"].forEach(k=>{if(ATTRIBUTION_CONTEXT[k])u.searchParams.set(k,ATTRIBUTION_CONTEXT[k])});a.href=u.pathname+u.search+u.hash}catch{}
+});
 
 document.addEventListener("click",event=>{
   const tracked=event.target.closest("[data-track]");
