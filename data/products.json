@@ -1546,7 +1546,7 @@
     "short_description": "نظام عربي لإدارة العملاء والفرص وعروض الأسعار والمشاريع والمهام والتسليمات والفواتير والمدفوعات والمصروفات والربحية.",
     "price": 599,
     "currency": "EGP",
-    "version": "1.0.0",
+    "version": "5.3.0",
     "source_type": "Original",
     "license_type": "Professional Use",
     "resell_allowed": false,
@@ -1556,7 +1556,7 @@
     "lifetime_updates": true,
     "product_url": "products/freelancer-business-os/",
     "featured": true,
-    "last_updated": "2026-09-25",
+    "last_updated": "2026-09-26",
     "status": "published",
     "identity": {
       "product_type": "freelancer_business_os",
@@ -1643,7 +1643,7 @@
     },
     "lifecycle": {
       "stage": "PUBLISHED",
-      "published_version": "1.0.0"
+      "published_version": "5.3.0"
     },
     "image": "assets/social/product-freelancer-business-os-20260925.png"
   },
