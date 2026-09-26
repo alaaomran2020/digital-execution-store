@@ -1,11 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
+import {syncStorefront,attributes} from './sync-storefront.mjs';
 
 const root=process.cwd();
 const errors=[];
 const fail=(m)=>errors.push(m);
 const read=(p)=>fs.readFileSync(path.join(root,p),"utf8");
 const exists=(p)=>fs.existsSync(path.join(root,p));
+for(const file of syncStorefront(root)) fail(file+': registry data differs; run node qa/sync-storefront.mjs --write');
 
 let products;
 try{products=JSON.parse(read("data/products.json"));}catch(e){fail("products.json is invalid JSON: "+e.message);products=[]}
@@ -71,6 +73,20 @@ for(const p of products.filter(x=>x.status==="published"&&x.segment==="professio
   if(!homepage.includes(`href="${p.product_url}`)) fail(p.slug+": homepage storefront link missing");
 }
 const catalog=read("products/index.html");
+for(const [label,html] of [['homepage',homepage],['catalog',catalog]]){
+  const seen=new Set();
+  for(const card of html.match(/<article\b[^>]*\bdata-product-card\b[^>]*>[\s\S]*?<\/article>/g)||[]){
+    const tag=card.match(/^<article[^>]*>/)[0];
+    const slug=tag.match(/data-product-slug="([^"]+)"/)?.[1];
+    const p=products.find(p=>p.slug===slug&&p.status==='published');
+    if(!p){fail(label+': unknown/unpublished card '+slug);continue;}
+    if(seen.has(slug))fail(label+': duplicate card '+slug);seen.add(slug);
+    for(const [k,v] of Object.entries(attributes(p)))if(!tag.includes(`${k}="${v}"`))fail(`${label}/${slug}: ${k} mismatch`);
+    const visible=card.replace(/<[^>]+>/g,' ');
+    if(!visible.includes(`${p.price} جنيه`))fail(`${label}/${slug}: visible price mismatch`);
+    if(label==='catalog'&&!visible.includes(`الإصدار ${p.version}`))fail(`${label}/${slug}: visible version mismatch`);
+  }
+}
 for(const p of products.filter(x=>x.status==="published")){
   if(!catalog.includes(`data-product-slug="${p.slug}"`)) fail(p.slug+": published product missing from products catalog");
   if(!catalog.includes(`data-product-version="${p.version}"`)) fail(p.slug+": catalog version differs from registry");
