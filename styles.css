@@ -284,7 +284,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 /* Store banner — 2026-09-26 */
 .store-banner{padding:0;background:#071126}
 .store-banner-frame{position:relative;width:100%;max-width:1500px;margin:0 auto;overflow:hidden}
-.store-banner-frame>img{display:block;width:100%;height:auto;aspect-ratio:3/1;object-fit:cover}
+.store-banner-frame>img{display:block;width:100%;height:auto;aspect-ratio:3/1;object-fit:contain;background:#071126}
 .store-banner-hotspot{position:absolute;z-index:2;bottom:21%;height:10%;border-radius:14px;transition:background-color .18s ease,box-shadow .18s ease}
 .store-banner-browse{right:8.4%;width:14.5%}
 .store-banner-popular{right:23.9%;width:11.8%}
@@ -294,26 +294,17 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 
 @media(max-width:700px){
-  .store-banner{padding:0 0 12px;background:linear-gradient(180deg,#071126 0%,#0b1026 100%)}
-  .store-banner-frame{height:164px;max-width:none}
-  .store-banner-frame>img{height:164px;aspect-ratio:auto;object-fit:cover;object-position:left center}
+  .store-banner{padding:0 0 14px;background:#071126}
+  .store-banner-frame{width:100%;max-width:none}
+  .store-banner-frame>img{width:100%;height:auto;aspect-ratio:3/1;object-fit:contain;object-position:center}
   .store-banner-hotspot{display:none}
-  .store-banner-mobile-copy{display:block;margin-top:-1px;padding-top:20px;padding-bottom:22px}
-  .store-banner-mobile-copy .store-banner-kicker{display:inline-flex;align-items:center;gap:8px;color:#cfd5e6;font-size:.74rem;font-weight:700}
-  .store-banner-mobile-copy .store-banner-kicker:before,.store-banner-mobile-copy .store-banner-kicker:after{content:"";width:18px;height:1px;background:rgba(255,255,255,.38)}
-  .store-banner-mobile-copy h1{margin:.28em 0 .16em;font-size:clamp(2.15rem,11vw,3.15rem);line-height:1.05;letter-spacing:-.035em;background:linear-gradient(90deg,#fff,#c6b8ff 45%,#8b5cf6 78%,#60a5fa);background-clip:text;-webkit-background-clip:text;color:transparent}
-  .store-banner-mobile-copy>p{margin:0 0 18px;color:#e6e8f1;font-size:.95rem;line-height:1.75;font-weight:700}
-  .store-banner-mobile-features{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:18px;color:#c9d2e3;font-size:.76rem;font-weight:700}
-  .store-banner-mobile-features span{display:flex;align-items:center;gap:7px;min-width:0}
-  .store-banner-mobile-features span:before{content:"✓";display:grid;place-items:center;flex:0 0 20px;width:20px;height:20px;border-radius:7px;background:rgba(96,165,250,.11);color:#60a5fa;font-size:.72rem}
-  .store-banner-mobile-actions{display:grid;grid-template-columns:1fr;gap:10px}
-  .store-banner-mobile-actions .btn{width:100%;min-height:50px;display:inline-flex;align-items:center;justify-content:center}
-  .store-banner-primary{background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff;box-shadow:0 14px 34px rgba(124,58,237,.28)}
-  .store-banner-secondary{border:1px solid rgba(196,181,253,.4);background:rgba(9,13,32,.48);color:#f4f1ff}
+  .store-banner-mobile-copy{display:block;padding-top:12px;padding-bottom:4px}
+  .store-banner-mobile-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .store-banner-mobile-actions .btn{width:100%;min-height:50px;display:inline-flex;align-items:center;justify-content:center;padding-inline:12px;font-size:.86rem}
+  .store-banner-primary{background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff;box-shadow:0 10px 24px rgba(124,58,237,.24)}
+  .store-banner-secondary{border:1px solid rgba(196,181,253,.4);background:rgba(9,13,32,.62);color:#f4f1ff}
 }
 
-@media(max-width:420px){
-  .store-banner-frame,.store-banner-frame>img{height:148px}
-  .store-banner-mobile-copy{padding-top:18px;padding-bottom:18px}
-  .store-banner-mobile-copy h1{font-size:clamp(2rem,11.8vw,2.75rem)}
+@media(max-width:390px){
+  .store-banner-mobile-actions{grid-template-columns:1fr}
 }
