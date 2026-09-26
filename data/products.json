@@ -5,7 +5,7 @@
     "name": "ReStock Desk",
     "category": "برامج وأنظمة",
     "short_description": "برنامج عربي لإدارة المخزون والنواقص وإعادة الطلب للمتاجر.",
-    "price": 399,
+    "price": 699,
     "currency": "EGP",
     "image": "assets/restock/dashboard.png",
     "version": "1.2.2",
@@ -60,12 +60,14 @@
       ]
     },
     "commerce": {
-      "price": 399,
+      "price": 699,
       "currency": "EGP",
       "billing": "one_time",
       "bundle": null,
       "upgrade": null,
-      "payment_method": "Vodafone Cash"
+      "payment_method": "Vodafone Cash",
+      "list_price": 1000,
+      "savings": 301
     },
     "trust": {
       "preview_type": "real_product_screenshots",
@@ -104,7 +106,7 @@
     "name": "Career Kit",
     "category": "قوالب وأدوات مهنية",
     "short_description": "باكدج عملي لتجهيز CV وLinkedIn والتقديم للوظائف للخريجين وأصحاب الخبرة.",
-    "price": 249,
+    "price": 699,
     "currency": "EGP",
     "image": "assets/career-kit/career-kit-cover.svg",
     "version": "1.0.0",
@@ -160,12 +162,14 @@
       ]
     },
     "commerce": {
-      "price": 249,
+      "price": 699,
       "currency": "EGP",
       "billing": "one_time",
       "bundle": null,
       "upgrade": null,
-      "payment_method": "Vodafone Cash"
+      "payment_method": "Vodafone Cash",
+      "list_price": 1000,
+      "savings": 301
     },
     "trust": {
       "preview_type": "product_previews",
@@ -441,7 +445,7 @@
     "category": "إدارة الأعمال",
     "segment": "business",
     "short_description": "نظام Google Sheets بسيط لمتابعة المبيعات والمصروفات والتدفق النقدي والربح.",
-    "price": 249,
+    "price": 699,
     "currency": "EGP",
     "image": "assets/restock/dashboard.png",
     "version": "1.0.0",
@@ -496,12 +500,14 @@
       ]
     },
     "commerce": {
-      "price": 249,
+      "price": 699,
       "currency": "EGP",
       "billing": "one_time",
       "bundle": null,
       "upgrade": "business-bundle",
-      "payment_method": "Vodafone Cash"
+      "payment_method": "Vodafone Cash",
+      "list_price": 1000,
+      "savings": 301
     },
     "trust": {
       "preview_type": "product_description",
@@ -535,7 +541,7 @@
     "category": "إدارة الأعمال",
     "segment": "business",
     "short_description": "ReStock Desk + Business Control Pack في حزمة واحدة لإدارة المخزون والمتابعة المالية المبسطة.",
-    "price": 549,
+    "price": 699,
     "currency": "EGP",
     "image": "assets/restock/dashboard.png",
     "version": "1.0.0",
@@ -587,7 +593,7 @@
       ]
     },
     "commerce": {
-      "price": 549,
+      "price": 699,
       "currency": "EGP",
       "billing": "one_time",
       "bundle": [
@@ -595,7 +601,9 @@
         "business-control-pack"
       ],
       "upgrade": null,
-      "payment_method": "Vodafone Cash"
+      "payment_method": "Vodafone Cash",
+      "list_price": 1000,
+      "savings": 301
     },
     "trust": {
       "preview_type": "bundle_of_published_products",
@@ -630,7 +638,7 @@
     "name": "حاسبة تسعير المنتجات",
     "category": "أدوات الأعمال",
     "short_description": "أداة عربية لحساب سعر البيع والربح والهامش ومقارنة سيناريوهات التسعير.",
-    "price": 149,
+    "price": 699,
     "currency": "EGP",
     "image": "assets/social/product-pricing-calculator.webp",
     "version": "1.0.0",
@@ -683,12 +691,14 @@
       ]
     },
     "commerce": {
-      "price": 149,
+      "price": 699,
       "currency": "EGP",
       "billing": "one_time",
       "bundle": null,
       "upgrade": null,
-      "payment_method": "Vodafone Cash"
+      "payment_method": "Vodafone Cash",
+      "list_price": 1000,
+      "savings": 301
     },
     "trust": {
       "preview_type": "live_demo",
@@ -724,7 +734,7 @@
     "name": "متابعة العملاء والمبيعات",
     "category": "قوالب وأدوات أعمال",
     "short_description": "قالب عملي لإدارة العملاء وفرص البيع والمتابعات اليومية مع لوحة متابعة تلقائية.",
-    "price": 129,
+    "price": 699,
     "currency": "EGP",
     "image": "assets/social/product-customer-sales-tracker.webp",
     "version": "1.0.0",
@@ -777,12 +787,14 @@
       ]
     },
     "commerce": {
-      "price": 129,
+      "price": 699,
       "currency": "EGP",
       "billing": "one_time",
       "bundle": null,
       "upgrade": null,
-      "payment_method": "Vodafone Cash"
+      "payment_method": "Vodafone Cash",
+      "list_price": 1000,
+      "savings": 301
     },
     "trust": {
       "preview_type": "product_description",
@@ -816,7 +828,7 @@
     "name": "حاسبة نقطة التعادل والأرباح",
     "category": "أدوات الأعمال",
     "short_description": "أداة عربية لحساب نقطة التعادل والربح المستهدف وهامش الأمان ومقارنة السيناريوهات.",
-    "price": 149,
+    "price": 699,
     "currency": "EGP",
     "image": "assets/social/product-break-even-calculator.webp",
     "version": "1.0.0",
@@ -871,12 +883,14 @@
       ]
     },
     "commerce": {
-      "price": 149,
+      "price": 699,
       "currency": "EGP",
       "billing": "one_time",
       "bundle": null,
       "upgrade": null,
-      "payment_method": "Vodafone Cash"
+      "payment_method": "Vodafone Cash",
+      "list_price": 1000,
+      "savings": 301
     },
     "trust": {
       "preview_type": "live_demo",
@@ -913,7 +927,7 @@
     "category": "الإدارة المالية",
     "segment": "business",
     "short_description": "قالب Excel عربي لمتابعة الإيرادات والمصروفات وصافي الربح وهامش الربح.",
-    "price": 129,
+    "price": 699,
     "currency": "EGP",
     "image": "assets/social/product-expense-profit-tracker.webp",
     "version": "1.0.0",
@@ -967,12 +981,14 @@
       ]
     },
     "commerce": {
-      "price": 129,
+      "price": 699,
       "currency": "EGP",
       "billing": "one_time",
       "bundle": null,
       "upgrade": null,
-      "payment_method": "Vodafone Cash"
+      "payment_method": "Vodafone Cash",
+      "list_price": 1000,
+      "savings": 301
     },
     "trust": {
       "preview_type": "product_page",
@@ -1072,7 +1088,9 @@
       "billing": "one_time",
       "bundle": "Civil Engineer Professional Toolkit",
       "upgrade": null,
-      "payment_method": "Vodafone Cash"
+      "payment_method": "Vodafone Cash",
+      "list_price": 1000,
+      "savings": 301
     },
     "trust": {
       "preview_type": "real_product_workbook",
@@ -1172,7 +1190,9 @@
       "billing": "one_time",
       "bundle": "Accountant Professional Toolkit",
       "upgrade": null,
-      "payment_method": "Vodafone Cash"
+      "payment_method": "Vodafone Cash",
+      "list_price": 1000,
+      "savings": 301
     },
     "trust": {
       "preview_type": "product_description",
@@ -1284,7 +1304,9 @@
       "billing": "one_time",
       "bundle": "Lawyer Professional Toolkit",
       "upgrade": null,
-      "payment_method": "Vodafone Cash"
+      "payment_method": "Vodafone Cash",
+      "list_price": 1000,
+      "savings": 301
     },
     "trust": {
       "preview_type": "product_system",
@@ -1396,7 +1418,9 @@
       "billing": "one_time",
       "bundle": "Agricultural Engineer Toolkit",
       "upgrade": null,
-      "payment_method": "Vodafone Cash"
+      "payment_method": "Vodafone Cash",
+      "list_price": 1000,
+      "savings": 301
     },
     "trust": {
       "preview_type": "product_system",
@@ -1507,7 +1531,9 @@
       "billing": "one_time",
       "bundle": "Teacher Professional Toolkit",
       "upgrade": null,
-      "payment_method": "Vodafone Cash"
+      "payment_method": "Vodafone Cash",
+      "list_price": 1000,
+      "savings": 301
     },
     "trust": {
       "preview_type": "product_system",
@@ -1617,7 +1643,9 @@
       "billing": "one_time",
       "bundle": "Freelancer Business OS",
       "upgrade": null,
-      "payment_method": "Vodafone Cash"
+      "payment_method": "Vodafone Cash",
+      "list_price": 1000,
+      "savings": 301
     },
     "trust": {
       "preview_type": "product_system",
@@ -1718,7 +1746,9 @@
       "billing": "one_time",
       "bundle": "Social Seller / E-commerce Operations OS",
       "upgrade": null,
-      "payment_method": "Vodafone Cash"
+      "payment_method": "Vodafone Cash",
+      "list_price": 1000,
+      "savings": 301
     },
     "trust": {
       "preview_type": "product_system",
@@ -1823,7 +1853,9 @@
       "billing": "one_time",
       "bundle": "Clinic / Medical Center Operations OS",
       "upgrade": null,
-      "payment_method": "Vodafone Cash"
+      "payment_method": "Vodafone Cash",
+      "list_price": 1000,
+      "savings": 301
     },
     "trust": {
       "preview_type": "product_system",
@@ -1933,7 +1965,9 @@
       "billing": "one_time",
       "bundle": "Graphic Designer Business OS",
       "upgrade": null,
-      "payment_method": "Vodafone Cash"
+      "payment_method": "Vodafone Cash",
+      "list_price": 1000,
+      "savings": 301
     },
     "trust": {
       "preview_type": "product_system",
@@ -2043,7 +2077,9 @@
       "billing": "one_time",
       "bundle": "Professional Services Office OS",
       "upgrade": null,
-      "payment_method": "Vodafone Cash"
+      "payment_method": "Vodafone Cash",
+      "list_price": 1000,
+      "savings": 301
     },
     "trust": {
       "preview_type": "product_system",

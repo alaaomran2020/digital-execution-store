@@ -15,6 +15,11 @@ for(const p of products){
   if(!p.slug||slugs.has(p.slug)) fail("duplicate/missing product slug: "+p.slug);
   slugs.add(p.slug);
   if(p.price!==p.commerce?.price) fail(p.slug+": top-level price differs from commerce.price");
+  if(p.status==="published"){
+    if(p.price!==699) fail(p.slug+": published package sale price must be 699 EGP");
+    if(p.commerce?.list_price!==1000) fail(p.slug+": published package list price must be 1000 EGP");
+    if(p.commerce?.savings!==301) fail(p.slug+": published package savings must be 301 EGP");
+  }
   if(p.currency!==p.commerce?.currency) fail(p.slug+": currency mismatch");
   if(p.analytics?.product_slug!==p.slug) fail(p.slug+": analytics product_slug mismatch");
   if(!p.segment) fail(p.slug+": segment is required");
@@ -39,6 +44,9 @@ for(const p of products){
       if(!body.includes(`${attr}="${value}"`)) fail(p.slug+": product body missing "+attr+"="+value);
     }
     if(!html.includes('data-track="product_whatsapp_click"')) fail(p.slug+": checkout WhatsApp tracking missing");
+    if(!html.includes('data-list-price="1000"')) fail(p.slug+": product page missing unified list price 1000");
+    if(!html.includes('data-savings="301"')) fail(p.slug+": product page missing unified savings 301");
+    if(!html.includes('وفّر 301 جنيه')) fail(p.slug+": product page missing unified savings copy");
     if(!/src="\.\.\/\.\.\/script\.js(?:\?[^"]*)?"/.test(html)) fail(p.slug+": unified script.js missing");
     const hasLegacyMobileNav=html.includes('id="menuToggle"')&&html.includes('id="mobileNav"');
     const hasDetailsMobileNav=html.includes('class="mobile-menu"')&&html.includes('class="menu-toggle"')&&html.includes('class="mobile-nav"');
