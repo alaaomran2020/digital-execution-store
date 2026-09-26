@@ -1656,7 +1656,7 @@
     "short_description": "نظام عربي لإدارة الاستفسارات والعملاء والمنتجات والمخزون والطلبات والتجهيز والشحن والتحصيل والمرتجعات والمصروفات والربحية.",
     "price": 699,
     "currency": "EGP",
-    "version": "1.0.0",
+    "version": "4.3.0",
     "source_type": "Original",
     "license_type": "Professional Use",
     "resell_allowed": false,
@@ -1666,7 +1666,7 @@
     "lifetime_updates": true,
     "product_url": "products/social-seller-ecommerce-os/",
     "featured": true,
-    "last_updated": "2026-09-25",
+    "last_updated": "2026-09-26",
     "status": "published",
     "identity": {
       "product_type": "social_seller_ecommerce_operations_os",
@@ -1744,7 +1744,7 @@
     },
     "lifecycle": {
       "stage": "PUBLISHED",
-      "published_version": "1.0.0"
+      "published_version": "4.3.0"
     },
     "image": "assets/social/product-social-seller-ecommerce-os-20260925.png"
   },
