@@ -282,38 +282,38 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .product-cover{padding:0;overflow:hidden}.product-cover>img{display:block;width:100%;height:100%;min-height:260px;object-fit:cover}.product-cover>div{display:none}
 
 /* Store banner — 2026-09-26 */
-.store-banner{padding:24px 0 0}
-.store-banner-shell{position:relative;isolation:isolate;overflow:hidden;min-height:430px;padding:54px;display:grid;grid-template-columns:minmax(0,1fr) minmax(420px,.95fr);gap:48px;align-items:center;border:1px solid rgba(139,92,246,.28);border-radius:28px;background:radial-gradient(circle at 18% 22%,rgba(244,114,182,.18),transparent 27%),radial-gradient(circle at 78% 18%,rgba(59,130,246,.18),transparent 32%),linear-gradient(135deg,#070b19 0%,#0b1026 48%,#11163a 100%);box-shadow:0 30px 80px rgba(0,0,0,.32)}
-.store-banner-shell:before,.store-banner-shell:after{content:"";position:absolute;z-index:-1;border-radius:999px;opacity:.78}
-.store-banner-shell:before{width:520px;height:92px;left:-80px;bottom:18px;transform:rotate(-8deg);background:linear-gradient(90deg,transparent,rgba(168,85,247,.42),rgba(59,130,246,.28),transparent)}
-.store-banner-shell:after{width:420px;height:120px;right:-130px;top:-38px;transform:rotate(13deg);background:linear-gradient(90deg,transparent,rgba(99,102,241,.24),rgba(168,85,247,.3),transparent)}
-.store-banner-copy{position:relative;z-index:2}
-.store-banner-kicker{display:inline-flex;align-items:center;gap:12px;color:#d4d8e8;font-size:.84rem;font-weight:700}
-.store-banner-kicker:before,.store-banner-kicker:after{content:"";width:28px;height:1px;background:rgba(255,255,255,.42)}
-.store-banner-copy h1{margin:.18em 0 .12em;font-size:clamp(2.75rem,5vw,5.2rem);line-height:1.02;letter-spacing:-.055em;background:linear-gradient(90deg,#fff 4%,#c6b8ff 38%,#8b5cf6 72%,#60a5fa);background-clip:text;-webkit-background-clip:text;color:transparent}
-.store-banner-copy>p{margin:0 0 22px;color:#e6e8f1;font-size:clamp(1rem,1.55vw,1.3rem);font-weight:700}
-.store-banner-features{display:flex;gap:8px 18px;flex-wrap:wrap;margin:0 0 26px;color:#c9d2e3;font-size:.84rem;font-weight:700}
-.store-banner-features span{display:inline-flex;align-items:center;gap:7px}
-.store-banner-features span:before{content:"✓";display:grid;place-items:center;width:20px;height:20px;border-radius:7px;background:rgba(96,165,250,.11);color:#60a5fa;font-size:.72rem}
-.store-banner-actions{display:flex;gap:12px;flex-wrap:wrap}
-.store-banner-primary{background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff;box-shadow:0 14px 34px rgba(124,58,237,.28)}
-.store-banner-primary:hover{transform:translateY(-2px);box-shadow:0 18px 42px rgba(124,58,237,.38)}
-.store-banner-secondary{border:1px solid rgba(196,181,253,.4);background:rgba(9,13,32,.48);color:#f4f1ff}
-.store-banner-secondary:hover{transform:translateY(-2px);border-color:rgba(196,181,253,.68);background:rgba(124,58,237,.12)}
-.store-banner-visual{position:relative;min-height:320px}
-.store-ui-window{position:absolute;inset:30px 0 0 14px;overflow:hidden;border:1px solid rgba(255,255,255,.16);border-radius:22px;background:#f8fafc;box-shadow:0 30px 65px rgba(0,0,0,.42);transform:perspective(900px) rotateY(7deg) rotateX(1.5deg)}
-.store-ui-topbar{height:28px;display:flex;gap:6px;align-items:center;padding:0 12px;background:#111827;border-bottom:1px solid #1f2937}
-.store-ui-topbar i{width:7px;height:7px;border-radius:50%;background:#64748b}.store-ui-topbar i:first-child{background:#f87171}.store-ui-topbar i:nth-child(2){background:#fbbf24}.store-ui-topbar i:nth-child(3){background:#34d399}
-.store-ui-layout{height:calc(100% - 28px);display:grid;grid-template-columns:86px 1fr}
-.store-ui-sidebar{padding:22px 12px;background:#eef2ff;border-left:1px solid #e2e8f0;display:grid;align-content:start;gap:14px}
-.store-ui-sidebar b,.store-ui-sidebar span{display:block;height:8px;border-radius:99px;background:#c7d2fe}.store-ui-sidebar b{width:74%;height:11px;background:#8b5cf6}.store-ui-sidebar span:nth-child(3){width:82%}.store-ui-sidebar span:nth-child(4){width:64%}
-.store-ui-content{padding:24px 22px;background:linear-gradient(180deg,#fff,#f8fafc)}
-.store-ui-heading{display:grid;gap:5px;color:#0f172a}.store-ui-heading strong{font-size:1rem}.store-ui-heading small{color:#64748b}
-.store-ui-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}.store-ui-cards span{height:145px;border-radius:16px;border:1px solid #e2e8f0;background:linear-gradient(160deg,#dbeafe,#ede9fe 56%,#fff);box-shadow:0 12px 24px rgba(15,23,42,.07)}.store-ui-cards span:nth-child(2){background:linear-gradient(160deg,#cffafe,#e0e7ff 54%,#fff)}.store-ui-cards span:nth-child(3){background:linear-gradient(160deg,#fce7f3,#ede9fe 54%,#fff)}
-.store-float-card{position:absolute;z-index:3;padding:11px 14px;border:1px solid rgba(255,255,255,.18);border-radius:14px;background:linear-gradient(135deg,rgba(30,41,59,.88),rgba(30,41,59,.58));box-shadow:0 14px 30px rgba(0,0,0,.28);backdrop-filter:blur(10px);color:#fff;font-size:.76rem;font-weight:800}
-.store-float-one{top:0;right:18px}.store-float-two{top:62px;left:-8px;background:linear-gradient(135deg,rgba(8,145,178,.76),rgba(30,64,175,.58))}.store-float-three{right:-16px;bottom:4px;background:linear-gradient(135deg,rgba(37,99,235,.8),rgba(124,58,237,.64))}
-@media(max-width:850px){.store-banner-shell{grid-template-columns:1fr;gap:26px;padding:38px;min-height:auto}.store-banner-visual{min-height:285px}}
-@media(max-width:700px){.store-banner{padding-top:14px}.store-banner-shell{padding:28px 22px;border-radius:22px}.store-banner-copy h1{font-size:clamp(2.35rem,12vw,3.6rem)}.store-banner-copy>p{font-size:.96rem}.store-banner-actions{display:grid;grid-template-columns:1fr}.store-banner-actions .btn{width:100%}.store-banner-visual{min-height:230px}.store-ui-window{inset:24px 0 0;transform:none;border-radius:18px}.store-ui-layout{grid-template-columns:64px 1fr}.store-ui-content{padding:18px 14px}.store-ui-cards{gap:7px;margin-top:17px}.store-ui-cards span{height:105px;border-radius:11px}.store-float-card{padding:8px 10px;font-size:.66rem}.store-float-two{left:-6px;top:58px}.store-float-three{right:-6px}}
+.store-banner{padding:0;background:#071126}
+.store-banner-frame{position:relative;width:100%;max-width:1500px;margin:0 auto;overflow:hidden}
+.store-banner-frame>img{display:block;width:100%;height:auto;aspect-ratio:3/1;object-fit:cover}
+.store-banner-hotspot{position:absolute;z-index:2;bottom:21%;height:10%;border-radius:14px;transition:background-color .18s ease,box-shadow .18s ease}
+.store-banner-browse{right:8.4%;width:14.5%}
+.store-banner-popular{right:23.9%;width:11.8%}
+.store-banner-hotspot:hover{background:rgba(255,255,255,.045);box-shadow:0 0 0 1px rgba(255,255,255,.16) inset}
+.store-banner-hotspot:focus-visible{outline:3px solid #fff;outline-offset:3px;background:rgba(255,255,255,.08)}
+.store-banner-mobile-copy{display:none}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 
-/* Store header banner */
-.store-banner{padding:0;background:#071126}.store-banner-frame{position:relative;width:100%;max-width:1500px;margin:0 auto;overflow:hidden}.store-banner-frame>img{display:block;width:100%;height:auto;aspect-ratio:3/1;object-fit:cover}.store-banner-hotspot{position:absolute;z-index:2;bottom:21%;height:10%;border-radius:14px}.store-banner-browse{right:8.4%;width:14.5%}.store-banner-popular{right:23.9%;width:11.8%}.store-banner-hotspot:focus-visible{outline:3px solid #fff;outline-offset:3px;background:rgba(255,255,255,.08)}.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}@media(max-width:700px){.store-banner-frame{min-height:220px}.store-banner-frame>img{height:220px;aspect-ratio:auto;object-fit:cover;object-position:64% center}.store-banner-hotspot{bottom:17%;height:14%}.store-banner-browse{right:7%;width:31%}.store-banner-popular{right:40%;width:25%}}
+@media(max-width:700px){
+  .store-banner{padding:0 0 12px;background:linear-gradient(180deg,#071126 0%,#0b1026 100%)}
+  .store-banner-frame{height:164px;max-width:none}
+  .store-banner-frame>img{height:164px;aspect-ratio:auto;object-fit:cover;object-position:left center}
+  .store-banner-hotspot{display:none}
+  .store-banner-mobile-copy{display:block;margin-top:-1px;padding-top:20px;padding-bottom:22px}
+  .store-banner-mobile-copy .store-banner-kicker{display:inline-flex;align-items:center;gap:8px;color:#cfd5e6;font-size:.74rem;font-weight:700}
+  .store-banner-mobile-copy .store-banner-kicker:before,.store-banner-mobile-copy .store-banner-kicker:after{content:"";width:18px;height:1px;background:rgba(255,255,255,.38)}
+  .store-banner-mobile-copy h1{margin:.28em 0 .16em;font-size:clamp(2.15rem,11vw,3.15rem);line-height:1.05;letter-spacing:-.035em;background:linear-gradient(90deg,#fff,#c6b8ff 45%,#8b5cf6 78%,#60a5fa);background-clip:text;-webkit-background-clip:text;color:transparent}
+  .store-banner-mobile-copy>p{margin:0 0 18px;color:#e6e8f1;font-size:.95rem;line-height:1.75;font-weight:700}
+  .store-banner-mobile-features{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:18px;color:#c9d2e3;font-size:.76rem;font-weight:700}
+  .store-banner-mobile-features span{display:flex;align-items:center;gap:7px;min-width:0}
+  .store-banner-mobile-features span:before{content:"✓";display:grid;place-items:center;flex:0 0 20px;width:20px;height:20px;border-radius:7px;background:rgba(96,165,250,.11);color:#60a5fa;font-size:.72rem}
+  .store-banner-mobile-actions{display:grid;grid-template-columns:1fr;gap:10px}
+  .store-banner-mobile-actions .btn{width:100%;min-height:50px;display:inline-flex;align-items:center;justify-content:center}
+  .store-banner-primary{background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff;box-shadow:0 14px 34px rgba(124,58,237,.28)}
+  .store-banner-secondary{border:1px solid rgba(196,181,253,.4);background:rgba(9,13,32,.48);color:#f4f1ff}
+}
+
+@media(max-width:420px){
+  .store-banner-frame,.store-banner-frame>img{height:148px}
+  .store-banner-mobile-copy{padding-top:18px;padding-bottom:18px}
+  .store-banner-mobile-copy h1{font-size:clamp(2rem,11.8vw,2.75rem)}
+}
