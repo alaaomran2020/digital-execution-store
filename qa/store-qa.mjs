@@ -62,6 +62,33 @@ for(const p of products.filter(x=>x.status==="published"&&x.segment==="professio
   if(!homepage.includes(`data-product-slug="${p.slug}"`)) fail(p.slug+": published professional package missing from homepage storefront");
   if(!homepage.includes(`href="${p.product_url}`)) fail(p.slug+": homepage storefront link missing");
 }
+const catalog=read("products/index.html");
+for(const p of products.filter(x=>x.status==="published")){
+  if(!catalog.includes(`data-product-slug="${p.slug}"`)) fail(p.slug+": published product missing from products catalog");
+  if(!catalog.includes(`data-product-version="${p.version}"`)) fail(p.slug+": catalog version differs from registry");
+  if(!catalog.includes(`data-product-price="${p.price}"`)) fail(p.slug+": catalog price differs from registry");
+  if(!catalog.includes(`data-product-currency="${p.currency}"`)) fail(p.slug+": catalog currency differs from registry");
+  if(!catalog.includes(`href="../${p.product_url}"`)) fail(p.slug+": catalog product link missing");
+  if(!catalog.includes(`src="../${p.image}"`)) fail(p.slug+": catalog image differs from registry");
+  if(!catalog.includes(`"url":"https://digital-execution.cc/${p.product_url}"`)) fail(p.slug+": catalog ItemList JSON-LD missing product URL");
+}
+const catalogCardCount=(catalog.match(/data-product-card/g)||[]).length;
+const publishedCount=products.filter(x=>x.status==="published").length;
+if(catalogCardCount!==publishedCount) fail(`products catalog card count ${catalogCardCount} differs from published registry count ${publishedCount}`);
+if(!catalog.includes(`"numberOfItems":${publishedCount}`)) fail("products catalog ItemList numberOfItems differs from registry");
+
+const publicProductDirs=fs.readdirSync(path.join(root,"products"),{withFileTypes:true})
+  .filter(ent=>ent.isDirectory()&&exists(`products/${ent.name}/index.html`))
+  .map(ent=>ent.name);
+const registrySlugs=new Set(products.map(p=>p.slug));
+const allowedBundleComponents=new Set([
+  "civil-quantity-takeoff","boq-manager","payment-certificates",
+  "site-daily-report","material-procurement-tracker","technical-office-toolkit"
+]);
+for(const slug of publicProductDirs){
+  if(!registrySlugs.has(slug)&&!allowedBundleComponents.has(slug)) fail(slug+": public product page is neither registered nor an approved bundle component");
+}
+
 const sitemap=read("sitemap.xml");
 for(const p of products.filter(x=>x.status==="published")){
   const url="https://digital-execution.cc/"+p.product_url;
