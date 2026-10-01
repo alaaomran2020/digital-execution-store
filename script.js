@@ -440,3 +440,99 @@ function setupProfessionalFooter(){
   });
 }
 setupProfessionalFooter();
+
+
+const PRODUCT_REGISTRY_URL="/data/products.json";
+let productRegistryPromise;
+function loadProductRegistry(){
+  if(!productRegistryPromise){
+    productRegistryPromise=fetch(PRODUCT_REGISTRY_URL,{credentials:"same-origin"})
+      .then(response=>{if(!response.ok)throw new Error("registry "+response.status);return response.json()})
+      .then(rows=>Array.isArray(rows)?rows:[]);
+  }
+  return productRegistryPromise;
+}
+function normalizeCatalogText(value){
+  return String(value||"").toLocaleLowerCase("ar-EG")
+    .normalize("NFKD").replace(/[\u064B-\u065F\u0670]/g,"")
+    .replace(/[أإآ]/g,"ا").replace(/ى/g,"ي").replace(/ة/g,"ه")
+    .replace(/[^\p{L}\p{N}]+/gu," ").trim();
+}
+function setupCatalogSearch(){
+  if(pageType!=="product_list") return;
+  const input=document.getElementById("catalogSearch");
+  const status=document.querySelector("[data-catalog-count]");
+  const empty=document.querySelector("[data-catalog-empty]");
+  const cards=[...document.querySelectorAll("[data-product-card]")];
+  if(!input||!cards.length) return;
+  const apply=()=>{
+    const q=normalizeCatalogText(input.value);
+    let shown=0;
+    for(const card of cards){
+      const haystack=normalizeCatalogText((card.textContent||"")+" "+(card.dataset.productSlug||""));
+      const match=!q||haystack.includes(q);
+      card.hidden=!match;
+      if(match) shown++;
+    }
+    if(status) status.textContent=q?shown+" نتيجة من "+cards.length:cards.length+" منتج منشور";
+    if(empty) empty.hidden=shown!==0;
+  };
+  input.addEventListener("input",apply);
+  input.addEventListener("change",()=>{
+    const q=normalizeCatalogText(input.value);
+    if(q) trackEvent("search",{source:"catalog",query_length:q.length,results:cards.filter(card=>!card.hidden).length});
+  });
+  apply();
+}
+function appendTextList(parent,items){
+  const list=document.createElement("ul");
+  for(const item of items||[]){const li=document.createElement("li");li.textContent=item;list.append(li)}
+  parent.append(list);
+}
+function renderPurchaseFacts(product){
+  const buy=document.getElementById("buy");
+  if(!buy||document.querySelector(".purchase-facts-section")) return;
+  const section=document.createElement("section");
+  section.className="section purchase-facts-section";
+  section.setAttribute("aria-labelledby","purchase-facts-title");
+  const shell=document.createElement("div");shell.className="container purchase-facts-shell";
+  const intro=document.createElement("div");
+  const eyebrow=document.createElement("span");eyebrow.className="eyebrow";eyebrow.textContent="قبل الشراء";
+  const title=document.createElement("h3");title.id="purchase-facts-title";title.textContent="اعرف بالضبط إيه اللي هتستلمه وحدود المنتج.";
+  const copy=document.createElement("p");copy.textContent="المعلومات دي جاية من سجل المنتج المعتمد، عشان قرار الشراء يبقى مبني على محتويات وسياسة دعم وحدود واضحة.";
+  intro.append(eyebrow,title,copy);
+  const grid=document.createElement("div");grid.className="purchase-facts-grid";
+  const facts=[
+    ["المحتويات",product.offer?.contents||[],"list"],
+    ["الدعم",product.trust?.support_policy||"راجع صفحة المنتج وسياسة الدعم.","text"],
+    ["الحدود",product.offer?.limitations||[],"list"],
+    ["التسليم والتحديثات",[product.delivery?.method==="manual_after_payment_verification"?"التسليم بعد التحقق من الدفع عبر واتساب.":"راجع طريقة التسليم الموضحة في صفحة المنتج.",product.delivery?.update_policy].filter(Boolean),"list"]
+  ];
+  for(const [label,value,type] of facts){
+    const card=document.createElement("div");card.className="purchase-fact";
+    const heading=document.createElement("strong");heading.textContent=label;card.append(heading);
+    if(type==="list") appendTextList(card,value);
+    else {const p=document.createElement("p");p.textContent=value;card.append(p)}
+    grid.append(card);
+  }
+  shell.append(intro,grid);section.append(shell);buy.before(section);
+}
+function setupRegistryBackedUI(){
+  if(!["store","product"].includes(pageType)) return;
+  loadProductRegistry().then(rows=>{
+    const published=rows.filter(p=>p?.status==="published");
+    const bySlug=new Map(published.map(p=>[p.slug,p]));
+    document.querySelectorAll("[data-intent-product]").forEach(link=>{
+      const product=bySlug.get(link.dataset.intentProduct);
+      if(!product){link.hidden=true;return}
+      link.href="/"+product.product_url;
+      const name=link.querySelector("strong");if(name)name.textContent=product.name;
+    });
+    if(PRODUCT_CONTEXT?.product_slug){
+      const product=bySlug.get(PRODUCT_CONTEXT.product_slug);
+      if(product) renderPurchaseFacts(product);
+    }
+  }).catch(()=>{});
+}
+setupCatalogSearch();
+setupRegistryBackedUI();

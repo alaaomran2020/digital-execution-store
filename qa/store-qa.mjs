@@ -68,11 +68,17 @@ for(const p of products){
 }
 
 const homepage=read("index.html");
+for(const claim of ["تسليم فوري","الأكثر طلبًا"]){
+  if(homepage.includes(claim)) fail("homepage contains unsupported commercial claim: "+claim);
+}
+if(!homepage.includes("store-proof-card")||!homepage.includes("assets/restock/dashboard")) fail("homepage must use a real product screenshot as hero proof");
+if((homepage.match(/data-intent-product=/g)||[]).length!==6) fail("homepage must keep six registry-backed intent routes");
 for(const p of products.filter(x=>x.status==="published"&&x.segment==="professional")){
   if(!homepage.includes(`data-product-slug="${p.slug}"`)) fail(p.slug+": published professional package missing from homepage storefront");
   if(!homepage.includes(`href="${p.product_url}`)) fail(p.slug+": homepage storefront link missing");
 }
 const catalog=read("products/index.html");
+if(!catalog.includes("data-catalog-search")||!catalog.includes('id="catalogSearch"')) fail("products catalog search UI missing");
 for(const [label,html] of [['homepage',homepage],['catalog',catalog]]){
   const seen=new Set();
   for(const card of html.match(/<article\b[^>]*\bdata-product-card\b[^>]*>[\s\S]*?<\/article>/g)||[]){
@@ -175,6 +181,8 @@ if(script.includes('product_slug:"restock-desk"')) fail("script.js contains lega
 if(!script.includes("body.dataset.productSlug")) fail("script.js must derive product context from page data attributes");
 
 if(!script.includes('trackEvent("category_view"')) fail("script.js must emit category_view for the product catalog");
+if(!script.includes("setupCatalogSearch()")) fail("script.js must initialize catalog search");
+if(!script.includes("setupRegistryBackedUI()")||!script.includes("purchase-facts-section")) fail("script.js must render registry-backed purchase facts");
 if(!script.includes('trackEvent("buy_cta_click"')) fail("script.js must emit canonical buy_cta_click alias");
 if(!script.includes("order stays a verified business event")) fail("script.js must keep order as a verified business event");
 
