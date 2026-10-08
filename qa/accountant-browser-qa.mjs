@@ -31,7 +31,8 @@ try {
     const commercial=await page.locator('#buy').innerText();
     assert.ok(commercial.includes('699'),'Original price remains visible');
     const link=page.locator('a[href="#buy"]').first();
-    await link.click();
+    await link.focus();
+    await page.keyboard.press("Enter");
     assert.equal(new URL(page.url()).hash,'#buy','Buy anchor navigation');
     assert.deepEqual(errors,[],'JavaScript exceptions');
     console.log('PASS accountant browser width '+width);
