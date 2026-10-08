@@ -77,6 +77,11 @@ for(const p of products.filter(x=>x.status==="published"&&x.segment==="professio
   if(!homepage.includes(`data-product-slug="${p.slug}"`)) fail(p.slug+": published professional package missing from homepage storefront");
   if(!homepage.includes(`href="${p.product_url}`)) fail(p.slug+": homepage storefront link missing");
 }
+const accountantPage=read("products/accountant-professional-toolkit/index.html");
+if(!/<body[^>]*data-page="product"/.test(accountantPage)) fail("accountant: product page type must enable registry purchase facts");
+if(!/<section[^>]*id="buy"/.test(accountantPage)) fail("accountant: purchase anchor missing");
+if(!accountantPage.includes('href="../../favicon/favicon.svg"')) fail("accountant: explicit SVG favicon missing");
+
 const catalog=read("products/index.html");
 if(!catalog.includes("data-catalog-search")||!catalog.includes('id="catalogSearch"')) fail("products catalog search UI missing");
 for(const [label,html] of [['homepage',homepage],['catalog',catalog]]){

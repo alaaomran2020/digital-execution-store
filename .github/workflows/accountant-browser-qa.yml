@@ -1,0 +1,28 @@
+name: Accountant Browser QA
+
+on:
+  pull_request:
+    paths:
+      - 'products/accountant-professional-toolkit/index.html'
+      - 'script.js'
+      - 'data/products.json'
+      - 'qa/accountant-browser-qa.mjs'
+      - '.github/workflows/accountant-browser-qa.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  accountant-browser-qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser test dependency
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Run page in Chromium
+        run: node qa/accountant-browser-qa.mjs
