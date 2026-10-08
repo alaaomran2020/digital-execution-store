@@ -4,8 +4,10 @@
 تحويل الزيارات والاستفسارات إلى مبيعات فعلية بأبسط Funnel ممكن، بدون CRM معقد أو أدوات مدفوعة.
 
 ## المنتجات الحالية
-- ReStock Desk — 399 EGP
-- Career Kit — 249 EGP
+- ReStock Desk — 699 EGP
+- Career Kit — 699 EGP
+
+الأسعار المذكورة هنا للرجوع السريع فقط. مصدر الحقيقة للأسعار وحالة النشر هو `data/products.json`؛ لا يتم تسعير منتج غير منشور أو اعتماد مستند قديم بدل السجل.
 
 ## Funnel المعتمد
 Traffic → Product Page → WhatsApp Inquiry → Qualification → Payment → Verification → Delivery → Follow-up → Review
@@ -88,9 +90,10 @@ Sales System يعتبر شغال فعليًا عندما يتم تسجيل كل 
 - original_order_id يربط الطلب الجديد بأول طلب عند الإمكان.
 
 ## Business Bundle
-- ReStock Desk: 399 EGP.
-- Business Control Pack: 249 EGP.
-- Business Bundle: 549 EGP بدل 648 EGP منفصلين.
+- ReStock Desk: 699 EGP.
+- Business Control Pack: 699 EGP.
+- Business Bundle: 699 EGP.
+- سعر المنتجين منفصلين حاليًا: 1398 EGP. يجب الرجوع إلى سجل المنتجات قبل إرسال أي مقارنة تسويقية أو خصم.
 
 
 ## Passive Revenue v1 — Definition of Done

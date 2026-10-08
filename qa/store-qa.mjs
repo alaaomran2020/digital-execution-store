@@ -75,6 +75,15 @@ else {
 }
 if(!exists("favicon/favicon.svg")) fail("favicon: SVG favicon missing");
 
+// Sales operations price guard: avoid stale fixed prices in manual sales scripts.
+const salesSystem=read("operations/sales-system.md");
+for(const slug of ["restock-desk","career-kit","business-control-pack","business-bundle"]){
+  const p=products.find(item=>item.slug===slug&&item.status==="published");
+  if(!p) {fail("sales: expected published product "+slug);continue;}
+  const label=({"restock-desk":"ReStock Desk","career-kit":"Career Kit","business-control-pack":"Business Control Pack","business-bundle":"Business Bundle"})[slug];
+  if(!salesSystem.includes(label+": "+p.price+" EGP.")&&!salesSystem.includes(label+" — "+p.price+" EGP")) fail("sales: stale price for "+slug);
+}
+
 const homepage=read("index.html");
 for(const claim of ["تسليم فوري","الأكثر طلبًا"]){
   if(homepage.includes(claim)) fail("homepage contains unsupported commercial claim: "+claim);
