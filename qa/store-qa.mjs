@@ -67,6 +67,14 @@ for(const p of products){
   }
 }
 
+// GitHub Pages serves a real root-level binary favicon.ico; _redirects is unsupported.
+if(!exists("favicon.ico")) fail("favicon: root favicon.ico is missing");
+else {
+  const bytes=fs.readFileSync(path.join(root,"favicon.ico"));
+  if(bytes.length<22||!bytes.subarray(0,6).equals(Buffer.from([0,0,1,0,1,0]))) fail("favicon: root favicon.ico must be a real ICO file");
+}
+if(!exists("favicon/favicon.svg")) fail("favicon: SVG favicon missing");
+
 const homepage=read("index.html");
 for(const claim of ["تسليم فوري","الأكثر طلبًا"]){
   if(homepage.includes(claim)) fail("homepage contains unsupported commercial claim: "+claim);
