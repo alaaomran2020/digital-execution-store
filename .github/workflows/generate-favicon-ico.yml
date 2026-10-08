@@ -1,0 +1,41 @@
+name: Generate favicon ICO (one-time)
+
+on:
+  push:
+    branches:
+      - fix/site-wide-favicon-ico-20261008
+    paths:
+      - '.github/scripts/generate-favicon-ico.py'
+      - '.github/workflows/generate-favicon-ico.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Generate and validate ICO
+        run: |
+          python .github/scripts/generate-favicon-ico.py
+          python - <<'PY'
+          import struct
+          from pathlib import Path
+          data=Path('favicon.ico').read_bytes()
+          assert data[:6] == b'\\x00\\x00\\x01\\x00\\x01\\x00'
+          assert struct.unpack_from('<I',data,14)[0] == len(data)-22
+          assert struct.unpack_from('<I',data,18)[0] == 22
+          print('VALID ICO:',len(data),'bytes')
+          PY
+      - name: Commit generated binary icon to pull-request branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add favicon.ico
+          git diff --cached --quiet || (git commit -m "fix(favicon): include actual Windows ICO at root" && git push)
