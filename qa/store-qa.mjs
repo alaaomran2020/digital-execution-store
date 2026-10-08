@@ -69,7 +69,7 @@ for(const p of products){
 
 // Cloudflare Pages legacy favicon redirect: ensure the destination is a real tracked asset.
 const legacyFaviconRedirect="/favicon.ico /favicon/favicon.svg 302";
-if(!exists("_redirects")||!read("_redirects").split(/\\r?\\n/).some(line=>line.trim()===legacyFaviconRedirect)) fail("favicon: legacy /favicon.ico redirect rule missing");
+if(!exists("_redirects")||!read("_redirects").split(/\r?\n/).some(line=>line.trim()===legacyFaviconRedirect)) fail("favicon: legacy /favicon.ico redirect rule missing");
 if(!exists("favicon/favicon.svg")) fail("favicon: destination SVG missing");
 
 const homepage=read("index.html");
