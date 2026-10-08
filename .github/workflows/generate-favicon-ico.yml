@@ -28,7 +28,7 @@ jobs:
           import struct
           from pathlib import Path
           data=Path('favicon.ico').read_bytes()
-          assert data[:6] == b'\\x00\\x00\\x01\\x00\\x01\\x00'
+          assert data[:6] == bytes([0,0,1,0,1,0])
           assert struct.unpack_from('<I',data,14)[0] == len(data)-22
           assert struct.unpack_from('<I',data,18)[0] == 22
           print('VALID ICO:',len(data),'bytes')
