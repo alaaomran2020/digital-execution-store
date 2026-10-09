@@ -1,6 +1,8 @@
 name: Cloudflare Staging Remote QA (read-only)
 
 on:
+  push:
+    branches: [staging]
   workflow_dispatch:
     inputs:
       staging_url:
@@ -18,6 +20,9 @@ permissions:
 jobs:
   cloudflare-pages-staging-smoke:
     name: Read-only Cloudflare Pages browser QA
+    # On staging pushes, execute only after CF_STAGING_URL is configured in repo Variables.
+    # The manual event is usable if this workflow later exists on the default branch.
+    if: ${{ github.event_name != 'push' || vars.CF_STAGING_URL != '' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -34,8 +39,8 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Inspect only the supplied Pages staging domain
         env:
-          STAGING_URL: ${{ inputs.staging_url }}
-          EXPECTED_STAGING_COMMIT: ${{ inputs.expected_commit }}
+          STAGING_URL: ${{ github.event_name == 'workflow_dispatch' && inputs.staging_url || vars.CF_STAGING_URL }}
+          EXPECTED_STAGING_COMMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.expected_commit || github.sha }}
         run: node qa/cloudflare-staging-remote-qa.mjs
       - name: Preserve staging screenshots and reports
         if: always()
