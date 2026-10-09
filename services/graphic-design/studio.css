@@ -254,7 +254,7 @@ body.design-studio{
 /* Scoped conceptual gallery: every preview is explicitly illustrative. */
 .ds-gallery-disclaimer{padding:11px 16px;border:1px solid rgba(251,202,234,.4);border-radius:14px;background:rgba(56,39,80,.6);color:#f2e3fb;font-size:.81rem}
 .ds-gallery-filters{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 10px}
-.ds-gallery-filters button{min-height:41px;border:1px solid #a499c2;border-radius:99px;padding:8px 17px;background:#29223e;color:#faf4ff;font:800 .83rem inherit;cursor:pointer}
+.ds-gallery-filters button{min-height:41px;border:1px solid #a499c2;border-radius:99px;padding:8px 17px;background:#29223e;color:#faf4ff;font-family:inherit;font-weight:800;font-size:.83rem;cursor:pointer}
 .ds-gallery-filters button[aria-pressed="true"]{background:#f3cde8;color:#362245;border-color:#f3cde8}
 .ds-gallery-count{margin:0 0 18px;color:#ddd0ed;font-size:.79rem}
 .ds-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
