@@ -46,6 +46,10 @@ for(const id of ["ds-brand","ds-social","ds-ads","ds-packaging","ds-print","ds-p
 assert.equal((design.match(/class="ds-service-card /g)||[]).length,8,"Expected 8 independent design service cards");checks++;
 assert.ok(design.includes('id="design-contact"')&&design.includes('id="design-services"'),"Contact or services anchor missing");checks++;
 assert.ok(design.includes("المشاهد البصرية أعلاه عناصر توضيحية"),"Illustrations must not be portrayed as customer portfolio");checks++;
+assert.ok(design.includes('id="ds-brief-form"')&&design.includes('id="ds-brief-result"'),"Design project intake missing");checks++;
+assert.ok(design.includes('src="/services/graphic-design/brief.js?'),"Client-side brief helper not linked");checks++;
+assert.equal((design.match(/data-design-type="ds-/g)||[]).length,8,"All cards must preselect the brief type");checks++;
+assert.ok(!/<form[^>]+action=/.test(design),"Client-only brief must not submit to a server");checks++;
 assert.ok(!design.includes('href="/products/'),"Paused product link visible in design service");checks++;
 assert.ok(!studioCss.includes(".department-page .dept-card"),"Design studio must not override shared tool/service cards");checks++;
 assert.ok(studioCss.includes("body.design-studio")&&studioCss.includes("@media(max-width:560px)")&&studioCss.includes("prefers-reduced-motion"),"Scoped theme or mobile accessibility styles missing");checks++;
