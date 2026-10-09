@@ -48,7 +48,7 @@ assert.ok(design.includes('id="design-contact"')&&design.includes('id="design-se
 assert.ok(design.includes("المشاهد البصرية أعلاه عناصر توضيحية"),"Illustrations must not be portrayed as customer portfolio");checks++;
 assert.ok(design.includes('id="ds-brief-form"')&&design.includes('id="ds-brief-result"'),"Design project intake missing");checks++;
 assert.ok(design.includes('src="/services/graphic-design/brief.js?'),"Client-side brief helper not linked");checks++;
-assert.equal((design.match(/<a[^>]+data-design-type="ds-/g)||[]).length,8,"All cards must preselect the brief type");checks++;
+assert.equal((design.match(/<a\s[^>]+data-design-type="ds-/g)||[]).length,8,"All cards must preselect the brief type");checks++;
 assert.ok(!/<form[^>]+action=/.test(design),"Client-only brief must not submit to a server");checks++;
 assert.ok(design.includes('id="design-gallery"')&&design.includes('id="ds-gallery-dialog"'),"Standalone design concept gallery missing");checks++;
 assert.ok(design.includes('src="/services/graphic-design/gallery.js?'),"Interactive design gallery script not linked");checks++;
