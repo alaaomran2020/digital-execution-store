@@ -211,3 +211,41 @@ body.design-studio{
   .ds-service-card,.ds-button{transition:none}
   .ds-service-card:hover,.ds-button-primary:hover{transform:none}
 }
+
+
+/* Accessible, client-side project brief builder: no backend and no storage. */
+.ds-brief-form{margin-top:28px;padding:25px;border:1px solid rgba(255,255,255,.21);border-radius:20px;background:rgba(12,15,36,.35)}
+.ds-page .ds-brief-form h3{margin:0 0 5px;font-size:1.13rem;color:#fff}
+.ds-brief-intro{margin:0 0 20px!important;color:#d9cee8!important;font-size:.84rem}
+.ds-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.ds-field{min-width:0;display:flex;flex-direction:column;gap:7px}
+.ds-field-wide{grid-column:1/-1}
+.ds-field label,.ds-brief-result>label{font-size:.83rem;font-weight:800;color:#f8efff}
+.ds-field label span{color:#ffd0e4}
+.ds-field input,.ds-field select,.ds-field textarea,.ds-brief-result textarea{
+  display:block;width:100%;min-width:0;box-sizing:border-box;padding:12px 13px;
+  border:1px solid #82759f;border-radius:11px;background:#17152d;color:#fff;
+  font:inherit;font-size:.86rem;line-height:1.65
+}
+.ds-field input::placeholder,.ds-field textarea::placeholder{color:#beb7d3;opacity:1}
+.ds-field select{color-scheme:dark}
+.ds-field textarea,.ds-brief-result textarea{resize:vertical}
+.ds-field input:focus-visible,.ds-field select:focus-visible,.ds-field textarea:focus-visible,
+.ds-brief-result textarea:focus-visible,.ds-form-actions a:focus-visible,.ds-form-actions button:focus-visible{
+  outline:3px solid #ffd0e4;outline-offset:3px
+}
+.ds-form-note{margin:15px 0 0!important;color:#d3c8e1!important;font-size:.75rem;line-height:1.8}
+.ds-form-actions{display:flex;flex-wrap:wrap;align-items:center;gap:11px;margin-top:19px}
+.ds-form-actions .ds-button{cursor:pointer;font-family:inherit}
+.ds-form-actions .ds-button-outline{border:1px solid #b5a8d0;color:#fff;background:transparent}
+.ds-form-actions .ds-button-outline:hover{background:rgba(255,255,255,.10)}
+.ds-brief-result{margin-top:25px;padding-top:22px;border-top:1px solid rgba(255,255,255,.18)}
+.ds-brief-result[hidden]{display:none}
+.ds-brief-result textarea{margin-top:9px;min-height:180px;direction:rtl}
+.ds-brief-result #ds-brief-status{min-height:1.5em;margin:10px 0 0;color:#f6d3e3;font-size:.78rem}
+.ds-service-back{margin-top:22px}
+@media(max-width:560px){
+  .ds-brief-form{padding:17px 14px;border-radius:15px}
+  .ds-form-grid{grid-template-columns:1fr;gap:13px}
+  .ds-form-actions .ds-button{width:100%}
+}
