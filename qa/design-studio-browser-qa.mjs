@@ -1,11 +1,12 @@
 // Real-browser visual smoke tests for the isolated design studio.
-// Runs against a local static preview of the PR, NOT production or remote Staging.
+// Tests an isolated local preview or an explicitly approved Cloudflare Pages Staging origin.
 import assert from "node:assert/strict";
 import { mkdirSync, writeFileSync, readFileSync } from "node:fs";
 import { chromium } from "playwright";
 
 const origin=process.env.PREVIEW_ORIGIN || "http://127.0.0.1:4173";
 const path="/services/graphic-design/";
+const isRemoteStaging = new URL(origin).hostname.endsWith(".pages.dev");
 const widths=[320,390,768,1440];
 const output="artifacts/design-visual-qa";
 mkdirSync(output,{recursive:true});
@@ -113,14 +114,39 @@ try {
     }
     await page.locator(".ds-service-card").last().scrollIntoViewIfNeeded();
     check(await page.locator(".ds-service-card").last().isVisible(),"Final category reachable");
+    check(errors.length===0,"No uncaught JavaScript errors");
     results.push({width,status:"PASS",checks,metrics,pageErrors:errors});
     console.log("PASS: "+width+"px ("+checks.length+" assertions), screenshot captured; page errors="+errors.length);
     await page.close();
   }
+  // Read-only calculator interaction tests: no payment, network mutations or customer records.
+  const pricing = await browser.newPage();
+  await pricing.goto(origin+"/tools/pricing-calculator/",{waitUntil:"networkidle",timeout:30000});
+  await pricing.locator("#cost").fill("100");
+  await pricing.locator("#shipping").fill("0");
+  await pricing.locator("#extra").fill("0");
+  await pricing.locator("#markup").fill("30");
+  await pricing.locator("#pricingForm button[type=submit]").click();
+  const saleText=await pricing.locator("#salePrice").textContent();
+  assert.match(saleText,/(?:١٣٠|130)/,"Pricing calculator: 100 + 30% must yield 130");
+  results.push({tool:"pricing-calculator",status:"PASS",saleText});
+  await pricing.close();
+
+  const breakeven = await browser.newPage();
+  await breakeven.goto(origin+"/tools/break-even-calculator/",{waitUntil:"networkidle",timeout:30000});
+  await breakeven.locator("#fixedCosts").fill("10000");
+  await breakeven.locator("#sellingPrice").fill("200");
+  await breakeven.locator("#variableCost").fill("120");
+  await breakeven.locator("#breakEvenForm button[type=submit]").click();
+  const unitText=await breakeven.locator("#breakEvenUnits").textContent();
+  assert.match(unitText,/(?:١٢٥|125)/,"Break-even calculator: 10000/(200-120) must yield 125 units");
+  results.push({tool:"break-even-calculator",status:"PASS",unitText});
+  await breakeven.close();
+  console.log("PASS: pricing and break-even calculators respond to simulated inputs; no orders or payments");
 } catch(error) {
   results.push({status:"FAIL",error:String(error)});
   throw error;
 } finally {
-  writeFileSync(output+"/report.json",JSON.stringify({source:"local CI preview (not Cloudflare Staging)",origin,path,results},null,2));
+  writeFileSync(output+"/report.json",JSON.stringify({source:isRemoteStaging?"Cloudflare Pages staging (remote)":"local CI preview (not Cloudflare Staging)",origin,path,results},null,2));
   await browser.close();
 }

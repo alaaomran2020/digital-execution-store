@@ -1,0 +1,52 @@
+name: Cloudflare Staging Remote QA (read-only)
+
+on:
+  push:
+    branches: [staging]
+  workflow_dispatch:
+    inputs:
+      staging_url:
+        description: 'Full https://...pages.dev/ origin of the isolated staging site'
+        required: true
+        type: string
+      expected_commit:
+        description: 'Optional full 40-character staging commit SHA for deployment verification'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  cloudflare-pages-staging-smoke:
+    name: Read-only Cloudflare Pages browser QA
+    # On staging pushes, execute only after CF_STAGING_URL is configured in repo Variables.
+    # The manual event is usable if this workflow later exists on the default branch.
+    if: ${{ github.event_name != 'push' || vars.CF_STAGING_URL != '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: staging
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated Chromium browser dependency
+        run: |
+          npm install --no-save --ignore-scripts --package-lock=false playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Inspect only the supplied Pages staging domain
+        env:
+          STAGING_URL: ${{ github.event_name == 'workflow_dispatch' && inputs.staging_url || vars.CF_STAGING_URL }}
+          EXPECTED_STAGING_COMMIT: ${{ github.event_name == 'workflow_dispatch' && inputs.expected_commit || github.sha }}
+        run: node qa/cloudflare-staging-remote-qa.mjs
+      - name: Preserve staging screenshots and reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cloudflare-staging-remote-qa
+          path: artifacts/design-visual-qa/
+          retention-days: 14
+          if-no-files-found: warn
