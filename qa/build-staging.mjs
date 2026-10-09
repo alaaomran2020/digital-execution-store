@@ -47,4 +47,12 @@ copySite(root);
 assert.ok(fs.existsSync(path.join(out, '_headers')), 'Staging _headers not copied');
 assert.ok(!fs.existsSync(path.join(out, 'CNAME')), 'Do not publish GitHub Pages custom domain CNAME');
 assert.ok(fs.existsSync(path.join(out, 'services/graphic-design/studio.css')), 'Studio CSS missing from staging output');
+const commit = process.env.CF_PAGES_COMMIT_SHA || process.env.GITHUB_SHA || null;
+assert.ok(commit === null || /^[a-f0-9]{40}$/.test(commit), 'Invalid staging commit SHA');
+fs.writeFileSync(path.join(out, 'staging-build.json'), JSON.stringify({
+  branch,
+  commit,
+  builtAt: new Date().toISOString(),
+  purpose: 'Cloudflare Pages staging only'
+}, null, 2) + '\n');
 console.log(`PASS: ${files} staging files built from branch ${branch} into ${outName}; GitHub Pages CNAME excluded; noindex enabled`);

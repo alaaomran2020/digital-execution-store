@@ -22,6 +22,8 @@ Production stays at `https://digital-execution.cc` on GitHub Pages. Do **not** a
 8. Build output directory: `dist-staging` (isolated static output; excludes GitHub Pages `CNAME`, repository internals, QA source and archives).
 9. Under branch build controls: disable preview branches (None) unless a specific preview is needed.
 10. Do not add custom domains. Use only the issued `*.pages.dev` hostname.
+11. Each build writes `staging-build.json` with `branch` and `CF_PAGES_COMMIT_SHA` so the remote test can prove which commit is served. This file contains public build metadata only.
+12. The existing GitHub Pages `CNAME` is deliberately omitted from the `dist-staging` bundle; do not point a custom domain here.
 
 The name above is a *proposed configuration*, **not** a claim that a project or URL has already been created.
 
@@ -34,6 +36,10 @@ PR #119 has been merged into `staging` only. For each subsequent staging revisio
 - Ensure free calculators work, storefront products are hidden, and no real payment/checkout/delivery is executed.
 - Confirm the Pages project deployment SHA equals the intended `staging` commit and inspect its build logs.
 - Confirm response header `X-Robots-Tag: noindex, nofollow, noarchive` on staging page responses.
+- Once Cloudflare issues a URL, configure a repository **Actions variable** `CF_STAGING_URL` with the complete `https://<project>.pages.dev/` origin. On each subsequent push to `staging`, the `Cloudflare Staging Remote QA (read-only)` workflow runs automatically, waits for the Pages commit fingerprint to match the pushed SHA, and checks the remote site. Until that variable is configured, the workflow skips itself. No secrets are needed for this public, read-only QA.
+- For immediate manual verification without modifying the production/default branch, check out the `staging` branch in a machine with Node.js 22; install Playwright Chromium, then run `STAGING_URL=https://<project>.pages.dev/ EXPECTED_STAGING_COMMIT=<40-char-sha> node qa/cloudflare-staging-remote-qa.mjs`. The `workflow_dispatch` action may not be available in GitHub's Actions UI until its workflow file exists on the repository's default branch; do **not** modify `main` just to enable manual dispatch.
+- Remote tests enforce HTTPS and the `pages.dev` hostname, check headers, CSS, 8 design cards, hidden products, build fingerprint, mobile/desktop Chromium screenshots, navigation, and simulated local-only pricing and break-even calculations. They do **not** purchase, email, or modify customer records.
+- Reports are uploaded as GitHub Actions artifacts and must show PASS before approval.
 - Confirm `digital-execution.cc` still resolves and works as before, with DNS records and GitHub Pages unchanged.
 
 ## Stop/rollback
