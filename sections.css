@@ -1,0 +1,26 @@
+/* Dedicated department pages: tools and services. No commercial source here. */
+.department-page{padding:52px 0 88px;min-height:64vh}
+.department-page .dept-crumb{display:flex;gap:8px;align-items:center;color:#acc0d6;font-size:.86rem;margin-bottom:22px;flex-wrap:wrap}
+.department-page .dept-crumb a{text-decoration:underline;text-underline-offset:4px}
+.department-page .dept-hero{padding:42px clamp(20px,4vw,52px);border:1px solid rgba(151,183,222,.23);border-radius:26px;background:linear-gradient(115deg,rgba(17,42,66,.92),rgba(9,22,37,.96));box-shadow:0 24px 60px rgba(0,0,0,.19)}
+.department-page .dept-kicker{font-size:.82rem;font-weight:800;color:#8ce6d6}
+.department-page h1{margin:14px 0;font-size:clamp(2rem,4.8vw,3.6rem);line-height:1.24;letter-spacing:-.035em}
+.department-page .dept-intro{max-width:72ch;color:#c0cddd;font-size:1.07rem;margin:0}
+.department-page .dept-section{margin-top:44px}
+.department-page .dept-heading{font-size:clamp(1.45rem,2.6vw,2.1rem);margin:0 0 12px}
+.department-page .dept-subtitle{color:#b7c6d6;margin:0 0 23px;max-width:72ch}
+.department-page .dept-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.department-page .dept-card{padding:26px;border-radius:20px;background:rgba(13,31,51,.83);border:1px solid rgba(158,193,226,.19);display:flex;flex-direction:column;gap:11px;min-width:0}
+.department-page .dept-card h2,.department-page .dept-card h3{font-size:1.18rem;line-height:1.45;margin:0}
+.department-page .dept-card p{margin:0;color:#bbcad9;flex:1}
+.department-page .dept-tag{font-size:.72rem;font-weight:800;color:#9de6d6;letter-spacing:.02em}
+.department-page .dept-actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:23px}
+.department-page .dept-link{display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;min-height:45px;border:1px solid #669bd8;border-radius:11px;color:#d9ebff;font-weight:800;text-align:center}
+.department-page .dept-link.primary{color:#06131c;background:#a6e7da;border-color:#a6e7da;box-shadow:none}
+.department-page .dept-link:hover{background:rgba(110,164,230,.13);transform:none}
+.department-page .dept-link.primary:hover{background:#d4fff5}
+.department-page .dept-note{color:#b5c6d7;font-size:.9rem;margin-top:20px}
+.department-page .dept-callout{background:rgba(26,56,77,.6);padding:24px;border:1px solid rgba(134,200,220,.22);border-radius:18px}
+.department-page a:focus-visible{outline:3px solid #89e4d3;outline-offset:4px}
+@media(max-width:900px){.department-page .dept-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.department-page{padding-top:25px}.department-page .dept-hero{padding:26px 20px}.department-page .dept-grid{grid-template-columns:1fr}.department-page .dept-actions .dept-link{width:100%}}
