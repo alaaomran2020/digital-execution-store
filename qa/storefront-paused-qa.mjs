@@ -33,7 +33,8 @@ const map=read("sitemap.xml");
 checked(!/<loc>https:\/\/digital-execution\.cc\/products(?:\/|<)/.test(map),"Product URLs remain indexed in sitemap");
 checked(map.includes("https://digital-execution.cc/tools/"),"Free tools sitemap entry missing");
 checked(map.includes("https://digital-execution.cc/services/"),"Services sitemap entry missing");
-checked(read("robots.txt").includes("Disallow: /products/"),"Robots product ban missing");
+checked(!read("robots.txt").includes("Disallow: /products/"),"Noindex pages must remain crawlable so engines can read noindex");
+checked(read("robots.txt").includes("Allow: /products/"),"Explicit crawl allowance required for noindex processing");
 for(const file of ["tools/pricing-calculator/index.html","tools/break-even-calculator/index.html","tools/inventory-health-check/index.html","tools/career-cv-studio/index.html"]){
  checked(fs.existsSync(file),"Working free tool removed: "+file);
  checked(!/href=["'][^"']*\/products\//.test(read(file)),"Free tool retains product promo link: "+file);
