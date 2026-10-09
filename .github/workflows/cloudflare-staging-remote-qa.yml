@@ -1,0 +1,47 @@
+name: Cloudflare Staging Remote QA (read-only)
+
+on:
+  workflow_dispatch:
+    inputs:
+      staging_url:
+        description: 'Full https://...pages.dev/ origin of the isolated staging site'
+        required: true
+        type: string
+      expected_commit:
+        description: 'Optional full 40-character staging commit SHA for deployment verification'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  cloudflare-pages-staging-smoke:
+    name: Read-only Cloudflare Pages browser QA
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: staging
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated Chromium browser dependency
+        run: |
+          npm install --no-save --ignore-scripts --package-lock=false playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Inspect only the supplied Pages staging domain
+        env:
+          STAGING_URL: ${{ inputs.staging_url }}
+          EXPECTED_STAGING_COMMIT: ${{ inputs.expected_commit }}
+        run: node qa/cloudflare-staging-remote-qa.mjs
+      - name: Preserve staging screenshots and reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cloudflare-staging-remote-qa
+          path: artifacts/design-visual-qa/
+          retention-days: 14
+          if-no-files-found: warn
