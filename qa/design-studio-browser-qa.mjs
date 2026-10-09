@@ -87,6 +87,21 @@ try {
       "Download status explains that the brief is not uploaded");
     await page.locator("#ds-project").fill("مشروع اختبار محدّث");
     check(!(await page.locator("#ds-brief-result").isVisible()),"Stale brief hides after edits");
+    check(await page.locator(".ds-gallery-card").count()===6,"Six illustrative design gallery samples displayed");
+    await page.locator('[data-ds-filter="product"]').click();
+    check(await page.locator('.ds-gallery-card:visible').count()===2,"Product filter isolates two concepts");
+    check(await page.locator('[data-ds-filter="product"]').getAttribute("aria-pressed")==="true","Active filter accessible");
+    await page.locator('.ds-gallery-card[data-gallery-category="product"] [data-gallery-open]').first().click();
+    check(await page.locator("#ds-gallery-dialog").evaluate(node=>node.open),"Native gallery preview opens");
+    check((await page.locator("#ds-gallery-dialog-title").textContent()).includes("Bloom"),"Gallery preview matches selected concept");
+    await page.keyboard.press("Escape");
+    check(!(await page.locator("#ds-gallery-dialog").evaluate(node=>node.open)),"Escape closes modal preview");
+    await page.locator('.ds-gallery-card[data-gallery-category="product"] [data-gallery-open]').first().click();
+    await page.locator("#ds-gallery-request").click();
+    check(await page.locator("#ds-kind").inputValue()==="ds-packaging","Gallery request chooses correct service");
+    check(!(await page.locator("#ds-gallery-dialog").evaluate(node=>node.open)),"Request closes gallery dialog");
+    await page.locator('[data-ds-filter="all"]').click();
+    check(await page.locator('.ds-gallery-card:visible').count()===6,"All gallery previews restored");
     if(width<=390){
       const toggle=page.locator(".site-header-menu-btn");
       check(await toggle.isVisible(),"Mobile header menu button is visible");
