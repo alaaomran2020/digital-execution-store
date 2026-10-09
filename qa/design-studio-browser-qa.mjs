@@ -13,7 +13,7 @@ const browser=await chromium.launch({headless:true});
 const results=[];
 try {
   for(const width of widths) {
-    const page=await browser.newPage({viewport:{width,height:850},deviceScaleFactor:1,reducedMotion:"reduce"});
+    const page=await browser.newPage({viewport:{width,height:850},deviceScaleFactor:1,reducedMotion:"reduce",isMobile:width<=390,hasTouch:width<=390});
     const errors=[];
     page.on("pageerror",error=>errors.push(error.message));
     await page.goto(origin+path,{waitUntil:"networkidle",timeout:30000});
@@ -57,6 +57,15 @@ try {
     await page.screenshot({path:output+"/studio-"+width+"-top.png",fullPage:false,animations:"disabled"});
     await page.locator('.ds-quick-nav a[href="#ds-social"]').click();
     check(new URL(page.url()).hash==="#ds-social","Navigation jumps to selected category");
+    if(width<=390){
+      const toggle=page.locator(".site-header-menu-btn");
+      check(await toggle.isVisible(),"Mobile header menu button is visible");
+      await toggle.click();
+      check((await toggle.getAttribute("aria-expanded"))==="true","Mobile navigation opens");
+      check(await page.locator("#siteHeaderMobile").isVisible(),"Mobile navigation links are visible");
+      await page.keyboard.press("Escape");
+      check((await toggle.getAttribute("aria-expanded"))==="false","Escape closes mobile navigation");
+    }
     await page.locator(".ds-service-card").last().scrollIntoViewIfNeeded();
     check(await page.locator(".ds-service-card").last().isVisible(),"Final category reachable");
     results.push({width,status:"PASS",checks,metrics,pageErrors:errors});
