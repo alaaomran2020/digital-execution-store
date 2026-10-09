@@ -1,0 +1,24 @@
+name: Staging QA (no deployment)
+
+on:
+  push:
+    branches: [staging]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  staging-qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Enforce paused-products staging mode
+        run: node -e "const m=require('./data/storefront-mode.json');if(m.productsVisible!==false){console.error('Staging must keep products hidden');process.exit(1)}"
+      - name: Verify storefront pause
+        run: node qa/storefront-paused-qa.mjs
+      - name: Verify independent tool and service sections
+        run: node qa/site-sections-qa.mjs
