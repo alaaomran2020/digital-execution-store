@@ -18,15 +18,15 @@ Production stays at `https://digital-execution.cc` on GitHub Pages. Do **not** a
 4. Set **Production branch** of THIS staging project to `staging` (do not select `main`).
 5. Framework preset: None.
 6. Root directory: repository root (default).
-7. Build command: `test "$CF_PAGES_BRANCH" = "staging" && node -e "const m=require('./data/storefront-mode.json'); if(m.productsVisible!==false) process.exit(1)"`
-8. Build output directory: `.` (static files are served directly from repository root).
+7. Build command: `node qa/build-staging.mjs` (requires `CF_PAGES_BRANCH=staging`, paused products, `_headers` and studio CSS; fails closed).
+8. Build output directory: `dist-staging` (isolated static output; excludes GitHub Pages `CNAME`, repository internals, QA source and archives).
 9. Under branch build controls: disable preview branches (None) unless a specific preview is needed.
 10. Do not add custom domains. Use only the issued `*.pages.dev` hostname.
 
 The name above is a *proposed configuration*, **not** a claim that a project or URL has already been created.
 
 ## Tests / release gates
-After PR #119 is reviewed and merged INTO `staging` only:
+PR #119 has been merged into `staging` only. For each subsequent staging revision:
 - CI: staging QA success; paused-products QA success; sections QA success.
 - Browser: Chromium screenshots and no horizontal overflow at widths 320, 390, 768, 1440.
 - Public staging paths: `/`, `/services/`, `/services/graphic-design/`, `/tools/`.
