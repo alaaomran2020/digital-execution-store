@@ -76,7 +76,7 @@ try {
       "Generated content uses the entered values and selected service");
     check(mail?.startsWith("mailto:contact@digital-execution.cc?")&&mail.includes("body=")&&
       decodeURIComponent(mail).includes("test@example.com"),"Encoded mailto is ready without sending anything");
-    const downloadPromise=page.waitFor("download");
+    const downloadPromise=page.waitForEvent("download");
     await page.locator("#ds-brief-download").click();
     const download=await downloadPromise;
     check(download.suggestedFilename()==="digital-execution-design-brief.txt",
