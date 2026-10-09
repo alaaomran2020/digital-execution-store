@@ -3,6 +3,8 @@ name: Staging QA (no deployment)
 on:
   push:
     branches: [staging]
+  pull_request:
+    branches: [staging]
   workflow_dispatch:
 
 permissions:
@@ -28,5 +30,7 @@ jobs:
         run: |
           node qa/build-staging.mjs
           test -f dist-staging/services/graphic-design/studio.css
+          test -f dist-staging/services/graphic-design/gallery.js
+          test -f dist-staging/services/graphic-design/brief.js
           test -f dist-staging/_headers
           test ! -e dist-staging/CNAME
