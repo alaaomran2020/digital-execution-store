@@ -1,0 +1,6 @@
+{
+  "productsVisible": false,
+  "reason": "Temporary storefront product display pause requested by owner on 2026-10-09",
+  "effect": "Public product pages and catalog show pause notice; records unchanged",
+  "restore": "Revert the temporary pause commit and rerun original Store QA before republishing; restore index and metadata only after explicit approval"
+}

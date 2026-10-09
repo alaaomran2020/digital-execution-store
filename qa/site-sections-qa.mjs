@@ -18,7 +18,8 @@ for(const route of routes){
   assert.ok(html.includes('src="/footer.js?'),"global footer missing: "+route); checks++;
   assert.ok(read("sitemap.xml").includes("<loc>https://digital-execution.cc/"+route+"</loc>"),"sitemap entry missing: "+route); checks++;
 }
-for(const route of ["/products/","/tools/","/services/"]){
+const productsVisible=JSON.parse(read("data/storefront-mode.json")).productsVisible!==false;
+for(const route of productsVisible?["/products/","/tools/","/services/"]:["/tools/","/services/"]){
   assert.ok(read("header.js").includes('href="'+route+'"'),"shared nav route missing: "+route);checks++;
   assert.ok(read("index.html").includes('href="'+route+'"'),"homepage department route missing: "+route);checks++;
 }
@@ -33,4 +34,4 @@ for(const tool of ["pricing-calculator","break-even-calculator","inventory-healt
 }
 assert.ok(read("services/index.html").includes('href="/services/graphic-design/"'));checks++;
 assert.ok(read("services/graphic-design/index.html").includes('mailto:contact@digital-execution.cc'));checks++;
-console.log("PASS "+checks+" independent department checks; no production deployment");
+console.log("PASS "+checks+" independent department checks; product visibility: "+(productsVisible?"on":"temporarily paused"));

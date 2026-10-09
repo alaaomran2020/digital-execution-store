@@ -1,4 +1,5 @@
 User-agent: *
-Allow: /
+Disallow: /products/
+Disallow: /data/products.json
 
 Sitemap: https://digital-execution.cc/sitemap.xml
