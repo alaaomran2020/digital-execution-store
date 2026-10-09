@@ -38,7 +38,31 @@ async function get(path) {
     'Staging noindex header for ' + path, header);
   return response.text();
 }
+async function waitForExpectedDeployment() {
+  if (!expectedCommit) return;
+  for (let attempt = 1; attempt <= 16; attempt++) {
+    try {
+      const response = await fetch(origin + '/staging-build.json?qa=' + Date.now(), {
+        redirect: 'manual', signal: AbortSignal.timeout(10000),
+        headers: { 'Cache-Control': 'no-cache' }
+      });
+      if (response.status === 200) {
+        const current = await response.json();
+        if (current.branch === 'staging' &&
+            String(current.commit || '').toLowerCase() === expectedCommit.toLowerCase()) {
+          console.log('Expected deployment is live:', expectedCommit, 'attempt', attempt);
+          return;
+        }
+      }
+    } catch (error) {
+      console.log('Staging deployment not ready:', String(error));
+    }
+    if (attempt < 16) await new Promise(resolve => setTimeout(resolve, 15000));
+  }
+  throw new Error('Expected staging commit was not deployed on the Pages URL during the bounded readiness checks: ' + expectedCommit);
+}
 try {
+  await waitForExpectedDeployment();
   const [home, services, studio, tools, calculator, css, modeText, manifestText] = await Promise.all([
     get('/'), get('/services/'), get('/services/graphic-design/'), get('/tools/'),
     get('/tools/pricing-calculator/'), get('/services/graphic-design/studio.css?v=20261010-v1'),
