@@ -20,9 +20,18 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Detect temporary product pause
+        id: product_visibility
+        run: |
+          echo "paused=$(node -p "require('./data/storefront-mode.json').productsVisible===false")" >> "$GITHUB_OUTPUT"
+      - name: Verify paused product URLs
+        if: steps.product_visibility.outputs.paused == 'true'
+        run: node qa/storefront-paused-qa.mjs
       - name: Install browser test dependency
+        if: steps.product_visibility.outputs.paused != 'true'
         run: |
           npm install --no-save --no-package-lock playwright@1.56.1
           npx playwright install --with-deps chromium
       - name: Run page in Chromium
+        if: steps.product_visibility.outputs.paused != 'true'
         run: node qa/accountant-browser-qa.mjs
