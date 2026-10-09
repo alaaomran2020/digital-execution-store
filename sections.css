@@ -24,3 +24,13 @@
 .department-page a:focus-visible{outline:3px solid #89e4d3;outline-offset:4px}
 @media(max-width:900px){.department-page .dept-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.department-page{padding-top:25px}.department-page .dept-hero{padding:26px 20px}.department-page .dept-grid{grid-template-columns:1fr}.department-page .dept-actions .dept-link{width:100%}}
+
+/* The homepage links to departments; the departments themselves stay on separate pages. */
+.dept-home-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding-top:22px;padding-bottom:22px}
+.dept-home-nav a{display:flex;flex-direction:column;gap:4px;padding:19px 21px;border-radius:17px;background:#0c2035;border:1px solid rgba(147,197,224,.22);min-width:0}
+.dept-home-nav a span{color:#a3dedc;font-size:.72rem;font-weight:800}
+.dept-home-nav a strong{font-size:1rem}
+.dept-home-nav a small{color:#bdcddc;font-size:.75rem}
+.dept-home-nav a:hover{border-color:#91d5cf}
+.dept-home-nav a:focus-visible{outline:3px solid #89e4d3;outline-offset:3px}
+@media(max-width:720px){.dept-home-nav{grid-template-columns:1fr}}
