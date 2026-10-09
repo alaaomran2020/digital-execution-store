@@ -1,7 +1,7 @@
 // Real-browser visual smoke tests for the isolated design studio.
 // Runs against a local static preview of the PR, NOT production or remote Staging.
 import assert from "node:assert/strict";
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, writeFileSync, readFileSync } from "node:fs";
 import { chromium } from "playwright";
 
 const origin=process.env.PREVIEW_ORIGIN || "http://127.0.0.1:4173";
@@ -76,6 +76,15 @@ try {
       "Generated content uses the entered values and selected service");
     check(mail?.startsWith("mailto:contact@digital-execution.cc?")&&mail.includes("body=")&&
       decodeURIComponent(mail).includes("test@example.com"),"Encoded mailto is ready without sending anything");
+    const downloadPromise=page.waitFor("download");
+    await page.locator("#ds-brief-download").click();
+    const download=await downloadPromise;
+    check(download.suggestedFilename()==="digital-execution-design-brief.txt",
+      "Local download uses a consistent non-personal file name");
+    const saved=readFileSync(await download.path(),"utf8").replace(/^\uFEFF/,"");
+    check(saved===body,"Downloaded UTF-8 TXT preserves the full Arabic project brief");
+    check((await page.locator("#ds-brief-status").textContent()).includes("لم يتم رفع"),
+      "Download status explains that the brief is not uploaded");
     await page.locator("#ds-project").fill("مشروع اختبار محدّث");
     check(!(await page.locator("#ds-brief-result").isVisible()),"Stale brief hides after edits");
     if(width<=390){
