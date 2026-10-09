@@ -22,3 +22,11 @@ jobs:
         run: node qa/storefront-paused-qa.mjs
       - name: Verify independent tool and service sections
         run: node qa/site-sections-qa.mjs
+      - name: Verify and package isolated Cloudflare Pages staging build
+        env:
+          CF_PAGES_BRANCH: staging
+        run: |
+          node qa/build-staging.mjs
+          test -f dist-staging/services/graphic-design/studio.css
+          test -f dist-staging/_headers
+          test ! -e dist-staging/CNAME
