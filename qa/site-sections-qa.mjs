@@ -50,6 +50,10 @@ assert.ok(design.includes('id="ds-brief-form"')&&design.includes('id="ds-brief-r
 assert.ok(design.includes('src="/services/graphic-design/brief.js?'),"Client-side brief helper not linked");checks++;
 assert.equal((design.match(/data-design-type="ds-/g)||[]).length,8,"All cards must preselect the brief type");checks++;
 assert.ok(!/<form[^>]+action=/.test(design),"Client-only brief must not submit to a server");checks++;
+assert.ok(design.includes('id="design-gallery"')&&design.includes('id="ds-gallery-dialog"'),"Standalone design concept gallery missing");checks++;
+assert.ok(design.includes('src="/services/graphic-design/gallery.js?'),"Interactive design gallery script not linked");checks++;
+assert.equal((design.match(/class="ds-gallery-card"/g)||[]).length,6,"Expected six explicitly illustrative gallery previews");checks++;
+assert.ok(design.includes("وليست أعمالًا منفذة لعملاء"),"Concept disclaimer required");checks++;
 assert.ok(!design.includes('href="/products/'),"Paused product link visible in design service");checks++;
 assert.ok(!studioCss.includes(".department-page .dept-card"),"Design studio must not override shared tool/service cards");checks++;
 assert.ok(studioCss.includes("body.design-studio")&&studioCss.includes("@media(max-width:560px)")&&studioCss.includes("prefers-reduced-motion"),"Scoped theme or mobile accessibility styles missing");checks++;
