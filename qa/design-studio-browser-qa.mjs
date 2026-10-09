@@ -1,0 +1,72 @@
+// Real-browser visual smoke tests for the isolated design studio.
+// Runs against a local static preview of the PR, NOT production or remote Staging.
+import assert from "node:assert/strict";
+import { mkdirSync, writeFileSync } from "node:fs";
+import { chromium } from "playwright";
+
+const origin=process.env.PREVIEW_ORIGIN || "http://127.0.0.1:4173";
+const path="/services/graphic-design/";
+const widths=[320,390,768,1440];
+const output="artifacts/design-visual-qa";
+mkdirSync(output,{recursive:true});
+const browser=await chromium.launch({headless:true});
+const results=[];
+try {
+  for(const width of widths) {
+    const page=await browser.newPage({viewport:{width,height:850},deviceScaleFactor:1,reducedMotion:"reduce"});
+    const errors=[];
+    page.on("pageerror",error=>errors.push(error.message));
+    await page.goto(origin+path,{waitUntil:"networkidle",timeout:30000});
+    await page.locator(".ds-service-card").first().waitFor();
+    const metrics=await page.evaluate(()=>{
+      const cards=[...document.querySelectorAll(".ds-service-card")];
+      const hero=document.querySelector(".ds-hero");
+      const style=getComputedStyle(hero);
+      const cardStyle=getComputedStyle(cards[0]);
+      const bounds=hero.getBoundingClientRect();
+      return {
+        viewport:innerWidth,bodyScrollWidth:document.body.scrollWidth,documentScrollWidth:document.documentElement.scrollWidth,
+        heroRight:bounds.right,heroLeft:bounds.left,background:style.backgroundImage,
+        cardCount:cards.length,cardBackground:cardStyle.backgroundColor,
+        categoryAnchors:[...document.querySelectorAll('.ds-quick-nav a')].map(a=>a.getAttribute("href")),
+        emailAnchors:[...document.querySelectorAll('a[href^="mailto:"]')].length,
+        productAnchors:[...document.querySelectorAll('a[href^="/products/"]')].length,
+        title:document.title, mainLandmarks:document.querySelectorAll("main").length,
+        cssLoaded:[...document.styleSheets].some(s=>s.href?.includes("/services/graphic-design/studio.css"))
+      };
+    });
+    const checks=[];
+    const check=(pass,message)=>{checks.push({pass,message});assert.ok(pass,"width "+width+": "+message)};
+    check(metrics.viewport===width,"Correct viewport width");
+    check(metrics.cssLoaded,"Scoped studio CSS loaded");
+    check(metrics.cardCount===8,"Eight design service cards displayed");
+    check(metrics.categoryAnchors.length===8,"Eight category navigation shortcuts");
+    check(metrics.categoryAnchors.every(h=>h?.startsWith("#ds-")),"Category links are valid in-page anchors");
+    check(metrics.emailAnchors>=9,"Contact links are retained");
+    check(metrics.productAnchors===0,"Paused products not linked");
+    check(metrics.mainLandmarks===1,"Single main landmark");
+    check(metrics.documentScrollWidth<=width+1 && metrics.bodyScrollWidth<=width+1,
+      "No horizontal overflow");
+    check(metrics.heroLeft>=-1 && metrics.heroRight<=width+1,
+      "Hero stays inside viewport");
+    check(metrics.background.includes("linear-gradient"),
+      "New studio gradient visibly applied");
+    check(metrics.cardBackground==="rgb(248, 246, 252)",
+      "Light creative studio cards rendered");
+    await page.screenshot({path:output+"/studio-"+width+"-full.png",fullPage:true,animations:"disabled"});
+    await page.screenshot({path:output+"/studio-"+width+"-top.png",fullPage:false,animations:"disabled"});
+    await page.locator('.ds-quick-nav a[href="#ds-social"]').click();
+    check(new URL(page.url()).hash==="#ds-social","Navigation jumps to selected category");
+    await page.locator(".ds-service-card").last().scrollIntoViewIfNeeded();
+    check(await page.locator(".ds-service-card").last().isVisible(),"Final category reachable");
+    results.push({width,status:"PASS",checks,metrics,pageErrors:errors});
+    console.log("PASS: "+width+"px ("+checks.length+" assertions), screenshot captured; page errors="+errors.length);
+    await page.close();
+  }
+} catch(error) {
+  results.push({status:"FAIL",error:String(error)});
+  throw error;
+} finally {
+  writeFileSync(output+"/report.json",JSON.stringify({source:"local CI preview (not Cloudflare Staging)",origin,path,results},null,2));
+  await browser.close();
+}
