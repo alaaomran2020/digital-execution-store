@@ -74,6 +74,30 @@ try {
     console.log("PASS: "+width+"px ("+checks.length+" assertions), screenshot captured; page errors="+errors.length);
     await page.close();
   }
+  // Read-only calculator interaction tests: no payment, network mutations or customer records.
+  const pricing = await browser.newPage();
+  await pricing.goto(origin+"/tools/pricing-calculator/",{waitUntil:"networkidle",timeout:30000});
+  await pricing.locator("#cost").fill("100");
+  await pricing.locator("#shipping").fill("0");
+  await pricing.locator("#extra").fill("0");
+  await pricing.locator("#markup").fill("30");
+  await pricing.locator("#pricingForm button[type=submit]").click();
+  const saleText=await pricing.locator("#salePrice").textContent();
+  assert.match(saleText,/(?:١٣٠|130)/,"Pricing calculator: 100 + 30% must yield 130");
+  results.push({tool:"pricing-calculator",status:"PASS",saleText});
+  await pricing.close();
+
+  const breakeven = await browser.newPage();
+  await breakeven.goto(origin+"/tools/break-even-calculator/",{waitUntil:"networkidle",timeout:30000});
+  await breakeven.locator("#fixedCosts").fill("10000");
+  await breakeven.locator("#sellingPrice").fill("200");
+  await breakeven.locator("#variableCost").fill("120");
+  await breakeven.locator("#breakEvenForm button[type=submit]").click();
+  const unitText=await breakeven.locator("#breakEvenUnits").textContent();
+  assert.match(unitText,/(?:١٢٥|125)/,"Break-even calculator: 10000/(200-120) must yield 125 units");
+  results.push({tool:"break-even-calculator",status:"PASS",unitText});
+  await breakeven.close();
+  console.log("PASS: pricing and break-even calculators respond to simulated inputs; no orders or payments");
 } catch(error) {
   results.push({status:"FAIL",error:String(error)});
   throw error;
