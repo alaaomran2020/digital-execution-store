@@ -26,6 +26,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
+      - name: Validate isolated Cloudflare Staging build output (no deployment)
+        env:
+          CF_PAGES_BRANCH: staging
+        run: |
+          node qa/build-staging.mjs
+          test -f dist-staging/staging-build.json
+          test -f dist-staging/_headers
+          test -f dist-staging/services/graphic-design/studio.css
+          test ! -e dist-staging/CNAME
       - name: Install temporary browser test dependency
         run: |
           npm install --no-save --ignore-scripts --package-lock=false playwright@1.56.1
