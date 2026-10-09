@@ -10,6 +10,7 @@
   const preview = document.getElementById("ds-brief-preview");
   const emailLink = document.getElementById("ds-brief-email");
   const copyButton = document.getElementById("ds-brief-copy");
+  const downloadButton = document.getElementById("ds-brief-download");
   const status = document.getElementById("ds-brief-status");
 
   const valueOf = (fields, name) => String(fields.get(name) || "").trim();
@@ -59,6 +60,23 @@
     status.textContent = "الموجز جاهز. راجعه ثم افتح البريد، أو انسخه إلى تطبيق التواصل المناسب.";
     preview.focus({ preventScroll: true });
     result.scrollIntoView({ behavior: "auto", block: "nearest" });
+  });
+
+  // The text file is created in memory and downloaded by the browser only.
+  // Never transmit it or persist it to localStorage / cookies / a server.
+  downloadButton.addEventListener("click", () => {
+    const brief = preview.value;
+    if (!brief || result.hidden) return;
+    const file = new Blob(["\uFEFF", brief], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(file);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = "digital-execution-design-brief.txt";
+    document.body.append(anchor);
+    anchor.click();
+    anchor.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 10_000);
+    status.textContent = "تم تجهيز تنزيل ملف TXT على جهازك. لم يتم رفع الموجز إلى الموقع.";
   });
 
   copyButton.addEventListener("click", async () => {
