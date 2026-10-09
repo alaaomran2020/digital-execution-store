@@ -2112,5 +2112,285 @@
       "published_version": "1.0.0"
     },
     "image": "assets/social/product-professional-services-office-os-20260926.png"
+  },
+  {
+    "schema_version": 3,
+    "slug": "calculator-suite-free",
+    "name": "Calculator Suite Free — حاسبات الأعمال المجانية",
+    "category": "أدوات الأعمال",
+    "short_description": "احسب النسب والخصومات والضريبة والعمولات مجانًا باستخدام أربع حاسبات عربية تفاعلية.",
+    "price": 0,
+    "currency": "EGP",
+    "image": "assets/social/product-pricing-calculator.webp",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Personal Use",
+    "resell_allowed": false,
+    "editable": false,
+    "brandable": false,
+    "delivery_type": "Public Demo",
+    "lifetime_updates": false,
+    "demo_url": "https://digital-execution.cc/tools/calculator-suite/",
+    "product_url": "products/calculator-suite-free/",
+    "featured": false,
+    "last_updated": "2026-10-09",
+    "status": "published",
+    "identity": {
+      "product_type": "business_calculator_suite",
+      "edition": "Free",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "المحاسبون وأصحاب الأعمال",
+        "أصحاب المتاجر والخدمات"
+      ],
+      "problem": "الحاجة إلى حسابات واضحة وسريعة للعمليات المالية اليومية.",
+      "alternatives": [],
+      "differentiation": [
+        "واجهة عربية RTL",
+        "تشغيل محلي بلا حساب",
+        "مستويات وظيفية واضحة"
+      ]
+    },
+    "offer": {
+      "outcome": "احسب النسب والخصومات والضريبة والعمولات مجانًا باستخدام أربع حاسبات عربية تفاعلية.",
+      "mechanism": "إدخال القيم ثم تنفيذ الحساب محليًا وعرض النتيجة.",
+      "contents": [
+        "النسبة المئوية",
+        "الخصم",
+        "ضريبة القيمة المضافة",
+        "عمولة المبيعات"
+      ],
+      "limitations": [
+        "حسابات مساعدة وليست بديلاً عن الاستشارة المهنية",
+        "معدلات الضرائب والرواتب يدخلها المستخدم",
+        "ممنوع إعادة بيع أو نشر النسخ المدفوعة"
+      ]
+    },
+    "commerce": {
+      "price": 0,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": null,
+      "upgrade": "calculator-suite-starter",
+      "payment_method": "Free",
+      "list_price": 0,
+      "savings": 0
+    },
+    "trust": {
+      "preview_type": "live_demo",
+      "previews": [
+        "tools/calculator-suite/"
+      ],
+      "license": {
+        "type": "Personal Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "استخدام ذاتي مع تعليمات تشغيل؛ لا تتضمن استشارات محاسبية أو ضريبية فردية."
+    },
+    "delivery": {
+      "method": "public_browser_tool",
+      "channel": "Web",
+      "includes_updates": false,
+      "update_policy": "الإصدار v1.0.0، ولا توجد وعود بتحديثات مجانية مدى الحياة."
+    },
+    "analytics": {
+      "product_slug": "calculator-suite-free",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    },
+    "segment": "business"
+  },
+  {
+    "schema_version": 3,
+    "slug": "calculator-suite-starter",
+    "name": "Calculator Suite Starter — حاسبات الأعمال الأساسية",
+    "category": "أدوات الأعمال",
+    "short_description": "أنجز حسابات البيع والتسعير والربحية والعمل الإضافي عبر سبع حاسبات عربية مستقلة.",
+    "price": 399,
+    "currency": "EGP",
+    "image": "assets/social/product-pricing-calculator.webp",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Personal Use",
+    "resell_allowed": false,
+    "editable": false,
+    "brandable": false,
+    "delivery_type": "Verified Private Delivery",
+    "lifetime_updates": false,
+    "demo_url": "https://digital-execution.cc/tools/calculator-suite/",
+    "product_url": "products/calculator-suite-starter/",
+    "featured": false,
+    "last_updated": "2026-10-09",
+    "status": "published",
+    "identity": {
+      "product_type": "business_calculator_suite",
+      "edition": "Starter",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "المحاسبون وأصحاب الأعمال",
+        "أصحاب المتاجر والخدمات"
+      ],
+      "problem": "الحاجة إلى حسابات واضحة وسريعة للعمليات المالية اليومية.",
+      "alternatives": [],
+      "differentiation": [
+        "واجهة عربية RTL",
+        "تشغيل محلي بلا حساب",
+        "مستويات وظيفية واضحة"
+      ]
+    },
+    "offer": {
+      "outcome": "أنجز حسابات البيع والتسعير والربحية والعمل الإضافي عبر سبع حاسبات عربية مستقلة.",
+      "mechanism": "إدخال القيم ثم تنفيذ الحساب محليًا وعرض النتيجة.",
+      "contents": [
+        "4 حاسبات النسخة المجانية",
+        "تسعير المنتجات",
+        "نسبة الربح",
+        "العمل الإضافي"
+      ],
+      "limitations": [
+        "حسابات مساعدة وليست بديلاً عن الاستشارة المهنية",
+        "معدلات الضرائب والرواتب يدخلها المستخدم",
+        "ممنوع إعادة بيع أو نشر النسخ المدفوعة"
+      ]
+    },
+    "commerce": {
+      "price": 399,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": null,
+      "upgrade": "calculator-suite-professional",
+      "payment_method": "Vodafone Cash",
+      "list_price": 399,
+      "savings": 0
+    },
+    "trust": {
+      "preview_type": "live_demo",
+      "previews": [
+        "tools/calculator-suite/"
+      ],
+      "license": {
+        "type": "Personal Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "استخدام ذاتي مع تعليمات تشغيل؛ لا تتضمن استشارات محاسبية أو ضريبية فردية."
+    },
+    "delivery": {
+      "method": "restricted_one_time_link_after_manual_verification",
+      "channel": "WhatsApp after manual verification",
+      "includes_updates": false,
+      "update_policy": "الإصدار v1.0.0، ولا توجد وعود بتحديثات مجانية مدى الحياة."
+    },
+    "analytics": {
+      "product_slug": "calculator-suite-starter",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    },
+    "segment": "business"
+  },
+  {
+    "schema_version": 3,
+    "slug": "calculator-suite-professional",
+    "name": "Calculator Suite Professional — حاسبات الأعمال الاحترافية",
+    "category": "أدوات الأعمال",
+    "short_description": "استفد من عشر حاسبات للأعمال مع سجل محلي للعمليات وإمكانيات التصدير والطباعة.",
+    "price": 999,
+    "currency": "EGP",
+    "image": "assets/social/product-pricing-calculator.webp",
+    "version": "1.0.0",
+    "source_type": "Original",
+    "license_type": "Personal Use",
+    "resell_allowed": false,
+    "editable": false,
+    "brandable": false,
+    "delivery_type": "Verified Private Delivery",
+    "lifetime_updates": false,
+    "demo_url": "https://digital-execution.cc/tools/calculator-suite/",
+    "product_url": "products/calculator-suite-professional/",
+    "featured": false,
+    "last_updated": "2026-10-09",
+    "status": "published",
+    "identity": {
+      "product_type": "business_calculator_suite",
+      "edition": "Professional",
+      "brand": "Digital Execution"
+    },
+    "market": {
+      "audience": [
+        "المحاسبون وأصحاب الأعمال",
+        "أصحاب المتاجر والخدمات"
+      ],
+      "problem": "الحاجة إلى حسابات واضحة وسريعة للعمليات المالية اليومية.",
+      "alternatives": [],
+      "differentiation": [
+        "واجهة عربية RTL",
+        "تشغيل محلي بلا حساب",
+        "مستويات وظيفية واضحة"
+      ]
+    },
+    "offer": {
+      "outcome": "استفد من عشر حاسبات للأعمال مع سجل محلي للعمليات وإمكانيات التصدير والطباعة.",
+      "mechanism": "إدخال القيم ثم تنفيذ الحساب محليًا وعرض النتيجة.",
+      "contents": [
+        "7 حاسبات نسخة Starter",
+        "صافي الرواتب",
+        "العائد المركب",
+        "نماذج قيود اليومية",
+        "سجل محلي وتصدير CSV/JSON وطباعة"
+      ],
+      "limitations": [
+        "حسابات مساعدة وليست بديلاً عن الاستشارة المهنية",
+        "معدلات الضرائب والرواتب يدخلها المستخدم",
+        "ممنوع إعادة بيع أو نشر النسخ المدفوعة"
+      ]
+    },
+    "commerce": {
+      "price": 999,
+      "currency": "EGP",
+      "billing": "one_time",
+      "bundle": null,
+      "upgrade": null,
+      "payment_method": "Vodafone Cash",
+      "list_price": 999,
+      "savings": 0
+    },
+    "trust": {
+      "preview_type": "live_demo",
+      "previews": [
+        "tools/calculator-suite/"
+      ],
+      "license": {
+        "type": "Personal Use",
+        "resell_allowed": false,
+        "transferable": false
+      },
+      "support_policy": "استخدام ذاتي مع تعليمات تشغيل؛ لا تتضمن استشارات محاسبية أو ضريبية فردية."
+    },
+    "delivery": {
+      "method": "restricted_one_time_link_after_manual_verification",
+      "channel": "WhatsApp after manual verification",
+      "includes_updates": false,
+      "update_policy": "الإصدار v1.0.0، ولا توجد وعود بتحديثات مجانية مدى الحياة."
+    },
+    "analytics": {
+      "product_slug": "calculator-suite-professional",
+      "trackable": true
+    },
+    "lifecycle": {
+      "stage": "PUBLISHED",
+      "published_version": "1.0.0"
+    },
+    "segment": "business"
   }
 ]
