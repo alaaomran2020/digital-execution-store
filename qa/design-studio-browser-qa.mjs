@@ -6,6 +6,7 @@ import { chromium } from "playwright";
 
 const origin=process.env.PREVIEW_ORIGIN || "http://127.0.0.1:4173";
 const path="/services/graphic-design/";
+const isRemoteStaging = new URL(origin).hostname.endsWith(".pages.dev");
 const widths=[320,390,768,1440];
 const output="artifacts/design-visual-qa";
 mkdirSync(output,{recursive:true});
@@ -68,6 +69,7 @@ try {
     }
     await page.locator(".ds-service-card").last().scrollIntoViewIfNeeded();
     check(await page.locator(".ds-service-card").last().isVisible(),"Final category reachable");
+    check(errors.length===0,"No uncaught JavaScript errors");
     results.push({width,status:"PASS",checks,metrics,pageErrors:errors});
     console.log("PASS: "+width+"px ("+checks.length+" assertions), screenshot captured; page errors="+errors.length);
     await page.close();
@@ -76,6 +78,6 @@ try {
   results.push({status:"FAIL",error:String(error)});
   throw error;
 } finally {
-  writeFileSync(output+"/report.json",JSON.stringify({source:"local CI preview (not Cloudflare Staging)",origin,path,results},null,2));
+  writeFileSync(output+"/report.json",JSON.stringify({source:isRemoteStaging?"Cloudflare Pages staging (remote)":"local CI preview (not Cloudflare Staging)",origin,path,results},null,2));
   await browser.close();
 }
