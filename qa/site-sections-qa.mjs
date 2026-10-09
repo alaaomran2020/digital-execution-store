@@ -34,4 +34,21 @@ for(const tool of ["pricing-calculator","break-even-calculator","inventory-healt
 }
 assert.ok(read("services/index.html").includes('href="/services/graphic-design/"'));checks++;
 assert.ok(read("services/graphic-design/index.html").includes('mailto:contact@digital-execution.cc'));checks++;
+
+// Creative Studio checks: presentation refresh must not expose paused products.
+const design=read("services/graphic-design/index.html");
+const studioCss=read("services/graphic-design/studio.css");
+assert.ok(design.includes('href="/services/graphic-design/studio.css?'),"Design studio scoped CSS missing");checks++;
+for(const id of ["ds-brand","ds-social","ds-ads","ds-packaging","ds-print","ds-presentations","ds-commerce","ds-special"]){
+  assert.ok(design.includes('id="'+id+'"'),"Design category missing: "+id);checks++;
+  assert.ok(design.includes('href="#'+id+'"'),"Design category navigation missing: "+id);checks++;
+}
+assert.equal((design.match(/class="ds-service-card /g)||[]).length,8,"Expected 8 independent design service cards");checks++;
+assert.ok(design.includes('id="design-contact"')&&design.includes('id="design-services"'),"Contact or services anchor missing");checks++;
+assert.ok(design.includes("المشاهد البصرية أعلاه عناصر توضيحية"),"Illustrations must not be portrayed as customer portfolio");checks++;
+assert.ok(!design.includes('href="/products/'),"Paused product link visible in design service");checks++;
+assert.ok(!studioCss.includes(".department-page .dept-card"),"Design studio must not override shared tool/service cards");checks++;
+assert.ok(studioCss.includes("body.design-studio")&&studioCss.includes("@media(max-width:560px)")&&studioCss.includes("prefers-reduced-motion"),"Scoped theme or mobile accessibility styles missing");checks++;
+console.log("PASS creative studio cards, navigation, styling, and temporary product-hide assertions");
+
 console.log("PASS "+checks+" independent department checks; product visibility: "+(productsVisible?"on":"temporarily paused"));
