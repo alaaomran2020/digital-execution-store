@@ -11,7 +11,7 @@ try {
   let available = false;
   for (let i=0; i<40; i++) {
     if (server.exitCode !== null) throw new Error('Local web server exited');
-    try { const response=await fetch('http://127.0.0.1:'+port+'/data/products.json'); if(response.ok){available=true;break;} } catch {}
+    try { const response=await fetch('http://127.0.0.1:'+port+'/data/products.json'); await response.arrayBuffer(); if(response.ok){available=true;break;} } catch {}
     await sleep(250);
   }
   assert.ok(available,'Local web server did not start');
@@ -33,6 +33,7 @@ try {
     const link=page.locator('a[href="#buy"]').first();
     await link.focus();
     await page.keyboard.press("Enter");
+    await page.waitForURL('**/#buy');
     assert.equal(new URL(page.url()).hash,'#buy','Buy anchor navigation');
     assert.deepEqual(errors,[],'JavaScript exceptions');
     console.log('PASS accountant browser width '+width);
