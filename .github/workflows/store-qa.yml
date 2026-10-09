@@ -18,3 +18,5 @@ jobs:
           node-version: "22"
       - name: Run store architecture checks
         run: node qa/store-qa.mjs
+      - name: Verify independent tools and service sections
+        run: node qa/site-sections-qa.mjs
