@@ -6,9 +6,9 @@ function render(){
   footer.className="site-footer-pro";
   footer.innerHTML='<div class="footer-shell">'+
   '<div class="footer-brand-block"><span class="footer-brand-mark" aria-hidden="true">DE</span><span class="footer-trust-pill"><i aria-hidden="true"></i> خدمات وأدوات رقمية</span><strong>Digital Execution</strong><p>أدوات مجانية وخدمات حسب الطلب، مع دعم العملاء الحاليين.</p></div>'+
-  '<div class="footer-contact-grid" aria-label="بيانات التواصل والدفع">'+
+  '<div class="footer-contact-grid" aria-label="بيانات التواصل">'+
   '<a class="footer-contact-card" href="mailto:contact@digital-execution.cc"><span class="footer-contact-icon" aria-hidden="true">@</span><span>البريد الرسمي</span><strong>contact@digital-execution.cc</strong><small>للتواصل والاستفسارات</small></a>'+
-  '<a class="footer-contact-card" href="https://wa.me/'+wa+'" target="_blank" rel="noopener noreferrer"><span class="footer-contact-icon" aria-hidden="true">WA</span><span>واتساب</span><strong>'+phone+'</strong><small>للتواصل وإرسال إثبات الدفع</small></a>'+
+  '<a class="footer-contact-card" href="https://wa.me/'+wa+'" target="_blank" rel="noopener noreferrer"><span class="footer-contact-icon" aria-hidden="true">WA</span><span>واتساب</span><strong>'+phone+'</strong><small>للاستفسارات ودعم الطلبات السابقة</small></a>'+
   '</div>'+
   '<div class="footer-service-row"><span><b>التواصل:</b> واتساب والبريد الرسمي</span><span><b>الخدمات:</b> التصميم الجرافيكي</span><span><b>الأدوات:</b> حاسبات مجانية</span></div>'+
   '<nav class="footer-nav-pro" aria-label="روابط مهمة"><a href="/licenses.html">التراخيص</a><a href="/updates/">التحديثات</a><a href="/terms.html">الشروط</a><a href="/privacy.html">الخصوصية</a></nav>'+

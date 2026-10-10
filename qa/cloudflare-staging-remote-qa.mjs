@@ -36,6 +36,10 @@ async function get(path) {
   const header = (response.headers.get('x-robots-tag') || '').toLowerCase();
   record(['noindex', 'nofollow', 'noarchive'].every(x => header.includes(x)),
     'Staging noindex header for ' + path, header);
+  record(response.headers.get('x-content-type-options') === 'nosniff',
+    'Staging MIME sniffing disabled for ' + path);
+  record(response.headers.get('referrer-policy') === 'strict-origin-when-cross-origin',
+    'Staging referrer policy for ' + path);
   return response.text();
 }
 async function waitForExpectedDeployment() {

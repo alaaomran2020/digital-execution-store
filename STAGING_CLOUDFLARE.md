@@ -11,6 +11,7 @@ Production stays at `https://digital-execution.cc` on GitHub Pages. Do **not** a
 - Staging QA workflow: `.github/workflows/staging-qa.yml` (no deployment).
 - Product storefront must remain paused: `data/storefront-mode.json` → `productsVisible: false`.
 - The paused Pages build excludes the historical contents of `data/products.json` and replaces that URL with the exact harmless `[]` JSON payload and a no-store response header. This overwrites old cached Pages assets rather than merely removing the file; the public GitHub repository still contains the original registry, so this does not make the GitHub source private.
+- The staging build also excludes internal operating records and development artifacts (`analytics/`, `dist/`, `docs/`, `growth/`, `operations/`, `seo/`, and unpublished registry metadata). These files remain in Git; exclusion reduces staging exposure but does not make an already-public source file private. Static link integrity QA verifies every remaining local HTML/CSS reference in the built bundle.
 
 ## Cloudflare dashboard setup
 1. Cloudflare Dashboard → Workers & Pages → Create application → Pages → Import an existing Git repository.
