@@ -254,7 +254,7 @@ body.design-studio{
 /* Scoped conceptual gallery: every preview is explicitly illustrative. */
 .ds-gallery-disclaimer{padding:11px 16px;border:1px solid rgba(251,202,234,.4);border-radius:14px;background:rgba(56,39,80,.6);color:#f2e3fb;font-size:.81rem}
 .ds-gallery-filters{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 10px}
-.ds-gallery-filters button{min-height:41px;border:1px solid #a499c2;border-radius:99px;padding:8px 17px;background:#29223e;color:#faf4ff;font-family:inherit;font-weight:800;font-size:.83rem;cursor:pointer}
+.ds-gallery-filters button{min-height:44px;border:1px solid #a499c2;border-radius:99px;padding:8px 17px;background:#29223e;color:#faf4ff;font-family:inherit;font-weight:800;font-size:.83rem;cursor:pointer}
 .ds-gallery-filters button[aria-pressed="true"]{background:#f3cde8;color:#362245;border-color:#f3cde8}
 .ds-gallery-count{margin:0 0 18px;color:#ddd0ed;font-size:.79rem}
 .ds-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
@@ -274,11 +274,11 @@ body.design-studio{
 .ds-gallery-tag{display:inline-block;border-radius:50px;background:#e9dcf2;padding:3px 10px;color:#624273;font-size:.7rem;font-weight:850}
 .ds-page .ds-gallery-info h3{font-size:1rem;color:#30233c;margin:12px 0 6px}
 .ds-gallery-info p{font-size:.8rem;line-height:1.8;color:#5f5569;min-height:3em;margin:0 0 15px}
-.ds-gallery-open{border:0;padding:6px 0;background:transparent;color:#62377d;font:inherit;font-weight:850;font-size:.82rem;cursor:pointer}
+.ds-gallery-open{display:inline-flex;align-items:center;min-height:44px;border:0;padding:9px 0;background:transparent;color:#62377d;font:inherit;font-weight:850;font-size:.82rem;cursor:pointer}
 .ds-gallery-filters button:focus-visible,.ds-gallery-open:focus-visible,.ds-gallery-close:focus-visible{outline:3px solid #ffacd8;outline-offset:3px}
 .ds-gallery-dialog{box-sizing:border-box;position:fixed;inset:0;width:min(94vw,630px);max-width:94vw;max-height:90dvh;overflow:auto;padding:18px;border:1px solid #9b8bb7;border-radius:20px;background:#221d3b;color:#fff}
 .ds-gallery-dialog::backdrop{background:rgba(10,7,25,.88)}
-.ds-gallery-close{display:block;margin:0 0 12px;background:#3b3255;border:1px solid #a59aba;border-radius:10px;color:#fff;padding:9px 14px;font:inherit;cursor:pointer}
+.ds-gallery-close{display:block;min-height:44px;margin:0 0 12px;background:#3b3255;border:1px solid #a59aba;border-radius:10px;color:#fff;padding:9px 14px;font:inherit;cursor:pointer}
 .ds-gallery-dialog-art .ds-gallery-art{height:clamp(200px,37vh,295px);border-radius:15px}
 .ds-gallery-dialog-note{color:#edc6dc;font-size:.79rem;margin:16px 0 5px}
 .ds-page .ds-gallery-dialog h3{color:#fff;margin:3px 0}
