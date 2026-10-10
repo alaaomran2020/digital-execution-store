@@ -10,6 +10,7 @@ Production stays at `https://digital-execution.cc` on GitHub Pages. Do **not** a
 - Existing `_headers` for the staging branch sends `X-Robots-Tag: noindex, nofollow, noarchive` on `/*`.
 - Staging QA workflow: `.github/workflows/staging-qa.yml` (no deployment).
 - Product storefront must remain paused: `data/storefront-mode.json` → `productsVisible: false`.
+- Paused Pages output deliberately excludes `data/products.json` to avoid serving historical product prices/offers on staging. The public GitHub repository still contains this file; excluding it from Pages does not make the source private.
 
 ## Cloudflare dashboard setup
 1. Cloudflare Dashboard → Workers & Pages → Create application → Pages → Import an existing Git repository.
@@ -36,7 +37,7 @@ PR #119 has been merged into `staging` only. For each subsequent staging revisio
 - Ensure free calculators work, storefront products are hidden, and no real payment/checkout/delivery is executed.
 - Confirm the Pages project deployment SHA equals the intended `staging` commit and inspect its build logs.
 - Confirm response header `X-Robots-Tag: noindex, nofollow, noarchive` on staging page responses.
-- Once Cloudflare issues a URL, configure a repository **Actions variable** `CF_STAGING_URL` with the complete `https://<project>.pages.dev/` origin. On each subsequent push to `staging`, the `Cloudflare Staging Remote QA (read-only)` workflow runs automatically, waits for the Pages commit fingerprint to match the pushed SHA, and checks the remote site. Until that variable is configured, the workflow skips itself. No secrets are needed for this public, read-only QA.
+- On each `staging` push, `Cloudflare Staging Remote QA (read-only)` checks `https://digital-execution-staging.pages.dev/` by default. Set the repository Actions variable `CF_STAGING_URL` only if the isolated project's URL changes. The workflow must not silently skip when the variable is absent: a missing or stale deployment is a failed gate. The test waits for the deployed SHA to match GitHub and does not need secrets.
 - For immediate manual verification without modifying the production/default branch, check out the `staging` branch in a machine with Node.js 22; install Playwright Chromium, then run `STAGING_URL=https://<project>.pages.dev/ EXPECTED_STAGING_COMMIT=<40-char-sha> node qa/cloudflare-staging-remote-qa.mjs`. The `workflow_dispatch` action may not be available in GitHub's Actions UI until its workflow file exists on the repository's default branch; do **not** modify `main` just to enable manual dispatch.
 - Remote tests enforce HTTPS and the `pages.dev` hostname, check headers, CSS, 8 design cards, hidden products, build fingerprint, mobile/desktop Chromium screenshots, navigation, and simulated local-only pricing and break-even calculations. They do **not** purchase, email, or modify customer records.
 - Reports are uploaded as GitHub Actions artifacts and must show PASS before approval.

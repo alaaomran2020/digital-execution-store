@@ -9,3 +9,8 @@ private/
 products-private/
 .env
 .env.*
+
+# Generated QA, browser and Cloudflare staging artifacts must not enter public commits
+/dist-staging/
+/artifacts/
+/node_modules/

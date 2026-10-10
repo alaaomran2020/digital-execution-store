@@ -85,6 +85,13 @@ try {
     record(manifest.commit.toLowerCase() === expectedCommit.toLowerCase(), 'Expected staging commit deployed',
       'published=' + manifest.commit);
   }
+  const registryResponse = await fetch(origin + '/data/products.json', {
+    redirect: 'manual', signal: AbortSignal.timeout(10000),
+    headers: { 'Cache-Control': 'no-cache' }
+  });
+  record([404, 410].includes(registryResponse.status),
+    'Paused preview does not publicly expose the historical product registry',
+    'status=' + registryResponse.status);
   const browser = spawnSync(process.execPath, ['qa/design-studio-browser-qa.mjs'], {
     env: { ...process.env, PREVIEW_ORIGIN: origin }, stdio: 'inherit'
   });
