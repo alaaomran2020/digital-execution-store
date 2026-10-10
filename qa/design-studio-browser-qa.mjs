@@ -92,15 +92,20 @@ try {
     await page.locator('[data-ds-filter="product"]').click();
     check(await page.locator('.ds-gallery-card:visible').count()===2,"Product filter isolates two concepts");
     check(await page.locator('[data-ds-filter="product"]').getAttribute("aria-pressed")==="true","Active filter accessible");
+    check(await page.locator(".ds-gallery-filters button").evaluateAll(nodes=>nodes.every(node=>node.getBoundingClientRect().height>=44)),"Gallery filter controls meet 44px minimum touch height");
+    check(await page.locator('.ds-gallery-card[data-gallery-category="product"] [data-gallery-open]').first().evaluate(node=>node.getBoundingClientRect().height>=44),"Gallery preview control meets 44px minimum touch height");
     await page.locator('.ds-gallery-card[data-gallery-category="product"] [data-gallery-open]').first().click();
     check(await page.locator("#ds-gallery-dialog").evaluate(node=>node.open),"Native gallery preview opens");
     check((await page.locator("#ds-gallery-dialog-title").textContent()).includes("Bloom"),"Gallery preview matches selected concept");
+    check(await page.locator("#ds-gallery-close").evaluate(node=>node.getBoundingClientRect().height>=44),"Gallery close control meets 44px minimum touch height");
     await page.keyboard.press("Escape");
     check(!(await page.locator("#ds-gallery-dialog").evaluate(node=>node.open)),"Escape closes modal preview");
     await page.locator('.ds-gallery-card[data-gallery-category="product"] [data-gallery-open]').first().click();
     await page.locator("#ds-gallery-request").click();
     check(await page.locator("#ds-kind").inputValue()==="ds-packaging","Gallery request chooses correct service");
     check(!(await page.locator("#ds-gallery-dialog").evaluate(node=>node.open)),"Request closes gallery dialog");
+    await page.waitForFunction(()=>document.activeElement===document.getElementById("ds-kind"));
+    check(await page.locator("#ds-kind").evaluate(node=>document.activeElement===node),"Gallery request transfers keyboard focus");
     await page.locator('[data-ds-filter="all"]').click();
     check(await page.locator('.ds-gallery-card:visible').count()===6,"All gallery previews restored");
     if(width<=390){
