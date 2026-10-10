@@ -41,4 +41,10 @@ for(const file of ["tools/pricing-calculator/index.html","tools/break-even-calcu
 }
 checked(read(".github/workflows/store-qa.yml").includes("qa/store-qa.mjs"),"Original published-store QA must remain available for restoration");
 checked(read(".github/workflows/store-qa.yml").includes("qa/storefront-paused-qa.mjs"),"Paused QA must be run by CI");
+// Keep the 404 recovery route aligned with the temporary storefront pause.
+const notFound=read("404.html");
+checked(/<meta\s+name="robots"\s+content="noindex,nofollow"/.test(notFound),"404 page must remain noindex");
+checked(!/href=["'][^"']*\/products(?:\/|["'?#])/.test(notFound),"404 page must not link to hidden products");
+checked(notFound.includes('href="/tools/"'),"404 page must link to active tools");
+checked(notFound.includes('href="/services/"'),"404 page must link to active services");
 console.log("PASS "+checks+" temporary storefront-hide regression checks; "+directories.length+" product routes replaced by reversible notices");
