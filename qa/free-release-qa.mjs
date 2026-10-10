@@ -7,23 +7,23 @@ const root = read('index.html');
 const tools = read('tools/index.html');
 // Transport as text/plain prevents Cloudflare from injecting analytics scripts into
 // the byte-for-byte offline HTML file. Browser saves the .html filename via download.
-const freePath = 'downloads/Calculator_Suite_Free_v1.1.0.txt';
+const freePath = 'downloads/Calculator_Suite_Free_v1.2.0.txt';
 const free = read(freePath);
 const products = read('products/index.html');
 const flag = JSON.parse(read('data/storefront-mode.json'));
 let checks = 0;
 const ok = (value, message) => { assert.ok(value, message); checks++; };
-const href = '/downloads/Calculator_Suite_Free_v1.1.0.txt';
+const href = '/downloads/Calculator_Suite_Free_v1.2.0.txt';
 
 ok(flag.productsVisible === false, 'All paid products must remain hidden');
 ok(products.includes('عرض المنتجات متوقف حاليًا'), 'Do not unpause the products route');
 ok(products.includes('noindex,nofollow'), 'Paid product catalog must remain noindex');
 ok(root.includes('href="' + href + '"'), 'Homepage Free download is missing');
 ok(tools.includes('href="' + href + '"'), 'Tools page Free download is missing');
-ok(root.includes('download="Calculator_Suite_Free_v1.1.0.html"'), 'Homepage must download, not just navigate');
-ok(tools.includes('download="Calculator_Suite_Free_v1.1.0.html"'), 'Tool hub must download, not just navigate');
-ok(!fs.existsSync('downloads/Calculator_Suite_Free_v1.1.0.html'), 'Avoid inline HTML response that Cloudflare modifies with analytics');
-ok(free.includes('Calculator Suite Free v1.1.0'), 'Free edition/version is missing');
+ok(root.includes('download="Calculator_Suite_Free_v1.2.0.html"'), 'Homepage must download, not just navigate');
+ok(tools.includes('download="Calculator_Suite_Free_v1.2.0.html"'), 'Tool hub must download, not just navigate');
+ok(!fs.existsSync('downloads/Calculator_Suite_Free_v1.2.0.html'), 'Avoid inline HTML response that Cloudflare modifies with analytics');
+ok(free.includes('Calculator Suite Free v1.2.0'), 'Free edition/version is missing');
 ok(free.includes('حاسبة تسعير المنتج'), 'Basic pricing calculator missing');
 ok(free.includes('حاسبة نقطة التعادل'), 'Break-even calculator missing');
 ok(free.includes('بدون اشتراك') || free.includes('دون اشتراك') || free.includes('من غير اشتراك'), 'No-subscription policy missing');
@@ -35,6 +35,10 @@ ok(free.includes('Calculator_Suite_Free_Results.xlsx'), 'Real Excel download mis
 ok(free.includes('window.print()') && free.includes('@media print'), 'PDF print formatting missing');
 ok(free.includes('confirm('), 'Delete stored results must require confirmation');
 ok(free.includes('history-status'), 'Storage availability warning missing');
+ok(free.includes('Calculator_Suite_Free_Backup.json'), 'Portable JSON backup download missing');
+ok(free.includes('digital-execution-calculator-free-backup'), 'Versioned portable backup format missing');
+ok(free.includes('file.size>256000') && free.includes('backup.records.every(validRecord)'), 'Restore size/schema checks missing');
+ok(free.includes('استرجاع بيستبدل') || free.includes('الاسترجاع بيستبدل'), 'Overwrite warning for restore missing');
 ok(!/<script[^>]+src=/i.test(free), 'Free app must not load external scripts');
 ok(!/<link[^>]+rel="stylesheet"/i.test(free), 'Free app must not require external CSS');
 ok(!/\b(fetch|XMLHttpRequest|WebSocket)\s*\(/.test(free), 'Free app unexpectedly needs an API/network');

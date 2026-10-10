@@ -16,7 +16,7 @@ pass(lightweight/former<0.4,"M1 did not reduce CSS by at least 60%");
 for (const [name,html] of [["home",home],["tools",tools]]){
   pass(html.includes('href="/storefront-light.css?v=20261011-m1m2"'),name+" missing scoped stylesheet");
   pass(!html.includes('href="/styles.css"') && !html.includes('href="/brand.css"') && !html.includes('href="/sections.css"'),name+" loads old CSS bundle");
-  pass(html.includes('href="/downloads/Calculator_Suite_Free_v1.1.0.txt"') && html.includes('download="Calculator_Suite_Free_v1.1.0.html"'),name+" free download missing");
+  pass(html.includes('href="/downloads/Calculator_Suite_Free_v1.2.0.txt"') && html.includes('download="Calculator_Suite_Free_v1.2.0.html"'),name+" free download missing");
   pass(html.includes('class="skip-link"') && html.includes('id="main"'),name+" missing keyboard shortcut");
   pass(html.includes('src="/header.js?') && html.includes('src="/footer.js?'),name+" site navigation/footer missing");
   pass(!html.includes('href="/products/"'),name+" links paused paid store");
