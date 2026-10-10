@@ -11,16 +11,25 @@ const mode = JSON.parse(fs.readFileSync(path.join(root, 'data/storefront-mode.js
 assert.equal(mode.productsVisible, false, 'Refusing to publish while products are visible');
 const headers = fs.readFileSync(path.join(root, '_headers'), 'utf8');
 assert.match(headers, /^\/\*\s*\r?\n\s*X-Robots-Tag:\s*noindex,\s*nofollow,\s*noarchive/im, 'Missing staging noindex headers');
+for (const policy of ['X-Content-Type-Options: nosniff', 'Referrer-Policy: strict-origin-when-cross-origin', 'Permissions-Policy: camera=(), microphone=(), geolocation=()']) {
+  assert.ok(headers.includes(policy), `Missing staging defensive header: ${policy}`);
+}
 for (const file of ['index.html', 'services/index.html', 'services/graphic-design/index.html', 'services/graphic-design/studio.css', 'tools/index.html']) {
   assert.ok(fs.existsSync(path.join(root, file)), `Required site file missing: ${file}`);
 }
 
 const outName = 'dist-staging';
 const out = path.join(root, outName);
-const excludedDirs = new Set(['.git', '.github', 'node_modules', 'qa', 'artifacts', outName]);
-const excludedFiles = new Set(['CNAME', '.nojekyll', '.gitignore', 'README.md', 'DEPLOYMENT.md', 'STAGING_CLOUDFLARE.md']);
+const excludedDirs = new Set([
+  '.git', '.github', 'node_modules', 'qa', 'artifacts', outName,
+  // Operating records and internal reporting files are not public site assets.
+  'analytics', 'dist', 'docs', 'growth', 'operations', 'seo'
+]);
+const excludedFiles = new Set(['CNAME', 'CNAME.example', '.nojekyll', '.gitignore', 'README.md', 'DEPLOYMENT.md', 'STAGING_CLOUDFLARE.md']);
 // Keep historical registry in Git for restoration, not in the paused Pages preview.
-const excludedPaths = new Set(['data/products.json']);
+const excludedPaths = new Set([
+  'data/products.json', 'data/products.schema.json', 'data/passive-revenue-restock.json'
+]);
 fs.rmSync(out, { recursive: true, force: true });
 fs.mkdirSync(out, { recursive: true });
 let files = 0;
@@ -58,6 +67,12 @@ assert.ok(fs.existsSync(path.join(out, '_headers')), 'Staging _headers not copie
 assert.ok(!fs.existsSync(path.join(out, 'CNAME')), 'Do not publish GitHub Pages custom domain CNAME');
 assert.ok(fs.existsSync(path.join(out, 'services/graphic-design/studio.css')), 'Studio CSS missing from staging output');
 assert.equal(fs.readFileSync(pausedRegistry, 'utf8'), '[]\n', 'Paused staging must serve an empty registry placeholder only');
+for (const directory of ['analytics', 'dist', 'docs', 'growth', 'operations', 'seo']) {
+  assert.ok(!fs.existsSync(path.join(out, directory)), `Internal directory exposed in staging: ${directory}`);
+}
+for (const file of ['CNAME.example', 'data/products.schema.json', 'data/passive-revenue-restock.json']) {
+  assert.ok(!fs.existsSync(path.join(out, file)), `Internal metadata exposed in staging: ${file}`);
+}
 const commit = process.env.CF_PAGES_COMMIT_SHA || process.env.GITHUB_SHA || null;
 assert.ok(commit === null || /^[a-f0-9]{40}$/.test(commit), 'Invalid staging commit SHA');
 fs.writeFileSync(path.join(out, 'staging-build.json'), JSON.stringify({

@@ -19,6 +19,14 @@ for(const route of routes){
   assert.ok(read("sitemap.xml").includes("<loc>https://digital-execution.cc/"+route+"</loc>"),"sitemap entry missing: "+route); checks++;
 }
 const productsVisible=JSON.parse(read("data/storefront-mode.json")).productsVisible!==false;
+if(!productsVisible){
+  for(const file of ["privacy.html","terms.html"]){
+    assert.ok(read(file).includes("متوقف")&&!read(file).includes('href="products/"'),
+      "Legal content must explain the current product pause without a buy link: "+file);checks++;
+  }
+  assert.ok(!read("footer.js").includes("للتواصل وإرسال إثبات الدفع"),
+    "Paused footer must not solicit payment screenshots");checks++;
+}
 for(const route of productsVisible?["/products/","/tools/","/services/"]:["/tools/","/services/"]){
   assert.ok(read("header.js").includes('href="'+route+'"'),"shared nav route missing: "+route);checks++;
   assert.ok(read("index.html").includes('href="'+route+'"'),"homepage department route missing: "+route);checks++;

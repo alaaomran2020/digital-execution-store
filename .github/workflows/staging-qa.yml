@@ -36,3 +36,4 @@ jobs:
           test ! -e dist-staging/CNAME
           test -f dist-staging/data/products.json
           node -e "const fs=require('fs');if(fs.readFileSync('dist-staging/data/products.json','utf8')!=='[]\n')process.exit(1)"
+          node qa/site-link-integrity-qa.mjs
