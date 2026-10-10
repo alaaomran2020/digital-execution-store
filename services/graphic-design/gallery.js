@@ -12,6 +12,16 @@
   const description = document.getElementById("ds-gallery-dialog-description");
   const type = document.getElementById("ds-kind");
   let selectedCard = null;
+  let focusRequestOnClose = false;
+  dialog.addEventListener("close", () => {
+    if (!focusRequestOnClose) return;
+    focusRequestOnClose = false;
+    requestAnimationFrame(() => {
+      if (!type?.isConnected) return;
+      type.focus({ preventScroll: true });
+      type.scrollIntoView({ behavior: "auto", block: "center" });
+    });
+  });
   buttons.forEach(button => button.addEventListener("click", () => {
     const category = button.dataset.dsFilter;
     buttons.forEach(item => item.setAttribute("aria-pressed", String(item === button)));
@@ -37,6 +47,7 @@
     if (selectedCard && type) {
       type.value = selectedCard.dataset.designType;
       type.dispatchEvent(new Event("change", { bubbles: true }));
+      focusRequestOnClose = true;
     }
     dialog.close();
   });
