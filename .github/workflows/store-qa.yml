@@ -25,3 +25,5 @@ jobs:
           fi
       - name: Verify independent tools and service sections
         run: node qa/site-sections-qa.mjs
+      - name: Verify safe standalone Calculator Suite Free download
+        run: node qa/free-release-qa.mjs

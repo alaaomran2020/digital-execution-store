@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex,nofollow">
+<title>Calculator Suite Free 1.0.0 | Digital Execution</title>
+<style>
+:root{font-family:Tahoma,"Segoe UI",Arial,sans-serif;color-scheme:dark;background:#091524;color:#eff9ff}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 80% 0%,#1c5860 0%,transparent 30%),#091524;line-height:1.7}
+main{max-width:1030px;margin:auto;padding:25px 18px 55px}
+a{color:#81ecd4}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #91f1de;outline-offset:3px}
+.head{padding:20px 0 30px;display:flex;justify-content:space-between;gap:10px;align-items:center;border-bottom:1px solid #294153}
+.brand{font:700 16px Arial,sans-serif;direction:ltr}
+.pill{background:#164b46;color:#a0ffdb;padding:7px 14px;border-radius:40px;font-size:12px}
+.hero{padding:42px 0 20px}h1{font-size:clamp(28px,5vw,45px);margin:0 0 9px}
+.hero p,.caption{color:#bbcadb;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:27px 0}
+.card{border:1px solid #2a4b5b;background:#102337;border-radius:19px;padding:25px;min-width:0}
+h2{font-size:20px;margin:0 0 17px}
+label{display:block;font-size:13px;color:#ccdae9;margin-bottom:13px}
+input{display:block;width:100%;margin-top:5px;border:1px solid #456075;border-radius:9px;padding:12px;background:#0a1928;color:#fff;font:inherit}
+input:focus{border-color:#72ebd0}
+button{background:#75e6cc;border:0;border-radius:11px;color:#073c35;font:700 14px Tahoma,Arial,sans-serif;padding:13px 20px;cursor:pointer;width:100%;margin-top:6px}
+button:hover{background:#a5f5e4}
+.result{background:#0a1928;border:1px solid #294d59;border-radius:10px;margin-top:17px;padding:15px;font-weight:700;color:#9df5dc;min-height:55px;white-space:pre-line;overflow-wrap:anywhere}
+.upgrade{border:1px solid #407e7e;background:#123239;border-radius:19px;padding:26px;margin-top:20px}
+.upgrade h2{margin:0 0 10px}.upgrade p{font-size:13px;color:#c8dbdf}
+.upgrade a{display:inline-flex;background:#76e8cc;border-radius:11px;color:#083a32;text-decoration:none;padding:12px 18px;font-weight:700;margin-top:7px}
+.foot{text-align:center;color:#a9c0d0;font-size:11px;padding-top:30px}
+@media(max-width:680px){.grid{grid-template-columns:1fr}.card{padding:18px}.head{align-items:flex-start;flex-direction:column;gap:10px}}
+</style>
+</head>
+<body>
+<main>
+ <header class="head"><strong class="brand">Digital Execution</strong><span class="pill">Calculator Suite Free v1.0.0</span></header>
+ <section class="hero">
+  <h1>حاسباتك الأساسية مجانًا</h1>
+  <p>نسخة مستقلة تعمل على جهازك دون اشتراك أو اتصال بالإنترنت بعد تنزيل الملف. لا تُرسل بياناتك إلى أي خادم.</p>
+ </section>
+ <div class="grid">
+  <section class="card" aria-labelledby="pricing-title">
+   <h2 id="pricing-title">حاسبة تسعير المنتج</h2>
+   <form id="pricing-form">
+    <label>تكلفة شراء القطعة <input name="cost" type="number" min="0" step="any" inputmode="decimal" value="100" required></label>
+    <label>التغليف والشحن للقطعة <input name="shipping" type="number" min="0" step="any" inputmode="decimal" value="10" required></label>
+    <label>مصاريف أخرى للقطعة <input name="extra" type="number" min="0" step="any" inputmode="decimal" value="0" required></label>
+    <label>نسبة الزيادة على التكلفة % <input name="markup" type="number" min="0" step="any" inputmode="decimal" value="30" required></label>
+    <button type="submit">احسب سعر البيع</button>
+   </form>
+   <output id="pricing-result" class="result" aria-live="polite">أدخل الأرقام واضغط احسب.</output>
+  </section>
+  <section class="card" aria-labelledby="break-title">
+   <h2 id="break-title">حاسبة نقطة التعادل</h2>
+   <form id="break-form">
+    <label>المصاريف الثابتة <input name="fixed" type="number" min="0" step="any" inputmode="decimal" value="10000" required></label>
+    <label>سعر بيع الوحدة <input name="sale" type="number" min="0.01" step="any" inputmode="decimal" value="200" required></label>
+    <label>التكلفة المتغيرة للوحدة <input name="variable" type="number" min="0" step="any" inputmode="decimal" value="120" required></label>
+    <button type="submit">احسب نقطة التعادل</button>
+   </form>
+   <output id="break-result" class="result" aria-live="polite">أدخل الأرقام واضغط احسب.</output>
+  </section>
+ </div>
+ <section class="upgrade">
+  <h2>محتاج إمكانيات إضافية؟</h2>
+  <p>بعد تجربة النسخة المجانية، يمكنك الاستفسار عن الترقية إلى Starter أو Professional. شراء مرة واحدة، والتسليم عبر واتساب بعد التأكد من التحويل. يمكنك مراجعة محتويات كل نسخة قبل الشراء.</p>
+  <a id="upgrade-link" href="https://wa.me/201011673107" target="_blank" rel="noopener noreferrer">استفسر عن الترقية عبر واتساب ↗</a>
+ </section>
+ <p class="caption">هذه الحسابات للتقدير الأولي، وليست بديلًا عن مراجعة التكلفة الفعلية والضرائب وظروف السوق.</p>
+ <footer class="foot">© 2026 Digital Execution — Calculator Suite Free. جميع الحسابات تتم محليًا على جهازك.</footer>
+</main>
+<script>
+(() => {
+  'use strict';
+  const formatter = new Intl.NumberFormat('ar-EG', {maximumFractionDigits:2});
+  const money = n => formatter.format(n) + ' جنيه';
+  const finite = values => values.every(value => Number.isFinite(value) && value >= 0 && value <= 1e12);
+  document.getElementById('pricing-form').addEventListener('submit', event => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const values = ['cost','shipping','extra','markup'].map(key => Number(form.elements.namedItem(key).value));
+    const result = document.getElementById('pricing-result');
+    if (!finite(values) || values.some(v => !Number.isFinite(v))) {
+      result.textContent = 'تأكد من إدخال أرقام صحيحة وغير سالبة.';
+      return;
+    }
+    const [cost,shipping,extra,markup] = values;
+    const total = cost + shipping + extra;
+    const price = total * (1 + markup / 100);
+    if (!Number.isFinite(price)) {result.textContent = 'القيمة كبيرة جدًا للحساب.';return;}
+    const profit = price - total;
+    result.textContent = 'التكلفة: ' + money(total) + '\nسعر البيع: ' + money(price) + '\nالربح المتوقع للقطعة: ' + money(profit) + '\nالهامش: ' + (price > 0 ? formatter.format(profit / price * 100) : '0') + '%';
+  });
+  document.getElementById('break-form').addEventListener('submit', event => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const values = ['fixed','sale','variable'].map(key => Number(form.elements.namedItem(key).value));
+    const result = document.getElementById('break-result');
+    if(!finite(values) || values[1] <= 0) {
+      result.textContent = 'أدخل مصاريف وتكاليف صحيحة وسعر بيع أكبر من صفر.';
+      return;
+    }
+    const [fixed,sale,variable] = values;
+    const contribution = sale - variable;
+    if(contribution <= 0) {
+      result.textContent = 'سعر البيع يجب أن يزيد على التكلفة المتغيرة للوحدة حتى يمكن الوصول إلى نقطة التعادل.';
+      return;
+    }
+    const units = Math.ceil(fixed / contribution);
+    const revenue = units * sale;
+    if(!Number.isSafeInteger(units) || !Number.isFinite(revenue)) {result.textContent='النتيجة خارج نطاق الحساب المتاح.';return;}
+    result.textContent = 'هامش المساهمة للوحدة: ' + money(contribution) + '\nنقطة التعادل: ' + formatter.format(units) + ' وحدة\nالمبيعات المطلوبة: ' + money(revenue);
+  });
+  const upgrade = document.getElementById('upgrade-link');
+  upgrade.href = 'https://wa.me/201011673107?text=' + encodeURIComponent('مرحبًا، أنا أستخدم Calculator Suite Free وأريد معرفة الفرق بين Starter وProfessional وشروط الترقية.');
+})();
+</script>
+</body>
+</html>
