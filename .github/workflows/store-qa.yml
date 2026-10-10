@@ -27,3 +27,5 @@ jobs:
         run: node qa/site-sections-qa.mjs
       - name: Verify safe standalone Calculator Suite Free download
         run: node qa/free-release-qa.mjs
+      - name: Verify M1/M2 lightweight storefront and Egyptian copy
+        run: node qa/m1m2-storefront-qa.mjs

@@ -13,7 +13,8 @@ for(const route of routes){
   const html=read(file);
   assert.match(html,/<html[^>]+lang="ar"[^>]+dir="rtl"/);
   assert.ok(html.includes('href="https://digital-execution.cc/'+route+'"'),"canonical missing for "+route); checks++;
-  assert.ok(html.includes('href="/sections.css"'),"shared section styling missing: "+route); checks++;
+  const expectedStyle=route==="tools/"?'/storefront-light.css?v=20261011-m1m2':'/sections.css';
+  assert.ok(html.includes('href="'+expectedStyle+'"'),"shared section styling missing: "+route); checks++;
   assert.ok(html.includes('src="/header.js?'),"global navigation missing: "+route); checks++;
   assert.ok(html.includes('src="/footer.js?'),"global footer missing: "+route); checks++;
   assert.ok(read("sitemap.xml").includes("<loc>https://digital-execution.cc/"+route+"</loc>"),"sitemap entry missing: "+route); checks++;
