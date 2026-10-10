@@ -89,9 +89,11 @@ try {
     redirect: 'manual', signal: AbortSignal.timeout(10000),
     headers: { 'Cache-Control': 'no-cache' }
   });
-  record([404, 410].includes(registryResponse.status),
-    'Paused preview does not publicly expose the historical product registry',
-    'status=' + registryResponse.status);
+  const registryBody = await registryResponse.text();
+  const safePlaceholder = registryResponse.status === 200 && registryBody.trim() === '[]';
+  record(safePlaceholder,
+    'Paused preview serves an empty placeholder instead of historical product offers',
+    'status=' + registryResponse.status + ', safe-placeholder=' + safePlaceholder);
   const browser = spawnSync(process.execPath, ['qa/design-studio-browser-qa.mjs'], {
     env: { ...process.env, PREVIEW_ORIGIN: origin }, stdio: 'inherit'
   });
