@@ -291,3 +291,14 @@ body.design-studio{
 .ds-gallery-art[data-gallery-open]:focus-visible{outline:3px solid #ffacd8;outline-offset:-5px}
 .ds-page [id^="ds-"]{scroll-margin-top:110px}
 @media(max-width:560px){.ds-page [id^="ds-"]{scroll-margin-top:90px}}
+
+/* Mobile request form: comfortable touch targets, legible inputs and safe wrapping. */
+@media(max-width:560px){
+  .ds-brief-form{min-width:0}
+  .ds-field input,.ds-field select,.ds-field textarea{box-sizing:border-box;width:100%;min-height:48px;font-size:16px;line-height:1.5}
+  .ds-field textarea{min-height:112px}
+  .ds-form-actions{align-items:stretch}
+  .ds-form-actions .ds-button{box-sizing:border-box;min-height:48px;white-space:normal;text-align:center;overflow-wrap:anywhere}
+  .ds-brief-result{min-width:0}
+  .ds-brief-result textarea{box-sizing:border-box;width:100%;font-size:16px;line-height:1.6}
+}
