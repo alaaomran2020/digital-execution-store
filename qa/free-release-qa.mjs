@@ -5,13 +5,15 @@ import vm from 'node:vm';
 const read = path => fs.readFileSync(path, 'utf8');
 const root = read('index.html');
 const tools = read('tools/index.html');
-const freePath = 'downloads/Calculator_Suite_Free_v1.0.0.html';
+// Transport as text/plain prevents Cloudflare from injecting analytics scripts into
+// the byte-for-byte offline HTML file. Browser saves the .html filename via download.
+const freePath = 'downloads/Calculator_Suite_Free_v1.0.0.txt';
 const free = read(freePath);
 const products = read('products/index.html');
 const flag = JSON.parse(read('data/storefront-mode.json'));
 let checks = 0;
 const ok = (value, message) => { assert.ok(value, message); checks++; };
-const href = '/downloads/Calculator_Suite_Free_v1.0.0.html';
+const href = '/downloads/Calculator_Suite_Free_v1.0.0.txt';
 
 ok(flag.productsVisible === false, 'All paid products must remain hidden');
 ok(products.includes('عرض المنتجات متوقف حاليًا'), 'Do not unpause the products route');
@@ -20,6 +22,7 @@ ok(root.includes('href="' + href + '"'), 'Homepage Free download is missing');
 ok(tools.includes('href="' + href + '"'), 'Tools page Free download is missing');
 ok(root.includes('download="Calculator_Suite_Free_v1.0.0.html"'), 'Homepage must download, not just navigate');
 ok(tools.includes('download="Calculator_Suite_Free_v1.0.0.html"'), 'Tool hub must download, not just navigate');
+ok(!fs.existsSync('downloads/Calculator_Suite_Free_v1.0.0.html'), 'Avoid inline HTML response that Cloudflare modifies with analytics');
 ok(free.includes('Calculator Suite Free v1.0.0'), 'Free edition/version is missing');
 ok(free.includes('حاسبة تسعير المنتج'), 'Basic pricing calculator missing');
 ok(free.includes('حاسبة نقطة التعادل'), 'Break-even calculator missing');
