@@ -1,4 +1,4 @@
-name: Staging Pages Deployment (approval gated)
+name: Staging Pages Build Validation (no deployment)
 
 on:
   pull_request:
@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: isolated-staging-pages-deployment
+  group: isolated-staging-pages-validation
   cancel-in-progress: false
 
 jobs:
@@ -21,7 +21,6 @@ jobs:
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
-          ref: staging
           persist-credentials: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
