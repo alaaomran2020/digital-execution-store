@@ -34,4 +34,5 @@ jobs:
           test -f dist-staging/services/graphic-design/brief.js
           test -f dist-staging/_headers
           test ! -e dist-staging/CNAME
-          test ! -e dist-staging/data/products.json
+          test -f dist-staging/data/products.json
+          node -e "const fs=require('fs');if(fs.readFileSync('dist-staging/data/products.json','utf8')!=='[]\n')process.exit(1)"

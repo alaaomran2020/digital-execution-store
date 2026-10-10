@@ -47,10 +47,17 @@ function copySite(dir, rel = '') {
   }
 }
 copySite(root);
+// Keep the historical registry out of Pages, but deliberately replace its old URL
+// with a harmless asset: previously cached copies of a deleted Pages file can
+// remain available at some edge locations after deployment.
+const pausedRegistry = path.join(out, 'data/products.json');
+fs.mkdirSync(path.dirname(pausedRegistry), { recursive: true });
+fs.writeFileSync(pausedRegistry, '[]\n', 'utf8');
+files++;
 assert.ok(fs.existsSync(path.join(out, '_headers')), 'Staging _headers not copied');
 assert.ok(!fs.existsSync(path.join(out, 'CNAME')), 'Do not publish GitHub Pages custom domain CNAME');
 assert.ok(fs.existsSync(path.join(out, 'services/graphic-design/studio.css')), 'Studio CSS missing from staging output');
-assert.ok(!fs.existsSync(path.join(out, 'data/products.json')), 'Paused staging must not serve the historical product registry');
+assert.equal(fs.readFileSync(pausedRegistry, 'utf8'), '[]\n', 'Paused staging must serve an empty registry placeholder only');
 const commit = process.env.CF_PAGES_COMMIT_SHA || process.env.GITHUB_SHA || null;
 assert.ok(commit === null || /^[a-f0-9]{40}$/.test(commit), 'Invalid staging commit SHA');
 fs.writeFileSync(path.join(out, 'staging-build.json'), JSON.stringify({
