@@ -286,3 +286,19 @@ body.design-studio{
 .ds-gallery-dialog .ds-button{margin-top:12px}
 @media(max-width:980px){.ds-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.ds-gallery-grid{grid-template-columns:1fr;gap:15px}.ds-gallery-info p{min-height:0}.ds-gallery-dialog{padding:12px}.ds-gallery-dialog .ds-button{width:100%;justify-content:center}.ds-gallery-art-word{font-size:3.3rem}}
+
+/* Keyboard-visible gallery artwork controls and anchored section clearance. */
+.ds-gallery-art[data-gallery-open]:focus-visible{outline:3px solid #ffacd8;outline-offset:-5px}
+.ds-page [id^="ds-"]{scroll-margin-top:110px}
+@media(max-width:560px){.ds-page [id^="ds-"]{scroll-margin-top:90px}}
+
+/* Mobile request form: comfortable touch targets, legible inputs and safe wrapping. */
+@media(max-width:560px){
+  .ds-brief-form{min-width:0}
+  .ds-field input,.ds-field select,.ds-field textarea{box-sizing:border-box;width:100%;min-height:48px;font-size:16px;line-height:1.5}
+  .ds-field textarea{min-height:112px}
+  .ds-form-actions{align-items:stretch}
+  .ds-form-actions .ds-button{box-sizing:border-box;min-height:48px;white-space:normal;text-align:center;overflow-wrap:anywhere}
+  .ds-brief-result{min-width:0}
+  .ds-brief-result textarea{box-sizing:border-box;width:100%;font-size:16px;line-height:1.6}
+}
