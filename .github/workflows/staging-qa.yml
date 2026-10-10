@@ -34,3 +34,4 @@ jobs:
           test -f dist-staging/services/graphic-design/brief.js
           test -f dist-staging/_headers
           test ! -e dist-staging/CNAME
+          test ! -e dist-staging/data/products.json

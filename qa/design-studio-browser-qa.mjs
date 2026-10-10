@@ -10,7 +10,11 @@ const isRemoteStaging = new URL(origin).hostname.endsWith(".pages.dev");
 const widths=[320,390,768,1440];
 const output="artifacts/design-visual-qa";
 mkdirSync(output,{recursive:true});
-const browser=await chromium.launch({headless:true});
+// CI uses Playwright's pinned Chromium; local QA can reuse an installed Chrome
+// or Edge channel when downloading the bundled browser is unavailable.
+const browserOptions={headless:true};
+if(process.env.QA_BROWSER_CHANNEL?.trim()) browserOptions.channel=process.env.QA_BROWSER_CHANNEL.trim();
+const browser=await chromium.launch(browserOptions);
 const results=[];
 try {
   for(const width of widths) {

@@ -19,6 +19,8 @@ const outName = 'dist-staging';
 const out = path.join(root, outName);
 const excludedDirs = new Set(['.git', '.github', 'node_modules', 'qa', 'artifacts', outName]);
 const excludedFiles = new Set(['CNAME', '.nojekyll', '.gitignore', 'README.md', 'DEPLOYMENT.md', 'STAGING_CLOUDFLARE.md']);
+// Keep historical registry in Git for restoration, not in the paused Pages preview.
+const excludedPaths = new Set(['data/products.json']);
 fs.rmSync(out, { recursive: true, force: true });
 fs.mkdirSync(out, { recursive: true });
 let files = 0;
@@ -34,6 +36,7 @@ function copySite(dir, rel = '') {
       fs.mkdirSync(dst, { recursive: true });
       copySite(src, nextRel);
     } else if (entry.isFile()) {
+      if (excludedPaths.has(nextRel.split(path.sep).join('/'))) continue;
       if (excludedFiles.has(name) || name.endsWith('.md') || (name.startsWith('.') && name !== '.well-known')) continue;
       if (/\.(zip|7z|rar|pem|key)$/i.test(name) || name.startsWith('.env')) {
         throw new Error(`Disallowed archive/secret in site files: ${nextRel}`);
@@ -47,6 +50,7 @@ copySite(root);
 assert.ok(fs.existsSync(path.join(out, '_headers')), 'Staging _headers not copied');
 assert.ok(!fs.existsSync(path.join(out, 'CNAME')), 'Do not publish GitHub Pages custom domain CNAME');
 assert.ok(fs.existsSync(path.join(out, 'services/graphic-design/studio.css')), 'Studio CSS missing from staging output');
+assert.ok(!fs.existsSync(path.join(out, 'data/products.json')), 'Paused staging must not serve the historical product registry');
 const commit = process.env.CF_PAGES_COMMIT_SHA || process.env.GITHUB_SHA || null;
 assert.ok(commit === null || /^[a-f0-9]{40}$/.test(commit), 'Invalid staging commit SHA');
 fs.writeFileSync(path.join(out, 'staging-build.json'), JSON.stringify({
