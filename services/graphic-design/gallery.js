@@ -30,6 +30,19 @@
     });
     count.textContent = "عرض " + cards.filter(card => !card.hidden).length + " من " + cards.length + " نماذج توضيحية";
   }));
+  // Keep normal Tab navigation; arrow/Home/End keys offer quicker keyboard filtering.
+  buttons.forEach((button, index) => button.addEventListener("keydown", event => {
+    const direction = getComputedStyle(button).direction === "rtl" ? -1 : 1;
+    let nextIndex;
+    if (event.key === "ArrowRight") nextIndex = (index + direction + buttons.length) % buttons.length;
+    else if (event.key === "ArrowLeft") nextIndex = (index - direction + buttons.length) % buttons.length;
+    else if (event.key === "Home") nextIndex = 0;
+    else if (event.key === "End") nextIndex = buttons.length - 1;
+    else return;
+    event.preventDefault();
+    buttons[nextIndex].focus();
+    buttons[nextIndex].click();
+  }));
   root.querySelectorAll("[data-gallery-open]").forEach(button => {
     button.addEventListener("click", () => {
       const card = button.closest(".ds-gallery-card");

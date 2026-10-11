@@ -96,6 +96,17 @@ try {
     await page.locator('[data-ds-filter="product"]').click();
     check(await page.locator('.ds-gallery-card:visible').count()===2,"Product filter isolates two concepts");
     check(await page.locator('[data-ds-filter="product"]').getAttribute("aria-pressed")==="true","Active filter accessible");
+    await page.locator('[data-ds-filter="product"]').focus();
+    const nextKey = await page.locator('[data-ds-filter="product"]').evaluate(node =>
+      getComputedStyle(node).direction === "rtl" ? "ArrowLeft" : "ArrowRight");
+    await page.keyboard.press(nextKey);
+    check(await page.locator('[data-ds-filter="business"]').evaluate(node=>document.activeElement===node),"Arrow key moves focus to next gallery filter in page direction");
+    check(await page.locator('[data-ds-filter="business"]').getAttribute("aria-pressed")==="true","Arrow key activates focused gallery filter");
+    await page.keyboard.press("Home");
+    check(await page.locator('[data-ds-filter="all"]').getAttribute("aria-pressed")==="true","Home selects all gallery samples");
+    await page.keyboard.press("End");
+    check(await page.locator('[data-ds-filter="business"]').getAttribute("aria-pressed")==="true","End selects last gallery filter");
+    await page.locator('[data-ds-filter="product"]').click();
     check(await page.locator(".ds-gallery-filters button").evaluateAll(nodes=>nodes.every(node=>node.getBoundingClientRect().height>=44)),"Gallery filter controls meet 44px minimum touch height");
     check(await page.locator('.ds-gallery-card[data-gallery-category="product"] [data-gallery-open]').first().evaluate(node=>node.getBoundingClientRect().height>=44),"Gallery preview control meets 44px minimum touch height");
     await page.locator('.ds-gallery-card[data-gallery-category="product"] [data-gallery-open]').first().click();
