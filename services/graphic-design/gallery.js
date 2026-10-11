@@ -28,7 +28,9 @@
     cards.forEach(card => {
       card.hidden = category !== "all" && card.dataset.galleryCategory !== category;
     });
-    count.textContent = "عرض " + cards.filter(card => !card.hidden).length + " من " + cards.length + " نماذج توضيحية";
+    const visible = cards.filter(card => !card.hidden).length;
+    const categoryName = category === "all" ? "" : (button.textContent || "").trim();
+    count.textContent = "??? " + visible + " ?? " + cards.length + " ????? ???????" + (categoryName ? " ?? ??? " + categoryName : "");
   }));
   root.querySelectorAll("[data-gallery-open]").forEach(button => {
     button.addEventListener("click", () => {

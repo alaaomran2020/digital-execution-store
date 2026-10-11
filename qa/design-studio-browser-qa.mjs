@@ -95,6 +95,7 @@ try {
     check(await page.locator(".ds-gallery-card").count()===6,"Six illustrative design gallery samples displayed");
     await page.locator('[data-ds-filter="product"]').click();
     check(await page.locator('.ds-gallery-card:visible').count()===2,"Product filter isolates two concepts");
+    check((await page.locator("#ds-gallery-count").textContent()).includes("?? ???"),"Filtered gallery count announces category");
     check(await page.locator('[data-ds-filter="product"]').getAttribute("aria-pressed")==="true","Active filter accessible");
     check(await page.locator(".ds-gallery-filters button").evaluateAll(nodes=>nodes.every(node=>node.getBoundingClientRect().height>=44)),"Gallery filter controls meet 44px minimum touch height");
     check(await page.locator('.ds-gallery-card[data-gallery-category="product"] [data-gallery-open]').first().evaluate(node=>node.getBoundingClientRect().height>=44),"Gallery preview control meets 44px minimum touch height");
@@ -112,6 +113,7 @@ try {
     check(await page.locator("#ds-kind").evaluate(node=>document.activeElement===node),"Gallery request transfers keyboard focus");
     await page.locator('[data-ds-filter="all"]').click();
     check(await page.locator('.ds-gallery-card:visible').count()===6,"All gallery previews restored");
+    check(!(await page.locator("#ds-gallery-count").textContent()).includes("?? ???"),"All gallery count clears category announcement");
     if(width<=390){
       const toggle=page.locator(".site-header-menu-btn");
       check(await toggle.isVisible(),"Mobile header menu button is visible");
