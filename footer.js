@@ -12,7 +12,7 @@ function render(){
   '</div>'+
   '<div class="footer-service-row"><span><b>التواصل:</b> واتساب والبريد الرسمي</span><span><b>الخدمات:</b> التصميم الجرافيكي</span><span><b>الأدوات:</b> حاسبات مجانية</span></div>'+
   '<nav class="footer-nav-pro" aria-label="روابط مهمة"><a href="/licenses.html">التراخيص</a><a href="/updates/">التحديثات</a><a href="/terms.html">الشروط</a><a href="/privacy.html">الخصوصية</a></nav>'+
-  '<div class="footer-divider" aria-hidden="true"></div><div class="footer-bottom"><div class="footer-signature"><img src="/assets/brand/alaa-omran-signature.svg" alt="توقيع علاء عمران — Alaa Omran" width="675" height="549" loading="lazy" decoding="async"><span>Digital Product Designer</span></div><p>© 2026 Digital Execution — جميع الحقوق محفوظة.</p></div></div>';
+  '<div class="footer-divider" aria-hidden="true"></div><div class="footer-bottom"><p><strong>Alaa Omran</strong> — Digital Product Designer</p><p>© 2026 Digital Execution — جميع الحقوق محفوظة.</p></div></div>';
   const btn=footer.querySelector("[data-copy-footer-cash]");
   btn?.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(phone);const old=btn.textContent;btn.textContent="تم نسخ الرقم";setTimeout(()=>btn.textContent=old,1400)}catch{alert("رقم فودافون كاش: "+phone)}});
 }
