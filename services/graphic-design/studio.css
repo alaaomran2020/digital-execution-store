@@ -302,3 +302,10 @@ body.design-studio{
   .ds-brief-result{min-width:0}
   .ds-brief-result textarea{box-sizing:border-box;width:100%;font-size:16px;line-height:1.6}
 }
+
+/* Accessibility: distinguish selected filters in Windows High Contrast mode. */
+@media (forced-colors: active){
+  .ds-page .ds-gallery-filters button[aria-pressed="true"]{border:2px solid Highlight;outline:2px solid Highlight;outline-offset:2px}
+  .ds-page :is(a,button,input,select,textarea):focus-visible{outline:3px solid Highlight;outline-offset:4px}
+  .ds-page .ds-gallery-dialog{border:2px solid CanvasText}
+}
