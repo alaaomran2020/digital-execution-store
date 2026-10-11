@@ -64,6 +64,14 @@ try {
       "Light creative studio cards rendered");
     await page.screenshot({path:output+"/studio-"+width+"-full.png",fullPage:true,animations:"disabled"});
     await page.screenshot({path:output+"/studio-"+width+"-top.png",fullPage:false,animations:"disabled"});
+    const skip=page.locator(".ds-skip-to-brief");
+    check(await skip.getAttribute("href")==="#ds-project","Keyboard skip link targets the project brief form");
+    await skip.focus();
+    check(await skip.evaluate(node=>{const r=node.getBoundingClientRect();return r.top>=0&&r.right<=innerWidth+1;}),
+      "Focused skip link is visible within the viewport");
+    await page.keyboard.press("Enter");
+    check(await page.locator("#ds-project").evaluate(node=>document.activeElement===node),
+      "Skip link moves keyboard focus directly to the project field");
     await page.locator('.ds-quick-nav a[href="#ds-social"]').click();
     check(new URL(page.url()).hash==="#ds-social","Navigation jumps to selected category");
     await page.locator('#ds-social .ds-card-link').click();
