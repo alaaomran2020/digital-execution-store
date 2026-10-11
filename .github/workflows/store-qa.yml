@@ -25,3 +25,18 @@ jobs:
           fi
       - name: Verify independent tools and service sections
         run: node qa/site-sections-qa.mjs
+      - name: Verify paused inventory-counting guide navigation
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const assert = require('node:assert/strict');
+          const mode = JSON.parse(fs.readFileSync('data/storefront-mode.json', 'utf8'));
+          if (mode.productsVisible === false) {
+            const guide = fs.readFileSync('guides/inventory-counting/index.html', 'utf8');
+            assert.doesNotMatch(guide, /href=["'][^"']*\/products\//, 'Paused guide must not link to hidden products');
+            assert.doesNotMatch(guide, /guide_product_click|ReStock Desk/, 'Paused guide must not promote paid products');
+            assert.match(guide, /href="\.\.\/\.\.\/tools\/inventory-health-check\/"/, 'Free tool link missing');
+            assert.match(guide, /href="\.\.\/\.\.\/tools\/"/, 'Active tools footer link missing');
+            console.log('PASS 4 paused inventory-counting guide checks');
+          }
+          NODE
