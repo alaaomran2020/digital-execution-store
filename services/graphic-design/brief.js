@@ -17,6 +17,9 @@
   const addIfProvided = (lines, label, value) => {
     if (value) lines.push(label + ": " + value);
   };
+  // Long Arabic briefs can exceed the URL limits of mobile email clients.
+  // Keep the subject, but let the visitor paste or attach the full brief manually.
+  const maxMailtoLength = 1900;
 
   document.querySelectorAll(".ds-card-link[data-design-type]").forEach(link => {
     link.addEventListener("click", () => {
@@ -54,10 +57,14 @@
     const brief = lines.join("\n");
     const subject = "طلب تصميم: " + kind + " - " + project;
     preview.value = brief;
-    emailLink.href = "mailto:contact@digital-execution.cc?subject=" +
-      encodeURIComponent(subject) + "&body=" + encodeURIComponent(brief);
+    const subjectLink = "mailto:contact@digital-execution.cc?subject=" + encodeURIComponent(subject);
+    const fullLink = subjectLink + "&body=" + encodeURIComponent(brief);
+    const longMailto = fullLink.length > maxMailtoLength;
+    emailLink.href = longMailto ? subjectLink : fullLink;
     result.hidden = false;
-    status.textContent = "الموجز جاهز. راجعه ثم افتح البريد، أو انسخه إلى تطبيق التواصل المناسب.";
+    status.textContent = longMailto
+      ? "الموجز طويل على رابط البريد. افتح البريد ثم الصق الموجز المنسوخ أو أرفق ملف TXT يدويًا؛ لن يُضاف النص تلقائيًا."
+      : "الموجز جاهز. راجعه ثم افتح البريد، أو انسخه إلى تطبيق التواصل المناسب.";
     preview.focus({ preventScroll: true });
     result.scrollIntoView({ behavior: "auto", block: "nearest" });
   });

@@ -90,6 +90,24 @@ try {
     check(saved===body,"Downloaded UTF-8 TXT preserves the full Arabic project brief");
     check((await page.locator("#ds-brief-status").textContent()).includes("لم يتم رفع"),
       "Download status explains that the brief is not uploaded");
+    await page.locator("#ds-details").fill("م".repeat(900));
+    await page.locator('#ds-brief-form button[type="submit"]').click();
+    const longEmailLink=await page.locator("#ds-brief-email").getAttribute("href");
+    check(longEmailLink?.length<=1900 && !longEmailLink.includes("&body=") && longEmailLink.includes("subject="),
+      "Long Arabic brief uses a short subject-only mailto URL");
+    check((await page.locator("#ds-brief-status").textContent()).includes("أرفق ملف TXT"),
+      "Long mailto fallback explains manual paste or attachment");
+    check((await page.locator("#ds-brief-preview").inputValue()).includes("م".repeat(900)),
+      "Full long brief remains available for copy and download");
+    if(width===390 || width===1440) {
+      await page.locator("#ds-brief-result").screenshot({
+        path:output+"/studio-"+width+"-long-brief.png",animations:"disabled"
+      });
+    }
+    await page.locator("#ds-details").fill("وصف مختصر للتصميم");
+    await page.locator('#ds-brief-form button[type="submit"]').click();
+    check((await page.locator("#ds-brief-email").getAttribute("href")).includes("&body="),
+      "Shortened brief restores the complete mailto body");
     await page.locator("#ds-project").fill("مشروع اختبار محدّث");
     check(!(await page.locator("#ds-brief-result").isVisible()),"Stale brief hides after edits");
     check(await page.locator(".ds-gallery-card").count()===6,"Six illustrative design gallery samples displayed");
