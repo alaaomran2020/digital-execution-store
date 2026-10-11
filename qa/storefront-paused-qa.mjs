@@ -40,5 +40,5 @@ for(const file of ["tools/pricing-calculator/index.html","tools/break-even-calcu
  checked(!/href=["'][^"']*\/products\//.test(read(file)),"Free tool retains product promo link: "+file);
 }
 checked(read(".github/workflows/store-qa.yml").includes("qa/store-qa.mjs"),"Original published-store QA must remain available for restoration");
-checked(read(".github/workflows/store-qa.yml").includes("qa/storefront-paused-qa.mjs"),"Paused QA must be run by CI");
+checked(read("qa/store-qa.mjs").includes("qa/storefront-paused-qa.mjs"),"Store QA must dispatch to paused QA when products are hidden");
 console.log("PASS "+checks+" temporary storefront-hide regression checks; "+directories.length+" product routes replaced by reversible notices");
