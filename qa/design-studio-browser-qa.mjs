@@ -92,6 +92,19 @@ try {
       "Download status explains that the brief is not uploaded");
     await page.locator("#ds-project").fill("مشروع اختبار محدّث");
     check(!(await page.locator("#ds-brief-result").isVisible()),"Stale brief hides after edits");
+    await page.locator("#ds-brief-reset").click();
+    check(await page.locator("#ds-project").inputValue()==="" && await page.locator("#ds-details").inputValue()==="",
+      "Explicit reset clears project and description");
+    check(await page.locator("#ds-kind").inputValue()==="" && await page.locator("#ds-contact-email").inputValue()==="",
+      "Explicit reset clears service and optional contact details");
+    check(await page.locator("#ds-brief-preview").inputValue()==="" && !(await page.locator("#ds-brief-result").isVisible()),
+      "Explicit reset invalidates the previously generated brief");
+    check(await page.locator("#ds-brief-email").getAttribute("href")==="mailto:contact@digital-execution.cc",
+      "Explicit reset removes the previous mailto content");
+    await page.waitForFunction(()=>document.activeElement===document.getElementById("ds-project"));
+    check((await page.locator("#ds-brief-reset-feedback").textContent()).includes("تم مسح") &&
+      await page.locator("#ds-project").evaluate(node=>document.activeElement===node),
+      "Reset announces completion and returns focus to the first field");
     check(await page.locator(".ds-gallery-card").count()===6,"Six illustrative design gallery samples displayed");
     await page.locator('[data-ds-filter="product"]').click();
     check(await page.locator('.ds-gallery-card:visible').count()===2,"Product filter isolates two concepts");
