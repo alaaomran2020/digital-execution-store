@@ -12,14 +12,19 @@
   const description = document.getElementById("ds-gallery-dialog-description");
   const type = document.getElementById("ds-kind");
   let selectedCard = null;
+  let openingButton = null;
   let focusRequestOnClose = false;
   dialog.addEventListener("close", () => {
-    if (!focusRequestOnClose) return;
+    const moveToRequest = focusRequestOnClose;
     focusRequestOnClose = false;
     requestAnimationFrame(() => {
-      if (!type?.isConnected) return;
-      type.focus({ preventScroll: true });
-      type.scrollIntoView({ behavior: "auto", block: "center" });
+      if (moveToRequest) {
+        if (!type?.isConnected) return;
+        type.focus({ preventScroll: true });
+        type.scrollIntoView({ behavior: "auto", block: "center" });
+      } else if (openingButton?.isConnected && !openingButton.closest(".ds-gallery-card")?.hidden) {
+        openingButton.focus({ preventScroll: true });
+      }
     });
   });
   buttons.forEach(button => button.addEventListener("click", () => {
@@ -35,6 +40,7 @@
       const card = button.closest(".ds-gallery-card");
       if (!card || card.hidden || !dialog.showModal) return;
       selectedCard = card;
+      openingButton = button;
       art.replaceChildren(card.querySelector(".ds-gallery-art").cloneNode(true));
       title.textContent = card.querySelector("h3").textContent;
       description.textContent = card.querySelector(".ds-gallery-info p").textContent;
