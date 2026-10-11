@@ -1,6 +1,23 @@
 import fs from "node:fs";
 import path from "node:path";
 import {syncStorefront,attributes} from './sync-storefront.mjs';
+import {spawnSync} from 'node:child_process';
+
+// Paused storefronts retain published registry records but intentionally hide
+// product pages, catalog cards and purchase links. Test that contract instead
+// of applying the live-sales assertions or attempting to regenerate pages.
+let storefrontMode;
+try { storefrontMode=JSON.parse(fs.readFileSync('data/storefront-mode.json','utf8')); }
+catch (error) { console.error('Store QA: invalid storefront mode:',error.message); process.exit(1); }
+if (typeof storefrontMode.productsVisible !== 'boolean') {
+  console.error('Store QA: productsVisible must be a boolean');
+  process.exit(1);
+}
+if (storefrontMode.productsVisible === false) {
+  const result=spawnSync(process.execPath,['qa/storefront-paused-qa.mjs'],{stdio:'inherit'});
+  if (result.error) console.error('Store QA: paused checks could not run:',result.error.message);
+  process.exit(result.status ?? 1);
+}
 
 const root=process.cwd();
 const errors=[];

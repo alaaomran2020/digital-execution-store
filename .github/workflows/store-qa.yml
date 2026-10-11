@@ -17,12 +17,7 @@ jobs:
         with:
           node-version: "22"
       - name: Run store architecture checks
-        run: |
-          if node -e "const cfg=require('./data/storefront-mode.json');process.exit(cfg.productsVisible===false?0:1)" 2>/dev/null; then
-            node qa/storefront-paused-qa.mjs
-          else
-            node qa/store-qa.mjs
-          fi
+        run: node qa/store-qa.mjs
       - name: Verify independent tools and service sections
         run: node qa/site-sections-qa.mjs
       - name: Verify safe standalone Calculator Suite Free download

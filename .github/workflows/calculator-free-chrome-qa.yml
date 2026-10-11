@@ -1,0 +1,23 @@
+﻿name: Calculator Free Chrome QA
+on:
+  pull_request:
+    paths:
+      - 'downloads/Calculator_Suite_Free_v1.2.1.txt'
+      - 'qa/chrome-v121-local-check.mjs'
+      - '.github/workflows/calculator-free-chrome-qa.yml'
+permissions:
+  contents: read
+jobs:
+  chrome-free:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: browser-actions/setup-chrome@v1
+      - name: Install isolated browser test dependency
+        run: npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+      - name: Test Free v1.2.1 in Chrome
+        run: node qa/chrome-v121-local-check.mjs
