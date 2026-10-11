@@ -195,8 +195,10 @@
           <p class="ds-form-note">لن تُرسل أي بيانات تلقائيًا ولن تُحفظ على الموقع. يمكنك نسخ الموجز أو حفظ ملف TXT على جهازك قبل فتح تطبيق البريد.</p>
           <div class="ds-form-actions">
             <button class="ds-button ds-button-primary" type="submit">تجهيز موجز الطلب <span aria-hidden="true">←</span></button>
+            <button class="ds-button ds-button-outline" id="ds-brief-reset" type="reset">مسح بيانات الطلب</button>
             <a class="ds-button ds-button-outline" href="mailto:contact@digital-execution.cc?subject=Graphic%20Design%20Inquiry">تواصل مباشر بالبريد</a>
           </div>
+          <p id="ds-brief-reset-feedback" role="status" aria-live="polite"></p>
           <div id="ds-brief-result" class="ds-brief-result" hidden>
             <label for="ds-brief-preview">موجز المشروع — راجعه أو انسخه</label>
             <textarea id="ds-brief-preview" rows="9" readonly aria-describedby="ds-brief-status"></textarea>
