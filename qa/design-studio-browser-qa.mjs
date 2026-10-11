@@ -93,6 +93,12 @@ try {
     await page.locator("#ds-project").fill("مشروع اختبار محدّث");
     check(!(await page.locator("#ds-brief-result").isVisible()),"Stale brief hides after edits");
     check(await page.locator(".ds-gallery-card").count()===6,"Six illustrative design gallery samples displayed");
+    check(await page.locator(".ds-gallery-card").evaluateAll(cards=>cards.every(card=>{
+      const heading=card.querySelector("h3")?.textContent?.trim();
+      const controls=[...card.querySelectorAll("[data-gallery-open]")];
+      return heading && controls.length===2 &&
+        controls.every(control=>control.getAttribute("aria-label")?.includes(heading));
+    })),"Each gallery preview control identifies its specific design for screen readers");
     await page.locator('[data-ds-filter="product"]').click();
     check(await page.locator('.ds-gallery-card:visible').count()===2,"Product filter isolates two concepts");
     check(await page.locator('[data-ds-filter="product"]').getAttribute("aria-pressed")==="true","Active filter accessible");
