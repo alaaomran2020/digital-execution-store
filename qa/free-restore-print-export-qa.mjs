@@ -3,7 +3,8 @@ import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import {pathToFileURL} from 'node:url';
-import {chromium} from 'file:///D:/digital-execution-store/.delivery-qa-cli/browser-qa/node_modules/playwright/index.mjs';
+// CI installs Playwright in this repository. Override only for an isolated local QA installation.
+const {chromium}=await import(process.env.PLAYWRIGHT_MODULE_PATH || 'playwright');
 
 const tmp=await fs.mkdtemp(path.join(os.tmpdir(),'free-restore-print-'));
 const html=path.join(tmp,'calculator.html');
@@ -15,6 +16,10 @@ try {
   const errors=[];
   page.on('pageerror',e=>errors.push(e.message));
   await page.goto(pathToFileURL(html).href);
+  // Browser accessibility semantics: labels, descriptions and live announcements.
+  assert.equal(await page.locator('input[name="cost"]').getAttribute('aria-describedby'),'help-cost');
+  assert.equal(await page.locator('#pricing-result').getAttribute('aria-live'),'polite');
+  assert.equal(await page.locator('#history-status').getAttribute('role'),'status');
   await page.locator('#save-pricing').click();
   assert.equal(await page.locator('#history-list .history-item').count(),1);
   const getDownload=async (selector)=>{
