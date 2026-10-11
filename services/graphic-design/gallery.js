@@ -35,7 +35,13 @@
       const card = button.closest(".ds-gallery-card");
       if (!card || card.hidden || !dialog.showModal) return;
       selectedCard = card;
-      art.replaceChildren(card.querySelector(".ds-gallery-art").cloneNode(true));
+      // Preview art is decorative: never clone the clickable gallery button into
+      // an aria-hidden container, where it would remain keyboard-focusable.
+      const sourceArt = card.querySelector(".ds-gallery-art");
+      const previewArt = document.createElement("div");
+      previewArt.className = sourceArt.className;
+      previewArt.append(...[...sourceArt.childNodes].map(node => node.cloneNode(true)));
+      art.replaceChildren(previewArt);
       title.textContent = card.querySelector("h3").textContent;
       description.textContent = card.querySelector(".ds-gallery-info p").textContent;
       dialog.showModal();
