@@ -13,6 +13,17 @@
   const downloadButton = document.getElementById("ds-brief-download");
   const status = document.getElementById("ds-brief-status");
 
+  // Native `required` accepts whitespace-only text. Reject that case without
+  // sending data anywhere, and clear the message as soon as the user edits.
+  const requiredTextFields = [form.elements.namedItem("project"), form.elements.namedItem("details")];
+  const validateRequiredText = field => {
+    const whitespaceOnly = field.value.length > 0 && !field.value.trim();
+    field.setCustomValidity(whitespaceOnly ? "يرجى كتابة نص واضح، وليس مسافات فقط." : "");
+    if (whitespaceOnly) field.setAttribute("aria-invalid", "true");
+    else field.removeAttribute("aria-invalid");
+  };
+  requiredTextFields.forEach(field => field.addEventListener("input", () => validateRequiredText(field)));
+
   const valueOf = (fields, name) => String(fields.get(name) || "").trim();
   const addIfProvided = (lines, label, value) => {
     if (value) lines.push(label + ": " + value);
@@ -34,6 +45,7 @@
 
   form.addEventListener("submit", event => {
     event.preventDefault();
+    requiredTextFields.forEach(validateRequiredText);
     if (!form.reportValidity()) return;
     const fields = new FormData(form);
     const project = valueOf(fields, "project");

@@ -69,8 +69,22 @@ try {
     await page.locator('#ds-social .ds-card-link').click();
     check(await page.locator("#ds-kind").inputValue()==="ds-social","Service click preselects design type");
     check(!(await page.locator("#ds-brief-result").isVisible()),"Brief preview starts hidden");
+    await page.locator("#ds-project").fill("   ");
+    await page.locator("#ds-details").fill("وصف اختبار صالح");
+    await page.locator('#ds-brief-form button[type="submit"]').click();
+    check(await page.locator("#ds-project").evaluate(node=>node.validity.customError && node.getAttribute("aria-invalid")==="true"),
+      "Whitespace-only project is rejected with accessible validation");
+    check(!(await page.locator("#ds-brief-result").isVisible()),"Invalid project cannot generate a brief");
     await page.locator("#ds-project").fill("مشروع اختبار الواجهة");
+    check(await page.locator("#ds-project").evaluate(node=>node.validity.valid && !node.hasAttribute("aria-invalid")),
+      "Project validation clears after correction");
+    await page.locator("#ds-details").fill("  \t ");
+    await page.locator('#ds-brief-form button[type="submit"]').click();
+    check(await page.locator("#ds-details").evaluate(node=>node.validity.customError && node.getAttribute("aria-invalid")==="true"),
+      "Whitespace-only description is rejected with accessible validation");
     await page.locator("#ds-details").fill("نحتاج تصميمات اختبار للاستخدام الداخلي فقط");
+    check(await page.locator("#ds-details").evaluate(node=>node.validity.valid && !node.hasAttribute("aria-invalid")),
+      "Description validation clears after correction");
     await page.locator("#ds-usage").fill("Instagram");
     await page.locator("#ds-contact-email").fill("test@example.com");
     await page.locator('#ds-brief-form button[type="submit"]').click();
