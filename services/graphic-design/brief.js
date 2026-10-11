@@ -13,6 +13,13 @@
   const downloadButton = document.getElementById("ds-brief-download");
   const status = document.getElementById("ds-brief-status");
 
+  const invalidateBrief = () => {
+    result.hidden = true;
+    preview.value = "";
+    emailLink.href = emailLink.href.split("?")[0];
+    status.textContent = "";
+  };
+
   const valueOf = (fields, name) => String(fields.get(name) || "").trim();
   const addIfProvided = (lines, label, value) => {
     if (value) lines.push(label + ": " + value);
@@ -23,14 +30,14 @@
       const option = type.querySelector('option[value="' + link.dataset.designType + '"]');
       if (option) {
         type.value = option.value;
-        result.hidden = true;
+        invalidateBrief();
       }
     });
   });
 
-  // A previously generated brief is no longer current once its fields change.
-  form.addEventListener("input", () => { result.hidden = true; });
-  form.addEventListener("change", () => { result.hidden = true; });
+  // A previously generated brief must be invalidated once its fields change.
+  form.addEventListener("input", invalidateBrief);
+  form.addEventListener("change", invalidateBrief);
 
   form.addEventListener("submit", event => {
     event.preventDefault();

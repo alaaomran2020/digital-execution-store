@@ -92,6 +92,13 @@ try {
       "Download status explains that the brief is not uploaded");
     await page.locator("#ds-project").fill("مشروع اختبار محدّث");
     check(!(await page.locator("#ds-brief-result").isVisible()),"Stale brief hides after edits");
+    check((await page.locator("#ds-brief-preview").inputValue())==="","Old brief text is cleared after edits");
+    check(!(await page.locator("#ds-brief-email").getAttribute("href")).includes("?"),
+      "Old project details are removed from the email link");
+    check((await page.locator("#ds-brief-status").textContent())==="","Outdated success message is cleared");
+    await page.locator('#ds-brief-form button[type="submit"]').click();
+    check((await page.locator("#ds-brief-preview").inputValue()).includes("مشروع اختبار محدّث"),
+      "Regenerated brief reflects the latest project details");
     check(await page.locator(".ds-gallery-card").count()===6,"Six illustrative design gallery samples displayed");
     await page.locator('[data-ds-filter="product"]').click();
     check(await page.locator('.ds-gallery-card:visible').count()===2,"Product filter isolates two concepts");
