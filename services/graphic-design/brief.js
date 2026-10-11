@@ -12,6 +12,16 @@
   const copyButton = document.getElementById("ds-brief-copy");
   const downloadButton = document.getElementById("ds-brief-download");
   const status = document.getElementById("ds-brief-status");
+  const detailsField = document.getElementById("ds-details");
+  const detailsRemaining = document.getElementById("ds-details-remaining");
+  // Keep the visible counter available to screen readers without announcing every keystroke.
+  if (detailsField && detailsRemaining) {
+    const updateRemaining = () => {
+      detailsRemaining.textContent = "متبقي " + (detailsField.maxLength - detailsField.value.length) + " حرف";
+    };
+    detailsField.addEventListener("input", updateRemaining);
+    updateRemaining();
+  }
 
   const valueOf = (fields, name) => String(fields.get(name) || "").trim();
   const addIfProvided = (lines, label, value) => {

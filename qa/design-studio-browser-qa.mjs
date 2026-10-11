@@ -70,7 +70,10 @@ try {
     check(await page.locator("#ds-kind").inputValue()==="ds-social","Service click preselects design type");
     check(!(await page.locator("#ds-brief-result").isVisible()),"Brief preview starts hidden");
     await page.locator("#ds-project").fill("مشروع اختبار الواجهة");
+    check(await page.locator("#ds-details").getAttribute("aria-describedby")==="ds-details-remaining","Description counter is linked accessibly");
+    check((await page.locator("#ds-details-remaining").textContent()).includes("900"),"Description starts with full character allowance");
     await page.locator("#ds-details").fill("نحتاج تصميمات اختبار للاستخدام الداخلي فقط");
+    check((await page.locator("#ds-details-remaining").textContent()).includes(String(900-"نحتاج تصميمات اختبار للاستخدام الداخلي فقط".length)),"Description remaining count updates on input");
     await page.locator("#ds-usage").fill("Instagram");
     await page.locator("#ds-contact-email").fill("test@example.com");
     await page.locator('#ds-brief-form button[type="submit"]').click();
