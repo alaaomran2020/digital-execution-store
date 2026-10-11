@@ -220,6 +220,8 @@ body.design-studio{
 .ds-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .ds-field{min-width:0;display:flex;flex-direction:column;gap:7px}
 .ds-field-wide{grid-column:1/-1}
+.ds-character-count{align-self:flex-start;color:#e5d8f0;font-size:.78rem;line-height:1.5}
+.ds-character-count[data-near-limit="true"]{color:#ffcfaa;font-weight:700}
 .ds-field label,.ds-brief-result>label{font-size:.83rem;font-weight:800;color:#f8efff}
 .ds-field label span{color:#ffd0e4}
 .ds-field input,.ds-field select,.ds-field textarea,.ds-brief-result textarea{
