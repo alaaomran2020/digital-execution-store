@@ -9,6 +9,7 @@
 <meta property="og:url" content="https://digital-execution.cc/">
 <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
 <link rel="stylesheet" href="/storefront-light.css?v=20261011-m1m2">
+<link rel="stylesheet" href="/landing-experience.css?v=20261011-v1">
 <link rel="stylesheet" href="/header.css?v=20261009-paused"><link rel="stylesheet" href="/footer.css?v=20261009-paused">
 </head><body data-page="temporary-pause"><a class="skip-link" href="#main">انتقل إلى المحتوى</a><header></header>
 <main class="department-page" id="main"><div class="container">
@@ -16,12 +17,51 @@
 <div class="hero-copy">
 <span class="dept-kicker">Digital Execution — الحسابات بقت أسهل</span>
 <h1 id="home-title">احسبها صح.<br><span>وابدأ ببلاش.</span></h1>
-<p class="dept-intro">مش عارف تبيع منتجك بكام أو محتاج تبيع كام قطعة عشان تغطي مصاريفك؟ حمّل <strong>Calculator Suite Free</strong> واحسب واحفظ نتايجك، واطلع Excel أو PDF. وتقدر تحتفظ بنسخة احتياطية ترجعها على جهاز تاني. من غير تثبيت.</p>
-<span class="hero-free-label">Free v1.2.0 · ببلاش فعلًا</span>
+<p class="dept-intro">بتسعّر منتجاتك بالتخمين؟ أو مش عارف تبيع كام قطعة عشان تغطي مصاريفك؟ حمّل <strong>Calculator Suite Free</strong> واحسب سعر البيع ونقطة التعادل، واحفظ نتائجك وصدّرها Excel أو PDF، مع نسخ احتياطي تقدر تسترجعه. كل ده على جهازك ومن غير تثبيت.</p>
+<span class="hero-free-label">Calculator Suite Free v1.2.0 · مجانية بالكامل</span>
 <div class="dept-actions"><a class="dept-link primary" href="/downloads/Calculator_Suite_Free_v1.2.0.txt" download="Calculator_Suite_Free_v1.2.0.html">↓ حمّل النسخة ببلاش</a><a class="dept-link" href="/tools/">شوف باقي الأدوات</a></div>
 <ul class="hero-list" aria-label="مميزات النسخة المجانية"><li>من غير حساب</li><li>تشتغل من غير نت بعد التحميل</li><li>مفيش اشتراك</li></ul>
 </div>
 <div class="hero-art" aria-hidden="true"><div class="app-mock"><div class="app-mock-top"><i></i><i></i><i></i></div><div class="app-mock-body"><span class="mock-line"></span><span class="mock-line"></span><span class="mock-line"></span><div class="mock-metrics"><span>01</span><span>02</span><span>03</span></div></div></div><span class="app-art-label">CALCULATOR SUITE · FREE</span></div>
+</section>
+<section class="landing-proof-strip" aria-label="مزايا الأداة">
+  <div class="landing-proof-item"><strong>0 جنيه</strong><span>تحميل مجاني</span></div>
+  <div class="landing-proof-item"><strong>بدون تسجيل</strong><span>ابدأ على جهازك</span></div>
+  <div class="landing-proof-item"><strong>بدون اشتراك</strong><span>استخدمها وقت ما تحتاج</span></div>
+  <div class="landing-proof-item"><strong>ملفاتك عندك</strong><span>حفظ وتصدير محلي</span></div>
+</section>
+<section class="dept-section landing-spotlight" id="try-calculator" aria-labelledby="landing-spotlight-title">
+  <div class="landing-heading">
+    <span class="dept-kicker">جرب الفكرة بنفسك</span>
+    <h2 id="landing-spotlight-title" class="dept-heading">بدل التخمين، خلّي الأرقام توضّح القرار.</h2>
+    <p>مثال مبسّط للتسعير: أدخل تكلفة المنتج ونسبة الزيادة المطلوبة على التكلفة، وشوف النتيجة فورًا. الحاسبة الكاملة فيها وظائف إضافية.</p>
+  </div>
+  <div class="landing-spotlight-grid">
+    <div class="landing-demo" aria-label="حاسبة سعر بيع مبسطة">
+      <div class="landing-demo-top"><span class="landing-live-dot" aria-hidden="true"></span><strong>تجربة فورية</strong><span class="landing-demo-tag">بدون إرسال بيانات</span></div>
+      <div class="landing-demo-fields">
+        <div><label for="landing-cost">تكلفة المنتج (جنيه)</label><input id="landing-cost" type="number" inputmode="decimal" min="0" max="1000000000" step="any" value="200" autocomplete="off"></div>
+        <div><label for="landing-markup">نسبة الزيادة على التكلفة (%)</label><input id="landing-markup" type="number" inputmode="decimal" min="0" max="1000" step="any" value="25" autocomplete="off"></div>
+      </div>
+      <div class="landing-demo-results" aria-live="polite" aria-atomic="true">
+        <div><span>سعر البيع المقترح</span><output id="landing-price">250.00 جنيه</output></div>
+        <div><span>الربح قبل أي مصروفات إضافية</span><output id="landing-profit">50.00 جنيه</output></div>
+      </div>
+      <p id="landing-demo-hint" class="landing-demo-hint">حساب توضيحي يعتمد على زيادة فوق التكلفة، وليس هامش الربح. لا يشمل الضرائب أو الشحن أو العمولات أو المصاريف الأخرى.</p>
+      <a class="dept-link primary landing-demo-cta" href="/downloads/Calculator_Suite_Free_v1.2.0.txt" download="Calculator_Suite_Free_v1.2.0.html">حمّل الحاسبة الكاملة مجانًا ←</a>
+    </div>
+    <div class="landing-results-copy">
+      <div class="landing-mini-label">ليه تستخدم أداة بدل الورقة والقلم؟</div>
+      <h3>الرقم الواضح بيساعدك تاخد خطوة أوثق.</h3>
+      <ul class="landing-checks">
+        <li><strong>سعر البيع:</strong> احسب بناءً على بياناتك بدل التقدير.</li>
+        <li><strong>نقطة التعادل:</strong> اعرف الكمية اللازمة لتغطية تكاليفك وفق مدخلات الحاسبة.</li>
+        <li><strong>النتائج:</strong> احفظ عملياتك واسترجع نسخة احتياطية على جهاز آخر.</li>
+        <li><strong>المشاركة:</strong> جهّز ملفات Excel أو PDF من النتائج عند الحاجة.</li>
+      </ul>
+      <a class="landing-text-link" href="/tools/">استكشف أدوات أخرى مستقلة ←</a>
+    </div>
+  </div>
 </section>
 <section class="dept-section" aria-labelledby="departments-title">
 <div class="section-head"><div><span class="dept-kicker">اختار اللي يناسب شغلك</span><h2 id="departments-title" class="dept-heading">محتاج تعمل إيه النهارده؟</h2></div><p>أدوات جاهزة تجرّبها، وخدمات تطلبها وقت ما تحتاج.</p></div>
@@ -32,6 +72,24 @@
 </div>
 <p class="dept-note">ملحوظة: البيع المدفوع لسه متوقف دلوقتي. النسخة المجانية والأدوات والخدمات شغالة عادي.</p>
 </section>
-<section class="dept-section dept-callout" aria-label="خدمات أخرى"><h2 class="dept-heading">محتاج خدمة تانية؟</h2><p class="dept-subtitle">شوف الخدمات المتاحة واختار المناسب لشغلك. كل قسم في صفحته لوحده.</p><a class="dept-link" href="/services/">شوف كل الخدمات</a></section>
+<section class="dept-section landing-journey" aria-labelledby="landing-steps-title">
+  <div class="landing-heading"><span class="dept-kicker">3 خطوات فقط</span><h2 id="landing-steps-title" class="dept-heading">من التحميل للنتيجة.</h2><p>ما تحتاجش تفتح حساب ولا ترفع بياناتك لأي خادم علشان تبدأ الحساب.</p></div>
+  <ol class="landing-steps">
+    <li><span class="landing-step-no">01</span><h3>حمّل الأداة</h3><p>نزّل ملف HTML المجاني على جهازك.</p></li>
+    <li><span class="landing-step-no">02</span><h3>افتح واحسب</h3><p>افتح الملف في متصفحك، واكتب الأرقام الخاصة بشغلك.</p></li>
+    <li><span class="landing-step-no">03</span><h3>احفظ وصدّر</h3><p>احتفظ بالنتائج محليًا، وصدّر أو استرجع نسخة احتياطية عند الحاجة.</p></li>
+  </ol>
+</section>
+<section class="dept-section landing-faq" id="faq" aria-labelledby="landing-faq-title">
+  <div class="landing-heading"><span class="dept-kicker">أسئلة مهمة</span><h2 id="landing-faq-title" class="dept-heading">كل اللي تحتاج تعرفه قبل التحميل.</h2></div>
+  <div class="landing-faq-list">
+    <details><summary>هل لازم أعمل حساب أو أدفع؟</summary><p>لا. Calculator Suite Free متاحة للتحميل مجانًا، ومن غير تسجيل أو اشتراك.</p></details>
+    <details><summary>هل الحاسبة بتشتغل من غير إنترنت؟</summary><p>بعد التحميل، تقدر تفتح ملف الأداة على جهازك واستخدام وظائف الحساب والحفظ المحلية من غير إنترنت.</p></details>
+    <details><summary>هل بياناتي بتترفع على الموقع؟</summary><p>وظائف الحساب والحفظ في الأداة المجانية بتشتغل محليًا على جهازك. احفظ نسخة احتياطية بنفسك إذا كنت هتغيّر الجهاز أو المتصفح.</p></details>
+    <details><summary>هل أقدر أستخدمها من الموبايل؟</summary><p>تقدر تحمل الملف وتفتحه في متصفح يدعم ملفات HTML محليًا. بعض طرق الحفظ والتصدير بتختلف حسب المتصفح والجهاز.</p></details>
+    <details><summary>فين خدمات التصميم وباقي الأدوات؟</summary><p>كل خدمة وأداة ليها قسم مستقل. تقدر توصل لها من <a href="/tools/">دليل الأدوات</a> أو <a href="/services/graphic-design/">قسم التصميم الجرافيكي</a>.</p></details>
+  </div>
+</section>
+<section class="dept-section dept-callout landing-endcap" aria-label="خدمات أخرى"><div><span class="dept-kicker">Digital Execution</span><h2 class="dept-heading">ابدأ بالأداة المجانية، واختار الخدمة وقت ما تحتاجها.</h2><p class="dept-subtitle">للأدوات والحاسبات والتصميم أقسام منفصلة، علشان تختار طريقك بسهولة. المنتجات المدفوعة لسه مش معروضة حاليًا.</p></div><div class="landing-endcap-actions"><a class="dept-link primary" href="/tools/">كل الأدوات المجانية</a><a class="dept-link" href="/services/">شوف كل الخدمات</a></div></section>
 </div></main><footer></footer><script src="/header.js?v=20261009-paused" defer></script>
-<script src="/footer.js?v=20261009-paused" defer></script></body></html>
+<script src="/footer.js?v=20261009-paused" defer></script><script src="/landing-experience.js?v=20261011-v1" defer></script></body></html>

@@ -32,4 +32,19 @@ pass(css.includes("prefers-reduced-motion"),"Reduced-motion support missing");
 pass(css.includes(":focus-visible"),"Keyboard focus styles missing");
 pass(paid.productsVisible===false,"PAID STORE MUST REMAIN HIDDEN");
 pass(read("products/index.html").includes("عرض المنتجات متوقف حاليًا"),"Paid products page must remain paused");
+// Premium free-first landing: interactive example is client-only; commercial catalog stays paused.
+const landingCss=read("landing-experience.css");
+const landingJs=read("landing-experience.js");
+pass(home.includes('href="/landing-experience.css?v=20261011-v1"'),"Landing stylesheet missing");
+pass(home.includes('src="/landing-experience.js?v=20261011-v1"'),"Landing interactive script missing");
+for(const id of ["landing-cost","landing-markup","landing-price","landing-profit","landing-steps-title","landing-faq-title"]){
+  pass(home.includes('id="'+id+'"'),"Landing interactive/section identifier missing: "+id);
+}
+pass(home.includes('href="/services/graphic-design/"') && home.includes('href="/tools/"'),"Independent tools/design routes lost");
+pass(!home.includes('href="/products/"') && paid.productsVisible===false,"Paid product links or visibility must remain paused");
+pass(landingJs.includes('cost * markup / 100') && landingJs.includes('cost + profit'),"Markup preview calculation changed");
+pass(landingJs.includes("costInput.validity.valid") && landingJs.includes("Number.isFinite"),"Input validation removed");
+pass(!/fetch\s*\(|XMLHttpRequest|localStorage|sessionStorage|sendBeacon|\.zip["']/i.test(landingJs),"Landing preview must not transmit/store data or download commercial files");
+pass(landingCss.length<9000,"Landing-only CSS exceeded 9KB cap");
+pass(landingCss.includes("@media(max-width:480px)") && landingCss.includes("@media(max-width:730px)") && landingCss.includes("prefers-reduced-motion"),"Landing mobile/reduced-motion styles missing");
 console.log("PASS "+checks+" M1/M2 fast, Egyptian, accessible Free-first UI checks; CSS="+lightweight+" bytes vs prior "+former+" ("+Math.round((1-lightweight/former)*100)+"% reduction)");
