@@ -12,12 +12,13 @@
   const description = document.getElementById("ds-gallery-dialog-description");
   const type = document.getElementById("ds-kind");
   const nav = document.createElement("div");
-  nav.className = "ds-gallery-filters";
+  nav.className = "ds-hero-actions";
   nav.setAttribute("role", "group");
   nav.setAttribute("aria-label", "التنقل بين نماذج المعرض");
   const button = (id, label) => {
     const element = document.createElement("button");
     element.type = "button";
+    element.className = "ds-gallery-close";
     element.id = id;
     element.textContent = label;
     return element;
