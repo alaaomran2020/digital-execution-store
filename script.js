@@ -383,9 +383,9 @@ function setupProfessionalFooter(){
     '<div class="container">'+
       '<div class="footer-brand-block">'+
         '<span class="footer-brand-mark" aria-hidden="true">DE</span>'+
-        '<span class="footer-trust-pill"><i aria-hidden="true"></i> متجر منتجات رقمية جاهزة</span>'+
+        '<span class="footer-trust-pill"><i aria-hidden="true"></i> أدوات وخدمات رقمية</span>'+
         '<strong>Digital Execution</strong>'+
-        '<p>منتجات رقمية عملية تساعدك تنجز المهمة أسرع، مع سعر وترخيص وطريقة شراء واستلام واضحة قبل الدفع.</p>'+
+        '<p>أدوات مجانية وخدمات حسب الطلب، مع دعم العملاء الحاليين.</p>'+
       '</div>'+
       '<div class="footer-contact-grid" aria-label="بيانات التواصل والدفع">'+
         '<a class="footer-contact-card" href="mailto:contact@digital-execution.cc" data-track="footer_email_click" data-source="footer" data-cta-location="contact">'+
@@ -413,7 +413,7 @@ function setupProfessionalFooter(){
         '<span><b>الاستلام:</b> رقمي بعد التحقق من الدفع</span>'+
       '</div>'+
       '<nav class="footer-nav-pro" aria-label="روابط مهمة">'+
-        '<a href="/products/">المنتجات</a>'+
+        '<a href="/tools/">الأدوات</a>'+
         '<a href="/licenses.html">التراخيص</a>'+
         '<a href="/updates/">التحديثات</a>'+
         '<a href="/terms.html">الشروط</a>'+
