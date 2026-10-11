@@ -26,6 +26,12 @@ if(!productsVisible){
   }
   assert.ok(!read("footer.js").includes("للتواصل وإرسال إثبات الدفع"),
     "Paused footer must not solicit payment screenshots");checks++;
+  // Both footer implementations must respect the product display pause.
+  const oldFooter=read("script.js").split("function setupProfessionalFooter(){")[1]?.split("setupProfessionalFooter();")[0] || "";
+  assert.ok(oldFooter.includes('href="/tools/"'),"Legacy footer must link to active tools");checks++;
+  assert.ok(!oldFooter.includes('href="/products/"'),"Legacy footer must not link to hidden catalog");checks++;
+  assert.ok(!oldFooter.includes("متجر منتجات رقمية جاهزة")&&!oldFooter.includes("منتجات رقمية عملية"),"Legacy footer must not promote hidden sales");checks++;
+  assert.ok(!read("footer.js").includes('href="/products/"'),"Modern footer must not link to hidden catalog");checks++;
 }
 for(const route of productsVisible?["/products/","/tools/","/services/"]:["/tools/","/services/"]){
   assert.ok(read("header.js").includes('href="'+route+'"'),"shared nav route missing: "+route);checks++;
