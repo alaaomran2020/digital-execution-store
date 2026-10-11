@@ -220,6 +220,7 @@ body.design-studio{
 .ds-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .ds-field{min-width:0;display:flex;flex-direction:column;gap:7px}
 .ds-field-wide{grid-column:1/-1}
+.ds-kind-guidance{margin:0!important;padding:10px 12px;border-inline-start:3px solid #f4a6ca;border-radius:8px;background:rgba(255,255,255,.07);color:#f2e4fa!important;font-size:.78rem;line-height:1.7}
 .ds-field label,.ds-brief-result>label{font-size:.83rem;font-weight:800;color:#f8efff}
 .ds-field label span{color:#ffd0e4}
 .ds-field input,.ds-field select,.ds-field textarea,.ds-brief-result textarea{

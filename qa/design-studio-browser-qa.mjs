@@ -68,6 +68,28 @@ try {
     check(new URL(page.url()).hash==="#ds-social","Navigation jumps to selected category");
     await page.locator('#ds-social .ds-card-link').click();
     check(await page.locator("#ds-kind").inputValue()==="ds-social","Service click preselects design type");
+    check((await page.locator("#ds-kind").getAttribute("aria-describedby"))==="ds-kind-guidance",
+      "Service-specific guidance is associated with the design type select");
+    check((await page.locator("#ds-kind-guidance").textContent()).includes("المنصات"),
+      "Service card updates social design guidance");
+    await page.locator("#ds-kind").selectOption("ds-packaging");
+    check((await page.locator("#ds-kind-guidance").textContent()).includes("العبوة"),
+      "Direct selection updates packaging guidance");
+    const serviceKinds=await page.locator("#ds-kind option[value^='ds-']").evaluateAll(nodes=>nodes.map(node=>node.value));
+    check(serviceKinds.length===8,"Eight design categories provide guidance");
+    for(const kind of serviceKinds) {
+      await page.locator("#ds-kind").selectOption(kind);
+      check((await page.locator("#ds-kind-guidance").textContent()).length>25,
+        "Meaningful design brief guidance available for "+kind);
+    }
+    await page.locator("#ds-kind").selectOption("ds-social");
+    check((await page.locator("#ds-kind-guidance").textContent()).includes("المنصات"),
+      "Guidance updates when switching back to social design");
+    if(width===390 || width===1440) {
+      await page.locator("#ds-kind").locator("..").screenshot({
+        path:output+"/studio-"+width+"-service-guidance.png",animations:"disabled"
+      });
+    }
     check(!(await page.locator("#ds-brief-result").isVisible()),"Brief preview starts hidden");
     await page.locator("#ds-project").fill("مشروع اختبار الواجهة");
     await page.locator("#ds-details").fill("نحتاج تصميمات اختبار للاستخدام الداخلي فقط");
@@ -107,6 +129,8 @@ try {
     await page.locator('.ds-gallery-card[data-gallery-category="product"] [data-gallery-open]').first().click();
     await page.locator("#ds-gallery-request").click();
     check(await page.locator("#ds-kind").inputValue()==="ds-packaging","Gallery request chooses correct service");
+    check((await page.locator("#ds-kind-guidance").textContent()).includes("العبوة"),
+      "Gallery request refreshes guidance for the selected service");
     check(!(await page.locator("#ds-gallery-dialog").evaluate(node=>node.open)),"Request closes gallery dialog");
     await page.waitForFunction(()=>document.activeElement===document.getElementById("ds-kind"));
     check(await page.locator("#ds-kind").evaluate(node=>document.activeElement===node),"Gallery request transfers keyboard focus");

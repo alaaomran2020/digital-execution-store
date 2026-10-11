@@ -175,7 +175,7 @@
           <div class="ds-form-grid">
             <div class="ds-field"><label for="ds-project">اسم المشروع <span aria-hidden="true">*</span></label><input id="ds-project" name="project" type="text" required maxlength="100" autocomplete="organization" placeholder="اسم المشروع أو العلامة"></div>
             <div class="ds-field"><label for="ds-kind">نوع التصميم <span aria-hidden="true">*</span></label>
-              <select id="ds-kind" name="kind" required>
+              <select id="ds-kind" name="kind" required aria-describedby="ds-kind-guidance">
                 <option value="">اختر نوع التصميم</option>
                 <option value="ds-brand">شعارات وهوية بصرية</option>
                 <option value="ds-social">تصميمات سوشيال ميديا</option>
@@ -186,6 +186,7 @@
                 <option value="ds-commerce">تصميمات متاجر ومنتجات</option>
                 <option value="ds-special">تصميمات مخصصة</option>
               </select>
+              <p class="ds-kind-guidance" id="ds-kind-guidance" aria-live="polite" aria-atomic="true"></p>
             </div>
             <div class="ds-field ds-field-wide"><label for="ds-details">ما المطلوب تصميمه؟ <span aria-hidden="true">*</span></label><textarea id="ds-details" name="details" required maxlength="900" rows="3" placeholder="صف الفكرة والمخرجات المطلوبة باختصار"></textarea></div>
             <div class="ds-field"><label for="ds-usage">المقاسات أو منصات الاستخدام</label><input id="ds-usage" name="usage" type="text" maxlength="180" placeholder="مثلاً: إنستغرام أو طباعة A4"></div>
@@ -222,6 +223,7 @@
 <script src="/header.js?v=20261009-sections" defer></script>
 <script src="/footer.js?v=20261009-sections" defer></script>
 <script src="/services/graphic-design/brief.js?v=20261010-v1" defer></script>
+<script src="/services/graphic-design/brief-guidance.js?v=20261011-v1" defer></script>
 <script src="/services/graphic-design/gallery.js?v=20261010-v1" defer></script>
 </body>
 </html>
