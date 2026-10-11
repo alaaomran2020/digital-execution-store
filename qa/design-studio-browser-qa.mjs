@@ -72,7 +72,12 @@ try {
     await page.locator("#ds-project").fill("مشروع اختبار الواجهة");
     await page.locator("#ds-details").fill("نحتاج تصميمات اختبار للاستخدام الداخلي فقط");
     await page.locator("#ds-usage").fill("Instagram");
+    await page.locator("#ds-contact-email").fill("invalid-email");
+    await page.locator("#ds-details").focus();
+    check(await page.locator("#ds-contact-email").evaluate(node=>node.matches(":invalid:not(:placeholder-shown)")&&getComputedStyle(node).borderTopColor==="rgb(255, 143, 157)"),"Invalid contact email shows accessible visual error border after interaction");
+    await page.locator("#ds-contact-email").screenshot({path:output+"/invalid-email-"+width+".png"});
     await page.locator("#ds-contact-email").fill("test@example.com");
+    check(await page.locator("#ds-contact-email").evaluate(node=>!node.matches(":invalid:not(:placeholder-shown)")),"Corrected email clears invalid visual state");
     await page.locator('#ds-brief-form button[type="submit"]').click();
     check(await page.locator("#ds-brief-result").isVisible(),"Generated project brief is displayed");
     const body=await page.locator("#ds-brief-preview").inputValue();

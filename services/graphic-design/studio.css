@@ -229,6 +229,9 @@ body.design-studio{
 }
 .ds-field input::placeholder,.ds-field textarea::placeholder{color:#beb7d3;opacity:1}
 .ds-field select{color-scheme:dark}
+/* Highlight a typed invalid email without flagging untouched required fields. */
+.ds-field input[type="email"]:invalid:not(:placeholder-shown){border-color:#ff8f9d!important;box-shadow:inset 0 0 0 1px #ff8f9d}
+
 .ds-field textarea,.ds-brief-result textarea{resize:vertical}
 .ds-field input:focus-visible,.ds-field select:focus-visible,.ds-field textarea:focus-visible,
 .ds-brief-result textarea:focus-visible,.ds-form-actions a:focus-visible,.ds-form-actions button:focus-visible{
