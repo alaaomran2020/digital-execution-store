@@ -38,6 +38,11 @@ async function get(path) {
     'Staging noindex header for ' + path, header);
   record(response.headers.get('x-content-type-options') === 'nosniff',
     'Staging MIME sniffing disabled for ' + path);
+  record(response.headers.get('x-frame-options') === 'DENY',
+    'Staging pages must not be embedded in frames for ' + path);
+  record((response.headers.get('content-security-policy') || '').split(';')
+    .some(directive => /^frame-ancestors\s+'none'$/i.test(directive.trim())),
+    'Staging CSP blocks embedding for ' + path);
   record(response.headers.get('referrer-policy') === 'strict-origin-when-cross-origin',
     'Staging referrer policy for ' + path);
   return response.text();
