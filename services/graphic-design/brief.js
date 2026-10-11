@@ -12,6 +12,7 @@
   const copyButton = document.getElementById("ds-brief-copy");
   const downloadButton = document.getElementById("ds-brief-download");
   const status = document.getElementById("ds-brief-status");
+  const resetFeedback = document.getElementById("ds-brief-reset-feedback");
 
   const valueOf = (fields, name) => String(fields.get(name) || "").trim();
   const addIfProvided = (lines, label, value) => {
@@ -31,6 +32,18 @@
   // A previously generated brief is no longer current once its fields change.
   form.addEventListener("input", () => { result.hidden = true; });
   form.addEventListener("change", () => { result.hidden = true; });
+
+  // Explicit, local-only clearing: never leave a previous brief ready to copy or email.
+  form.addEventListener("reset", () => {
+    result.hidden = true;
+    preview.value = "";
+    emailLink.href = "mailto:contact@digital-execution.cc";
+    status.textContent = "";
+    resetFeedback.textContent = "تم مسح بيانات الطلب من هذه الصفحة.";
+    requestAnimationFrame(() => document.getElementById("ds-project")?.focus({ preventScroll: true }));
+  });
+  form.addEventListener("input", () => { resetFeedback.textContent = ""; });
+  form.addEventListener("change", () => { resetFeedback.textContent = ""; });
 
   form.addEventListener("submit", event => {
     event.preventDefault();
