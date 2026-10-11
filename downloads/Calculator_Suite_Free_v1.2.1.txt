@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex,nofollow">
+<title>Calculator Suite Free 1.2.1 | Digital Execution</title>
+<style>
+:root{font-family:Tahoma,"Segoe UI",Arial,sans-serif;color-scheme:dark;background:#091524;color:#eff9ff}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 80% 0%,#1c5860 0%,transparent 30%),#091524;line-height:1.7}
+main{max-width:1030px;margin:auto;padding:25px 18px 55px}
+a{color:#81ecd4}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #91f1de;outline-offset:3px}
+.head{padding:20px 0 30px;display:flex;justify-content:space-between;gap:10px;align-items:center;border-bottom:1px solid #294153}
+.brand{font:700 16px Arial,sans-serif;direction:ltr}
+.pill{background:#164b46;color:#a0ffdb;padding:7px 14px;border-radius:40px;font-size:12px}
+.hero{padding:42px 0 20px}h1{font-size:clamp(28px,5vw,45px);margin:0 0 9px}
+.hero p,.caption{color:#bbcadb;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:27px 0}
+.card{border:1px solid #2a4b5b;background:#102337;border-radius:19px;padding:25px;min-width:0}
+h2{font-size:20px;margin:0 0 17px}
+label{display:block;font-size:13px;color:#ccdae9;margin-bottom:13px}
+input{display:block;width:100%;margin-top:5px;border:1px solid #456075;border-radius:9px;padding:12px;background:#0a1928;color:#fff;font:inherit}
+input:focus{border-color:#72ebd0}
+button{background:#75e6cc;border:0;border-radius:11px;color:#073c35;font:700 14px Tahoma,Arial,sans-serif;padding:13px 20px;cursor:pointer;width:100%;margin-top:6px}
+button:hover{background:#a5f5e4}
+.result{background:#0a1928;border:1px solid #294d59;border-radius:10px;margin-top:17px;padding:15px;font-weight:700;color:#9df5dc;min-height:55px;white-space:pre-line;overflow-wrap:anywhere}
+.save-result{background:#193e45;color:#c6f6e9;border:1px solid #477e77;margin-top:10px}
+.save-result:disabled{opacity:.48;cursor:not-allowed}
+.history{border:1px solid #315969;border-radius:19px;background:#102437;padding:25px;margin-top:22px}
+.history h2{margin-bottom:5px}.history p{font-size:13px;color:#bed0dc;margin:0 0 17px}
+.actions{display:flex;flex-wrap:wrap;gap:10px}.actions button{width:auto;flex:1;min-width:135px;margin:0}
+.actions .secondary{background:#183a4c;border:1px solid #487487;color:#d4f1f5}
+.actions .danger{background:#382734;border:1px solid #845164;color:#ffced5}
+.backup-file{display:none!important}
+.actions button:disabled{opacity:.5;cursor:not-allowed}
+.history-list{padding:0;margin:19px 0 0;list-style:none;display:grid;gap:9px}
+.history-item{background:#0b1c2e;border:1px solid #29485a;border-radius:11px;padding:12px 15px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.history-item strong{font-size:13px;color:#e9fafa}.history-item small{color:#acc5d6;font-size:11px}
+.history-item span{color:#93ead8;font-size:13px;font-weight:700}
+.hint{color:#a8c2cf;font-size:12px!important;margin:11px 0 0!important}
+.status{font-size:12px;color:#9bedcb;min-height:20px;margin:12px 0 0!important}
+.print-report{display:none}
+.upgrade{border:1px solid #407e7e;background:#123239;border-radius:19px;padding:26px;margin-top:20px}
+.upgrade h2{margin:0 0 10px}.upgrade p{font-size:13px;color:#c8dbdf}
+.upgrade a{display:inline-flex;background:#76e8cc;border-radius:11px;color:#083a32;text-decoration:none;padding:12px 18px;font-weight:700;margin-top:7px}
+.foot{text-align:center;color:#a9c0d0;font-size:11px;padding-top:30px}
+@media(max-width:680px){.grid{grid-template-columns:1fr}.card{padding:18px}.head{align-items:flex-start;flex-direction:column;gap:10px}}
+@media(max-width:420px){.actions{display:grid;grid-template-columns:1fr}.history{padding:18px}.actions button{width:100%;min-width:0}}
+@media print{
+ :root{color-scheme:light;background:#fff;color:#111}body{background:#fff;color:#111}
+ main>.head,main>.hero,main>.grid,main>.history,main>.upgrade,main>.caption,main>.foot{display:none!important}
+ main{max-width:none;padding:0}.print-report{display:block!important;color:#111;font:13px Tahoma,Arial,sans-serif}
+ .print-report h1{font-size:24px;margin:0 0 8px}.print-report p{margin:0 0 20px}
+ .print-report table{width:100%;border-collapse:collapse;text-align:right;table-layout:fixed}
+ .print-report th,.print-report td{border:1px solid #a7a7a7;padding:10px;overflow-wrap:anywhere}
+ .print-report th{background:#eee;color:#111}.print-report tr{break-inside:avoid}
+ @page{size:A4;margin:16mm}
+}
+</style>
+</head>
+<body>
+<main>
+ <header class="head"><strong class="brand">Digital Execution</strong><span class="pill">Calculator Suite Free v1.2.1</span></header>
+ <section class="hero">
+  <h1>احسبها واحفظها. كله ببلاش.</h1>
+  <p>احسب تسعيرك ونقطة التعادل، واحفظ النتايج على جهازك. طلّع Excel أو PDF، واعمل نسخة احتياطية ترجعها على جهاز تاني. من غير اشتراك أو نت بعد التنزيل، ومفيش بيانات بتتبعت لأي خادم.</p>
+ </section>
+ <div class="grid">
+  <section class="card" aria-labelledby="pricing-title">
+   <h2 id="pricing-title">حاسبة تسعير المنتج</h2>
+   <form id="pricing-form">
+    <label>تكلفة شراء القطعة <input name="cost" type="number" min="0" step="any" inputmode="decimal" value="100" required></label>
+    <label>التغليف والشحن للقطعة <input name="shipping" type="number" min="0" step="any" inputmode="decimal" value="10" required></label>
+    <label>مصاريف أخرى للقطعة <input name="extra" type="number" min="0" step="any" inputmode="decimal" value="0" required></label>
+    <label>نسبة الزيادة على التكلفة % <input name="markup" type="number" min="0" step="any" inputmode="decimal" value="30" required></label>
+    <button type="submit">احسب سعر البيع</button>
+   </form>
+   <output id="pricing-result" class="result" aria-live="polite">أدخل الأرقام واضغط احسب.</output>
+   <button type="button" class="save-result" id="save-pricing" disabled>احفظ نتيجة التسعير</button>
+  </section>
+  <section class="card" aria-labelledby="break-title">
+   <h2 id="break-title">حاسبة نقطة التعادل</h2>
+   <form id="break-form">
+    <label>المصاريف الثابتة <input name="fixed" type="number" min="0" step="any" inputmode="decimal" value="10000" required></label>
+    <label>سعر بيع الوحدة <input name="sale" type="number" min="0.01" step="any" inputmode="decimal" value="200" required></label>
+    <label>التكلفة المتغيرة للوحدة <input name="variable" type="number" min="0" step="any" inputmode="decimal" value="120" required></label>
+    <button type="submit">احسب نقطة التعادل</button>
+   </form>
+   <output id="break-result" class="result" aria-live="polite">أدخل الأرقام واضغط احسب.</output>
+   <button type="button" class="save-result" id="save-break" disabled>احفظ نتيجة التعادل</button>
+  </section>
+ </div>
+ <section class="history" aria-labelledby="history-title">
+  <h2 id="history-title">حساباتك المحفوظة</h2>
+  <p>كل ما تحسب، دوس «احفظ النتيجة». هتلاقيها هنا لما ترجع تفتح الملف على نفس الجهاز، لو المتصفح بيسمح بالحفظ.</p>
+  <div class="actions">
+   <button type="button" id="export-excel">نزّل Excel (.xlsx)</button>
+   <button type="button" class="secondary" id="export-pdf">اطبع أو احفظ PDF</button>
+   <button type="button" class="secondary" id="backup-save">احفظ نسخة احتياطية</button>
+   <button type="button" class="secondary" id="backup-restore">رجّع حساباتك</button>
+   <input class="backup-file" type="file" id="backup-file" accept=".json,application/json" aria-label="اختار نسخة حساباتك الاحتياطية">
+   <button type="button" class="danger" id="clear-history">امسح الحسابات</button>
+  </div>
+  <p class="hint">ملف Excel فيه الأرقام الأصلية. ولـ PDF اختار «حفظ كـ PDF» من شاشة الطباعة. لو هتغيّر الموبايل أو المتصفح، احفظ نسخة احتياطية JSON واسترجعها على الجهاز الجديد. الاسترجاع بيستبدل الحسابات الحالية بعد موافقتك.</p>
+  <p id="history-status" class="status" role="status" aria-live="polite"></p>
+  <ol class="history-list" id="history-list"></ol>
+ </section>
+ <section class="print-report" id="print-report" aria-label="تقرير الحسابات المحفوظة">
+  <h1>تقرير حسابات Calculator Suite Free</h1>
+  <p>Digital Execution — سجل حساباتك المحفوظة</p>
+  <table><thead><tr><th>التاريخ</th><th>الأداة</th><th>ملخص النتيجة</th></tr></thead><tbody id="print-rows"></tbody></table>
+ </section>
+ <section class="upgrade">
+  <h2>محتاج إمكانيات إضافية؟</h2>
+  <p>بعد تجربة النسخة المجانية، يمكنك الاستفسار عن الترقية إلى Starter أو Professional. شراء مرة واحدة، والتسليم عبر واتساب بعد التأكد من التحويل. يمكنك مراجعة محتويات كل نسخة قبل الشراء.</p>
+  <a id="upgrade-link" href="https://wa.me/201011673107" target="_blank" rel="noopener noreferrer">استفسر عن الترقية عبر واتساب ↗</a>
+ </section>
+ <p class="caption">هذه الحسابات للتقدير الأولي، وليست بديلًا عن مراجعة التكلفة الفعلية والضرائب وظروف السوق.</p>
+ <footer class="foot">© 2026 Digital Execution — Calculator Suite Free. جميع الحسابات تتم محليًا على جهازك.</footer>
+</main>
+<script>
+(() => {
+  'use strict';
+  const formatter = new Intl.NumberFormat('ar-EG', {maximumFractionDigits:2});
+  const money = n => formatter.format(n) + ' جنيه';
+  const finite = values => values.every(value => Number.isFinite(value) && value >= 0 && value <= 1e12);
+  const storageKey = 'digital-execution:calculator-free:history:v1';
+  const status = document.getElementById('history-status');
+  const current = {pricing:null,break:null};
+  let saved = [];
+  let canPersist = true;
+  const hasNumbers = (object, keys, maximum) =>
+    object && typeof object === 'object' && !Array.isArray(object) &&
+    Object.keys(object).length === keys.length &&
+    keys.every(key=>Object.prototype.hasOwnProperty.call(object,key) &&
+      typeof object[key] === 'number' && Number.isFinite(object[key]) &&
+      object[key] >= 0 && object[key] <= maximum);
+  // Large, finite calculated results must survive a save/reload round trip.
+  // All supported inputs are at most 1e12; possible outputs may exceed 1e15.
+  const outputLimit = 1e30;
+  const validRecord = r => {
+    if (!r || typeof r !== 'object' || Array.isArray(r) ||
+      typeof r.at !== 'string' || !/^\d{4}-\d{2}-\d{2}T/.test(r.at) ||
+      Number.isNaN(Date.parse(r.at))) return false;
+    if (r.tool === 'pricing') {
+      return hasNumbers(r.inputs,['cost','shipping','extra','markup'],1e12) &&
+        hasNumbers(r.outputs,['total','price','profit','margin'],outputLimit) &&
+        r.outputs.margin <= 100;
+    }
+    if (r.tool === 'break') {
+      return hasNumbers(r.inputs,['fixed','sale','variable'],1e12) &&
+        hasNumbers(r.outputs,['contribution','units','revenue'],outputLimit) &&
+        Number.isSafeInteger(r.outputs.units) && r.inputs.sale > r.inputs.variable;
+    }
+    return false;
+  };
+  try {
+    const raw = localStorage.getItem(storageKey);
+    const parsed = raw ? JSON.parse(raw) : [];
+    if (Array.isArray(parsed)) saved = parsed.filter(validRecord).slice(0,60);
+  } catch { canPersist = false; }
+  function message(text) { status.textContent = text; }
+  function persist() {
+    try { localStorage.setItem(storageKey, JSON.stringify(saved)); canPersist = true; }
+    catch { canPersist = false; message('متصفحك مش سامح بالحفظ الدائم هنا. نزّل ملف Excel قبل ما تقفل الصفحة عشان الحسابات متضيعش.'); }
+  }
+  function description(r) {
+    return r.tool === 'pricing'
+      ? 'سعر البيع: ' + money(r.outputs.price) + ' — مكسب القطعة: ' + money(r.outputs.profit)
+      : 'نقطة التعادل: ' + formatter.format(r.outputs.units) + ' قطعة — مبيعات: ' + money(r.outputs.revenue);
+  }
+  function renderHistory() {
+    const list = document.getElementById('history-list');
+    const print = document.getElementById('print-rows');
+    list.replaceChildren();
+    print.replaceChildren();
+    if (!saved.length) {
+      const item = document.createElement('li');
+      item.className = 'history-item';
+      item.textContent = 'لسه مفيش حسابات محفوظة. جرّب تحسب واحفظ النتيجة.';
+      list.append(item);
+    }
+    for (const r of saved) {
+      const name = r.tool === 'pricing' ? 'تسعير منتج' : 'نقطة التعادل';
+      const date = new Date(r.at).toLocaleString('ar-EG');
+      const item = document.createElement('li');
+      item.className = 'history-item';
+      const top = document.createElement('div');
+      const heading = document.createElement('strong');
+      heading.textContent = name;
+      const when = document.createElement('small');
+      when.textContent = ' — ' + date;
+      const outcome = document.createElement('span');
+      outcome.textContent = description(r);
+      top.append(heading, when);
+      item.append(top, outcome);
+      list.append(item);
+      const tr = document.createElement('tr');
+      for (const text of [date,name,description(r)]) {
+        const td = document.createElement('td');
+        td.textContent = text;
+        tr.append(td);
+      }
+      print.append(tr);
+    }
+    for(const id of ['export-excel','export-pdf','backup-save','clear-history']) document.getElementById(id).disabled = saved.length === 0;
+  }
+  function saveResult(kind) {
+    const record = current[kind];
+    if(!record) { message('احسب الأول، وبعدها دوس حفظ النتيجة.'); return; }
+    saved.unshift({ ...record, at:new Date().toISOString() });
+    saved = saved.slice(0,60);
+    persist();
+    renderHistory();
+    if(canPersist) message('النتيجة اتحفظت على الجهاز ده. تقدر تطلع Excel أو PDF في أي وقت.');
+  }
+  document.getElementById('save-pricing').addEventListener('click',()=>saveResult('pricing'));
+  document.getElementById('save-break').addEventListener('click',()=>saveResult('break'));
+  for(const kind of ['pricing','break']) {
+    document.getElementById(kind+'-form').addEventListener('input',()=>{
+      current[kind] = null;
+      document.getElementById('save-'+kind).disabled = true;
+    });
+  }
+  document.getElementById('clear-history').addEventListener('click',()=>{
+    if(!saved.length || !confirm('متأكد إنك عايز تمسح كل الحسابات المحفوظة على الجهاز ده؟')) return;
+    saved = [];
+    persist();
+    renderHistory();
+    message('الحسابات اتمسحت من الجهاز ده.');
+  });
+  document.getElementById('export-pdf').addEventListener('click',()=>{
+    if(!saved.length) { message('احفظ حساب واحد على الأقل الأول.'); return; }
+    window.print();
+  });
+  // A portable, versioned JSON backup is the only way to restore calculated inputs and results.
+  // CSV/XLSX are reports, not a restorable application backup. Nothing is uploaded to a server.
+  document.getElementById('backup-save').addEventListener('click',()=>{
+    if(!saved.length) { message('احفظ حساب واحد الأول، وبعدها اعمل نسخة احتياطية.');return; }
+    const payload={format:'digital-execution-calculator-free-backup',version:1,exportedAt:new Date().toISOString(),records:saved};
+    const file = new Blob([JSON.stringify(payload,null,2)],{type:'application/json;charset=utf-8'});
+    download(file,'Calculator_Suite_Free_Backup.json');
+    message('النسخة الاحتياطية اتحمّلت. احتفظ بيها في مكان آمن عشان تقدر ترجع حساباتك.');
+  });
+  const picker=document.getElementById('backup-file');
+  document.getElementById('backup-restore').addEventListener('click',()=>picker.click());
+  picker.addEventListener('change',async()=>{
+    const file=picker.files && picker.files[0];
+    if(!file) return;
+    try {
+      if(file.size>256000) throw Error('large');
+      const backup=JSON.parse(await file.text());
+      if(!backup || backup.format!=='digital-execution-calculator-free-backup' ||
+        backup.version!==1 || !Array.isArray(backup.records) ||
+        backup.records.length>60 || !backup.records.every(validRecord)) throw Error('invalid');
+      if(!confirm('هتستبدل '+saved.length+' حساب محفوظ بـ '+backup.records.length+' حساب من النسخة الاحتياطية. موافق؟')) {
+        message('تمام، مفيش حاجة اتغيرت.');
+        return;
+      }
+      saved=backup.records.map(r=>({tool:r.tool,at:r.at,
+        inputs:{...r.inputs},outputs:{...r.outputs}}));
+      persist();
+      renderHistory();
+      if(canPersist) message('رجّعنا '+saved.length+' حساب بنجاح. الحسابات موجودة دلوقتي على الجهاز ده.');
+    } catch {
+      message('ملف النسخة الاحتياطية مش صحيح أو كبير. اختار ملف JSON صادر من نفس البرنامج، والحسابات الحالية محفوظة زي ما هي.');
+    } finally {
+      picker.value='';
+    }
+  });
+  // Minimal standards-compliant XLSX file (ZIP + Office Open XML); no network or external library.
+  function xml(value) { return String(value).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function crc32(bytes) {
+    let crc = -1;
+    for(const byte of bytes) {
+      crc ^= byte;
+      for(let i=0;i<8;i++) crc = (crc>>>1) ^ (crc&1 ? 0xedb88320 : 0);
+    }
+    return (crc ^ -1) >>> 0;
+  }
+  function makeZip(parts) {
+    const encoder = new TextEncoder(), locals=[], directory=[];
+    let offset=0;
+    for(const [name,source] of parts) {
+      const fileName=encoder.encode(name), bytes=encoder.encode(source), crc=crc32(bytes);
+      const local=new Uint8Array(30+fileName.length), l=new DataView(local.buffer);
+      l.setUint32(0,0x04034b50,true);l.setUint16(4,20,true);l.setUint16(6,0x0800,true);
+      l.setUint32(14,crc,true);l.setUint32(18,bytes.length,true);l.setUint32(22,bytes.length,true);
+      l.setUint16(26,fileName.length,true);local.set(fileName,30);
+      locals.push(local,bytes);
+      const central=new Uint8Array(46+fileName.length), c=new DataView(central.buffer);
+      c.setUint32(0,0x02014b50,true);c.setUint16(4,20,true);c.setUint16(6,20,true);c.setUint16(8,0x0800,true);
+      c.setUint32(16,crc,true);c.setUint32(20,bytes.length,true);c.setUint32(24,bytes.length,true);
+      c.setUint16(28,fileName.length,true);c.setUint32(42,offset,true);central.set(fileName,46);
+      directory.push(central);
+      offset+=local.length+bytes.length;
+    }
+    const directorySize=directory.reduce((sum,v)=>sum+v.length,0);
+    const end=new Uint8Array(22), e=new DataView(end.buffer);
+    e.setUint32(0,0x06054b50,true);e.setUint16(8,parts.length,true);e.setUint16(10,parts.length,true);
+    e.setUint32(12,directorySize,true);e.setUint32(16,offset,true);
+    return new Blob([...locals,...directory,end],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+  }
+  function excelFile() {
+    const headers=['التاريخ','الأداة','تكلفة القطعة','شحن وتغليف','مصاريف أخرى','زيادة %','تكلفة إجمالية','سعر البيع','مكسب القطعة','الهامش %','مصاريف ثابتة','سعر بيع الوحدة','تكلفة متغيرة','مساهمة الوحدة','نقطة التعادل (وحدات)','مبيعات التعادل'];
+    const rows=[headers,...saved.map(r=>{
+      const x=r.inputs,y=r.outputs;
+      return r.tool==='pricing' ? [r.at,'تسعير',x.cost,x.shipping,x.extra,x.markup,y.total,y.price,y.profit,y.margin,'','','','','','']
+        : [r.at,'نقطة التعادل','','','','','','','','',x.fixed,x.sale,x.variable,y.contribution,y.units,y.revenue];
+    })];
+    function cell(v,column,row) {
+      if(v==='' || v===null || v===undefined)return '';
+      const ref=String.fromCharCode(65+column)+row;
+      if(typeof v==='number')return '<c r="'+ref+'"><v>'+v+'</v></c>';
+      return '<c r="'+ref+'" t="inlineStr"'+(row===1?' s="1"':'')+'><is><t>'+xml(v)+'</t></is></c>';
+    }
+    const sheet='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'+
+      '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetViews><sheetView workbookViewId="0" rightToLeft="1"/></sheetViews>'+
+      '<cols><col min="1" max="2" width="25" customWidth="1"/><col min="3" max="16" width="19" customWidth="1"/></cols><sheetData>'+
+      rows.map((row,index)=>'<row r="'+(index+1)+'">'+row.map((v,c)=>cell(v,c,index+1)).join('')+'</row>').join('')+
+      '</sheetData></worksheet>';
+    const ns='http://schemas.openxmlformats.org/spreadsheetml/2006/main';
+    const parts=[
+      ['[Content_Types].xml','<?xml version="1.0" encoding="UTF-8"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/></Types>'],
+      ['_rels/.rels','<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>'],
+      ['xl/workbook.xml','<?xml version="1.0" encoding="UTF-8"?><workbook xmlns="'+ns+'" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="الحسابات" sheetId="1" r:id="rId1"/></sheets></workbook>'],
+      ['xl/_rels/workbook.xml.rels','<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>'],
+      ['xl/styles.xml','<?xml version="1.0" encoding="UTF-8"?><styleSheet xmlns="'+ns+'"><fonts count="2"><font><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><color rgb="FFFFFFFF"/><name val="Calibri"/></font></fonts><fills count="2"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FF134D5B"/><bgColor indexed="64"/></patternFill></fill></fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="2"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="1" borderId="0" xfId="0" applyFont="1" applyFill="1"/></cellXfs></styleSheet>'],
+      ['xl/worksheets/sheet1.xml',sheet]
+    ];
+    return makeZip(parts);
+  }
+  function download(blob,filename) {
+    const url=URL.createObjectURL(blob), a=document.createElement('a');
+    a.href=url;a.download=filename;a.hidden=true;document.body.append(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),3000);
+  }
+  document.getElementById('export-excel').addEventListener('click',()=>{
+    if(!saved.length) {message('احفظ حساب واحد على الأقل الأول.');return;}
+    try {download(excelFile(),'Calculator_Suite_Free_Results.xlsx');message('ملف Excel جاهز واتحمّل على جهازك.');}
+    catch {message('حصلت مشكلة في ملف Excel. جرّب تاني.');}
+  });
+  renderHistory();
+  if(!canPersist) message('الحفظ الدائم مش متاح من المتصفح ده. نزّل Excel بعد الحفظ عشان تحتفظ بحساباتك.');
+  document.getElementById('pricing-form').addEventListener('submit', event => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const values = ['cost','shipping','extra','markup'].map(key => Number(form.elements.namedItem(key).value));
+    const result = document.getElementById('pricing-result');
+    if (!finite(values) || values.some(v => !Number.isFinite(v))) {
+      result.textContent = 'تأكد من إدخال أرقام صحيحة وغير سالبة.';
+      return;
+    }
+    const [cost,shipping,extra,markup] = values;
+    const total = cost + shipping + extra;
+    const price = total * (1 + markup / 100);
+    if (!Number.isFinite(price)) {result.textContent = 'القيمة كبيرة جدًا للحساب.';return;}
+    const profit = price - total;
+    result.textContent = 'التكلفة: ' + money(total) + '\nسعر البيع: ' + money(price) + '\nالربح المتوقع للقطعة: ' + money(profit) + '\nالهامش: ' + (price > 0 ? formatter.format(profit / price * 100) : '0') + '%';
+    current.pricing={tool:'pricing',inputs:{cost,shipping,extra,markup},outputs:{total,price,profit,margin:price>0?profit/price*100:0}};
+    document.getElementById('save-pricing').disabled=false;
+  });
+  document.getElementById('break-form').addEventListener('submit', event => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const values = ['fixed','sale','variable'].map(key => Number(form.elements.namedItem(key).value));
+    const result = document.getElementById('break-result');
+    if(!finite(values) || values[1] <= 0) {
+      result.textContent = 'أدخل مصاريف وتكاليف صحيحة وسعر بيع أكبر من صفر.';
+      return;
+    }
+    const [fixed,sale,variable] = values;
+    const contribution = sale - variable;
+    if(contribution <= 0) {
+      result.textContent = 'سعر البيع يجب أن يزيد على التكلفة المتغيرة للوحدة حتى يمكن الوصول إلى نقطة التعادل.';
+      return;
+    }
+    const units = Math.ceil(fixed / contribution);
+    const revenue = units * sale;
+    if(!Number.isSafeInteger(units) || !Number.isFinite(revenue)) {result.textContent='النتيجة خارج نطاق الحساب المتاح.';return;}
+    result.textContent = 'هامش المساهمة للوحدة: ' + money(contribution) + '\nنقطة التعادل: ' + formatter.format(units) + ' وحدة\nالمبيعات المطلوبة: ' + money(revenue);
+    current.break={tool:'break',inputs:{fixed,sale,variable},outputs:{contribution,units,revenue}};
+    document.getElementById('save-break').disabled=false;
+  });
+  const upgrade = document.getElementById('upgrade-link');
+  upgrade.href = 'https://wa.me/201011673107?text=' + encodeURIComponent('مرحبًا، أنا أستخدم Calculator Suite Free وأريد معرفة الفرق بين Starter وProfessional وشروط الترقية.');
+})();
+</script>
+</body>
+</html>

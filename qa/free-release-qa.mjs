@@ -52,3 +52,4 @@ const scripts = [...free.matchAll(/<script>([\s\S]*?)<\/script>/g)];
 ok(scripts.length === 1, 'Free app must have one self-contained script');
 new vm.Script(scripts[0][1], { filename: freePath }); checks++;
 console.log('PASS ' + checks + ' free-download safety and packaging checks; paid products remain hidden');
+await import('./free-history-persistence-qa.mjs');
