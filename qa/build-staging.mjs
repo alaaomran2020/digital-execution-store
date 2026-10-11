@@ -11,7 +11,7 @@ const mode = JSON.parse(fs.readFileSync(path.join(root, 'data/storefront-mode.js
 assert.equal(mode.productsVisible, false, 'Refusing to publish while products are visible');
 const headers = fs.readFileSync(path.join(root, '_headers'), 'utf8');
 assert.match(headers, /^\/\*\s*\r?\n\s*X-Robots-Tag:\s*noindex,\s*nofollow,\s*noarchive/im, 'Missing staging noindex headers');
-for (const policy of ['X-Content-Type-Options: nosniff', 'Referrer-Policy: strict-origin-when-cross-origin', 'Permissions-Policy: camera=(), microphone=(), geolocation=()']) {
+for (const policy of ['X-Content-Type-Options: nosniff', 'X-Frame-Options: DENY', "Content-Security-Policy: frame-ancestors 'none'", 'Referrer-Policy: strict-origin-when-cross-origin', 'Permissions-Policy: camera=(), microphone=(), geolocation=()']) {
   assert.ok(headers.includes(policy), `Missing staging defensive header: ${policy}`);
 }
 for (const file of ['index.html', 'services/index.html', 'services/graphic-design/index.html', 'services/graphic-design/studio.css', 'tools/index.html']) {
