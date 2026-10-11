@@ -211,3 +211,78 @@ body.design-studio{
   .ds-service-card,.ds-button{transition:none}
   .ds-service-card:hover,.ds-button-primary:hover{transform:none}
 }
+
+
+/* Accessible, client-side project brief builder: no backend and no storage. */
+.ds-brief-form{margin-top:28px;padding:25px;border:1px solid rgba(255,255,255,.21);border-radius:20px;background:rgba(12,15,36,.35)}
+.ds-page .ds-brief-form h3{margin:0 0 5px;font-size:1.13rem;color:#fff}
+.ds-brief-intro{margin:0 0 20px!important;color:#d9cee8!important;font-size:.84rem}
+.ds-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.ds-field{min-width:0;display:flex;flex-direction:column;gap:7px}
+.ds-field-wide{grid-column:1/-1}
+.ds-field label,.ds-brief-result>label{font-size:.83rem;font-weight:800;color:#f8efff}
+.ds-field label span{color:#ffd0e4}
+.ds-field input,.ds-field select,.ds-field textarea,.ds-brief-result textarea{
+  display:block;width:100%;min-width:0;box-sizing:border-box;padding:12px 13px;
+  border:1px solid #82759f;border-radius:11px;background:#17152d;color:#fff;
+  font:inherit;font-size:.86rem;line-height:1.65
+}
+.ds-field input::placeholder,.ds-field textarea::placeholder{color:#beb7d3;opacity:1}
+.ds-field select{color-scheme:dark}
+.ds-field textarea,.ds-brief-result textarea{resize:vertical}
+.ds-field input:focus-visible,.ds-field select:focus-visible,.ds-field textarea:focus-visible,
+.ds-brief-result textarea:focus-visible,.ds-form-actions a:focus-visible,.ds-form-actions button:focus-visible{
+  outline:3px solid #ffd0e4;outline-offset:3px
+}
+.ds-form-note{margin:15px 0 0!important;color:#d3c8e1!important;font-size:.75rem;line-height:1.8}
+.ds-form-actions{display:flex;flex-wrap:wrap;align-items:center;gap:11px;margin-top:19px}
+.ds-form-actions .ds-button{cursor:pointer;font-family:inherit}
+.ds-form-actions .ds-button-outline{border:1px solid #b5a8d0;color:#fff;background:transparent}
+.ds-form-actions .ds-button-outline:hover{background:rgba(255,255,255,.10)}
+.ds-brief-result{margin-top:25px;padding-top:22px;border-top:1px solid rgba(255,255,255,.18)}
+.ds-brief-result[hidden]{display:none}
+.ds-brief-result textarea{margin-top:9px;min-height:180px;direction:rtl}
+.ds-brief-result #ds-brief-status{min-height:1.5em;margin:10px 0 0;color:#f6d3e3;font-size:.78rem}
+.ds-service-back{margin-top:22px}
+@media(max-width:560px){
+  .ds-brief-form{padding:17px 14px;border-radius:15px}
+  .ds-form-grid{grid-template-columns:1fr;gap:13px}
+  .ds-form-actions .ds-button{width:100%}
+}
+
+
+/* Scoped conceptual gallery: every preview is explicitly illustrative. */
+.ds-gallery-disclaimer{padding:11px 16px;border:1px solid rgba(251,202,234,.4);border-radius:14px;background:rgba(56,39,80,.6);color:#f2e3fb;font-size:.81rem}
+.ds-gallery-filters{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 10px}
+.ds-gallery-filters button{min-height:41px;border:1px solid #a499c2;border-radius:99px;padding:8px 17px;background:#29223e;color:#faf4ff;font-family:inherit;font-weight:800;font-size:.83rem;cursor:pointer}
+.ds-gallery-filters button[aria-pressed="true"]{background:#f3cde8;color:#362245;border-color:#f3cde8}
+.ds-gallery-count{margin:0 0 18px;color:#ddd0ed;font-size:.79rem}
+.ds-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.ds-gallery-card{min-width:0;border:1px solid #eadfeb;background:#f8f6fc;border-radius:21px;overflow:hidden;box-shadow:0 12px 28px rgba(8,5,24,.15)}
+.ds-gallery-card[hidden]{display:none}
+.ds-gallery-art{position:relative;height:225px;display:flex;align-items:center;justify-content:center;overflow:hidden;direction:ltr;font-family:Arial,sans-serif;isolation:isolate}
+.ds-gallery-art:before{content:"";position:absolute;width:200px;height:200px;border:35px solid rgba(255,255,255,.22);border-radius:50%;left:60%;top:-30%;z-index:-1}
+.ds-gallery-art-word{display:block;max-width:94%;overflow-wrap:anywhere;text-align:center;font-size:clamp(2rem,3.8vw,3.5rem);line-height:1.03;font-weight:900;letter-spacing:-.09em;transform:rotate(-5deg)}
+.ds-gallery-art-sub{position:absolute;bottom:16px;left:20px;font-size:.57rem;letter-spacing:.16em;font-weight:bold;text-transform:uppercase}
+.ds-gallery-art-1{background:linear-gradient(125deg,#f9e4d2,#c4b8ec);color:#513778}
+.ds-gallery-art-2{background:linear-gradient(125deg,#eb8dc6,#ac357b);color:#fff}
+.ds-gallery-art-3{background:linear-gradient(125deg,#bbdfc4,#77aa9b);color:#225d4f}
+.ds-gallery-art-4{background:linear-gradient(125deg,#ffddcc,#efa193);color:#8c426c}
+.ds-gallery-art-5{background:linear-gradient(125deg,#ffebad,#e9c589);color:#584f7c}
+.ds-gallery-art-6{background:linear-gradient(125deg,#484e9c,#1c2553);color:#e5dcff}
+.ds-gallery-info{padding:19px 20px 22px;color:#2a203a}
+.ds-gallery-tag{display:inline-block;border-radius:50px;background:#e9dcf2;padding:3px 10px;color:#624273;font-size:.7rem;font-weight:850}
+.ds-page .ds-gallery-info h3{font-size:1rem;color:#30233c;margin:12px 0 6px}
+.ds-gallery-info p{font-size:.8rem;line-height:1.8;color:#5f5569;min-height:3em;margin:0 0 15px}
+.ds-gallery-open{border:0;padding:6px 0;background:transparent;color:#62377d;font:inherit;font-weight:850;font-size:.82rem;cursor:pointer}
+.ds-gallery-filters button:focus-visible,.ds-gallery-open:focus-visible,.ds-gallery-close:focus-visible{outline:3px solid #ffacd8;outline-offset:3px}
+.ds-gallery-dialog{box-sizing:border-box;position:fixed;inset:0;width:min(94vw,630px);max-width:94vw;max-height:90dvh;overflow:auto;padding:18px;border:1px solid #9b8bb7;border-radius:20px;background:#221d3b;color:#fff}
+.ds-gallery-dialog::backdrop{background:rgba(10,7,25,.88)}
+.ds-gallery-close{display:block;margin:0 0 12px;background:#3b3255;border:1px solid #a59aba;border-radius:10px;color:#fff;padding:9px 14px;font:inherit;cursor:pointer}
+.ds-gallery-dialog-art .ds-gallery-art{height:clamp(200px,37vh,295px);border-radius:15px}
+.ds-gallery-dialog-note{color:#edc6dc;font-size:.79rem;margin:16px 0 5px}
+.ds-page .ds-gallery-dialog h3{color:#fff;margin:3px 0}
+.ds-gallery-dialog>p:not(.ds-gallery-dialog-note){color:#e0d5ee;font-size:.89rem}
+.ds-gallery-dialog .ds-button{margin-top:12px}
+@media(max-width:980px){.ds-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.ds-gallery-grid{grid-template-columns:1fr;gap:15px}.ds-gallery-info p{min-height:0}.ds-gallery-dialog{padding:12px}.ds-gallery-dialog .ds-button{width:100%;justify-content:center}.ds-gallery-art-word{font-size:3.3rem}}
