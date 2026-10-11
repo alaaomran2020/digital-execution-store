@@ -104,6 +104,12 @@ try {
     check(await page.locator("#ds-gallery-close").evaluate(node=>node.getBoundingClientRect().height>=44),"Gallery close control meets 44px minimum touch height");
     await page.keyboard.press("Escape");
     check(!(await page.locator("#ds-gallery-dialog").evaluate(node=>node.open)),"Escape closes modal preview");
+    await page.waitForFunction(()=>document.activeElement===document.querySelector('.ds-gallery-card[data-gallery-category="product"] [data-gallery-open]'));
+    check(await page.locator('.ds-gallery-card[data-gallery-category="product"] [data-gallery-open]').first().evaluate(node=>document.activeElement===node),"Escape restores focus to the original gallery preview button");
+    await page.locator('.ds-gallery-card[data-gallery-category="product"] [data-gallery-open]').first().click();
+    await page.locator("#ds-gallery-close").click();
+    await page.waitForFunction(()=>document.activeElement===document.querySelector('.ds-gallery-card[data-gallery-category="product"] [data-gallery-open]'));
+    check(await page.locator('.ds-gallery-card[data-gallery-category="product"] [data-gallery-open]').first().evaluate(node=>document.activeElement===node),"Close button restores focus to the original gallery preview button");
     await page.locator('.ds-gallery-card[data-gallery-category="product"] [data-gallery-open]').first().click();
     await page.locator("#ds-gallery-request").click();
     check(await page.locator("#ds-kind").inputValue()==="ds-packaging","Gallery request chooses correct service");
