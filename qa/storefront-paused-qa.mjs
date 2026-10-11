@@ -47,4 +47,15 @@ checked(/<meta\s+name="robots"\s+content="noindex,nofollow"/.test(notFound),"404
 checked(!/href=["'][^"']*\/products(?:\/|["'?#])/.test(notFound),"404 page must not link to hidden products");
 checked(notFound.includes('href="/tools/"'),"404 page must link to active tools");
 checked(notFound.includes('href="/services/"'),"404 page must link to active services");
+// Regression: inventory guides must not promote temporarily hidden paid products.
+for (const file of [
+  "guides/inventory-management-small-shops/index.html",
+  "guides/inventory-management-mistakes/index.html"
+]) {
+  checked(fs.existsSync(file),"Paused inventory guide missing: "+file);
+  const guide=read(file);
+  checked(!/href=["'][^"']*\/products\//.test(guide),"Paused inventory guide links to hidden products: "+file);
+  checked(!/(guide_product_click|data-product-slug|ReStock Desk|شوف المنتج|699 جنيه)/.test(guide),"Paid product promotion remains in inventory guide: "+file);
+  checked(guide.includes('href="../../tools/inventory-health-check/"'),"Inventory guide must link to free stock check: "+file);
+}
 console.log("PASS "+checks+" temporary storefront-hide regression checks; "+directories.length+" product routes replaced by reversible notices");
