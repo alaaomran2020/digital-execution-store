@@ -26,9 +26,12 @@ input{display:block;width:100%;margin-top:5px;border:1px solid #456075;border-ra
 input:focus{border-color:#72ebd0}
 button{background:#75e6cc;border:0;border-radius:11px;color:#073c35;font:700 14px Tahoma,Arial,sans-serif;padding:13px 20px;cursor:pointer;width:100%;margin-top:6px}
 button:hover{background:#a5f5e4}
-.result{background:#0a1928;border:1px solid #294d59;border-radius:10px;margin-top:17px;padding:15px;font-weight:700;color:#9df5dc;min-height:55px;white-space:pre-line;overflow-wrap:anywhere}
+.result{display:block;position:static;width:100%;background:#0a1928;border:1px solid #294d59;border-radius:10px;margin-top:17px;padding:15px;font-weight:700;color:#9df5dc;min-height:55px;white-space:pre-line;overflow-wrap:anywhere}
 .save-result{background:#193e45;color:#c6f6e9;border:1px solid #477e77;margin-top:10px}
 .save-result:disabled{opacity:.48;cursor:not-allowed}
+.field-help{display:block;color:#a9c5d3;font-size:12px;line-height:1.6;margin:5px 0 0}
+.action-help{color:#a9c5d3;font-size:12px;margin:7px 0 0;line-height:1.6}
+.save-result:focus-visible{outline:3px solid #91f1de}
 .history{border:1px solid #315969;border-radius:19px;background:#102437;padding:25px;margin-top:22px}
 .history h2{margin-bottom:5px}.history p{font-size:13px;color:#bed0dc;margin:0 0 17px}
 .actions{display:flex;flex-wrap:wrap;gap:10px}.actions button{width:auto;flex:1;min-width:135px;margin:0}
@@ -72,25 +75,27 @@ button:hover{background:#a5f5e4}
   <section class="card" aria-labelledby="pricing-title">
    <h2 id="pricing-title">حاسبة تسعير المنتج</h2>
    <form id="pricing-form">
-    <label>تكلفة شراء القطعة <input name="cost" type="number" min="0" step="any" inputmode="decimal" value="100" required></label>
-    <label>التغليف والشحن للقطعة <input name="shipping" type="number" min="0" step="any" inputmode="decimal" value="10" required></label>
-    <label>مصاريف أخرى للقطعة <input name="extra" type="number" min="0" step="any" inputmode="decimal" value="0" required></label>
-    <label>نسبة الزيادة على التكلفة % <input name="markup" type="number" min="0" step="any" inputmode="decimal" value="30" required></label>
+    <label>تكلفة شراء القطعة <input name="cost" type="number" min="0" step="any" inputmode="decimal" value="100" aria-describedby="help-cost" required><small class="field-help" id="help-cost">سعر شراء قطعة واحدة قبل أي مصروفات.</small></label>
+    <label>التغليف والشحن للقطعة <input name="shipping" type="number" min="0" step="any" inputmode="decimal" value="10" aria-describedby="help-shipping" required><small class="field-help" id="help-shipping">تكلفة التغليف والشحن الخاصة بكل قطعة.</small></label>
+    <label>مصاريف أخرى للقطعة <input name="extra" type="number" min="0" step="any" inputmode="decimal" value="0" aria-describedby="help-extra" required><small class="field-help" id="help-extra">أي رسوم إضافية للقطعة، مثل العمولة أو التجهيز.</small></label>
+    <label>نسبة الزيادة على التكلفة % <input name="markup" type="number" min="0" step="any" inputmode="decimal" value="30" aria-describedby="help-markup" required><small class="field-help" id="help-markup">نسبة الزيادة على إجمالي التكلفة، وليست هامش الربح من سعر البيع.</small></label>
     <button type="submit">احسب سعر البيع</button>
    </form>
    <output id="pricing-result" class="result" aria-live="polite">أدخل الأرقام واضغط احسب.</output>
-   <button type="button" class="save-result" id="save-pricing" disabled>احفظ نتيجة التسعير</button>
+   <button type="button" class="save-result" id="save-pricing">احفظ نتيجة التسعير</button>
+   <p class="action-help" id="pricing-help" role="status" aria-live="polite">اضغط «احسب سعر البيع» لعرض النتيجة، أو اضغط «احفظ» ليتم الحساب والحفظ مباشرة.</p>
   </section>
   <section class="card" aria-labelledby="break-title">
    <h2 id="break-title">حاسبة نقطة التعادل</h2>
    <form id="break-form">
-    <label>المصاريف الثابتة <input name="fixed" type="number" min="0" step="any" inputmode="decimal" value="10000" required></label>
-    <label>سعر بيع الوحدة <input name="sale" type="number" min="0.01" step="any" inputmode="decimal" value="200" required></label>
-    <label>التكلفة المتغيرة للوحدة <input name="variable" type="number" min="0" step="any" inputmode="decimal" value="120" required></label>
+    <label>المصاريف الثابتة <input name="fixed" type="number" min="0" step="any" inputmode="decimal" value="10000" aria-describedby="help-fixed" required><small class="field-help" id="help-fixed">مصاريف لا تتغير بعدد الوحدات، مثل الإيجار والرواتب.</small></label>
+    <label>سعر بيع الوحدة <input name="sale" type="number" min="0.01" step="any" inputmode="decimal" value="200" aria-describedby="help-sale" required><small class="field-help" id="help-sale">المبلغ الذي تحصل عليه عند بيع وحدة واحدة.</small></label>
+    <label>التكلفة المتغيرة للوحدة <input name="variable" type="number" min="0" step="any" inputmode="decimal" value="120" aria-describedby="help-variable" required><small class="field-help" id="help-variable">التكلفة التي تتحملها عند إنتاج أو بيع كل وحدة.</small></label>
     <button type="submit">احسب نقطة التعادل</button>
    </form>
    <output id="break-result" class="result" aria-live="polite">أدخل الأرقام واضغط احسب.</output>
-   <button type="button" class="save-result" id="save-break" disabled>احفظ نتيجة التعادل</button>
+   <button type="button" class="save-result" id="save-break">احفظ نتيجة التعادل</button>
+   <p class="action-help" id="break-help" role="status" aria-live="polite">احسب عدد الوحدات المطلوبة لتغطية المصاريف، ثم احفظ النتيجة؛ ويمكنك الضغط على «احفظ» مباشرة.</p>
   </section>
  </div>
  <section class="history" aria-labelledby="history-title">
@@ -209,6 +214,7 @@ button:hover{background:#a5f5e4}
     for(const id of ['export-excel','export-pdf','backup-save','clear-history']) document.getElementById(id).disabled = saved.length === 0;
   }
   function saveResult(kind) {
+    if(!current[kind]) document.getElementById(kind+'-form').requestSubmit();
     const record = current[kind];
     if(!record) { message('احسب الأول، وبعدها دوس حفظ النتيجة.'); return; }
     saved.unshift({ ...record, at:new Date().toISOString() });
@@ -222,7 +228,8 @@ button:hover{background:#a5f5e4}
   for(const kind of ['pricing','break']) {
     document.getElementById(kind+'-form').addEventListener('input',()=>{
       current[kind] = null;
-      document.getElementById('save-'+kind).disabled = true;
+      document.getElementById(kind+'-result').textContent='المدخلات اتغيرت. اضغط «احسب» لعرض النتيجة الجديدة.';
+      document.getElementById(kind+'-help').textContent = 'تم تعديل المدخلات. اضغط «احسب» لتحديث النتيجة، أو «احفظ» لحسابها وحفظها مباشرة.';
     });
   }
   document.getElementById('clear-history').addEventListener('click',()=>{
@@ -361,7 +368,7 @@ button:hover{background:#a5f5e4}
     const profit = price - total;
     result.textContent = 'التكلفة: ' + money(total) + '\nسعر البيع: ' + money(price) + '\nالربح المتوقع للقطعة: ' + money(profit) + '\nالهامش: ' + (price > 0 ? formatter.format(profit / price * 100) : '0') + '%';
     current.pricing={tool:'pricing',inputs:{cost,shipping,extra,markup},outputs:{total,price,profit,margin:price>0?profit/price*100:0}};
-    document.getElementById('save-pricing').disabled=false;
+    document.getElementById('pricing-help').textContent='النتيجة جاهزة. اضغط «احفظ نتيجة التسعير» لإضافتها إلى سجل حساباتك.';
   });
   document.getElementById('break-form').addEventListener('submit', event => {
     event.preventDefault();
@@ -383,7 +390,7 @@ button:hover{background:#a5f5e4}
     if(!Number.isSafeInteger(units) || !Number.isFinite(revenue)) {result.textContent='النتيجة خارج نطاق الحساب المتاح.';return;}
     result.textContent = 'هامش المساهمة للوحدة: ' + money(contribution) + '\nنقطة التعادل: ' + formatter.format(units) + ' وحدة\nالمبيعات المطلوبة: ' + money(revenue);
     current.break={tool:'break',inputs:{fixed,sale,variable},outputs:{contribution,units,revenue}};
-    document.getElementById('save-break').disabled=false;
+    document.getElementById('break-help').textContent='النتيجة جاهزة. اضغط «احفظ نتيجة التعادل» لإضافتها إلى سجل حساباتك.';
   });
   const upgrade = document.getElementById('upgrade-link');
   upgrade.href = 'https://wa.me/201011673107?text=' + encodeURIComponent('مرحبًا، أنا أستخدم Calculator Suite Free وأريد معرفة الفرق بين Starter وProfessional وشروط الترقية.');
