@@ -68,6 +68,9 @@ try {
     check(new URL(page.url()).hash==="#ds-social","Navigation jumps to selected category");
     await page.locator('#ds-social .ds-card-link').click();
     check(await page.locator("#ds-kind").inputValue()==="ds-social","Service click preselects design type");
+    await page.waitForFunction(()=>document.activeElement===document.getElementById("ds-kind"));
+    check(await page.locator("#ds-kind").evaluate(el=>document.activeElement===el),
+      "Service shortcut transfers keyboard focus to selected design type");
     check(!(await page.locator("#ds-brief-result").isVisible()),"Brief preview starts hidden");
     await page.locator("#ds-project").fill("مشروع اختبار الواجهة");
     await page.locator("#ds-details").fill("نحتاج تصميمات اختبار للاستخدام الداخلي فقط");

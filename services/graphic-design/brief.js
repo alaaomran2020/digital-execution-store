@@ -24,6 +24,11 @@
       if (option) {
         type.value = option.value;
         result.hidden = true;
+        // Move keyboard focus to the selected service after the in-page link navigates.
+        requestAnimationFrame(() => {
+          type.focus({ preventScroll: true });
+          type.scrollIntoView({ behavior: "auto", block: "center" });
+        });
       }
     });
   });
