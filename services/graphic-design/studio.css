@@ -76,7 +76,7 @@ body.design-studio{
 .ds-text-link{color:#eeb4df;white-space:nowrap;font-size:.84rem;font-weight:800;text-decoration:underline;text-underline-offset:5px}
 .ds-text-link:hover{color:#fff}
 .ds-quick-nav{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 27px}
-.ds-quick-nav a{display:inline-flex;min-height:39px;align-items:center;justify-content:center;padding:6px 15px;border:1px solid rgba(190,175,242,.24);border-radius:999px;background:#1b1d3b;color:#d3cdeb;font-size:.77rem;font-weight:780}
+.ds-quick-nav a{display:inline-flex;min-height:44px;align-items:center;justify-content:center;padding:6px 15px;border:1px solid rgba(190,175,242,.24);border-radius:999px;background:#1b1d3b;color:#d3cdeb;font-size:.77rem;font-weight:780}
 .ds-quick-nav a:hover{background:#363061;border-color:#bca8f7;color:white}
 .ds-service-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:19px}
 .ds-service-card{display:flex;flex-direction:column;min-width:0;overflow:hidden;border:1px solid rgba(190,176,232,.24);border-radius:21px;background:#f8f6fc;color:var(--ds-ink);box-shadow:0 16px 40px rgba(0,0,0,.10);scroll-margin-top:115px;transition:transform .22s ease,box-shadow .22s ease}
