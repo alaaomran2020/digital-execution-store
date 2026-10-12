@@ -64,6 +64,7 @@ try {
       "Light creative studio cards rendered");
     await page.screenshot({path:output+"/studio-"+width+"-full.png",fullPage:true,animations:"disabled"});
     await page.screenshot({path:output+"/studio-"+width+"-top.png",fullPage:false,animations:"disabled"});
+    check(await page.locator(".ds-quick-nav a").evaluateAll(nodes=>nodes.length===8 && nodes.every(node=>node.getBoundingClientRect().height>=44)),"All eight quick navigation links meet 44px touch target height");
     await page.locator('.ds-quick-nav a[href="#ds-social"]').click();
     check(new URL(page.url()).hash==="#ds-social","Navigation jumps to selected category");
     await page.locator('#ds-social .ds-card-link').click();
