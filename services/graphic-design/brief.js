@@ -8,6 +8,10 @@
   const type = document.getElementById("ds-kind");
   const result = document.getElementById("ds-brief-result");
   const preview = document.getElementById("ds-brief-preview");
+  const printPreview = document.createElement("pre");
+  printPreview.id = "ds-brief-print-preview";
+  printPreview.setAttribute("aria-hidden", "true");
+  preview.after(printPreview);
   const emailLink = document.getElementById("ds-brief-email");
   const copyButton = document.getElementById("ds-brief-copy");
   const downloadButton = document.getElementById("ds-brief-download");
@@ -54,6 +58,7 @@
     const brief = lines.join("\n");
     const subject = "طلب تصميم: " + kind + " - " + project;
     preview.value = brief;
+    printPreview.textContent = brief;
     emailLink.href = "mailto:contact@digital-execution.cc?subject=" +
       encodeURIComponent(subject) + "&body=" + encodeURIComponent(brief);
     result.hidden = false;
@@ -77,6 +82,11 @@
     anchor.remove();
     setTimeout(() => URL.revokeObjectURL(url), 10_000);
     status.textContent = "تم تجهيز تنزيل ملف TXT على جهازك. لم يتم رفع الموجز إلى الموقع.";
+  });
+
+  document.getElementById("ds-brief-print").addEventListener("click", () => {
+    if (!preview.value || result.hidden) return;
+    window.print();
   });
 
   copyButton.addEventListener("click", async () => {

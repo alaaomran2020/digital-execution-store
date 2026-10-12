@@ -302,3 +302,15 @@ body.design-studio{
   .ds-brief-result{min-width:0}
   .ds-brief-result textarea{box-sizing:border-box;width:100%;font-size:16px;line-height:1.6}
 }
+
+#ds-brief-print-preview{display:none}
+/* Print only the generated brief, without navigation or decorative content. */
+@media print {
+  body:has(#ds-brief-result:not([hidden])) * { visibility:hidden !important; }
+  body:has(#ds-brief-result:not([hidden])) #ds-brief-result,
+  body:has(#ds-brief-result:not([hidden])) #ds-brief-result label,
+  body:has(#ds-brief-result:not([hidden])) #ds-brief-print-preview { visibility:visible !important; }
+  body:has(#ds-brief-result:not([hidden])) #ds-brief-result { position:absolute;inset:0 auto auto 0;width:100%;background:white;color:black;border:0;box-shadow:none;padding:0; }
+  body:has(#ds-brief-result:not([hidden])) #ds-brief-preview { display:none !important; }
+  body:has(#ds-brief-result:not([hidden])) #ds-brief-print-preview { display:block;white-space:pre-wrap;overflow-wrap:anywhere;direction:rtl;text-align:right;font:12pt/1.7 Arial,sans-serif; }
+}
