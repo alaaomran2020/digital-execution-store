@@ -22,6 +22,8 @@ try {
   assert.equal(await page.locator('#history-status').getAttribute('role'),'status');
   await page.locator('#save-pricing').click();
   assert.equal(await page.locator('#history-list .history-item').count(),1);
+  assert.ok((await page.locator('#pricing-result').textContent()).trim().length>0,'Calculation result must be announced in live output');
+  assert.ok((await page.locator('#history-status').textContent()).trim().length>0,'Save feedback must be available in status region');
   const getDownload=async (selector)=>{
     const [download]=await Promise.all([page.waitForEvent('download'),page.locator(selector).click()]);
     const dest=path.join(tmp,download.suggestedFilename());
@@ -43,17 +45,32 @@ try {
   const pdf=await page.pdf({format:'A4',printBackground:true});
   assert.equal(pdf.subarray(0,4).toString(),'%PDF');
   assert.ok(pdf.length>1000);
+  // Cancellation must not discard existing records, even when the backup has fewer records.
+  await page.locator('#save-break').click();
+  assert.equal(await page.locator('#history-list .history-item strong').count(),2);
   const dialogs=[];
-  page.on('dialog',async dialog=>{dialogs.push(dialog.type());await dialog.accept();});
+  const decisions=[false,false,true,true];
+  page.on('dialog',async dialog=>{
+    dialogs.push(dialog.type());
+    if(decisions.shift()) await dialog.accept();
+    else await dialog.dismiss();
+  });
+  await page.locator('#backup-file').setInputFiles(backup);
+  await page.waitForFunction(()=>document.querySelector('#history-status').textContent.includes('اتغيرت'));
+  assert.equal(await page.locator('#history-list .history-item strong').count(),2,'Cancelled restore must preserve history');
+  await page.locator('#clear-history').click();
+  assert.equal(await page.locator('#history-list .history-item strong').count(),2,'Cancelled clear must preserve history');
+  await page.reload();
+  assert.equal(await page.locator('#history-list .history-item strong').count(),2,'Cancelled operations must preserve persisted history');
   await page.locator('#clear-history').click();
   // An empty history deliberately renders one placeholder .history-item.
-  assert.deepEqual(dialogs,['confirm'],'Clear must request user confirmation');
+  assert.deepEqual(dialogs,['confirm','confirm','confirm'],'Restore and clear must request user confirmation');
   await page.waitForFunction(()=>document.querySelectorAll('#history-list .history-item strong').length===0);
   assert.equal(await page.locator('#history-list .history-item strong').count(),0);
   await page.locator('#backup-file').setInputFiles(backup);
   await page.waitForFunction(()=>document.querySelectorAll('#history-list .history-item strong').length===1);
   assert.equal(await page.locator('#history-list .history-item strong').count(),1);
-  assert.deepEqual(dialogs,['confirm','confirm'],'Restore must request user confirmation');
+  assert.deepEqual(dialogs,['confirm','confirm','confirm','confirm'],'Restore must request user confirmation');
   await page.reload();
   assert.equal(await page.locator('#history-list .history-item').count(),1);
   assert.deepEqual(errors,[]);
