@@ -73,6 +73,8 @@ try {
     await page.locator("#ds-details").fill("نحتاج تصميمات اختبار للاستخدام الداخلي فقط");
     await page.locator("#ds-usage").fill("Instagram");
     await page.locator("#ds-contact-email").fill("test@example.com");
+    check(await page.locator("#ds-contact-email").getAttribute("aria-describedby")==="ds-email-hint","Email field is associated with format guidance");
+    check(await page.locator("#ds-email-hint").isVisible() && (await page.locator("#ds-email-hint").textContent()).includes("name@example.com"),"Email guidance is visible on every viewport");
     await page.locator('#ds-brief-form button[type="submit"]').click();
     check(await page.locator("#ds-brief-result").isVisible(),"Generated project brief is displayed");
     const body=await page.locator("#ds-brief-preview").inputValue();

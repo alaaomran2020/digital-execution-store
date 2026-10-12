@@ -222,6 +222,7 @@ body.design-studio{
 .ds-field-wide{grid-column:1/-1}
 .ds-field label,.ds-brief-result>label{font-size:.83rem;font-weight:800;color:#f8efff}
 .ds-field label span{color:#ffd0e4}
+.ds-field-hint{display:block;color:#e1d6ee;font-size:.77rem;line-height:1.7;overflow-wrap:anywhere}
 .ds-field input,.ds-field select,.ds-field textarea,.ds-brief-result textarea{
   display:block;width:100%;min-width:0;box-sizing:border-box;padding:12px 13px;
   border:1px solid #82759f;border-radius:11px;background:#17152d;color:#fff;
