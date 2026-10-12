@@ -12,6 +12,7 @@
   const copyButton = document.getElementById("ds-brief-copy");
   const downloadButton = document.getElementById("ds-brief-download");
   const status = document.getElementById("ds-brief-status");
+  const validationStatus = document.getElementById("ds-form-validation-status");
 
   const valueOf = (fields, name) => String(fields.get(name) || "").trim();
   const addIfProvided = (lines, label, value) => {
@@ -32,9 +33,23 @@
   form.addEventListener("input", () => { result.hidden = true; });
   form.addEventListener("change", () => { result.hidden = true; });
 
+  // Native constraint validation blocks submit before the submit event fires.
+  // Announce the failure and identify invalid fields without storing form data.
+  form.addEventListener("invalid", event => {
+    if (event.target.matches("input, select, textarea")) event.target.setAttribute("aria-invalid", "true");
+    if (validationStatus) validationStatus.hidden = false;
+  }, true);
+  const clearValidationFeedback = event => {
+    if (event.target.validity?.valid) event.target.removeAttribute("aria-invalid");
+    if (validationStatus) validationStatus.hidden = true;
+  };
+  form.addEventListener("input", clearValidationFeedback);
+  form.addEventListener("change", clearValidationFeedback);
+
   form.addEventListener("submit", event => {
     event.preventDefault();
     if (!form.reportValidity()) return;
+    if (validationStatus) validationStatus.hidden = true;
     const fields = new FormData(form);
     const project = valueOf(fields, "project");
     const kind = type.selectedOptions[0]?.textContent.trim() || "تصميم جرافيكي";

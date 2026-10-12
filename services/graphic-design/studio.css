@@ -234,6 +234,7 @@ body.design-studio{
 .ds-brief-result textarea:focus-visible,.ds-form-actions a:focus-visible,.ds-form-actions button:focus-visible{
   outline:3px solid #ffd0e4;outline-offset:3px
 }
+.ds-form-error:not([hidden]){margin:12px 0 0;padding:11px 13px;border:1px solid #ffc5d9;border-radius:10px;background:#48223c;color:#fff2f7;font-size:.83rem;line-height:1.7}
 .ds-form-note{margin:15px 0 0!important;color:#d3c8e1!important;font-size:.75rem;line-height:1.8}
 .ds-form-actions{display:flex;flex-wrap:wrap;align-items:center;gap:11px;margin-top:19px}
 .ds-form-actions .ds-button{cursor:pointer;font-family:inherit}

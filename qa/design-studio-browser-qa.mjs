@@ -69,7 +69,12 @@ try {
     await page.locator('#ds-social .ds-card-link').click();
     check(await page.locator("#ds-kind").inputValue()==="ds-social","Service click preselects design type");
     check(!(await page.locator("#ds-brief-result").isVisible()),"Brief preview starts hidden");
+    check(!(await page.locator("#ds-form-validation-status").isVisible()),"Validation alert starts hidden");
+    await page.locator('#ds-brief-form button[type="submit"]').click();
+    check(await page.locator("#ds-form-validation-status").isVisible(),"Invalid brief announces a validation error");
+    check(await page.locator("#ds-project").getAttribute("aria-invalid")==="true","Invalid project field is identified to assistive technology");
     await page.locator("#ds-project").fill("مشروع اختبار الواجهة");
+    check(!(await page.locator("#ds-form-validation-status").isVisible()) && (await page.locator("#ds-project").getAttribute("aria-invalid"))===null,"Correcting project clears validation feedback");
     await page.locator("#ds-details").fill("نحتاج تصميمات اختبار للاستخدام الداخلي فقط");
     await page.locator("#ds-usage").fill("Instagram");
     await page.locator("#ds-contact-email").fill("test@example.com");
