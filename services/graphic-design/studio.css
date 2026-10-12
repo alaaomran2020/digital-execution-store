@@ -302,3 +302,12 @@ body.design-studio{
   .ds-brief-result{min-width:0}
   .ds-brief-result textarea{box-sizing:border-box;width:100%;font-size:16px;line-height:1.6}
 }
+
+/* Keep the selected gallery filter identifiable in Windows high-contrast mode,
+   where custom background colors may be replaced by system colors. */
+@media (forced-colors: active){
+  .ds-gallery-filters button[aria-pressed="true"]{
+    outline:3px solid Highlight;
+    outline-offset:3px;
+  }
+}

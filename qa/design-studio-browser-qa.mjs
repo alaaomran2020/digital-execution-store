@@ -96,6 +96,11 @@ try {
     await page.locator('[data-ds-filter="product"]').click();
     check(await page.locator('.ds-gallery-card:visible').count()===2,"Product filter isolates two concepts");
     check(await page.locator('[data-ds-filter="product"]').getAttribute("aria-pressed")==="true","Active filter accessible");
+    await page.locator('[data-ds-filter="product"]').evaluate(node=>node.blur());
+    await page.emulateMedia({forcedColors:"active"});
+    const selectedOutline=await page.locator('[data-ds-filter="product"]').evaluate(node=>getComputedStyle(node).outlineWidth);
+    check(parseFloat(selectedOutline)>=3,"Selected gallery filter has visible high-contrast outline");
+    await page.emulateMedia({forcedColors:"none"});
     check(await page.locator(".ds-gallery-filters button").evaluateAll(nodes=>nodes.every(node=>node.getBoundingClientRect().height>=44)),"Gallery filter controls meet 44px minimum touch height");
     check(await page.locator('.ds-gallery-card[data-gallery-category="product"] [data-gallery-open]').first().evaluate(node=>node.getBoundingClientRect().height>=44),"Gallery preview control meets 44px minimum touch height");
     await page.locator('.ds-gallery-card[data-gallery-category="product"] [data-gallery-open]').first().click();
