@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const s = fs.readFileSync('script.js','utf8');
+const start=s.indexOf('function setupProfessionalFooter(){');
+const gate=s.indexOf('if(pageType!=="product") return;',start);
+const write=s.indexOf('footer.innerHTML=',start);
+assert.ok(start>=0&&gate>start&&write>gate,'Legacy paid fallback must be gated before it injects HTML');
+assert.ok(s.includes('setupProfessionalFooter();'),'Legacy footer call remains guarded');
+assert.equal(JSON.parse(fs.readFileSync('data/storefront-mode.json','utf8')).productsVisible,false);
+const footer=fs.readFileSync('footer.js','utf8');
+assert.ok(!footer.includes('<a href="/products/">'),'The active informational footer must not show paid products');
+console.log('PASS: legacy paid footer injection disabled for all public non-product pages');

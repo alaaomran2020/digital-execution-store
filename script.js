@@ -378,6 +378,11 @@ function setupProfessionalFooter(){
   const footer=document.querySelector("footer");
   if(!footer) return;
 
+  // Paid checkout/footer copy is a legacy fallback for product pages only.
+  // Public guides, tools, sections and the paused storefront use the safe
+  // informational footer provided by footer.js; never render paid CTAs here.
+  if(pageType!=="product") return;
+
   footer.className="site-footer-pro";
   footer.innerHTML=
     '<div class="container">'+
