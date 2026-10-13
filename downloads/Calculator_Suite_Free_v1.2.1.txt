@@ -170,7 +170,7 @@ button:hover{background:#a5f5e4}
   function message(text) { status.textContent = text; }
   function persist() {
     try { localStorage.setItem(storageKey, JSON.stringify(saved)); canPersist = true; }
-    catch { canPersist = false; message('متصفحك مش سامح بالحفظ الدائم هنا. نزّل ملف Excel قبل ما تقفل الصفحة عشان الحسابات متضيعش.'); }
+    catch { canPersist = false; message('متصفحك مش سامح بالحفظ الدائم هنا. بعد حفظ الحسابات نزّل نسخة احتياطية JSON قبل ما تقفل الصفحة عشان تقدر تسترجعها بعدين.'); }
   }
   function description(r) {
     return r.tool === 'pricing'
@@ -351,7 +351,7 @@ button:hover{background:#a5f5e4}
     catch {message('حصلت مشكلة في ملف Excel. جرّب تاني.');}
   });
   renderHistory();
-  if(!canPersist) message('الحفظ الدائم مش متاح من المتصفح ده. نزّل Excel بعد الحفظ عشان تحتفظ بحساباتك.');
+  if(!canPersist) message('الحفظ الدائم مش متاح من المتصفح ده. بعد حفظ الحسابات نزّل نسخة احتياطية JSON عشان تقدر تسترجعها بعدين.');
   document.getElementById('pricing-form').addEventListener('submit', event => {
     event.preventDefault();
     const form = event.currentTarget;
