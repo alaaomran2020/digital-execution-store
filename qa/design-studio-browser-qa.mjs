@@ -94,6 +94,8 @@ try {
     await page.locator("#ds-project").fill("مشروع اختبار محدّث");
     check(!(await page.locator("#ds-brief-result").isVisible()),"Stale brief hides after edits");
     check(await page.locator(".ds-gallery-card").count()===6,"Six illustrative design gallery samples displayed");
+    check(await page.locator(".ds-gallery-filters").getAttribute("aria-describedby")==="ds-gallery-count","Filter group references live result count");
+    check(await page.locator(".ds-gallery-filters button").evaluateAll(nodes=>nodes.length===5&&nodes.every(node=>node.getAttribute("aria-controls")==="ds-gallery-grid")),"All gallery filters identify controlled results");
     await page.locator('[data-ds-filter="product"]').click();
     check(await page.locator('.ds-gallery-card:visible').count()===2,"Product filter isolates two concepts");
     check(await page.locator('[data-ds-filter="product"]').getAttribute("aria-pressed")==="true","Active filter accessible");
