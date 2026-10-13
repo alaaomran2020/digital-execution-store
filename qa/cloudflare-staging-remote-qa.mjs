@@ -1,6 +1,8 @@
 // Read-only smoke and browser checks against an isolated Cloudflare Pages staging URL.
 // No checkout, payments, emails or user-data mutation.
 import assert from 'node:assert/strict';
+import { randomUUID } from 'node:crypto';
+import { stagingManifestUrl } from './staging-manifest-url.mjs';
 import { spawnSync } from 'node:child_process';
 import { mkdirSync, writeFileSync } from 'node:fs';
 
@@ -25,7 +27,9 @@ function record(ok, name, detail = '') {
   assert.ok(ok, name + (detail ? ': ' + detail : ''));
 }
 async function get(path) {
-  const target = new URL(path, origin);
+  const target = path === '/staging-build.json'
+    ? stagingManifestUrl(origin, randomUUID())
+    : new URL(path, origin);
   assert.equal(target.origin, origin, 'Cross-origin redirects and requests are forbidden');
   const response = await fetch(target, {
     redirect: 'manual',
@@ -51,7 +55,7 @@ async function waitForExpectedDeployment() {
   if (!expectedCommit) return;
   for (let attempt = 1; attempt <= 16; attempt++) {
     try {
-      const response = await fetch(origin + '/staging-build.json?qa=' + Date.now(), {
+      const response = await fetch(stagingManifestUrl(origin, randomUUID()), {
         redirect: 'manual', signal: AbortSignal.timeout(10000),
         headers: { 'Cache-Control': 'no-cache' }
       });

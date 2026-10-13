@@ -6,5 +6,8 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
 
+/staging-build.json
+  Cache-Control: no-store, max-age=0
+
 /data/products.json
   Cache-Control: no-store, max-age=0
