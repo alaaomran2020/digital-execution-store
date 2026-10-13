@@ -1,0 +1,28 @@
+name: Paused SEO Keyword Map QA
+
+on:
+  pull_request:
+    paths:
+      - 'seo/keyword-map.csv'
+      - 'data/storefront-mode.json'
+      - 'qa/paused-keyword-map-qa.mjs'
+      - '.github/workflows/paused-keyword-map-qa.yml'
+  push:
+    branches: [staging]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  paused-keyword-map:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Confirm paused paid keywords and public indexability
+        run: node qa/paused-keyword-map-qa.mjs
+      - name: Keep paid pages hidden
+        run: node qa/storefront-paused-qa.mjs
