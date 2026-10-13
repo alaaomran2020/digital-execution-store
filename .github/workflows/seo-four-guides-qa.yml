@@ -1,0 +1,41 @@
+name: SEO Four Guides QA
+on:
+  pull_request:
+    paths:
+      - 'guides/**'
+      - 'sitemap.xml'
+      - 'qa/staging-public-allowlist.mjs'
+      - 'qa/seo-four-guides-qa.mjs'
+      - '.github/workflows/seo-four-guides-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  guides-seo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate four public guides, metadata, and examples
+        run: node qa/seo-four-guides-qa.mjs
+      - name: Prevent hidden commercial content exposure
+        run: node qa/storefront-paused-qa.mjs
+      - name: Validate sitemap indexability
+        run: node qa/sitemap-indexability-qa.mjs
+
+      - name: Build and audit isolated staging bundle (no deployment)
+        env:
+          CF_PAGES_BRANCH: staging
+        run: |
+          node qa/build-staging.mjs
+          for slug in pricing-with-fees markup-vs-margin break-even-examples brand-identity-brief; do
+            test -f "dist-staging/guides/$slug/index.html"
+          done
+          test -f dist-staging/_headers
+          test ! -e dist-staging/CNAME
+          node qa/staging-public-allowlist-qa.mjs
+          node qa/staging-public-allowlist-fixture-qa.mjs
+          node qa/staging-manifest-url-qa.mjs
+          node qa/site-link-integrity-qa.mjs
