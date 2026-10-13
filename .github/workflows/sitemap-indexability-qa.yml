@@ -1,0 +1,33 @@
+name: Sitemap Indexability QA
+
+on:
+  pull_request:
+    paths:
+      - 'sitemap.xml'
+      - 'robots.txt'
+      - 'index.html'
+      - 'updates/index.html'
+      - 'guides/**/index.html'
+      - 'tools/**/index.html'
+      - 'services/**/index.html'
+      - 'qa/sitemap-indexability-qa.mjs'
+      - '.github/workflows/sitemap-indexability-qa.yml'
+  push:
+    branches: [staging]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sitemap-indexability:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate public canonical discovery and sitemap XML
+        run: node qa/sitemap-indexability-qa.mjs
+      - name: Keep paid routes paused
+        run: node qa/storefront-paused-qa.mjs
