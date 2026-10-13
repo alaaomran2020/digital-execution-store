@@ -35,15 +35,15 @@ function pageForUrl(loc) {
   return { file, relative, url: loc };
 }
 function indexable(html) {
-  const robots = [...html.matchAll(/<meta\\b[^>]*>/gi)]
+  const robots = [...html.matchAll(/<meta\b[^>]*>/gi)]
     .map(match => match[0])
     .filter(tag => attribute(tag, 'name').toLowerCase() === 'robots');
-  return !robots.some(tag => /\\bnoindex\\b/i.test(attribute(tag, 'content')));
+  return !robots.some(tag => /\bnoindex\b/i.test(attribute(tag, 'content')));
 }
 function canonical(html) {
-  const all = [...html.matchAll(/<link\\b[^>]*>/gi)]
+  const all = [...html.matchAll(/<link\b[^>]*>/gi)]
     .map(match => match[0])
-    .filter(tag => attribute(tag, 'rel').toLowerCase().split(/\\s+/).includes('canonical'));
+    .filter(tag => attribute(tag, 'rel').toLowerCase().split(/\s+/).includes('canonical'));
   assert.ok(all.length <= 1, 'Duplicate canonical tags');
   if (!all.length) return null;
   const href = attribute(all[0], 'href');
