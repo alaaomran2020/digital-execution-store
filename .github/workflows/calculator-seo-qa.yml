@@ -1,0 +1,28 @@
+name: Calculator SEO QA
+
+on:
+  pull_request:
+    paths:
+      - 'tools/pricing-calculator/index.html'
+      - 'tools/break-even-calculator/index.html'
+      - 'qa/calculator-seo-qa.mjs'
+      - '.github/workflows/calculator-seo-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  calculator-seo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify free calculator search metadata and internal links
+        run: node qa/calculator-seo-qa.mjs
+      - name: Verify paused commerce is still hidden
+        run: node qa/storefront-paused-qa.mjs
+      - name: Verify independent site sections
+        run: node qa/site-sections-qa.mjs
