@@ -24,3 +24,16 @@ jobs:
         run: node qa/storefront-paused-qa.mjs
       - name: Validate sitemap indexability
         run: node qa/sitemap-indexability-qa.mjs
+
+      - name: Build and audit isolated staging bundle (no deployment)
+        env:
+          CF_PAGES_BRANCH: staging
+        run: |
+          node qa/build-staging.mjs
+          for slug in pricing-with-fees markup-vs-margin break-even-examples brand-identity-brief; do
+            test -f "dist-staging/guides/$slug/index.html"
+          done
+          test -f dist-staging/_headers
+          test ! -e dist-staging/CNAME
+          node qa/staging-public-allowlist-qa.mjs
+          node qa/site-link-integrity-qa.mjs
