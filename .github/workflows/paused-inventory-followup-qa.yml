@@ -1,0 +1,22 @@
+name: Paused Inventory Follow-up QA
+on:
+  pull_request:
+    paths:
+      - 'guides/**/index.html'
+      - 'qa/paused-inventory-followup-qa.mjs'
+      - '.github/workflows/paused-inventory-followup-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inventory-followup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify paused-product link protection for six inventory guides
+        run: node qa/paused-inventory-followup-qa.mjs
+      - name: Confirm paid commerce remains hidden
+        run: node qa/storefront-paused-qa.mjs
