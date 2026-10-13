@@ -1,0 +1,24 @@
+name: Paused Inventory Guide SEO QA
+on:
+  pull_request:
+    paths:
+      - 'guides/inventory-management-small-shops/index.html'
+      - 'guides/inventory-management-mistakes/index.html'
+      - 'guides/supplier-order-planning/index.html'
+      - 'qa/paused-inventory-guide-qa.mjs'
+      - '.github/workflows/paused-inventory-guide-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inventory-guide-qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify safe inventory and supplier learning links
+        run: node qa/paused-inventory-guide-qa.mjs
+      - name: Verify paused paid catalog
+        run: node qa/storefront-paused-qa.mjs
