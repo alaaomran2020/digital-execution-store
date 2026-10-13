@@ -32,6 +32,11 @@ if (process.argv.includes('--self-test')) {
   assert.ok(violations('<a href="/products/">Shop</a>', 'fixture').length);
   assert.ok(violations('<meta property="og:image" content="/assets/restock/cover.png">', 'fixture').length);
   assert.ok(violations('<div>ReStock Desk - 399 جنيه</div>', 'fixture').length);
+  assert.ok(violations('<meta name="twitter:image" content="/assets/career-kit/cover.png">', 'fixture').length);
+  assert.ok(violations('<a href="/downloads/private.zip">Download</a>', 'fixture').length);
+  assert.ok(violations('<div>Career Kit - 699 EGP</div>', 'fixture').length);
+  assert.deepEqual(violations('<h2>Free inventory checker</h2><a href="/tools/">Free tools</a>', 'fixture'), []);
+  assert.deepEqual(violations('<meta name="twitter:image" content="/assets/social/digital-execution-og.png">', 'fixture'), []);
   assert.deepEqual(violations('<a href="/tools/">Tools</a><meta property="og:image" content="/assets/social/digital-execution-og.png">', 'fixture'), []);
   console.log('PASS: hidden commercial content guard fixtures');
 } else {
