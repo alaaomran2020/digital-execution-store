@@ -5,7 +5,7 @@ restock,counting,/guides/inventory-counting/,جرد المخزون,جرد الم
 restock,template,/guides/inventory-tracking-template/,نموذج متابعة المخزون,نموذج جرد مخزون|جدول متابعة المخزون|Excel مخزون|سجل المخزون|كارت الصنف,informational,TOFU,live
 restock,mistakes,/guides/inventory-management-mistakes/,أخطاء إدارة المخزون,مشاكل المخزون|نفاد المخزون|العجز في المخزون|فروقات الجرد|أخطاء الجرد,informational,TOFU,live
 restock,tool,/tools/inventory-health-check/,كشف صحة المخزون,تقييم المخزون|تحليل المخزون|مؤشر صحة المخزون|اختبار المخزون,tool/lead,MOFU,live
-restock,product,/products/restock-desk/,برنامج إدارة المخزون للمحلات,برنامج مخزون عربي|برنامج مخزون بدون اشتراك|برنامج نواقص المخزون|برنامج إعادة الطلب|برنامج مخزون بدون سيرفر,commercial/transactional,BOFU,live
+restock,product,/products/restock-desk/,برنامج إدارة المخزون للمحلات,برنامج مخزون عربي|برنامج مخزون بدون اشتراك|برنامج نواقص المخزون|برنامج إعادة الطلب|برنامج مخزون بدون سيرفر,commercial/transactional,BOFU,paused
 restock,future-stockout,/guides/stockout-prevention/,منع نفاد المخزون,تجنب نفاد الأصناف|الأصناف الناقصة|Stockout|نقص المخزون,informational,TOFU,live
 restock,future-safety-stock,/guides/safety-stock/,مخزون الأمان,Safety Stock|كمية الأمان|حساب مخزون الأمان|مخزون احتياطي,informational,TOFU,live
 restock,future-slow-moving,/guides/slow-moving-inventory/,المخزون الراكد,الأصناف الراكدة|البضاعة الراكدة|Slow Moving Inventory|تحريك المخزون,informational,TOFU,live
@@ -15,7 +15,7 @@ career,fresh,/guides/cv-fresh-graduates/,CV للخريجين الجدد,سيرة
 career,experienced,/guides/cv-experienced/,CV لأصحاب الخبرة,سيرة ذاتية لأصحاب الخبرة|Professional CV|CV خبرة|إنجازات السيرة الذاتية,informational,TOFU,live
 career,linkedin,/guides/linkedin-profile-job-search/,تحسين LinkedIn للبحث عن وظيفة,LinkedIn Profile|تحسين لينكدإن|LinkedIn للوظائف|LinkedIn Headline|LinkedIn About,informational,TOFU/MOFU,live
 career,cover-letter,/guides/cover-letter-guide/,Cover Letter,خطاب تقديم للوظيفة|رسالة تقديم وظيفة|Cover Letter عربي|Cover Letter English|نموذج خطاب تقديم,informational,TOFU/MOFU,live
-career,product,/products/career-kit/,Career Kit,قوالب CV ATS|CV عربي وإنجليزي|Job Tracker|LinkedIn Kit|Cover Letter Kit|Interview Prep,commercial/transactional,BOFU,live
+career,product,/products/career-kit/,Career Kit,قوالب CV ATS|CV عربي وإنجليزي|Job Tracker|LinkedIn Kit|Cover Letter Kit|Interview Prep,commercial/transactional,BOFU,paused
 career,future-summary,/guides/cv-summary-examples/,Summary للـCV,Professional Summary|ملخص السيرة الذاتية|Objective CV|نبذة CV,informational,TOFU,live
 career,future-skills,/guides/cv-skills/,المهارات في السيرة الذاتية,Skills CV|مهارات السيرة الذاتية|مهارات الخريجين|مهارات أصحاب الخبرة,informational,TOFU,live
 career,future-achievements,/guides/cv-achievements/,الإنجازات في السيرة الذاتية,Achievements CV|تحويل المهام لإنجازات|أرقام في CV|صياغة الإنجازات,informational,TOFU,live
