@@ -43,4 +43,6 @@ jobs:
           node qa/staging-public-allowlist-qa.mjs
           node qa/staging-public-allowlist-fixture-qa.mjs
           node qa/staging-public-allowlist-qa.mjs
+          node qa/staging-hidden-commercial-content-qa.mjs --self-test
+          node qa/staging-hidden-commercial-content-qa.mjs
           node qa/site-link-integrity-qa.mjs
