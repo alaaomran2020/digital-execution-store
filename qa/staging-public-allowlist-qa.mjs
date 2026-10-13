@@ -6,7 +6,7 @@ import path from 'node:path';
 import { STAGING_PUBLIC_FILES } from './staging-public-allowlist.mjs';
 
 const out = path.resolve('dist-staging');
-const generated = ['data/products.json', 'staging-build.json'];
+const generated = ['data/products.json', 'data/storefront-mode.json', 'staging-build.json'];
 const expected = [...STAGING_PUBLIC_FILES, ...generated].sort();
 assert.equal(new Set(expected).size, expected.length, 'Duplicate file entry');
 assert.ok(fs.existsSync(out), 'Staging bundle is missing');
@@ -27,6 +27,13 @@ function emittedFiles(dir, prefix = '') {
 assert.deepEqual(emittedFiles(out).sort(), expected, 'Unexpected or missing staging public file');
 assert.equal(fs.readFileSync(path.join(out, 'data/products.json'), 'utf8'), '[]\n',
   'Historical product registry must remain an empty placeholder');
+const publicModeText = fs.readFileSync(path.join(out, 'data/storefront-mode.json'), 'utf8');
+assert.equal(publicModeText, JSON.stringify({ productsVisible: false }) + '\n',
+  'Public storefront mode must contain only the harmless boolean contract');
+const publicMode = JSON.parse(publicModeText);
+assert.deepEqual(Object.keys(publicMode), ['productsVisible'],
+  'No restoration notes or operational metadata can leak');
+
 const mode = JSON.parse(fs.readFileSync('data/storefront-mode.json', 'utf8'));
 assert.equal(mode.productsVisible, false, 'Cannot test paid-product-public staging');
 const headers = fs.readFileSync(path.join(out, '_headers'), 'utf8');
