@@ -1,0 +1,25 @@
+name: Paused Career Guide Links QA
+
+on:
+  pull_request:
+    paths:
+      - 'guides/**/index.html'
+      - 'qa/career-guide-paused-qa.mjs'
+      - '.github/workflows/career-guide-paused-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  career-guides:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Enforce safe, indexable career learning CTAs
+        run: node qa/career-guide-paused-qa.mjs
+      - name: Ensure paid catalog remains hidden
+        run: node qa/storefront-paused-qa.mjs
