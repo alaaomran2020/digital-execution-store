@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
+import { STAGING_PUBLIC_FILES } from './staging-public-allowlist.mjs';
 
 // Dedicated Cloudflare Pages staging-only build. Never publish this bundle to the live domain.
 const root = process.cwd();
@@ -20,42 +21,33 @@ for (const file of ['index.html', 'services/index.html', 'services/graphic-desig
 
 const outName = 'dist-staging';
 const out = path.join(root, outName);
-const excludedDirs = new Set([
-  '.git', '.github', 'node_modules', 'qa', 'artifacts', outName,
-  // Operating records and internal reporting files are not public site assets.
-  'analytics', 'dist', 'docs', 'growth', 'operations', 'seo'
-]);
-const excludedFiles = new Set(['CNAME', 'CNAME.example', '.nojekyll', '.gitignore', 'README.md', 'DEPLOYMENT.md', 'STAGING_CLOUDFLARE.md']);
-// Keep historical registry in Git for restoration, not in the paused Pages preview.
-const excludedPaths = new Set([
-  'data/products.json', 'data/products.schema.json', 'data/passive-revenue-restock.json'
-]);
 fs.rmSync(out, { recursive: true, force: true });
 fs.mkdirSync(out, { recursive: true });
+
+// Explicit, reviewed source paths only. Never recursively copy a directory:
+// new source files or images must NOT silently become web-accessible.
+const reviewed = new Set(STAGING_PUBLIC_FILES);
+assert.equal(reviewed.size, STAGING_PUBLIC_FILES.length, 'Duplicate staging allowlist entry');
 let files = 0;
-function copySite(dir, rel = '') {
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    const name = entry.name;
-    const nextRel = path.join(rel, name);
-    const src = path.join(dir, name);
-    const dst = path.join(out, nextRel);
-    if (entry.isSymbolicLink()) throw new Error(`Symlink not allowed in staging bundle: ${nextRel}`);
-    if (entry.isDirectory()) {
-      if (excludedDirs.has(name) || name.startsWith('.')) continue;
-      fs.mkdirSync(dst, { recursive: true });
-      copySite(src, nextRel);
-    } else if (entry.isFile()) {
-      if (excludedPaths.has(nextRel.split(path.sep).join('/'))) continue;
-      if (excludedFiles.has(name) || name.endsWith('.md') || (name.startsWith('.') && name !== '.well-known')) continue;
-      if (/\.(zip|7z|rar|pem|key)$/i.test(name) || name.startsWith('.env')) {
-        throw new Error(`Disallowed archive/secret in site files: ${nextRel}`);
-      }
-      fs.copyFileSync(src, dst);
-      files++;
-    }
+for (const relative of STAGING_PUBLIC_FILES) {
+  assert.match(relative, /^(?!\\.)(?:[a-zA-Z0-9_-]+\\/)*[a-zA-Z0-9_.-]+$/, 'Unsafe allowlist path: ' + relative);
+  assert.ok(!relative.split('/').some(part => part === '..' || part.startsWith('.')), 'Hidden/traversal allowlist path: ' + relative);
+  assert.ok(!/\\.(?:zip|7z|rar|pem|key|env)$/i.test(relative), 'Forbidden archive or key in allowlist: ' + relative);
+  const src = path.join(root, relative);
+  const dst = path.join(out, relative);
+  // Symlinks in any path component could escape the audited tree.
+  let current = root;
+  const parts = relative.split('/');
+  for (const part of parts) {
+    current = path.join(current, part);
+    const stat = fs.lstatSync(current);
+    assert.ok(!stat.isSymbolicLink(), 'Symlink forbidden in staging source: ' + relative);
   }
+  assert.ok(fs.statSync(src).isFile(), 'Allowlisted source is not a file: ' + relative);
+  fs.mkdirSync(path.dirname(dst), { recursive: true });
+  fs.copyFileSync(src, dst);
+  files++;
 }
-copySite(root);
 // Keep the historical registry out of Pages, but deliberately replace its old URL
 // with a harmless asset: previously cached copies of a deleted Pages file can
 // remain available at some edge locations after deployment.
