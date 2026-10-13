@@ -58,6 +58,13 @@ const pausedRegistry = path.join(out, 'data/products.json');
 fs.mkdirSync(path.dirname(pausedRegistry), { recursive: true });
 fs.writeFileSync(pausedRegistry, '[]\n', 'utf8');
 files++;
+// A minimal public state contract for remote smoke checks. Never expose the
+// source storefront-mode.json: its explanations and restoration notes are
+// internal operations metadata, not needed by browsers or QA.
+const publicMode = path.join(out, 'data/storefront-mode.json');
+const publicModeContent = JSON.stringify({ productsVisible: false }) + '\n';
+fs.writeFileSync(publicMode, publicModeContent, 'utf8');
+files++;
 assert.ok(fs.existsSync(path.join(out, '_headers')), 'Staging _headers not copied');
 assert.ok(!fs.existsSync(path.join(out, 'CNAME')), 'Do not publish GitHub Pages custom domain CNAME');
 assert.ok(fs.existsSync(path.join(out, 'services/graphic-design/studio.css')), 'Studio CSS missing from staging output');
