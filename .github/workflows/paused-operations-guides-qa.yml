@@ -1,0 +1,22 @@
+name: Paused Operations Guides QA
+on:
+  pull_request:
+    paths:
+      - 'guides/**/index.html'
+      - 'qa/paused-operations-guides-qa.mjs'
+      - '.github/workflows/paused-operations-guides-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  public-operations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify safe contextual operating guide links
+        run: node qa/paused-operations-guides-qa.mjs
+      - name: Verify commercial storefront stays hidden
+        run: node qa/storefront-paused-qa.mjs
