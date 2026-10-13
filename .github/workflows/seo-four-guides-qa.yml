@@ -36,4 +36,6 @@ jobs:
           test -f dist-staging/_headers
           test ! -e dist-staging/CNAME
           node qa/staging-public-allowlist-qa.mjs
+          node qa/staging-public-allowlist-fixture-qa.mjs
+          node qa/staging-manifest-url-qa.mjs
           node qa/site-link-integrity-qa.mjs
