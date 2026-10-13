@@ -30,9 +30,12 @@ const reviewed = new Set(STAGING_PUBLIC_FILES);
 assert.equal(reviewed.size, STAGING_PUBLIC_FILES.length, 'Duplicate staging allowlist entry');
 let files = 0;
 for (const relative of STAGING_PUBLIC_FILES) {
-  assert.match(relative, /^(?!\\.)(?:[a-zA-Z0-9_-]+\\/)*[a-zA-Z0-9_.-]+$/, 'Unsafe allowlist path: ' + relative);
-  assert.ok(!relative.split('/').some(part => part === '..' || part.startsWith('.')), 'Hidden/traversal allowlist path: ' + relative);
-  assert.ok(!/\\.(?:zip|7z|rar|pem|key|env)$/i.test(relative), 'Forbidden archive or key in allowlist: ' + relative);
+  const segments = relative.split('/');
+  assert.ok(segments.length > 0 && segments.every(part =>
+    /^[A-Za-z0-9_.-]+$/.test(part) && part !== '.' && part !== '..' && !part.startsWith('.')
+  ), 'Unsafe or hidden allowlist path: ' + relative);
+  assert.ok(!['zip', '7z', 'rar', 'pem', 'key', 'env'].includes(relative.split('.').pop().toLowerCase()),
+    'Forbidden archive or key in allowlist: ' + relative);
   const src = path.join(root, relative);
   const dst = path.join(out, relative);
   // Symlinks in any path component could escape the audited tree.
