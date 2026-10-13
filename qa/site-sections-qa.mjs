@@ -61,7 +61,8 @@ assert.ok(!/<form[^>]+action=/.test(design),"Client-only brief must not submit t
 assert.ok(design.includes('id="design-gallery"')&&design.includes('id="ds-gallery-dialog"'),"Standalone design concept gallery missing");checks++;
 assert.ok(design.includes('src="/services/graphic-design/gallery.js?'),"Interactive design gallery script not linked");checks++;
 assert.equal((design.match(/class="ds-gallery-card"/g)||[]).length,6,"Expected six explicitly illustrative gallery previews");checks++;
-assert.ok(design.includes("وليست أعمالًا منفذة لعملاء"),"Concept disclaimer required");checks++;
+assert.ok(design.includes("أفكار بصرية تجريبية")&&design.includes("شعار افتراضي"),"Gallery samples must stay identified as concepts");checks++;
+assert.ok(!design.includes("جميع هذه النماذج تصورات توضيحية"),"Retired gallery notice must not appear");checks++;
 assert.ok(!design.includes('href="/products/'),"Paused product link visible in design service");checks++;
 assert.ok(!studioCss.includes(".department-page .dept-card"),"Design studio must not override shared tool/service cards");checks++;
 assert.ok(studioCss.includes("body.design-studio")&&studioCss.includes("@media(max-width:560px)")&&studioCss.includes("prefers-reduced-motion"),"Scoped theme or mobile accessibility styles missing");checks++;
