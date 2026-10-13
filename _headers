@@ -9,5 +9,8 @@
 /staging-build.json
   Cache-Control: no-store, max-age=0
 
+/data/storefront-mode.json
+  Cache-Control: no-store, max-age=0
+
 /data/products.json
   Cache-Control: no-store, max-age=0
