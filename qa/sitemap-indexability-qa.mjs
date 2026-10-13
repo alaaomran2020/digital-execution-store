@@ -8,22 +8,25 @@ const HOST = 'https://digital-execution.cc';
 const xml = fs.readFileSync('sitemap.xml', 'utf8');
 const publicDirectories = ['guides', 'tools', 'services', 'updates'];
 const rootPages = ['index.html', 'licenses.html', 'privacy.html', 'terms.html'];
+// Explicit public-route allowlist. Never index files under assets/downloads or private folders.
+const allowedRootRoutes = new Set(['/', '/licenses.html', '/privacy.html', '/terms.html']);
+const allowedSectionRoute = /^\/(?:guides|tools|services|updates)\/(?:[a-z0-9-]+\/)*$/;
+
+// Parse only actual HTML attributes, regardless of order or quote style.
+// Whitespace boundary avoids confusing data-name/data-rel with name/rel.
+function attribute(tag, name) {
+  const pattern = new RegExp('(?:^|\\s)' + name + '\\s*=\\s*(?:"([^"]*)"|\\x27([^\\x27]*)\\x27|([^\\s>]+))', 'i');
+  const match = tag.match(pattern);
+  return (match?.[1] ?? match?.[2] ?? match?.[3] ?? '').trim();
+}
 
 function pageForUrl(loc) {
   const url = new URL(loc);
   assert.equal(url.origin, HOST, 'Only production-origin HTTPS URLs may be indexed');
   assert.equal(url.search, '', 'Sitemap query strings forbidden');
   assert.equal(url.hash, '', 'Sitemap URL fragments forbidden');
-  assert.ok(url.pathname === '/' || url.pathname.endsWith('/') || url.pathname.endsWith('.html'),
-    'Only canonical public HTML routes belong in the sitemap: ' + loc);
-  assert.ok(!url.pathname.startsWith('/products/') &&
-    !url.pathname.startsWith('/after-purchase/') &&
-    !url.pathname.startsWith('/operations/') &&
-    !url.pathname.startsWith('/analytics/') &&
-    !url.pathname.startsWith('/data/') &&
-    !url.pathname.startsWith('/admin/') &&
-    !url.pathname.startsWith('/staging/') &&
-    !url.pathname.startsWith('/seo/'), 'Restricted route in sitemap: ' + loc);
+  assert.ok(allowedRootRoutes.has(url.pathname) || allowedSectionRoute.test(url.pathname),
+    'Non-public sitemap route: ' + loc);
   const relative = url.pathname.endsWith('/') ?
     url.pathname.slice(1) + 'index.html' : url.pathname.slice(1);
   const file = path.resolve(relative);
@@ -32,13 +35,20 @@ function pageForUrl(loc) {
   return { file, relative, url: loc };
 }
 function indexable(html) {
-  const meta = html.match(/<meta\s+name=["']robots["']\s+content=["']([^"']+)["']/i)?.[1] || '';
-  return !/\bnoindex\b/i.test(meta);
+  const robots = [...html.matchAll(/<meta\b[^>]*>/gi)]
+    .map(match => match[0])
+    .filter(tag => attribute(tag, 'name').toLowerCase() === 'robots');
+  return !robots.some(tag => /\bnoindex\b/i.test(attribute(tag, 'content')));
 }
 function canonical(html) {
-  const all = [...html.matchAll(/<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']/gi)];
+  const all = [...html.matchAll(/<link\b[^>]*>/gi)]
+    .map(match => match[0])
+    .filter(tag => attribute(tag, 'rel').toLowerCase().split(/\s+/).includes('canonical'));
   assert.ok(all.length <= 1, 'Duplicate canonical tags');
-  return all[0]?.[1] || null;
+  if (!all.length) return null;
+  const href = attribute(all[0], 'href');
+  assert.ok(href, 'Canonical link missing href');
+  return href;
 }
 function validate(source) {
   assert.match(source, /^<\?xml version="1\.0" encoding="UTF-8"\?>\s*<urlset xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9">/);
@@ -89,10 +99,17 @@ function validate(source) {
 }
 const count = validate(xml);
 const injection = '<url><loc>https://digital-execution.cc/products/</loc></url>';
-assert.throws(() => validate(xml.replace('</urlset>', injection + '\n</urlset>')), /Restricted route/,
+assert.throws(() => validate(xml.replace('</urlset>', injection + '\n</urlset>')), /Non-public sitemap route/,
   'Disallowed paid-product URLs should fail');
 assert.throws(() => validate(xml.replace('</urlset>', '<url><loc>https://digital-execution-staging.pages.dev/</loc></url>\n</urlset>')),
   /Only production-origin/, 'Staging URLs should fail');
 assert.throws(() => validate(xml.replace('</urlset>', '<url><loc>https://digital-execution.cc/guides/</loc></url>\n</urlset>')),
   /Duplicate sitemap URL/, 'Duplicate canonicals should fail');
-console.log('PASS: ' + count + ' unique, indexable public sitemap URLs; canonical, robots, and restricted-route guards');
+// Regression checks: omitted/falsified HTML attributes and restricted directories.
+assert.throws(() => pageForUrl(HOST + '/downloads/private.html'), /Non-public sitemap route/);
+assert.throws(() => pageForUrl(HOST + '/assets/preview.html'), /Non-public sitemap route/);
+assert.equal(indexable('<meta content="noindex,follow" name="robots">'), false);
+assert.equal(indexable('<meta data-name="robots" content="noindex">'), true);
+assert.equal(canonical('<link href="' + HOST + '/guides/" rel="canonical">'), HOST + '/guides/');
+assert.equal(canonical('<link data-rel="canonical" href="' + HOST + '/guides/">'), null);
+console.log('PASS: ' + count + ' indexable public URLs; strict allowlist, canonical, robots, and restricted-route regression guards');
