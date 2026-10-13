@@ -16,6 +16,8 @@ const guideSlugs = [
   'cv-experienced', 'cv-fresh-graduates', 'cv-skills',
   'cv-summary-examples', 'freelancer-management',
   'graphic-designer-project-workflow', 'inventory-counting',
+  'pricing-with-fees', 'markup-vs-margin', 'break-even-examples',
+  'brand-identity-brief',
   'inventory-management-mistakes', 'inventory-management-small-shops',
   'inventory-tracking-template', 'law-office-case-management',
   'linkedin-profile-job-search', 'online-orders-inventory',
