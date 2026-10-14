@@ -15,8 +15,14 @@ for(const route of routes){
   assert.ok(html.includes('href="https://digital-execution.cc/'+route+'"'),"canonical missing for "+route); checks++;
   const expectedStyle=route==="tools/"?'/storefront-light.css?v=20261011-m1m2':'/sections.css';
   assert.ok(html.includes('href="'+expectedStyle+'"'),"shared section styling missing: "+route); checks++;
-  assert.ok(html.includes('src="/header.js?'),"global navigation missing: "+route); checks++;
-  assert.ok(html.includes('src="/footer.js?'),"global footer missing: "+route); checks++;
+  if(route==="services/graphic-design/") {
+    assert.ok(html.includes('class="ds-local-header"'),"studio-local header missing"); checks++;
+    assert.ok(!html.includes('src="/header.js?')&&!html.includes('src="/footer.js?'),"studio must not load cross-department navigation"); checks++;
+    assert.ok(!/href="\/(?:tools|services\/|products\/|updates\/)/.test(html),"studio must not link to other departments"); checks++;
+  } else {
+    assert.ok(html.includes('src="/header.js?'),"global navigation missing: "+route); checks++;
+    assert.ok(html.includes('src="/footer.js?'),"global footer missing: "+route); checks++;
+  }
   assert.ok(read("sitemap.xml").includes("<loc>https://digital-execution.cc/"+route+"</loc>"),"sitemap entry missing: "+route); checks++;
 }
 const productsVisible=JSON.parse(read("data/storefront-mode.json")).productsVisible!==false;
