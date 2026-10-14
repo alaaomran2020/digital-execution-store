@@ -58,13 +58,8 @@ try {
     await page.locator('.ds-quick-nav a[href="#ds-social"]').click();
     check(new URL(page.url()).hash==="#ds-social","Navigation jumps to selected category");
     if(width<=390){
-      const toggle=page.locator(".site-header-menu-btn");
-      check(await toggle.isVisible(),"Mobile header menu button is visible");
-      await toggle.click();
-      check((await toggle.getAttribute("aria-expanded"))==="true","Mobile navigation opens");
-      check(await page.locator("#siteHeaderMobile").isVisible(),"Mobile navigation links are visible");
-      await page.keyboard.press("Escape");
-      check((await toggle.getAttribute("aria-expanded"))==="false","Escape closes mobile navigation");
+      check(await page.locator(".ds-local-header").isVisible(),"Isolated studio header is visible on mobile");
+      check(await page.locator(".site-header-menu-btn").count()===0,"No global cross-department mobile menu");
     }
     await page.locator(".ds-service-card").last().scrollIntoViewIfNeeded();
     check(await page.locator(".ds-service-card").last().isVisible(),"Final category reachable");
