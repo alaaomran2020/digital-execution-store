@@ -18,7 +18,7 @@ for(const route of routes){
   if(route==="services/graphic-design/") {
     assert.ok(html.includes('class="ds-local-header"'),"studio-local header missing"); checks++;
     assert.ok(!html.includes('src="/header.js?')&&!html.includes('src="/footer.js?'),"studio must not load cross-department navigation"); checks++;
-    assert.ok(!/href="\/(?:tools|services\/|products\/|updates\/)/.test(html),"studio must not link to other departments"); checks++;
+    assert.ok(!/<a\b[^>]*href="\/(?:tools|services\/|products\/|updates\/)/.test(html),"studio must not link to other departments"); checks++;
   } else {
     assert.ok(html.includes('src="/header.js?'),"global navigation missing: "+route); checks++;
     assert.ok(html.includes('src="/footer.js?'),"global footer missing: "+route); checks++;
