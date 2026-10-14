@@ -234,8 +234,15 @@ button:hover{background:#a5f5e4}
   }
   document.getElementById('clear-history').addEventListener('click',()=>{
     if(!saved.length || !confirm('متأكد إنك عايز تمسح كل الحسابات المحفوظة على الجهاز ده؟')) return;
+    const previous = saved;
     saved = [];
     persist();
+    if(!canPersist) {
+      saved = previous;
+      renderHistory();
+      message('تعذر مسح الحسابات من التخزين. الحسابات ما زالت موجودة؛ جرّب تاني أو احفظ نسخة احتياطية JSON.');
+      return;
+    }
     renderHistory();
     message('الحسابات اتمسحت من الجهاز ده.');
   });
