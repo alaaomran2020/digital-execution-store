@@ -52,7 +52,7 @@ assert.ok(directory.includes('href="/guides/"'),"Must link to the existing guide
 assert.equal((directory.match(/href="#guides"/g)||[]).length,1,"Guide navigation must appear once");
 for(const target of expected.filter(path=>path.startsWith("/guides/"))){
   const html=read(target.slice(1)+"index.html");
-  assert.ok(!/(?:href|action)\\s*=\\s*["'][^"']*\\/(?:products|checkout|after-purchase)(?:\\/|[?#"'])/i.test(html),"Guide still has hidden commercial links: "+target);
+  assert.ok(!/(?:href|action)\s*=\s*["'][^"']*\/(?:products|checkout|after-purchase)(?:\/|[?#"'])/i.test(html),"Guide still has hidden commercial links: "+target);
   assert.ok(!/data-guide-product|data-product-slug|guide_product_click/i.test(html),"Guide has paused-product tracking: "+target);
 }
 assert.ok(!/<script\b/i.test(directory),"Free directory must render without JavaScript");
