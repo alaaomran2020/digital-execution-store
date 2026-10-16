@@ -94,6 +94,23 @@ try {
     await page.locator("#ds-project").fill("مشروع اختبار محدّث");
     check(!(await page.locator("#ds-brief-result").isVisible()),"Stale brief hides after edits");
     check(await page.locator(".ds-gallery-card").count()===6,"Six illustrative design gallery samples displayed");
+    if(width<=390){
+      const filterLayout=await page.locator(".ds-gallery-filters").evaluate(node=>({
+        wrap:getComputedStyle(node).flexWrap,overflow:getComputedStyle(node).overflowX,
+        scrollWidth:node.scrollWidth,clientWidth:node.clientWidth
+      }));
+      check(filterLayout.wrap==="nowrap"&&filterLayout.overflow==="auto"&&filterLayout.scrollWidth>filterLayout.clientWidth,
+        "Mobile gallery categories remain in a horizontally scrollable row");
+      check(await page.locator(".ds-gallery-mobile-hint").isVisible(),"Mobile gallery explains horizontal swiping");
+      await page.locator('[data-ds-filter="business"]').scrollIntoViewIfNeeded();
+      check(await page.locator('[data-ds-filter="business"]').evaluate(node=>{
+        const button=node.getBoundingClientRect();
+        const bar=node.parentElement.getBoundingClientRect();
+        return button.left>=bar.left-2&&button.right<=bar.right+2;
+      }),"Horizontal scrolling reveals the final gallery category");
+    }else{
+      check(!(await page.locator(".ds-gallery-mobile-hint").isVisible()),"Swipe hint stays hidden on larger screens");
+    }
     await page.locator('[data-ds-filter="product"]').click();
     check(await page.locator('.ds-gallery-card:visible').count()===2,"Product filter isolates two concepts");
     check(await page.locator('[data-ds-filter="product"]').getAttribute("aria-pressed")==="true","Active filter accessible");
