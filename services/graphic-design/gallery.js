@@ -28,7 +28,9 @@
     cards.forEach(card => {
       card.hidden = category !== "all" && card.dataset.galleryCategory !== category;
     });
-    count.textContent = "عرض " + cards.filter(card => !card.hidden).length + " من " + cards.length + " نماذج توضيحية";
+    const visible = cards.filter(card => !card.hidden).length;
+    const categoryName = category === "all" ? "" : (button.textContent || "").trim();
+    count.textContent = "\u0639\u0631\u0636 " + visible + " \u0645\u0646 " + cards.length + " \u0646\u0645\u0627\u0630\u062c \u062a\u0648\u0636\u064a\u062d\u064a\u0629" + (categoryName ? " \u0641\u064a \u0641\u0626\u0629 " + categoryName : "");
   }));
   root.querySelectorAll("[data-gallery-open]").forEach(button => {
     button.addEventListener("click", () => {
