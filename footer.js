@@ -13,6 +13,14 @@ function render(){
   '<div class="footer-service-row"><span><b>التواصل:</b> واتساب والبريد الرسمي</span><span><b>الخدمات:</b> التصميم الجرافيكي</span><span><b>الأدوات:</b> حاسبات مجانية</span></div>'+
   '<nav class="footer-nav-pro" aria-label="روابط مهمة"><a href="/licenses.html">التراخيص</a><a href="/updates/">التحديثات</a><a href="/terms.html">الشروط</a><a href="/privacy.html">الخصوصية</a></nav>'+
   '<div class="footer-divider" aria-hidden="true"></div><div class="footer-bottom"><p><strong>Alaa Omran</strong> — Digital Product Designer</p><p>© 2026 Digital Execution — جميع الحقوق محفوظة.</p></div></div>';
+  if(/^\/(tools|services)\//.test(location.pathname)){
+    footer.querySelector(".footer-service-row")?.remove();
+    footer.querySelector('a[href="/updates/"]')?.remove();
+    const pill=footer.querySelector(".footer-trust-pill");
+    if(pill)pill.textContent=location.pathname.startsWith("/tools/")?"أدوات وحاسبات":"خدمات تصميم";
+    const intro=footer.querySelector(".footer-brand-block p");
+    if(intro)intro.textContent=location.pathname.startsWith("/tools/")?"مساعدة في استخدام الأدوات والحاسبات.":"للتواصل بشأن خدمات التصميم.";
+  }
   const btn=footer.querySelector("[data-copy-footer-cash]");
   btn?.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(phone);const old=btn.textContent;btn.textContent="تم نسخ الرقم";setTimeout(()=>btn.textContent=old,1400)}catch{alert("رقم فودافون كاش: "+phone)}});
 }
