@@ -60,8 +60,9 @@ try {
     await page.locator(".ds-preview-photo").evaluateAll(async images=>{
       await Promise.all(images.map(async img=>{img.loading="eager";await img.decode()}));
     });
-    await page.waitForFunction(()=>[...document.querySelectorAll(".ds-preview-photo")].every(img=>img.naturalWidth>0 && img.parentElement.classList.contains("ds-has-photo")),{timeout:10000});
-    check(true,"All eight approved photos load and replace CSS placeholders");
+    await page.waitForFunction(()=>[...document.querySelectorAll(".ds-preview-photo")].every(img=>img.naturalWidth>0 && img.parentElement.classList.contains("ds-has-photo")),null,{timeout:10000});
+    const shownPhotos=await page.locator(".ds-preview-photo").evaluateAll(images=>images.filter(img=>img.naturalWidth>0 && img.parentElement.classList.contains("ds-has-photo")).length);
+    check(shownPhotos===8,"All eight approved photos load and replace CSS placeholders");
     await page.screenshot({path:output+"/studio-"+width+"-full.png",fullPage:true,animations:"disabled"});
     await page.screenshot({path:output+"/studio-"+width+"-top.png",fullPage:false,animations:"disabled"});
     await page.locator('.ds-quick-nav a[href="#ds-social"]').click();
