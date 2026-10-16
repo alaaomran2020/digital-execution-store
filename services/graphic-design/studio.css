@@ -211,3 +211,8 @@ body.design-studio{
   .ds-service-card,.ds-button{transition:none}
   .ds-service-card:hover,.ds-button-primary:hover{transform:none}
 }
+
+/* Photo preview enhances each card only when its local image is available. */
+.ds-preview-photo{position:absolute;inset:0;z-index:8;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;pointer-events:none;transition:opacity .22s ease}
+.ds-preview.ds-has-photo .ds-preview-photo{opacity:1}
+@media(prefers-reduced-motion:reduce){.ds-preview-photo{transition:none}}
