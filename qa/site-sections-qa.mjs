@@ -56,6 +56,14 @@ assert.ok(design.includes("المشاهد البصرية أعلاه عناصر �
 assert.ok(!design.includes('href="/products/'),"Paused product link visible in design service");checks++;
 assert.ok(!studioCss.includes(".department-page .dept-card"),"Design studio must not override shared tool/service cards");checks++;
 assert.ok(studioCss.includes("body.design-studio")&&studioCss.includes("@media(max-width:560px)")&&studioCss.includes("prefers-reduced-motion"),"Scoped theme or mobile accessibility styles missing");checks++;
+// Homepage and section hubs start with an empty header that deferred JS replaces.
+// Reserving its eventual height avoids moving the first viewport after paint.
+const headerCss=read("header.css");
+for(const file of ["index.html","tools/index.html","services/index.html"]){
+  assert.match(read(file),/<header><\/header>/,"Missing expected deferred-header placeholder in "+file);checks++;
+}
+assert.ok(headerCss.includes("body > header:empty{min-height:105px"),"Desktop header space must be reserved before deferred JS");checks++;
+assert.ok(headerCss.includes("@media(max-width:900px){body > header:empty{min-height:97px}"),"Mobile header height must be reserved before deferred JS");checks++;
 console.log("PASS creative studio cards, navigation, styling, and temporary product-hide assertions");
 
 console.log("PASS "+checks+" independent department checks; product visibility: "+(productsVisible?"on":"temporarily paused"));
