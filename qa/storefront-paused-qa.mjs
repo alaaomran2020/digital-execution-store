@@ -52,4 +52,25 @@ for(const dir of guideDirs){
  checked(!/(?:\/assets\/(?:restock|career-kit|products)\/|\/assets\/social\/product-)/i.test(html),"Hidden commercial image remains in "+file);
  checked(/<h1\b/i.test(html)&&/rel=["']canonical["']/.test(html),"Guide title or canonical missing in "+file);
 }
+// Guard the six editorial related-reading blocks against unrelated cross-category suggestions.
+const relatedGuideTargets={
+  "accounting-workflow-small-business":["freelancer-management","professional-services-office-workflow"],
+  "clinic-appointments-collections":["professional-services-office-workflow","accounting-workflow-small-business"],
+  "construction-project-control":["supplier-order-planning","accounting-workflow-small-business"],
+  "freelancer-management":["graphic-designer-project-workflow","professional-services-office-workflow"],
+  "law-office-case-management":["professional-services-office-workflow","accounting-workflow-small-business"],
+  "online-orders-inventory":["inventory-management-small-shops","supplier-order-planning"]
+};
+for(const [slug,targets] of Object.entries(relatedGuideTargets)){
+ const file="guides/"+slug+"/index.html";
+ const html=read(file);
+ const list=html.match(/<h3>أدلة مرتبطة<\/h3><ul class="related-guides">([\s\S]*?)<\/ul><\/article>/);
+ checked(Boolean(list),"Related reading must be a spaced, semantic list in "+file);
+ const actual=[...list[1].matchAll(/<li><a href="\/guides\/([^/]+)\/"/g)].map(m=>m[1]);
+ checked(actual.length===2&&new Set(actual).size===2,"Expected two unique related guides in "+file);
+ checked(actual.every((target,index)=>target===targets[index]),"Irrelevant related reading in "+file);
+ for(const target of actual){
+  checked(fs.existsSync("guides/"+target+"/index.html"),"Missing related guide "+target+" in "+file);
+ }
+}
 console.log("PASS "+checks+" temporary storefront-hide regression checks; "+directories.length+" product routes replaced by reversible notices");
