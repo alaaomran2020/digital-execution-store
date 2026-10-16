@@ -15,79 +15,111 @@
 <a class="skip-link" href="#main">انتقل للمحتوى</a>
 <header class="site-top">
   <span class="brand" aria-label="Digital Execution"><span class="brand-mark">DE</span> Digital Execution</span>
-  <span class="section-name">مكتبة البرومبتات</span>
+  <a class="back-link" href="/resources/">كل الموارد المجانية ←</a>
 </header>
 <main id="main" class="wrap">
   <section class="hero" aria-labelledby="page-title">
-    <p class="eyebrow">أدوات كتابة عملية ومجانية</p>
-    <h1 id="page-title">ابدأ من فكرة جاهزة، وخلّي النتيجة على مقاس شغلك.</h1>
-    <p>اختار برومبت يناسبك، غيّر الكلمات بين الأقواس، وانسخه للأداة اللي بتستخدمها. من غير حساب أو اشتراك.</p>
+    <p class="eyebrow">مكتبة البرومبتات المجانية</p>
+    <h1 id="page-title">فكرة جاهزة. نتيجة على مقاس شغلك.</h1>
+    <p>برومبتات عربية للتصميم والتسويق وإدارة الشغل. دوّر، احفظ اللي يعجبك، وانسخه في ثواني. من غير حساب أو اشتراك.</p>
+    <p class="hero-note">نصيحة: غيّر الكلمات بين [الأقواس] بتفاصيل مشروعك قبل الاستخدام.</p>
   </section>
   <section class="library" aria-labelledby="library-title">
     <div class="section-head">
-      <div><p class="eyebrow">استكشف المكتبة</p><h2 id="library-title">برومبتات تقدر تستخدمها فورًا</h2></div>
-      <p class="count" id="result-count" role="status" aria-live="polite">8 برومبتات</p>
+      <div><p class="eyebrow">اختار حسب احتياجك</p><h2 id="library-title">12 برومبت جاهز للتعديل</h2></div>
+      <p class="count" id="result-count" role="status" aria-live="polite">12 برومبت</p>
     </div>
     <label for="prompt-search" class="search-label">ابحث بكلمة أو نوع المهمة</label>
-    <input id="prompt-search" type="search" placeholder="مثلاً: لوجو، إعلان، تنظيم، عميل" autocomplete="off" enterkeyhint="search">
+    <div class="search-row">
+      <input id="prompt-search" type="search" placeholder="مثلاً: لوجو، إعلان، خطة، عميل" autocomplete="off" enterkeyhint="search" aria-controls="prompt-grid">
+      <button id="clear-search" type="button" hidden>مسح البحث</button>
+    </div>
     <div class="filters" role="group" aria-label="تصفية حسب المجال">
       <button class="filter is-active" data-filter="all" type="button" aria-pressed="true">الكل</button>
       <button class="filter" data-filter="design" type="button" aria-pressed="false">التصميم</button>
       <button class="filter" data-filter="marketing" type="button" aria-pressed="false">التسويق</button>
       <button class="filter" data-filter="customer" type="button" aria-pressed="false">العملاء</button>
       <button class="filter" data-filter="work" type="button" aria-pressed="false">تنظيم الشغل</button>
+      <button class="filter favorites-filter" data-filter="favorites" type="button" aria-pressed="false">☆ المفضلة <span id="favorites-count">0</span></button>
     </div>
     <div id="prompt-grid" class="grid">
-      <article class="prompt-card" data-category="design">
-        <span class="tag">التصميم</span><h3>اتجاهات لهوية بصرية</h3>
+      <article class="prompt-card" data-category="design" data-prompt-id="brand-directions">
+        <div class="card-top"><span class="tag">التصميم</span><button class="favorite-btn" type="button" aria-pressed="false">☆ احفظ</button></div><h3>اتجاهات لهوية بصرية</h3>
         <p class="description">اطلب 3 أفكار مختلفة لهوية مشروع قبل ما تبدأ التصميم.</p>
         <details><summary>عرض البرومبت</summary><p class="prompt-text">أنت مصمم هوية بصرية محترف. اقترح 3 اتجاهات تصميم أصلية لعلامة اسمها [الاسم]، تعمل في مجال [المجال] وتستهدف [الجمهور]. لكل اتجاه اكتب الفكرة، الألوان المقترحة، أسلوب الخط، الانطباع المطلوب، واستخدامًا عمليًا للشعار. تجنب تقليد شعارات أو علامات موجودة.</p></details>
         <button class="copy-btn" type="button">نسخ البرومبت</button>
       </article>
-      <article class="prompt-card" data-category="design">
-        <span class="tag">التصميم</span><h3>بريف تصميم إعلان</h3>
+      <article class="prompt-card" data-category="design" data-prompt-id="ad-design-brief">
+        <div class="card-top"><span class="tag">التصميم</span><button class="favorite-btn" type="button" aria-pressed="false">☆ احفظ</button></div><h3>بريف تصميم إعلان</h3>
         <p class="description">حوّل الفكرة لبريف مرتب تقدر تسلّمه للمصمم.</p>
         <details><summary>عرض البرومبت</summary><p class="prompt-text">ساعدني أكتب بريف واضح لإعلان عن [الخدمة أو المنتج] لجمهور [الفئة]. المطلوب: هدف الإعلان، الرسالة الأساسية، عنوان قصير، دعوة واحدة لاتخاذ إجراء، ألوان مناسبة، تصور لترتيب العناصر، ومقاس مناسب لـ[المنصة]. اجعل الأسلوب بسيطًا وقابلًا للتنفيذ.</p></details>
         <button class="copy-btn" type="button">نسخ البرومبت</button>
       </article>
-      <article class="prompt-card" data-category="marketing">
-        <span class="tag">التسويق</span><h3>بوست تسويقي واضح</h3>
+      <article class="prompt-card" data-category="marketing" data-prompt-id="marketing-post">
+        <div class="card-top"><span class="tag">التسويق</span><button class="favorite-btn" type="button" aria-pressed="false">☆ احفظ</button></div><h3>بوست تسويقي واضح</h3>
         <p class="description">بوست قصير يشرح الفائدة بدون مبالغة أو وعود غير مؤكدة.</p>
         <details><summary>عرض البرومبت</summary><p class="prompt-text">اكتب بوست تسويقي باللهجة المصرية عن [الخدمة] موجه إلى [الجمهور]. ابدأ بالمشكلة التي تساعد الخدمة في حلها، ثم 3 فوائد حقيقية أعطيك إياها: [الفوائد]. اختم بدعوة بسيطة للتواصل. لا تخترع نتائج أو أرقامًا أو تقييمات عملاء.</p></details>
         <button class="copy-btn" type="button">نسخ البرومبت</button>
       </article>
-      <article class="prompt-card" data-category="marketing">
-        <span class="tag">التسويق</span><h3>خطة محتوى أسبوعية</h3>
+      <article class="prompt-card" data-category="marketing" data-prompt-id="weekly-content">
+        <div class="card-top"><span class="tag">التسويق</span><button class="favorite-btn" type="button" aria-pressed="false">☆ احفظ</button></div><h3>خطة محتوى أسبوعية</h3>
         <p class="description">سبعة أفكار محتوى قابلة للتنفيذ على السوشيال.</p>
         <details><summary>عرض البرومبت</summary><p class="prompt-text">خطط 7 أفكار منشورات لصفحة [اسم النشاط] على [المنصة] تستهدف [الجمهور]. وزّع الأفكار بين التعليم، الأسئلة، عرض الخدمات، وأمثلة العمل. لكل يوم قدّم موضوعًا، عنوانًا جذابًا، نصًا مختصرًا، وفكرة بسيطة للصورة. لا تفترض وجود خصومات أو شهادات عملاء.</p></details>
         <button class="copy-btn" type="button">نسخ البرومبت</button>
       </article>
-      <article class="prompt-card" data-category="customer">
-        <span class="tag">العملاء</span><h3>رد احترافي على استفسار</h3>
+      <article class="prompt-card" data-category="customer" data-prompt-id="customer-reply">
+        <div class="card-top"><span class="tag">العملاء</span><button class="favorite-btn" type="button" aria-pressed="false">☆ احفظ</button></div><h3>رد احترافي على استفسار</h3>
         <p class="description">رد مهذب وسريع على رسالة عميل بدون كلام آلي.</p>
         <details><summary>عرض البرومبت</summary><p class="prompt-text">اكتب ردًا مختصرًا بالعامية المصرية على استفسار عميل يقول: [نص الرسالة]. معلومات الخدمة المؤكدة هي: [التفاصيل]. اجعل الرد ودودًا وواضحًا، وأجب عن السؤال مباشرة ثم أضف سؤال متابعة واحدًا عند الحاجة. لا تفترض أسعارًا أو مواعيد أو ضمانات غير مذكورة.</p></details>
         <button class="copy-btn" type="button">نسخ البرومبت</button>
       </article>
-      <article class="prompt-card" data-category="customer">
-        <span class="tag">العملاء</span><h3>متابعة عرض سعر</h3>
+      <article class="prompt-card" data-category="customer" data-prompt-id="quote-followup">
+        <div class="card-top"><span class="tag">العملاء</span><button class="favorite-btn" type="button" aria-pressed="false">☆ احفظ</button></div><h3>متابعة عرض سعر</h3>
         <p class="description">رسالة متابعة محترمة بدون ضغط على العميل.</p>
         <details><summary>عرض البرومبت</summary><p class="prompt-text">اكتب رسالة واتساب قصيرة لمتابعة عميل طلب عرض سعر بخصوص [الخدمة] منذ [المدة]. الهدف التأكد إن العرض وصله والإجابة عن أي استفسار. استخدم عامية مصرية طبيعية، بدون إلحاح أو عروض مزيفة. قدّم نسختين: ودودة ورسمية قليلًا.</p></details>
         <button class="copy-btn" type="button">نسخ البرومبت</button>
       </article>
-      <article class="prompt-card" data-category="work">
-        <span class="tag">تنظيم الشغل</span><h3>ترتيب مهام اليوم</h3>
+      <article class="prompt-card" data-category="work" data-prompt-id="daily-priorities">
+        <div class="card-top"><span class="tag">تنظيم الشغل</span><button class="favorite-btn" type="button" aria-pressed="false">☆ احفظ</button></div><h3>ترتيب مهام اليوم</h3>
         <p class="description">حوّل قائمة مشتتة لثلاث أولويات وخطوات واضحة.</p>
         <details><summary>عرض البرومبت</summary><p class="prompt-text">هذه قائمة مهامي: [المهام]. ساعدني أرتبها حسب الأهمية والموعد والتأثير على الشغل. قسّمها إلى: لازم يتعمل النهارده، ممكن يتأجل، وممكن يتفوّض. اقترح أول 3 خطوات صغيرة أبدأ بها، واذكر أي معلومات ناقصة بدل افتراضها.</p></details>
         <button class="copy-btn" type="button">نسخ البرومبت</button>
       </article>
-      <article class="prompt-card" data-category="work">
-        <span class="tag">تنظيم الشغل</span><h3>خطة مشروع صغير</h3>
+      <article class="prompt-card" data-category="work" data-prompt-id="small-project-plan">
+        <div class="card-top"><span class="tag">تنظيم الشغل</span><button class="favorite-btn" type="button" aria-pressed="false">☆ احفظ</button></div><h3>خطة مشروع صغير</h3>
         <p class="description">حوّل فكرة مبعثرة لخطة عملية بخطوات وتكلفة تقديرية.</p>
         <details><summary>عرض البرومبت</summary><p class="prompt-text">عندي فكرة مشروع: [الفكرة]. الميزانية المتاحة [الميزانية] والمدة [المدة]. اقترح خطة بداية من 5 خطوات قابلة للتنفيذ، مع الموارد المطلوبة والمخاطر الرئيسية وطريقة بسيطة لاختبار الفكرة قبل صرف ميزانية كبيرة. افصل بين البيانات المؤكدة والتقديرات ولا تخترع أسعارًا.</p></details>
         <button class="copy-btn" type="button">نسخ البرومبت</button>
       </article>
+      <article class="prompt-card" data-category="design" data-prompt-id="original-product-image">
+        <div class="card-top"><span class="tag">التصميم</span><button class="favorite-btn" type="button" aria-pressed="false">☆ احفظ</button></div><h3>فكرة صورة إعلانية أصلية</h3>
+        <p class="description">حوّل وصف منتج لفكرة تصوير مناسبة لإعلان جذاب.</p>
+        <details><summary>عرض البرومبت</summary><p class="prompt-text">ابتكر 3 أفكار أصلية لصورة إعلان عن [المنتج] تستهدف [الجمهور] على [المنصة]. اذكر في كل فكرة: زاوية التصوير، الإضاءة، الخلفية، الألوان، مكان النص، والمقاس. استخدم تفاصيل المنتج المؤكدة [التفاصيل] فقط، ولا تضف شعارًا أو علامة تجارية غير مقدمة لك.</p></details>
+        <button class="copy-btn" type="button">نسخ البرومبت</button>
+      </article>
+      <article class="prompt-card" data-category="marketing" data-prompt-id="service-description">
+        <div class="card-top"><span class="tag">التسويق</span><button class="favorite-btn" type="button" aria-pressed="false">☆ احفظ</button></div><h3>وصف خدمة يقنع بوضوح</h3>
+        <p class="description">اشرح الفائدة والمخرجات بدون كلام تسويقي مبالغ فيه.</p>
+        <details><summary>عرض البرومبت</summary><p class="prompt-text">اكتب وصفًا واضحًا لخدمة [اسم الخدمة] موجّهًا إلى [الجمهور]. التفاصيل المؤكدة هي [التفاصيل]. قدّم عنوانًا قصيرًا، المشكلة التي تعالجها الخدمة، ما يتسلمه العميل، خطوات العمل، ونداءً واحدًا للتواصل. لا تضف أسعارًا أو ضمانات أو نتائج غير مثبتة.</p></details>
+        <button class="copy-btn" type="button">نسخ البرومبت</button>
+      </article>
+      <article class="prompt-card" data-category="customer" data-prompt-id="project-requirements">
+        <div class="card-top"><span class="tag">العملاء</span><button class="favorite-btn" type="button" aria-pressed="false">☆ احفظ</button></div><h3>جمع متطلبات العميل</h3>
+        <p class="description">اسأل الأسئلة المهمة قبل بدء أي تصميم أو مشروع.</p>
+        <details><summary>عرض البرومبت</summary><p class="prompt-text">حضّر رسالة قصيرة ولطيفة لعميل يريد [نوع الخدمة]. اسأله عن الهدف، الجمهور، الأمثلة التي تعجبه، الملفات المتاحة، الموعد المتوقع، وطريقة التواصل المفضلة. رتّب الأسئلة حسب الأولوية ولا تسأل عن معلومات لا نحتاجها لتنفيذ الخدمة.</p></details>
+        <button class="copy-btn" type="button">نسخ البرومبت</button>
+      </article>
+      <article class="prompt-card" data-category="work" data-prompt-id="weekly-execution">
+        <div class="card-top"><span class="tag">تنظيم الشغل</span><button class="favorite-btn" type="button" aria-pressed="false">☆ احفظ</button></div><h3>خطة تنفيذ أسبوعية</h3>
+        <p class="description">حوّل هدف كبير لمهام صغيرة ومواعيد مراجعة.</p>
+        <details><summary>عرض البرومبت</summary><p class="prompt-text">الهدف هذا الأسبوع هو [الهدف]، والوقت المتاح [الساعات]، والموارد [الموارد]. اقترح خطة من 5 أيام فيها مهمة رئيسية واحدة كل يوم، النتيجة المطلوبة، والوقت التقديري. وضّح ما يعتمد على خطوة سابقة وما يمكن تأجيله. اختم بقائمة مراجعة قصيرة للتأكد من الإنجاز.</p></details>
+        <button class="copy-btn" type="button">نسخ البرومبت</button>
+      </article>
     </div>
-    <p class="no-results" id="empty-state" role="status" hidden>مفيش برومبت مطابق. جرّب كلمة تانية أو اختار «الكل».</p>
+    <div class="no-results" id="empty-state" role="status" hidden>
+      <p id="empty-message">مفيش برومبت مطابق. جرّب كلمة تانية أو اختار «الكل».</p>
+      <button id="reset-filters" class="reset-btn" type="button">عرض كل البرومبتات</button>
+    </div>
     <p class="feedback" id="copy-status" role="status" aria-live="polite"></p>
   </section>
 </main>
