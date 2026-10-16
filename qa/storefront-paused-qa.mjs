@@ -73,4 +73,19 @@ for(const [slug,targets] of Object.entries(relatedGuideTargets)){
   checked(fs.existsSync("guides/"+target+"/index.html"),"Missing related guide "+target+" in "+file);
  }
 }
+
+// Keep public free-tool, footer, and CV language aligned with the paused paid storefront.
+const inventoryHtml=read("tools/inventory-health-check/index.html");
+const inventoryJs=read("tools/inventory-health-check/inventory-health-check.js");
+checked(!/ReStock Desk|699 جنيه|health_check_product_click/i.test(inventoryHtml+inventoryJs),"Public free inventory tool must not promote hidden paid ReStock Desk");
+checked(!inventoryHtml.includes("assets/restock/restock-og.png"),"Free inventory sharing card must use neutral image");
+checked(inventoryHtml.includes("الأدوات المجانية"),"Free inventory routes must describe where they lead");
+const cvStudio=read("tools/career-cv-studio/index.html");
+checked(cvStudio.includes('aria-label="العودة إلى الأدوات المجانية"'),"CV Studio back link must accurately name the free tools page");
+const canonicalFooter=read("footer.js");
+checked(!canonicalFooter.includes("إثبات الدفع"),"Public contact footer must not request payment proof");
+const legacyScript=read("script.js");
+checked(!legacyScript.includes("متجر منتجات رقمية جاهزة"),"Legacy script must not render paused store merchandising copy");
+checked(legacyScript.includes('pathname==="/footer.js"') && legacyScript.includes("if(standaloneFooter)return"),"Legacy script must defer to the canonical footer.js");
+
 console.log("PASS "+checks+" temporary storefront-hide regression checks; "+directories.length+" product routes replaced by reversible notices");

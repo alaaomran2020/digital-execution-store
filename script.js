@@ -373,74 +373,35 @@ function setupProductCards(){
 setupProductCards();
 
 
-// Professional site footer: shared across pages that load the main script.
+// Use the single canonical footer renderer when footer.js is included.
 function setupProfessionalFooter(){
+  const standaloneFooter=[...document.scripts].some(script=>{
+    try{return new URL(script.src,location.href).pathname==="/footer.js"}catch{return false}
+  });
+  if(standaloneFooter)return;
   const footer=document.querySelector("footer");
-  if(!footer) return;
-
+  if(!footer)return;
   footer.className="site-footer-pro";
   footer.innerHTML=
     '<div class="container">'+
       '<div class="footer-brand-block">'+
         '<span class="footer-brand-mark" aria-hidden="true">DE</span>'+
-        '<span class="footer-trust-pill"><i aria-hidden="true"></i> متجر منتجات رقمية جاهزة</span>'+
+        '<span class="footer-trust-pill"><i aria-hidden="true"></i> خدمات وأدوات رقمية</span>'+
         '<strong>Digital Execution</strong>'+
-        '<p>منتجات رقمية عملية تساعدك تنجز المهمة أسرع، مع سعر وترخيص وطريقة شراء واستلام واضحة قبل الدفع.</p>'+
+        '<p>أدوات مجانية وخدمات حسب الطلب، مع دعم العملاء الحاليين.</p>'+
       '</div>'+
-      '<div class="footer-contact-grid" aria-label="بيانات التواصل والدفع">'+
-        '<a class="footer-contact-card" href="mailto:contact@digital-execution.cc" data-track="footer_email_click" data-source="footer" data-cta-location="contact">'+
-          '<span class="footer-contact-icon" aria-hidden="true">@</span>'+
-          '<span>البريد الرسمي</span>'+
-          '<strong>contact@digital-execution.cc</strong>'+
-          '<small>للتواصل والاستفسارات</small>'+
-        '</a>'+
-        '<a class="footer-contact-card" href="https://wa.me/201011673107" target="_blank" rel="noopener noreferrer" data-track="footer_whatsapp_click" data-source="footer" data-cta-location="contact">'+
-          '<span class="footer-contact-icon" aria-hidden="true">WA</span>'+
-          '<span>واتساب</span>'+
-          '<strong>01011673107</strong>'+
-          '<small>للتواصل وإرسال إثبات الدفع</small>'+
-        '</a>'+
-        '<div class="footer-contact-card">'+
-          '<span class="footer-contact-icon" aria-hidden="true">VC</span>'+
-          '<span>فودافون كاش</span>'+
-          '<strong>01011673107</strong>'+
-          '<button class="footer-copy-btn" type="button" data-copy-footer-cash>نسخ رقم الدفع</button>'+
-        '</div>'+
-      '</div>'+
-      '<div class="footer-service-row" aria-label="معلومات الخدمة">'+
-        '<span><b>الدفع:</b> فودافون كاش</span>'+
-        '<span><b>التواصل:</b> واتساب والبريد الرسمي</span>'+
-        '<span><b>الاستلام:</b> رقمي بعد التحقق من الدفع</span>'+
+      '<div class="footer-contact-grid" aria-label="وسائل التواصل">'+
+        '<a class="footer-contact-card" href="mailto:contact@digital-execution.cc"><span>البريد الرسمي</span><strong>contact@digital-execution.cc</strong><small>للاستفسارات ومتابعة الدعم</small></a>'+
+        '<a class="footer-contact-card" href="https://wa.me/'+STORE_CONTEXT.whatsapp+'" target="_blank" rel="noopener noreferrer"><span>واتساب</span><strong>'+STORE_CONTEXT.phone+'</strong><small>للتواصل والاستفسارات</small></a>'+
       '</div>'+
       '<nav class="footer-nav-pro" aria-label="روابط مهمة">'+
-        '<a href="/products/">المنتجات</a>'+
-        '<a href="/licenses.html">التراخيص</a>'+
-        '<a href="/updates/">التحديثات</a>'+
-        '<a href="/terms.html">الشروط</a>'+
-        '<a href="/privacy.html">الخصوصية</a>'+
+        '<a href="/tools/">الأدوات المجانية</a><a href="/services/">الخدمات</a><a href="/licenses.html">التراخيص</a>'+
+        '<a href="/updates/">التحديثات</a><a href="/terms.html">الشروط</a><a href="/privacy.html">الخصوصية</a>'+
       '</nav>'+
-      '<div class="footer-divider" aria-hidden="true"></div>'+
-      '<div class="footer-bottom">'+
-        '<p>رقم واتساب هو نفسه رقم فودافون كاش المعتمد للدفع.</p>'+
-        '<p>© 2026 Digital Execution — جميع الحقوق محفوظة.</p>'+
-      '</div>'+
+      '<div class="footer-bottom"><p>© 2026 Digital Execution — جميع الحقوق محفوظة.</p></div>'+
     '</div>';
-
-  const cashCopy=footer.querySelector("[data-copy-footer-cash]");
-  cashCopy?.addEventListener("click",async()=>{
-    try{
-      await navigator.clipboard.writeText(STORE_CONTEXT.phone);
-      const old=cashCopy.textContent;
-      cashCopy.textContent="تم نسخ الرقم";
-      trackEvent("footer_cash_copy",{source:"footer",cta_location:"payment"});
-      setTimeout(()=>cashCopy.textContent=old,1400);
-    }catch{
-      alert("رقم فودافون كاش: "+STORE_CONTEXT.phone);
-    }
-  });
 }
 setupProfessionalFooter();
-
 
 const PRODUCT_REGISTRY_URL="/data/products.json";
 let productRegistryPromise;
