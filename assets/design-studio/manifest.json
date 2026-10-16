@@ -1,0 +1,66 @@
+[
+  {
+    "category": "تصميم الشعارات والهوية البصرية",
+    "anchor": "ds-brand",
+    "image": "images/brand-identity.webp",
+    "alt": "تصميم الشعارات والهوية البصرية",
+    "landscapeKB": 56,
+    "portraitKB": 39
+  },
+  {
+    "category": "تصميم منشورات السوشيال ميديا",
+    "anchor": "ds-social",
+    "image": "images/social-media.webp",
+    "alt": "تصميم منشورات السوشيال ميديا",
+    "landscapeKB": 66,
+    "portraitKB": 43
+  },
+  {
+    "category": "تصميم الإعلانات والحملات",
+    "anchor": "ds-ads",
+    "image": "images/digital-ads.webp",
+    "alt": "تصميم الإعلانات والحملات",
+    "landscapeKB": 93,
+    "portraitKB": 54
+  },
+  {
+    "category": "تصميم التغليف والملصقات",
+    "anchor": "ds-packaging",
+    "image": "images/packaging.webp",
+    "alt": "تصميم التغليف والملصقات",
+    "landscapeKB": 54,
+    "portraitKB": 36
+  },
+  {
+    "category": "المطبوعات والمواد التجارية",
+    "anchor": "ds-print",
+    "image": "images/print-design.webp",
+    "alt": "المطبوعات والمواد التجارية",
+    "landscapeKB": 66,
+    "portraitKB": 44
+  },
+  {
+    "category": "العروض التقديمية والملفات التعريفية",
+    "anchor": "ds-presentations",
+    "image": "images/presentations.webp",
+    "alt": "العروض التقديمية والملفات التعريفية",
+    "landscapeKB": 58,
+    "portraitKB": 38
+  },
+  {
+    "category": "تصميمات المتاجر والمنتجات",
+    "anchor": "ds-commerce",
+    "image": "images/ecommerce-visuals.webp",
+    "alt": "تصميمات المتاجر والمنتجات",
+    "landscapeKB": 34,
+    "portraitKB": 24
+  },
+  {
+    "category": "تصميمات مخصصة ومناسبات",
+    "anchor": "ds-special",
+    "image": "images/custom-design.webp",
+    "alt": "تصميمات مخصصة ومناسبات",
+    "landscapeKB": 67,
+    "portraitKB": 39
+  }
+]
