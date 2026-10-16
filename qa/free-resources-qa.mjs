@@ -30,10 +30,14 @@ const expected=[
   "/tools/pricing-calculator/",
   "/tools/break-even-calculator/",
   "/tools/inventory-health-check/",
-  "/tools/career-cv-studio/"
+  "/tools/career-cv-studio/",
+  "/guides/inventory-management-small-shops/",
+  "/guides/online-orders-inventory/",
+  "/guides/ats-cv-arabic/",
+  "/guides/freelancer-management/"
 ];
 assert.deepEqual([...targets].sort(),[...expected].sort(),"Only reviewed standalone free resources should be linked");
-for(const target of [...expected,"/tools/"]){
+for(const target of [...expected,"/tools/","/guides/"]){
   assert.ok(fs.existsSync(target.slice(1)+"index.html"),"Broken internal resource route: "+target);
 }
 for(const target of expected.filter(path=>path.startsWith("/tools/"))){
@@ -44,7 +48,13 @@ for(const [name,source] of [["Hub HTML",directory],["Hub CSS",directoryCss],["Pr
   assert.ok(!/https?:\/\//i.test(source),name+" must not load third-party dependencies");
   assert.ok(!/\/products\//i.test(source),name+" must not expose paused commercial products");
 }
-assert.ok(!/\/guides\//i.test(directory),"Do not link guides pending commercial-link cleanup");
+assert.ok(directory.includes('href="/guides/"'),"Must link to the existing guides directory instead of duplicating it");
+assert.equal((directory.match(/href="#guides"/g)||[]).length,1,"Guide navigation must appear once");
+for(const target of expected.filter(path=>path.startsWith("/guides/"))){
+  const html=read(target.slice(1)+"index.html");
+  assert.ok(!/(?:href|action)\\s*=\\s*["'][^"']*\\/(?:products|checkout|after-purchase)(?:\\/|[?#"'])/i.test(html),"Guide still has hidden commercial links: "+target);
+  assert.ok(!/data-guide-product|data-product-slug|guide_product_click/i.test(html),"Guide has paused-product tracking: "+target);
+}
 assert.ok(!/<script\b/i.test(directory),"Free directory must render without JavaScript");
 assert.ok(!directory.includes("data-product-card"),"Paid catalogue card may not appear in free resources");
 const map=read("sitemap.xml");
@@ -53,4 +63,4 @@ for(const path of ["/resources/prompts/","/resources/"]){
   assert.ok(!read("header.js").includes('href="'+path+'"'),"Draft resource path must stay off global navigation");
   assert.ok(!read("footer.js").includes('href="'+path+'"'),"Draft resource path must stay off global footer");
 }
-console.log("PASS: 5 reviewed free routes, isolated directory, prompts, draft indexing and hidden product guards");
+console.log("PASS: 9 reviewed free routes, isolated guides/tools/prompts, draft indexing and hidden product guards");
