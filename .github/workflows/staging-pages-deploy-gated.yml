@@ -1,0 +1,42 @@
+name: Staging Pages Build Validation (no deployment)
+
+on:
+  pull_request:
+    branches: [staging]
+    paths:
+      - '.github/workflows/staging-pages-deploy-gated.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: isolated-staging-pages-validation
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    name: Validate staging build without deployment
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Validate staging content and build
+        env:
+          CF_PAGES_BRANCH: staging
+        run: |
+          node qa/storefront-paused-qa.mjs
+          node qa/site-sections-qa.mjs
+          node qa/build-staging.mjs
+          test -f dist-staging/_headers
+          test ! -e dist-staging/CNAME
+          test -f dist-staging/services/graphic-design/gallery.js
+      - name: Verify isolated build output
+        run: |
+          test -f dist-staging/staging-build.json
+          test ! -e dist-staging/CNAME
+
