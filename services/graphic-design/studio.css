@@ -216,3 +216,8 @@ body.design-studio{
 .ds-preview-photo{position:absolute;inset:0;z-index:8;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;pointer-events:none;transition:opacity .22s ease}
 .ds-preview.ds-has-photo .ds-preview-photo{opacity:1}
 @media(prefers-reduced-motion:reduce){.ds-preview-photo{transition:none}}
+
+/* Show an approved portfolio preview in the hero; retain the original CSS art as a fallback. */
+.ds-poster-preview{position:absolute;inset:0;z-index:1;display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.ds-poster::after{content:"";position:absolute;inset:48% 0 0;z-index:2;pointer-events:none;background:linear-gradient(0deg,rgba(18,11,38,.88),transparent)}
+.ds-poster>span{z-index:3;color:#fff;text-shadow:0 2px 12px rgba(9,6,28,.65)}
