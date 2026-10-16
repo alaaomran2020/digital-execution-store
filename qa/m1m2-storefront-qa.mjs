@@ -47,4 +47,16 @@ pass(landingJs.includes("costInput.validity.valid") && landingJs.includes("Numbe
 pass(!/fetch\s*\(|XMLHttpRequest|localStorage|sessionStorage|sendBeacon|\.zip["']/i.test(landingJs),"Landing preview must not transmit/store data or download commercial files");
 pass(landingCss.length<9000,"Landing-only CSS exceeded 9KB cap");
 pass(landingCss.includes("@media(max-width:480px)") && landingCss.includes("@media(max-width:730px)") && landingCss.includes("prefers-reduced-motion"),"Landing mobile/reduced-motion styles missing");
+// Customer-facing copy stays free-first while the paid catalog is paused.
+const resourcesCopy=read("resources/index.html");
+pass(!resourcesCopy.includes("منتجات مخفية"),"Internal catalog state must not appear in customer-facing resources copy");
+const sharedHeader=read("header.js");
+const sharedFooter=read("footer.js");
+pass(sharedHeader.includes("الدعم والتحديثات") && !sharedHeader.includes("تحديثات واضحة للمنتجات"),"Global announcement should describe the current support page accurately");
+pass(sharedFooter.includes("للاستفسارات والدعم") && !sharedFooter.includes("إرسال إثبات الدفع"),"Global contact footer should not invite new paid checkout");
+pass(!sharedFooter.includes("بيانات التواصل والدفع"),"Global footer must describe contact methods, not inactive checkout");
+for (const legalPage of ["privacy.html","terms.html","licenses.html"]){
+  const legalHtml=read(legalPage);
+  pass(!legalHtml.includes('href="products/"') && legalHtml.includes('href="/tools/"'),legalPage+" must not navigate to the paused paid catalog");
+}
 console.log("PASS "+checks+" M1/M2 fast, Egyptian, accessible Free-first UI checks; CSS="+lightweight+" bytes vs prior "+former+" ("+Math.round((1-lightweight/former)*100)+"% reduction)");
