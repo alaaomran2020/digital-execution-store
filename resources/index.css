@@ -1,0 +1,19 @@
+/* This index reuses the existing free prompt library visual tokens.
+   Separate local styles keep tools, guides and commerce pages untouched. */
+.quick-nav{display:flex;flex-wrap:wrap;gap:10px;padding:0 0 24px;border-bottom:1px solid var(--line)}
+.quick-nav a{display:inline-flex;align-items:center;min-height:44px;padding:9px 16px;color:var(--text);text-decoration:none;background:var(--card);border:1px solid #49617b;border-radius:100px}
+.quick-nav a:hover,.resource-card:hover{border-color:var(--accent)}
+.resource-section{padding:38px 0 8px;scroll-margin-top:20px}
+.category-head{max-width:760px;margin-bottom:18px}
+.category-head h2{font-size:clamp(1.3rem,3vw,1.7rem);margin:0}
+.category-head p,.resource-card p,.section-note{color:var(--muted)}
+.category-head p{margin:6px 0}
+.resource-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.resource-card{min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:22px;border-radius:16px;background:var(--card);border:1px solid var(--line);color:var(--text);text-decoration:none}
+.resource-card h3{font-size:1.17rem;line-height:1.45;margin:0}
+.resource-card p{margin:0 0 9px}
+.type{font-size:.83rem;color:#ace4dc;border:1px solid #365e63;border-radius:100px;padding:3px 12px}
+.action{color:#b8eee7;font-weight:800;margin-top:auto}
+.section-note{font-size:.93rem;max-width:720px}
+.section-note a{color:#b8eee7;text-underline-offset:4px}
+@media(max-width:700px){.resource-grid{grid-template-columns:1fr}.resource-card{padding:18px}.resource-section{padding-top:32px}.quick-nav a{font-size:.91rem}}
