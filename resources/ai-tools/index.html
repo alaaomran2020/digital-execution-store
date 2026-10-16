@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#081422">
+<meta name="robots" content="noindex,nofollow">
+<title>دليل أدوات الذكاء الاصطناعي ومساعد الاختيار | Digital Execution</title>
+<meta name="description" content="اختار فئة أدوات الذكاء الاصطناعي المناسبة لمهمتك في ثلاث خطوات بسيطة. دليل عربي للتعلّم بدون تسجيل أو API.">
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+<link rel="stylesheet" href="../prompts/styles.css">
+<script src="./finder.js" defer></script>
+<style>
+.ai-hero{max-width:850px}
+.ai-hero .hero-note{display:block!important;width:fit-content}
+.ai-intro{margin-bottom:30px}
+.ai-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:22px;align-items:start}
+.ai-panel{padding:25px;border:1px solid #42667c;border-radius:20px;background:linear-gradient(155deg,#163148,#102137 85%)}
+.ai-panel h2{font-size:1.5rem}
+.ai-panel>p,.ai-label,.ai-result p,.ai-card p{color:var(--muted)}
+.ai-panel>p{margin:8px 0 22px}
+.ai-step{border:0;margin:0 0 20px;padding:0;min-width:0}
+.ai-step legend{font-weight:800;margin-bottom:9px}
+.ai-step select{width:100%;min-height:48px;border:1px solid #7792aa;border-radius:11px;padding:10px 12px;background:#102a43;color:var(--text);font:inherit}
+.ai-step select:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.ai-submit{min-height:48px;border:0;border-radius:11px;background:#9de0d7;color:#05242b;padding:10px 22px;font-weight:800}
+.ai-reset{min-height:44px;border:1px solid #658098;border-radius:11px;background:transparent;color:var(--text);padding:8px 16px;margin-inline-start:7px}
+.ai-result{margin-top:18px;background:#092d32;border:1px solid #4b9d97;border-radius:16px;padding:18px}
+.ai-result h3{color:#d8fff9;font-size:1.25rem}
+.ai-result p{margin:9px 0}
+.ai-result a{display:inline-flex;align-items:center;min-height:44px;color:#bdf7ee;font-weight:800;text-underline-offset:4px}
+.ai-result[hidden]{display:none}
+.ai-categories h2{margin-bottom:8px}
+.ai-categories>p{color:var(--muted);margin:0 0 17px}
+.ai-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.ai-card{border:1px solid var(--line);border-radius:16px;padding:19px;background:var(--card);min-width:0;scroll-margin-top:20px}
+.ai-card:target{border-color:var(--accent);box-shadow:0 0 0 2px #91dcd542}
+.ai-card h3{margin:9px 0;font-size:1.07rem}
+.ai-card p{margin:0 0 11px;font-size:.94rem}
+.ai-card .examples{font-size:.88rem;color:#d3e7f6;margin-bottom:8px}
+.ai-card a{color:#bff4ea;font-weight:700;text-underline-offset:4px;display:inline-flex;align-items:center;min-height:35px}
+.ai-small{font-size:.88rem;color:var(--muted);max-width:920px;margin:18px 0 0}
+@media(max-width:880px){.ai-layout{grid-template-columns:1fr}.ai-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.ai-card-grid{grid-template-columns:1fr}.ai-panel{padding:19px}.ai-hero{padding-bottom:25px}.ai-reset{margin-inline-start:3px}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">انتقل للمحتوى</a>
+<header class="site-top">
+ <span class="brand" aria-label="Digital Execution"><span class="brand-mark">DE</span>Digital Execution</span>
+ <a class="back-link" href="/resources/">كل الموارد المجانية ←</a>
+</header>
+<main id="main" class="wrap">
+ <section class="hero ai-hero" aria-labelledby="page-title">
+  <p class="eyebrow">اختيار أسهل، بدون تعقيد</p>
+  <h1 id="page-title">أنهي نوع أداة ذكاء اصطناعي يناسب شغلك؟</h1>
+  <p>5 مجالات واضحة، ومساعد بسيط يسألك 3 أسئلة ويقترح تبدأ منين. من غير حساب، ولا اشتراك في المتجر، ولا توصيل بأي خدمة خارجية.</p>
+  <p class="hero-note">المساعد بيرشّح فئة وأمثلة، مش بيشغّل ذكاء اصطناعي أو يضمن نتيجة من أداة خارجية.</p>
+ </section>
+ <div class="ai-layout">
+  <section class="ai-panel" aria-labelledby="finder-title">
+   <h2 id="finder-title">مساعد اختيار الأداة</h2>
+   <p>جاوب عن 3 أسئلة قصيرة وخد اقتراح يناسب شغلك.</p>
+   <form id="ai-finder">
+    <fieldset class="ai-step">
+     <legend>1. عايز تعمل إيه؟</legend>
+     <label class="ai-label" for="ai-goal">اختار نوع المهمة</label>
+     <select name="goal" id="ai-goal" required>
+      <option value="" disabled selected>اختار المهمة</option>
+      <option value="writing">كتابة وتسويق ومحتوى</option>
+      <option value="visual">صور وتصميم</option>
+      <option value="research">بحث وتعلّم</option>
+      <option value="coding">برمجة ومواقع</option>
+      <option value="business">إدارة وتنظيم وحسابات</option>
+     </select>
+    </fieldset>
+    <fieldset class="ai-step">
+     <legend>2. محتاج النتيجة في صورة إيه؟</legend>
+     <label class="ai-label" for="ai-format">نوع النتيجة</label>
+     <select name="format" id="ai-format" required>
+      <option value="" disabled selected>اختار شكل النتيجة</option>
+      <option value="text">نص أو أفكار</option>
+      <option value="image">صورة أو تصميم</option>
+      <option value="code">كود أو موقع</option>
+      <option value="numbers">أرقام أو تنظيم بيانات</option>
+     </select>
+    </fieldset>
+    <fieldset class="ai-step">
+     <legend>3. تحب تبدأ إزاي؟</legend>
+     <label class="ai-label" for="ai-mode">أسلوب البداية</label>
+     <select name="mode" id="ai-mode" required>
+      <option value="" disabled selected>اختار أسلوبك</option>
+      <option value="quick">خطوة سريعة وبسيطة</option>
+      <option value="learn">أفهم وأتعلّم الأول</option>
+      <option value="detailed">تفاصيل وخيارات أكتر</option>
+     </select>
+    </fieldset>
+    <button class="ai-submit" type="submit">اعرض اقتراحي</button>
+    <button class="ai-reset" type="reset">ابدأ من جديد</button>
+   </form>
+   <div class="ai-result" id="ai-result" role="status" aria-live="polite" aria-atomic="true" hidden>
+    <p class="eyebrow">اقتراح مناسب لبدايتك</p>
+    <h3 id="ai-result-title"></h3>
+    <p id="ai-result-description"></p>
+    <p id="ai-result-examples"></p>
+    <p id="ai-result-tip"></p>
+    <a id="ai-result-link" href="#ai-categories">شوف تفاصيل التصنيف ←</a>
+   </div>
+  </section>
+  <section class="ai-categories" id="ai-categories" aria-labelledby="categories-title">
+   <h2 id="categories-title">تصفح أدوات الذكاء الاصطناعي حسب المجال</h2>
+   <p>أمثلة للتعرّف على الأنواع، مش عروض أو روابط اشتراك.</p>
+   <div class="ai-card-grid">
+    <article id="category-writing" class="ai-card">
+     <span class="tag">الكتابة</span><h3>كتابة وتسويق</h3>
+     <p>صياغة أفكار، بوستات، خطط محتوى، ورسائل عملاء.</p>
+     <p class="examples">أمثلة: ChatGPT، Claude، Gemini</p>
+     <a href="/resources/prompts/">ابدأ بالبرومبتات المجانية ←</a>
+    </article>
+    <article id="category-visual" class="ai-card">
+     <span class="tag">الصور</span><h3>تصميم وصور</h3>
+     <p>أفكار بصرية وصور وتصميمات تحتاج مراجعة بشرية قبل الاستخدام.</p>
+     <p class="examples">أمثلة: Canva، Adobe Firefly</p>
+     <a href="/resources/prompts/">جرّب برومبتات التصميم ←</a>
+    </article>
+    <article id="category-research" class="ai-card">
+     <span class="tag">البحث</span><h3>بحث وتعلّم</h3>
+     <p>جمع أفكار وشرح موضوعات، مع مراجعة المصادر المهمة.</p>
+     <p class="examples">أمثلة: Perplexity، Gemini</p>
+     <a href="/guides/">اقرأ الأدلة الموجودة ←</a>
+    </article>
+    <article id="category-coding" class="ai-card">
+     <span class="tag">الكود</span><h3>برمجة ومواقع</h3>
+     <p>شرح الكود، اقتراح حلول، ومراجعتها واختبارها قبل النشر.</p>
+     <p class="examples">أمثلة: GitHub Copilot، ChatGPT</p>
+     <a href="/resources/prompts/">شوف مكتبة البرومبتات ←</a>
+    </article>
+    <article id="category-business" class="ai-card">
+     <span class="tag">الإدارة</span><h3>إدارة وتحليل</h3>
+     <p>تنظيم المهام والأرقام. استخدم حاسبة فعلية للتحقق من النتائج.</p>
+     <p class="examples">أمثلة للمساعدة النصية: ChatGPT، Gemini</p>
+     <a href="/tools/pricing-calculator/">افتح حاسبة التسعير ←</a>
+    </article>
+   </div>
+  </section>
+ </div>
+ <p class="ai-small">الأسماء المذكورة أمثلة خارجية فقط؛ توافر المميزات والحسابات والخطط يختلف من خدمة للتانية. الصفحة لا تتصل بأي منها، ولا تجمع إجاباتك أو تبعتها لأي جهة.</p>
+</main>
+<footer class="site-foot"><span>Digital Execution</span><span>اختار اللي يساعدك، وابدأ ببساطة.</span></footer>
+</body>
+</html>

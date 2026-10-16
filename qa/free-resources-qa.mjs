@@ -8,6 +8,8 @@ const promptCss=read("resources/prompts/styles.css");
 const promptJs=read("resources/prompts/library.js");
 const directory=read("resources/index.html");
 const directoryCss=read("resources/index.css");
+const aiPage=read("resources/ai-tools/index.html");
+const aiJs=read("resources/ai-tools/finder.js");
 const mode=JSON.parse(read("data/storefront-mode.json"));
 
 assert.equal(mode.productsVisible,false,"Hidden product guard must remain active");
@@ -37,6 +39,7 @@ const matches=[...directory.matchAll(/class="resource-card" href="(\/[^"]+)"/g)]
 const targets=matches.map(item=>item[1]);
 const expected=[
   "/resources/prompts/",
+  "/resources/ai-tools/",
   "/tools/pricing-calculator/",
   "/tools/break-even-calculator/",
   "/tools/inventory-health-check/",
@@ -54,7 +57,7 @@ for(const target of expected.filter(path=>path.startsWith("/tools/"))){
   const toolPage=read(target.slice(1)+"index.html");
   assert.ok(!/href=["'][^"']*\/products\//i.test(toolPage),"Featured free resource links to paused commercial route: "+target);
 }
-for(const [name,source] of [["Hub HTML",directory],["Hub CSS",directoryCss],["Prompt HTML",promptPage],["Prompt JS",promptJs],["Prompt CSS",promptCss]]){
+for(const [name,source] of [["Hub HTML",directory],["Hub CSS",directoryCss],["Prompt HTML",promptPage],["Prompt JS",promptJs],["Prompt CSS",promptCss],["AI Tools HTML",aiPage],["AI Tools JS",aiJs]]){
   assert.ok(!/https?:\/\//i.test(source),name+" must not load third-party dependencies");
   assert.ok(!/\/products\//i.test(source),name+" must not expose paused commercial products");
 }
@@ -68,11 +71,46 @@ for(const target of expected.filter(path=>path.startsWith("/guides/"))){
 assert.ok(!/<script\b/i.test(directory),"Free directory must render without JavaScript");
 assert.ok(!directory.includes("data-product-card"),"Paid catalogue card may not appear in free resources");
 const map=read("sitemap.xml");
-for(const path of ["/resources/prompts/","/resources/"]){
+for(const path of ["/resources/prompts/","/resources/ai-tools/","/resources/"]){
   assert.ok(!map.includes("https://digital-execution.cc"+path),"Draft resource path must be absent from sitemap: "+path);
   assert.ok(!read("header.js").includes('href="'+path+'"'),"Draft resource path must stay off global navigation");
   assert.ok(!read("footer.js").includes('href="'+path+'"'),"Draft resource path must stay off global footer");
 }
+
+
+// AI tools finder must be a small, isolated guide (not a paid catalogue or remote integration).
+assert.match(aiPage,/<meta name="robots" content="noindex,nofollow">/,"AI tools finder must remain noindex");
+assert.match(aiPage,/<form id="ai-finder">/,"AI category chooser form missing");
+assert.match(aiPage,/<script src="\.\/finder\.js" defer><\/script>/,"Local chooser script missing");
+assert.equal((aiPage.match(/class="ai-card"/g)||[]).length,5,"Expected five reviewed AI categories");
+for(const id of ["goal","format","mode"]){
+  assert.ok(aiPage.includes('name="'+id+'"'),"Chooser question missing: "+id);
+}
+assert.ok(!/<a\b[^>]*href=["']https?:\/\//i.test(aiPage),"AI examples must not include off-site redirects");
+assert.ok(!/\bfetch\s*\(|\bXMLHttpRequest\b|\blocalStorage\b|\bsessionStorage\b/i.test(aiJs),"Chooser must not send/store user responses");
+assert.ok(!/\/products\/|\/checkout\/|price|subscribe/i.test(aiJs),"Chooser must not refer to commercial pages or payments");
+assert.ok(aiPage.includes('href="/resources/prompts/"')&&aiPage.includes('href="/tools/pricing-calculator/"'),"Chooser must reuse approved on-site free routes");
+const fields={goal:{value:"writing"},format:{value:"text"},mode:{value:"quick"}};
+const elements=new Map(["ai-result","ai-result-title","ai-result-description","ai-result-examples","ai-result-tip","ai-result-link"]
+  .map(id=>[id,{textContent:"",hidden:true,href:""}]));
+const finderForm={listeners:{},elements:{namedItem:name=>fields[name]},reportValidity:()=>true,addEventListener(event,listener){this.listeners[event]=listener}};
+elements.set("ai-finder",finderForm);
+vm.runInNewContext(aiJs,{document:{getElementById:id=>elements.get(id)||null}},{timeout:1000});
+const checkAdvice=(goal,format,mode,slug)=>{
+  fields.goal.value=goal; fields.format.value=format; fields.mode.value=mode;
+  finderForm.listeners.submit({preventDefault(){}});
+  assert.equal(elements.get("ai-result").hidden,false,"Selected category should be visible");
+  assert.equal(elements.get("ai-result-link").href,"#category-"+slug,"Unexpected chooser recommendation");
+  assert.ok(elements.get("ai-result-title").textContent,"Recommendation title missing");
+};
+checkAdvice("writing","text","quick","writing");
+checkAdvice("writing","image","learn","visual");
+checkAdvice("research","text","detailed","research");
+checkAdvice("business","numbers","quick","business");
+checkAdvice("research","code","quick","coding");
+finderForm.listeners.reset();
+assert.equal(elements.get("ai-result").hidden,true,"Reset should hide previous result");
+assert.ok(!/href=["']\/resources\/ai-tools\//.test(read("header.js")+read("footer.js")),"AI tools draft must remain off global navigation");
 
 // Exercise the existing lightweight browser script without external packages or network calls.
 function element(text=""){
@@ -153,4 +191,4 @@ assert.equal(mockCards[1].querySelector("details").open,true,"Show manual-copy f
 await click(mockCards[0].querySelector(".favorite-btn"));
 assert.deepEqual(JSON.parse(storage.get("de:prompt-favorites:v1")),[],"Unsaving must remove the prompt from storage");
 
-console.log("PASS: 9 reviewed free routes, isolated guides/tools/prompts, draft indexing and hidden product guards");
+console.log("PASS: 10 reviewed free routes, AI chooser, isolated guides/tools/prompts, noindex and hidden product guards");
