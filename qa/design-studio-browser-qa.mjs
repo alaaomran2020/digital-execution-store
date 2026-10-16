@@ -70,8 +70,27 @@ try {
     await page.locator('#ds-social .ds-card-link').click();
     check(await page.locator("#ds-kind").inputValue()==="ds-social","Service click preselects design type");
     check(!(await page.locator("#ds-brief-result").isVisible()),"Brief preview starts hidden");
+    check((await page.locator("#ds-details").getAttribute("aria-describedby"))==="ds-details-count",
+      "Description counter is programmatically associated with the textarea");
+    check((await page.locator("#ds-details-count").textContent()).includes("900"),
+      "Description counter starts at the native 900-character limit");
+    await page.locator("#ds-details").fill("ا".repeat(800));
+    check((await page.locator("#ds-details-count").textContent()).includes("100"),
+      "Description counter tracks remaining characters while typing");
+    check((await page.locator("#ds-details-count").getAttribute("data-near-limit"))==="true",
+      "Counter highlights the last 100 characters");
+    if(width===390 || width===1440) {
+      await page.locator("#ds-details").locator("..").screenshot({
+        path:output+"/studio-"+width+"-description-counter.png",animations:"disabled"
+      });
+    }
+    await page.locator("#ds-details").fill("ا".repeat(900));
+    check((await page.locator("#ds-details-count").textContent()).includes("0 حرف"),
+      "Counter reaches zero at the native maximum");
     await page.locator("#ds-project").fill("مشروع اختبار الواجهة");
     await page.locator("#ds-details").fill("نحتاج تصميمات اختبار للاستخدام الداخلي فقط");
+    check((await page.locator("#ds-details-count").getAttribute("data-near-limit"))==="false",
+      "Counter warning clears when the description is shortened");
     await page.locator("#ds-usage").fill("Instagram");
     await page.locator("#ds-contact-email").fill("test@example.com");
     await page.locator('#ds-brief-form button[type="submit"]').click();

@@ -186,7 +186,7 @@
                 <option value="ds-special">تصميمات مخصصة</option>
               </select>
             </div>
-            <div class="ds-field ds-field-wide"><label for="ds-details">ما المطلوب تصميمه؟ <span aria-hidden="true">*</span></label><textarea id="ds-details" name="details" required maxlength="900" rows="3" placeholder="صف الفكرة والمخرجات المطلوبة باختصار"></textarea></div>
+            <div class="ds-field ds-field-wide"><label for="ds-details">ما المطلوب تصميمه؟ <span aria-hidden="true">*</span></label><textarea id="ds-details" name="details" required maxlength="900" rows="3" aria-describedby="ds-details-count" placeholder="صف الفكرة والمخرجات المطلوبة باختصار"></textarea><span class="ds-character-count" id="ds-details-count" aria-live="off">متبقّي 900 حرف</span></div>
             <div class="ds-field"><label for="ds-usage">المقاسات أو منصات الاستخدام</label><input id="ds-usage" name="usage" type="text" maxlength="180" placeholder="مثلاً: إنستغرام أو طباعة A4"></div>
             <div class="ds-field"><label for="ds-deadline">الوقت المطلوب للتسليم</label><input id="ds-deadline" name="deadline" type="text" maxlength="100" placeholder="مثلاً: خلال أسبوعين"></div>
             <div class="ds-field ds-field-wide"><label for="ds-contact-email">بريدك للتواصل (اختياري)</label><input id="ds-contact-email" name="contactEmail" type="email" maxlength="160" autocomplete="email" placeholder="name@example.com"></div>
@@ -222,6 +222,7 @@
 <script src="/header.js?v=20261009-sections" defer></script>
 <script src="/footer.js?v=20261009-sections" defer></script>
 <script src="/services/graphic-design/brief.js?v=20261010-v1" defer></script>
+<script src="/services/graphic-design/brief-counter.js?v=20261011-v1" defer></script>
 <script src="/services/graphic-design/gallery.js?v=20261010-v1" defer></script>
 </body>
 </html>
