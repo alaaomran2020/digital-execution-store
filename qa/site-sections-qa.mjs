@@ -64,6 +64,11 @@ for(const file of ["index.html","tools/index.html","services/index.html"]){
 }
 assert.ok(headerCss.includes("body > header:empty{min-height:105px"),"Desktop header space must be reserved before deferred JS");checks++;
 assert.ok(headerCss.includes("@media(max-width:900px){body > header:empty{min-height:97px}"),"Mobile header height must be reserved before deferred JS");checks++;
+const globalHeaderJs=read("header.js");
+assert.ok(globalHeaderJs.includes('shell.querySelector(".site-announcement").remove()'),"Sections should still remove announcement strip");checks++;
+assert.ok(headerCss.includes('body[data-page="department"] > header:empty{min-height:73px}'),"Section desktop placeholder must exclude announcement height");checks++;
+assert.ok(headerCss.includes('@media(max-width:900px){body[data-page="department"] > header:empty{min-height:65px}'),"Section mobile placeholder must exclude announcement height");checks++;
+
 console.log("PASS creative studio cards, navigation, styling, and temporary product-hide assertions");
 
 console.log("PASS "+checks+" independent department checks; product visibility: "+(productsVisible?"on":"temporarily paused"));

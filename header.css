@@ -6,3 +6,7 @@
    + the final bottom border (1px). */
 body > header:empty{min-height:105px;background:#081321}
 @media(max-width:900px){body > header:empty{min-height:97px}}
+
+/* Tools/services hubs omit the announcement strip; reserve only the navigation row. */
+body[data-page="department"] > header:empty{min-height:73px}
+@media(max-width:900px){body[data-page="department"] > header:empty{min-height:65px}}
