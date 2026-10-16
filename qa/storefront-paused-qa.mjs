@@ -41,4 +41,15 @@ for(const file of ["tools/pricing-calculator/index.html","tools/break-even-calcu
 }
 checked(read(".github/workflows/store-qa.yml").includes("qa/store-qa.mjs"),"Original published-store QA must remain available for restoration");
 checked(read("qa/store-qa.mjs").includes("qa/storefront-paused-qa.mjs"),"Store QA must dispatch to paused QA when products are hidden");
+const guideDirs=fs.readdirSync("guides",{withFileTypes:true}).filter(entry=>entry.isDirectory());
+checked(guideDirs.length>=29,"Expected existing public Arabic guide routes to remain");
+for(const dir of guideDirs){
+ const file="guides/"+dir.name+"/index.html";
+ checked(fs.existsSync(file),"Missing existing public guide: "+file);
+ const html=read(file);
+ checked(!/(?:href|action)\s*=\s*["'][^"']*\/(?:products|checkout|after-purchase)(?:\/|[?#"'])/i.test(html),"Paused commercial link remains in "+file);
+ checked(!/\bdata-(?:guide-product|product-slug)\s*=|guide_product_click/i.test(html),"Hidden product tracking remains in "+file);
+ checked(!/(?:\/assets\/(?:restock|career-kit|products)\/|\/assets\/social\/product-)/i.test(html),"Hidden commercial image remains in "+file);
+ checked(/<h1\b/i.test(html)&&/rel=["']canonical["']/.test(html),"Guide title or canonical missing in "+file);
+}
 console.log("PASS "+checks+" temporary storefront-hide regression checks; "+directories.length+" product routes replaced by reversible notices");
