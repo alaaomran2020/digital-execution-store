@@ -32,3 +32,70 @@ jobs:
         run: node --check header.js && node --check metricool-tracker.js
       - name: Verify Metricool tracker privacy and performance guard
         run: node qa/metricool-tracking-qa.mjs
+
+  metricool-lighthouse:
+    name: Lighthouse actual Chrome baseline vs draft (local only)
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 208
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 0562102c172802531c9972ede96b8a0b18c56344
+          path: baseline
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/metricool-tracking-review-20261020
+          path: candidate
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install Lighthouse CLI temporarily
+        run: npm install --prefix "$RUNNER_TEMP/lighthouse-tools" --no-save --no-audit --no-fund --ignore-scripts lighthouse@12
+      - name: Run Chrome Lighthouse on two local builds
+        shell: bash
+        run: |
+          set -euo pipefail
+          dir="$GITHUB_WORKSPACE/metricool-lighthouse"
+          cli="$RUNNER_TEMP/lighthouse-tools/node_modules/lighthouse/cli/index.js"
+          mkdir -p "$dir"
+          CHROME_PATH="$(command -v google-chrome || command -v chromium || command -v chromium-browser)"
+          export CHROME_PATH
+          "$CHROME_PATH" --version
+          python3 -m http.server 18770 --bind 127.0.0.1 --directory "$GITHUB_WORKSPACE/baseline" >"$dir/server-baseline.log" 2>&1 &
+          basePid=$!
+          python3 -m http.server 18771 --bind 127.0.0.1 --directory "$GITHUB_WORKSPACE/candidate" >"$dir/server-candidate.log" 2>&1 &
+          newPid=$!
+          trap 'kill "$basePid" "$newPid" 2>/dev/null || true' EXIT
+          for port in 18770 18771; do
+            for retry in {1..30}; do
+              if curl -fsS "http://127.0.0.1:$port/" -o /dev/null; then break; fi
+              sleep 1
+            done
+            curl -fsS "http://127.0.0.1:$port/" -o /dev/null
+          done
+          for factor in mobile desktop; do
+            for trial in 1 2; do
+              for variant in baseline candidate; do
+                if [[ "$variant" == baseline ]]; then port=18770; else port=18771; fi
+                desktopFlag=""
+                if [[ "$factor" == desktop ]]; then desktopFlag="--preset=desktop"; fi
+                echo "Lighthouse: $variant / $factor / run $trial"
+                node "$cli" "http://127.0.0.1:$port/" \
+                  --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" \
+                  --throttling-method=simulate --only-categories=performance \
+                  --max-wait-for-load=45000 --output=json \
+                  --output-path="$dir/$variant-$factor-$trial.json" \
+                  --quiet $desktopFlag
+              done
+            done
+          done
+          node "$GITHUB_WORKSPACE/candidate/qa/metricool-lighthouse-report.mjs" "$dir"
+      - name: Upload full Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: metricool-lighthouse-pr208
+          path: metricool-lighthouse/
+          if-no-files-found: warn
+          retention-days: 14
