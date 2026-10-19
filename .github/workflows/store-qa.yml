@@ -28,3 +28,5 @@ jobs:
         run: node qa/free-release-qa.mjs
       - name: Verify M1/M2 lightweight storefront and Egyptian copy
         run: node qa/m1m2-storefront-qa.mjs
+      - name: Verify Metricool tracker privacy and performance guard
+        run: node qa/metricool-tracking-qa.mjs
