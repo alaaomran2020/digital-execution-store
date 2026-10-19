@@ -5,10 +5,7 @@ import assert from "node:assert/strict";
 const read = file => fs.readFileSync(file, "utf8");
 const pages = [];
 const standalone = new Set([
-  "services/graphic-design/index.html",
-  "resources/index.html",
-  "resources/ai-tools/index.html",
-  "resources/prompts/index.html"
+  "services/graphic-design/index.html"
 ]);
 function walk(dir, result) {
   for (const e of fs.readdirSync(dir, {withFileTypes:true})) {
@@ -18,7 +15,7 @@ function walk(dir, result) {
   }
 }
 for (const f of ["index.html","404.html","licenses.html","privacy.html","terms.html"]) pages.push(f);
-for (const dir of ["guides","services","tools","resources","updates"]) walk(dir,pages);
+for (const dir of ["guides","services","tools","updates"]) walk(dir,pages);
 assert.ok(pages.length >= 40, "Public page list unexpectedly short");
 let globalCount = 0, directCount = 0;
 for (const f of pages) {
@@ -32,6 +29,9 @@ for (const f of pages) {
   if (hasHeader) globalCount++; else directCount++;
 }
 assert.equal(directCount, standalone.size, "Unexpected uncovered public page");
+for (const f of ["resources/index.html", "resources/ai-tools/index.html", "resources/prompts/index.html"]) {
+  assert.ok(!read(f).includes("/metricool-tracker.js"), "Free offline draft must not load third-party tracking: " + f);
+}
 const header = read("header.js");
 assert.equal(header.split("/* Digital Execution Metricool tracker bootstrap */").length-1,1,"Missing or duplicate bootstrap");
 assert.ok(header.includes("data-de-metricool-loader"),"No bootstrap dedupe");
