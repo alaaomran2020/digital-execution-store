@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import assert from "node:assert/strict";
+import vm from "node:vm";
 
 const read = file => fs.readFileSync(file, "utf8");
 const pages = [];
@@ -54,4 +55,52 @@ const policy = read("privacy.html");
 assert.ok(policy.includes("metricool-privacy-disclosure") && policy.includes("عنوان IP") && policy.includes("Cookies"),"Disclosure incomplete");
 assert.ok(read("index.html").includes("مدخلات الحاسبة بتفضل عندك"),"Calculator privacy hint ambiguous");
 assert.equal(JSON.parse(read("data/storefront-mode.json")).productsVisible,false,"Hidden products were made visible");
+
+function bootstrapsAt(pagePath) {
+  const tags = [];
+  const document = {
+    readyState: "loading",
+    addEventListener() {},
+    querySelector(selector) {
+      if (selector !== "script[data-de-metricool-loader]") return null;
+      return tags.find(tag => Object.hasOwn(tag.attributes, "data-de-metricool-loader")) || null;
+    },
+    createElement() {
+      return { attributes: {}, setAttribute(key, value) { this.attributes[key] = value; } };
+    },
+    head: { appendChild(tag) { tags.push(tag); } }
+  };
+  const sandbox = { document, location: { pathname: pagePath } };
+  vm.runInNewContext(header, sandbox, { timeout: 1000 });
+  vm.runInNewContext(header, sandbox, { timeout: 1000 });
+  return tags;
+}
+for (const pagePath of ["/", "/tools/", "/guides/inventory-management-small-shops/"]) {
+  const tags = bootstrapsAt(pagePath);
+  assert.equal(tags.length, 1, "Unexpected number of analytics loaders at " + pagePath);
+  assert.equal(tags[0].src, "/metricool-tracker.js");
+  assert.equal(tags[0].async, true);
+}
+for (const pagePath of ["/products/", "/products/restock-desk/", "/after-purchase/business/", "/operations/"]) {
+  assert.equal(bootstrapsAt(pagePath).length, 0, "Disallowed analytics bootstrap on " + pagePath);
+}
+{
+  const tags = [], beacons = [];
+  const sandbox = {
+    window: { beTracker: { t: detail => beacons.push(detail) } },
+    document: {
+      createElement() { return {}; },
+      head: { appendChild(tag) { tags.push(tag); } }
+    }
+  };
+  vm.runInNewContext(wrapper, sandbox, { timeout: 1000 });
+  vm.runInNewContext(wrapper, sandbox, { timeout: 1000 });
+  assert.equal(tags.length, 1, "Third-party script must load only once");
+  assert.equal(tags[0].src, "https://tracker.metricool.com/resources/be.js");
+  assert.equal(tags[0].async, true);
+  tags[0].onload();
+  assert.equal(beacons.length, 1, "Only one pageview should be generated");
+  assert.equal(beacons[0].hash, "fd4d6a7225d8d2f128c7235b058ec2b");
+}
+
 console.log("PASS Metricool QA: "+pages.length+" public pages, "+globalCount+" via shared header, "+directCount+" standalone; privacy, exclusions, dedupe, size guard");
