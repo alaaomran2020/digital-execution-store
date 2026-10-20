@@ -9,7 +9,7 @@ const path="/services/graphic-design/";
 const widths=[320,390,768,1440];
 const output="artifacts/design-visual-qa";
 mkdirSync(output,{recursive:true});
-const browser=await chromium.launch({headless:true});
+const browser=await chromium.launch({headless:true, ...(process.env.CHROMIUM_PATH ? {executablePath:process.env.CHROMIUM_PATH} : {})});
 const results=[];
 try {
   for(const width of widths) {
@@ -49,9 +49,9 @@ try {
       "No horizontal overflow");
     check(metrics.heroLeft>=-1 && metrics.heroRight<=width+1,
       "Hero stays inside viewport");
-    check(metrics.background.includes("linear-gradient"),
+    check(metrics.background.includes("radial-gradient"),
       "New studio gradient visibly applied");
-    check(metrics.cardBackground==="rgb(248, 246, 252)",
+    check(metrics.cardBackground==="rgb(255, 255, 255)",
       "Light creative studio cards rendered");
     await page.screenshot({path:output+"/studio-"+width+"-full.png",fullPage:true,animations:"disabled"});
     await page.screenshot({path:output+"/studio-"+width+"-top.png",fullPage:false,animations:"disabled"});
@@ -63,6 +63,29 @@ try {
     }
     await page.locator(".ds-service-card").last().scrollIntoViewIfNeeded();
     check(await page.locator(".ds-service-card").last().isVisible(),"Final category reachable");
+    await page.locator('[data-filter="brand"]').click();
+    check(await page.locator('.ds-work-card:visible').count()===1,"Brand filter shows matching design");
+    check(await page.locator('[data-filter="brand"]').getAttribute('aria-pressed')==='true',"Filter exposes selected state");
+    await page.locator('.ds-work-open:visible').click();
+    check(await page.locator('.ds-preview-dialog').isVisible(),"Preview opens");
+    check(await page.locator('#ds-dialog-image').evaluate(img=>img.complete && img.naturalWidth>0),"Preview image loads");
+    await page.keyboard.press('Escape');
+    check(!await page.locator('.ds-preview-dialog').isVisible(),"Escape dismisses preview");
+    await page.locator('[data-filter="all"]').click();
+    check(await page.locator('.ds-work-card:visible').count()===6,"All filter restores six designs");
+    await page.locator('.ds-faq summary').first().click();
+    check(await page.locator('.ds-faq details').first().getAttribute('open')!==null,"FAQ disclosure opens");
+    await page.locator('[data-service="شعار وهوية بصرية"]').click();
+    check(await page.locator('#brief-service').inputValue()==='شعار وهوية بصرية',"Package selects brief service");
+    await page.locator('#brief-name').fill('مشروع اختبار & Design');
+    await page.locator('#brief-details').fill('هوية بصرية ومطبوعات');
+    await page.locator('#ds-brief-form button[type="submit"]').click();
+    check(await page.locator('#ds-brief-result').isVisible(),"Brief reveals review and send controls");
+    const mailto=new URL(await page.locator('#ds-send-email').getAttribute('href'));
+    check(mailto.protocol==='mailto:' && mailto.pathname==='contact@digital-execution.cc',"Brief uses studio email");
+    check(mailto.searchParams.get('body').includes('مشروع اختبار & Design') && mailto.searchParams.get('body').includes('هوية بصرية ومطبوعات'),"Brief preserves Arabic and special characters");
+    check(await page.locator('#ds-brief-copy').inputValue()===mailto.searchParams.get('body'),"Copy fallback contains full brief");
+    check(errors.length===0,"No JavaScript errors");
     results.push({width,status:"PASS",checks,metrics,pageErrors:errors});
     console.log("PASS: "+width+"px ("+checks.length+" assertions), screenshot captured; page errors="+errors.length);
     await page.close();
