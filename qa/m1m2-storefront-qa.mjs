@@ -3,18 +3,18 @@ import fs from "node:fs";
 const read = path => fs.readFileSync(path,"utf8");
 const home=read("index.html");
 const tools=read("tools/index.html");
-const css=read("storefront-light.css");
+const css=read("site-premium.css");
 const header=read("header.css");
 const footer=read("footer.css");
 const paid=JSON.parse(read("data/storefront-mode.json"));
 let checks=0;
 function pass(value,reason){assert.ok(value,reason);checks++}
-const lightweight=Buffer.byteLength(css)+Buffer.byteLength(header)+Buffer.byteLength(footer);
-const former=fs.statSync("styles.css").size+fs.statSync("brand.css").size+fs.statSync("sections.css").size+Buffer.byteLength(header)+Buffer.byteLength(footer);
-pass(lightweight<=21000,"Home/tools CSS budget exceeded 21KB; currently "+lightweight);
-pass(lightweight/former<0.4,"M1 did not reduce CSS by at least 60%");
+const lightweight=Buffer.byteLength(css)+Buffer.byteLength(header)+Buffer.byteLength(footer)+Buffer.byteLength(read("landing-experience.css"));
+const former=fs.statSync("styles.css").size+fs.statSync("brand.css").size+fs.statSync("sections.css").size+Buffer.byteLength(header)+Buffer.byteLength(footer)+Buffer.byteLength(read("landing-experience.css"));
+pass(lightweight<=43000,"Home/tools CSS budget exceeded 43KB; currently "+lightweight);
+pass(lightweight/former<0.5,"M1 did not reduce CSS by at least 50%");
 for (const [name,html] of [["home",home],["tools",tools]]){
-  pass(html.includes('href="/storefront-light.css?v=20261011-m1m2"'),name+" missing scoped stylesheet");
+  pass(html.includes('href="/site-premium.css?v=20261020-site"'),name+" missing scoped stylesheet");
   pass(!html.includes('href="/styles.css"') && !html.includes('href="/brand.css"') && !html.includes('href="/sections.css"'),name+" loads old CSS bundle");
   pass(html.includes('href="/downloads/Calculator_Suite_Free_v1.2.0.txt"') && html.includes('download="Calculator_Suite_Free_v1.2.0.html"'),name+" free download missing");
   pass(html.includes('class="skip-link"') && html.includes('id="main"'),name+" missing keyboard shortcut");

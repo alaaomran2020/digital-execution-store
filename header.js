@@ -1,4 +1,44 @@
-﻿(()=>{"use strict";
-function currentPath(){return location.pathname.replace(/\/+$/," ").trim()||"/"}
-function renderHeader(){const existing=document.querySelector("header");const shell=document.createElement("header");shell.className="site-header-shell";shell.innerHTML=`<div class="site-announcement"><div class="site-announcement-track"><span class="site-announcement-item"><i></i> أدوات رقمية وخدمات عملية</span><span class="site-announcement-item"><i></i> تواصل معنا لمعرفة الخدمات</span><a class="site-announcement-item" href="/updates/"><i></i> تحديثات واضحة للمنتجات</a></div></div><div class="site-header-nav"><a class="site-header-brand" href="/"><span class="site-header-brand-mark">DE</span><span class="site-header-brand-text"><strong>Digital Execution</strong><small>أدوات وخدمات رقمية</small></span></a><nav class="site-header-links" aria-label="التنقل الرئيسي"><a href="/">الرئيسية</a><a href="/tools/">الأدوات</a><a href="/services/">الخدمات</a><a href="/updates/">التحديثات</a><a href="/licenses.html">التراخيص</a></nav><div class="site-header-actions"><a class="site-header-cta" href="/services/">تعرّف على الخدمات</a><button class="site-header-menu-btn" type="button" aria-expanded="false" aria-controls="siteHeaderMobile" aria-label="فتح القائمة">☰</button></div></div><nav class="site-header-mobile" id="siteHeaderMobile" aria-label="قائمة الموبايل" hidden><a href="/">الرئيسية</a><a href="/tools/">الأدوات</a><a href="/services/">الخدمات</a><a href="/updates/">التحديثات</a><a href="/licenses.html">التراخيص</a><a href="/terms.html">الشروط</a><a class="site-header-cta" href="/services/">تعرّف على الخدمات</a></nav>`;if(existing)existing.replaceWith(shell);else document.body.prepend(shell);const section=location.pathname.startsWith("/tools/")?"tools":location.pathname.startsWith("/services/")?"services":null;if(section){const route="/"+section+"/";shell.querySelector(".site-announcement").remove();shell.querySelector(".site-header-brand").setAttribute("href",route);for(const nav of shell.querySelectorAll(".site-header-links,.site-header-mobile")){nav.innerHTML='<a href="'+route+'">'+(section==="tools"?"الأدوات والحاسبات":"الخدمات")+'</a>';}const cta=shell.querySelector(".site-header-actions .site-header-cta");if(cta)cta.remove();}const path=currentPath();shell.querySelectorAll(".site-header-links a,.site-header-mobile a").forEach(a=>{const target=(new URL(a.href,location.origin)).pathname.replace(/\/+$/," ").trim()||"/";if(target===path||(target!=="/"&&path.startsWith(target+"/")))a.setAttribute("aria-current","page")});const btn=shell.querySelector(".site-header-menu-btn"),menu=shell.querySelector(".site-header-mobile");const setOpen=open=>{btn.setAttribute("aria-expanded",String(open));btn.setAttribute("aria-label",open?"إغلاق القائمة":"فتح القائمة");btn.textContent=open?"×":"☰";menu.classList.toggle("is-open",open);menu.hidden=!open};btn.addEventListener("click",()=>setOpen(btn.getAttribute("aria-expanded")!=="true"));menu.addEventListener("click",e=>{if(e.target.closest("a"))setOpen(false)});document.addEventListener("click",e=>{if(!shell.contains(e.target))setOpen(false)});document.addEventListener("keydown",e=>{if(e.key==="Escape"){setOpen(false);btn.focus()}});window.addEventListener("resize",()=>{if(innerWidth>900)setOpen(false)})}
-if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",renderHeader,{once:true});else renderHeader();})();
+(() => {
+  "use strict";
+  function renderHeader() {
+    const path = location.pathname;
+    const tools = path.startsWith("/tools/");
+    const services = path.startsWith("/services/");
+    const links = tools
+      ? [["/tools/", "كل الأدوات"], ["/tools/pricing-calculator/", "التسعير"], ["/tools/break-even-calculator/", "نقطة التعادل"], ["/tools/inventory-health-check/", "المخزون"]]
+      : services
+      ? [["/services/", "الخدمات"], ["/services/graphic-design/", "استوديو التصميم"]]
+      : [["/", "الرئيسية"], ["/tools/", "الأدوات المجانية"], ["/guides/", "الأدلة"], ["/services/", "الخدمات"]];
+    const navigation = links.map(([href, label]) => {
+      const selected = path === href || (href !== "/" && path.startsWith(href) && !links.some(([other]) => other !== href && other.startsWith(href) && path.startsWith(other)));
+      return `<a href="${href}"${selected ? ' aria-current="page"' : ''}>${label}</a>`;
+    }).join("");
+    const root = tools ? "/tools/" : services ? "/services/" : "/";
+    const cta = tools ? ["/tools/#tools-list", "اختار أداتك"] : ["/services/graphic-design/#design-contact", "ابدأ مشروعك ←"];
+    const shell = document.createElement("header");
+    shell.className = "site-header-shell";
+    shell.innerHTML = `<div class="site-announcement"><span>أدوات عملية. أفكار واضحة. تنفيذ يليق بشغلك.</span><span lang="en" dir="ltr">MADE FOR YOUR NEXT STEP</span></div>
+      <div class="site-header-nav"><a class="site-header-brand" href="${root}"><span class="site-header-brand-mark" aria-hidden="true">DE</span><span class="site-header-brand-text"><strong>ديجيتال إكسيكيوشن</strong><small lang="en" dir="ltr">DIGITAL EXECUTION</small></span></a>
+      <nav class="site-header-links" aria-label="التنقل الرئيسي">${navigation}</nav>
+      <div class="site-header-actions"><a class="site-header-cta" href="${cta[0]}">${cta[1]}</a><button class="site-header-menu-btn" type="button" aria-expanded="false" aria-controls="siteHeaderMobile" aria-label="فتح القائمة">☰</button></div></div>
+      <nav class="site-header-mobile" id="siteHeaderMobile" aria-label="قائمة الهاتف" hidden>${navigation}</nav>`;
+    const existing = document.querySelector("body > header");
+    if (existing && !existing.classList.contains("app-header")) existing.replaceWith(shell); else document.body.prepend(shell);
+    const button = shell.querySelector("button");
+    const menu = shell.querySelector(".site-header-mobile");
+    const setOpen = open => {
+      button.setAttribute("aria-expanded", String(open));
+      button.setAttribute("aria-label", open ? "إغلاق القائمة" : "فتح القائمة");
+      button.textContent = open ? "×" : "☰";
+      menu.hidden = !open;
+    };
+    button.addEventListener("click", () => setOpen(menu.hidden));
+    menu.addEventListener("click", event => { if (event.target.closest("a")) setOpen(false); });
+    document.addEventListener("click", event => { if (!shell.contains(event.target)) setOpen(false); });
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && !menu.hidden) { setOpen(false); button.focus(); }
+    });
+    window.addEventListener("resize", () => { if (innerWidth > 900) setOpen(false); });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", renderHeader, {once:true}); else renderHeader();
+})();

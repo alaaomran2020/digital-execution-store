@@ -1,0 +1,39 @@
+name: Premium Site Browser QA
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  premium-site:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify public pages and local assets
+        run: node qa/premium-site-qa.mjs
+      - name: Install temporary browser dependency
+        run: |
+          npm install --no-save --ignore-scripts --package-lock=false playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Exercise responsive pages and real tool workflows
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/premium-site-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          curl --retry 10 --retry-delay 1 --retry-connrefused --fail --silent --show-error http://127.0.0.1:4173/ > /dev/null
+          node qa/premium-site-browser-qa.mjs
+      - name: Upload screenshots and current test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: premium-site-qa
+          path: artifacts/premium-site-qa/
+          if-no-files-found: warn
+          retention-days: 14
