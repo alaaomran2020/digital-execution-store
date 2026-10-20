@@ -18,6 +18,10 @@ jobs:
           node-version: "22"
       - name: Run store architecture checks
         run: node qa/store-qa.mjs
+      - name: Guard public credentials and local analytics imports
+        run: node qa/static-security-qa.mjs
+      - name: Bounded local static-site smoke and load
+        run: node qa/static-smoke-load.mjs
       - name: Verify curated free resources and draft visibility
         run: node qa/free-resources-qa.mjs
       - name: Verify independent tools and service sections
