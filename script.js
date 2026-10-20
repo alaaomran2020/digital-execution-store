@@ -14,13 +14,24 @@ const FIRST_LANDING_KEY="de:first_landing_path";
 const CURRENT_URL=new URL(window.location.href);
 const LANDING_PATH=sessionStorage.getItem(FIRST_LANDING_KEY)||CURRENT_URL.pathname;
 if(!sessionStorage.getItem(FIRST_LANDING_KEY)) sessionStorage.setItem(FIRST_LANDING_KEY,LANDING_PATH);
+// Referrer query strings can contain login tokens or personal details. Analytics
+// only needs the sending site; keep attribution parameters small and predictable.
+function referrerOrigin(value){
+  try{
+    const url=new URL(value);
+    return /^https?:$/.test(url.protocol)?url.origin:"";
+  }catch{return""}
+}
+function attributionValue(key){
+  return (CURRENT_URL.searchParams.get(key)||"").slice(0,100);
+}
 const ATTRIBUTION_CONTEXT={
   path:CURRENT_URL.pathname,
   landing_path:LANDING_PATH,
-  referrer:document.referrer||"",
-  utm_source:CURRENT_URL.searchParams.get("utm_source")||"",
-  utm_medium:CURRENT_URL.searchParams.get("utm_medium")||"",
-  utm_campaign:CURRENT_URL.searchParams.get("utm_campaign")||""
+  referrer:referrerOrigin(document.referrer),
+  utm_source:attributionValue("utm_source"),
+  utm_medium:attributionValue("utm_medium"),
+  utm_campaign:attributionValue("utm_campaign")
 };
 
 const FUNNEL_STAGE_BY_EVENT={
@@ -71,14 +82,18 @@ function persistEvent(detail){
 }
 
 function csvEscape(value){
-  const s=String(value??"");
+  // Escape spreadsheet formulas as well as CSV delimiters. Untrusted campaign
+  // names and referrers can otherwise execute formulas when opened in Excel.
+  const raw=String(value??"");
+  const s=/^[\s\uFEFF]*[=+\-@]/u.test(raw)?"'"+raw:raw;
   return /[",\n\r]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s;
 }
 
 function exportStoredEvents(){
   const events=readStoredEvents();
   const headers=["timestamp","event","funnel_stage","session_id","path","landing_path","source","product_slug","cta_location","label","referrer","utm_source","utm_medium","utm_campaign"];
-  const rows=[headers.join(","),...events.map(e=>headers.map(h=>csvEscape(e[h])).join(","))];
+  // Also strip query strings from historic referrers before writing an export.
+  const rows=[headers.join(","),...events.map(e=>headers.map(h=>csvEscape(h==="referrer"?referrerOrigin(e[h]):e[h])).join(","))];
   const blob=new Blob([rows.join("\n")],{type:"text/csv;charset=utf-8"});
   const a=document.createElement("a");
   a.href=URL.createObjectURL(blob);
@@ -446,7 +461,7 @@ const PRODUCT_REGISTRY_URL="/data/products.json";
 let productRegistryPromise;
 function loadProductRegistry(){
   if(!productRegistryPromise){
-    productRegistryPromise=fetch(PRODUCT_REGISTRY_URL,{credentials:"same-origin"})
+    productRegistryPromise=fetch(PRODUCT_REGISTRY_URL,{credentials:"same-origin",cache:"no-cache"})
       .then(response=>{if(!response.ok)throw new Error("registry "+response.status);return response.json()})
       .then(rows=>Array.isArray(rows)?rows:[]);
   }

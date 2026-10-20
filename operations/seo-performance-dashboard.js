@@ -3,6 +3,9 @@ const state={pages:[],queries:[],events:[],orders:[]};
 const $=s=>document.querySelector(s);
 const fmt=n=>Number.isFinite(n)?new Intl.NumberFormat("ar-EG",{maximumFractionDigits:2}).format(n):"—";
 const pct=n=>Number.isFinite(n)?(n*100).toFixed(1)+"%":"—";
+const escapeHtml=value=>String(value??"").replace(/[&<>"']/g,char=>({
+  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+})[char]);
 function parseCSV(text){
   const rows=[];let row=[],cell="",q=false;
   for(let i=0;i<text.length;i++){const c=text[i],n=text[i+1];
@@ -66,13 +69,13 @@ function render(){
 function renderPages(){
  if(!state.pages.length){$("#pagesTableWrap").className="empty";$("#pagesTableWrap").textContent="حمّل Search Console Pages CSV.";return}
  const rows=state.pages.map(r=>{const ev=state.events.filter(e=>e.path===r.key||e.landing_path===r.key);const productClicks=ev.filter(e=>e.event==="guide_product_click"||e.event==="product_click").length;const wa=ev.filter(e=>e.event==="product_whatsapp_click"||e.event==="whatsapp_payment_click").length;return {...r,productClicks,wa,productRate:r.clicks?productClicks/r.clicks:0,waRate:r.clicks?wa/r.clicks:0}}).sort((a,b)=>b.clicks-a.clicks);
- $("#pagesTableWrap").className="";$("#pagesTableWrap").innerHTML=`<table><thead><tr><th>الصفحة</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Position</th><th>Product Clicks</th><th>Product Rate</th><th>WhatsApp</th><th>WA Rate</th></tr></thead><tbody>${rows.map(r=>`<tr><td dir="ltr">${r.key}</td><td>${fmt(r.clicks)}</td><td>${fmt(r.impressions)}</td><td>${pct(r.ctr)}</td><td>${fmt(r.position)}</td><td>${fmt(r.productClicks)}</td><td>${pct(r.productRate)}</td><td>${fmt(r.wa)}</td><td>${pct(r.waRate)}</td></tr>`).join("")}</tbody></table>`;
+ $("#pagesTableWrap").className="";$("#pagesTableWrap").innerHTML=`<table><thead><tr><th>الصفحة</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Position</th><th>Product Clicks</th><th>Product Rate</th><th>WhatsApp</th><th>WA Rate</th></tr></thead><tbody>${rows.map(r=>`<tr><td dir="ltr">${escapeHtml(r.key)}</td><td>${fmt(r.clicks)}</td><td>${fmt(r.impressions)}</td><td>${pct(r.ctr)}</td><td>${fmt(r.position)}</td><td>${fmt(r.productClicks)}</td><td>${pct(r.productRate)}</td><td>${fmt(r.wa)}</td><td>${pct(r.waRate)}</td></tr>`).join("")}</tbody></table>`;
 }
 function opportunity(r){if(r.impressions>=50&&r.ctr<0.02&&r.position<=20)return"CTR فرصة";if(r.impressions>=30&&r.position>10&&r.position<=20)return"قريب من الصفحة الأولى";if(r.position<=10&&r.ctr<0.03)return"Title/Description";return"راقب"}
 function renderQueries(){
  if(!state.queries.length){$("#queriesTableWrap").className="empty";$("#queriesTableWrap").textContent="حمّل Search Console Queries CSV.";return}
  const rows=[...state.queries].sort((a,b)=>b.impressions-a.impressions);
- $("#queriesTableWrap").className="";$("#queriesTableWrap").innerHTML=`<table><thead><tr><th>Query</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Position</th><th>الفرصة</th></tr></thead><tbody>${rows.slice(0,100).map(r=>`<tr><td>${r.key}</td><td>${fmt(r.clicks)}</td><td>${fmt(r.impressions)}</td><td>${pct(r.ctr)}</td><td>${fmt(r.position)}</td><td><span class="status">${opportunity(r)}</span></td></tr>`).join("")}</tbody></table>`;
+ $("#queriesTableWrap").className="";$("#queriesTableWrap").innerHTML=`<table><thead><tr><th>Query</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Position</th><th>الفرصة</th></tr></thead><tbody>${rows.slice(0,100).map(r=>`<tr><td>${escapeHtml(r.key)}</td><td>${fmt(r.clicks)}</td><td>${fmt(r.impressions)}</td><td>${pct(r.ctr)}</td><td>${fmt(r.position)}</td><td><span class="status">${opportunity(r)}</span></td></tr>`).join("")}</tbody></table>`;
 }
 function renderFunnel(){
  const products=[...new Set([...state.events.map(e=>e.product_slug),...state.orders.map(o=>o.product)].filter(Boolean))];
@@ -90,7 +93,7 @@ function renderFunnel(){
    return {p,views,guide,buy,wa,qualified,paid,delivered,repeat};
  });
  $("#funnelTableWrap").className="";
- $("#funnelTableWrap").innerHTML=`<table><thead><tr><th>المنتج</th><th>Views</th><th>Guide → Product</th><th>Buy Intent</th><th>WhatsApp</th><th>Qualified</th><th>Paid</th><th>Delivered</th><th>Repeat</th><th>View → WA</th><th>Paid → Delivered</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.p}</td><td>${fmt(r.views)}</td><td>${fmt(r.guide)}</td><td>${fmt(r.buy)}</td><td>${fmt(r.wa)}</td><td>${fmt(r.qualified)}</td><td>${fmt(r.paid)}</td><td>${fmt(r.delivered)}</td><td>${fmt(r.repeat)}</td><td>${pct(r.views?r.wa/r.views:NaN)}</td><td>${pct(r.paid?r.delivered/r.paid:NaN)}</td></tr>`).join("")}</tbody></table>`;
+ $("#funnelTableWrap").innerHTML=`<table><thead><tr><th>المنتج</th><th>Views</th><th>Guide → Product</th><th>Buy Intent</th><th>WhatsApp</th><th>Qualified</th><th>Paid</th><th>Delivered</th><th>Repeat</th><th>View → WA</th><th>Paid → Delivered</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${escapeHtml(r.p)}</td><td>${fmt(r.views)}</td><td>${fmt(r.guide)}</td><td>${fmt(r.buy)}</td><td>${fmt(r.wa)}</td><td>${fmt(r.qualified)}</td><td>${fmt(r.paid)}</td><td>${fmt(r.delivered)}</td><td>${fmt(r.repeat)}</td><td>${pct(r.views?r.wa/r.views:NaN)}</td><td>${pct(r.paid?r.delivered/r.paid:NaN)}</td></tr>`).join("")}</tbody></table>`;
 }
 
 function renderAcquisition(){
@@ -113,9 +116,13 @@ function renderAcquisition(){
  const rows=[...map.values()].filter(r=>r.guideViews||r.productClicks||r.productViews||r.wa||r.qualified||r.orders).sort((a,b)=>(b.orders-a.orders)||(b.wa-a.wa)||(b.productClicks-a.productClicks));
  const wrap=$("#acquisitionTableWrap");if(!wrap)return;
  if(!rows.length){wrap.className="empty";wrap.textContent="لا توجد بيانات Acquisition فعلية بعد.";return}
- wrap.className="";wrap.innerHTML=`<table><thead><tr><th>Source</th><th>Campaign</th><th>Guide</th><th>Product</th><th>Guide Views</th><th>Product Clicks</th><th>Product Views</th><th>WhatsApp</th><th>Qualified</th><th>Orders</th><th>Guide → Product</th><th>جاهز للإعلان؟</th></tr></thead><tbody>${rows.map(r=>{const rate=r.guideViews?r.productClicks/r.guideViews:0;const ready=r.guideViews>=30&&r.productClicks>=5&&r.wa>=2?"مرشح للاختبار المدفوع":"اجمع بيانات أكثر";return `<tr><td>${r.source}</td><td>${r.campaign}</td><td>${r.guide}</td><td>${r.product}</td><td>${fmt(r.guideViews)}</td><td>${fmt(r.productClicks)}</td><td>${fmt(r.productViews)}</td><td>${fmt(r.wa)}</td><td>${fmt(r.qualified)}</td><td>${fmt(r.orders)}</td><td>${pct(rate)}</td><td><span class="status">${ready}</span></td></tr>`}).join("")}</tbody></table>`;
+ wrap.className="";wrap.innerHTML=`<table><thead><tr><th>Source</th><th>Campaign</th><th>Guide</th><th>Product</th><th>Guide Views</th><th>Product Clicks</th><th>Product Views</th><th>WhatsApp</th><th>Qualified</th><th>Orders</th><th>Guide → Product</th><th>جاهز للإعلان؟</th></tr></thead><tbody>${rows.map(r=>{const rate=r.guideViews?r.productClicks/r.guideViews:0;const ready=r.guideViews>=30&&r.productClicks>=5&&r.wa>=2?"مرشح للاختبار المدفوع":"اجمع بيانات أكثر";return `<tr><td>${escapeHtml(r.source)}</td><td>${escapeHtml(r.campaign)}</td><td>${escapeHtml(r.guide)}</td><td>${escapeHtml(r.product)}</td><td>${fmt(r.guideViews)}</td><td>${fmt(r.productClicks)}</td><td>${fmt(r.productViews)}</td><td>${fmt(r.wa)}</td><td>${fmt(r.qualified)}</td><td>${fmt(r.orders)}</td><td>${pct(rate)}</td><td><span class="status">${ready}</span></td></tr>`}).join("")}</tbody></table>`;
 }
-function csvEscape(v){const s=String(v??"");return /[",\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s}
+function csvEscape(v){
+ const raw=String(v??"");
+ const s=/^[\s\uFEFF]*[=+\-@]/u.test(raw)?"'"+raw:raw;
+ return /[",\r\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s;
+}
 function downloadEvents(){
  const headers=["timestamp","event","path","landing_path","source","guide_slug","product_slug","cta_location","utm_source","utm_medium","utm_campaign"];
  const lines=[headers,...state.events.map(e=>headers.map(h=>e[h]||""))];
