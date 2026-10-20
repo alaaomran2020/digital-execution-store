@@ -18,7 +18,7 @@
     const shell = document.createElement("header");
     shell.className = "site-header-shell";
     shell.innerHTML = `<div class="site-announcement"><span>أدوات عملية. أفكار واضحة. تنفيذ يليق بشغلك.</span><span lang="en" dir="ltr">MADE FOR YOUR NEXT STEP</span></div>
-      <div class="site-header-nav"><a class="site-header-brand" href="${root}"><span class="site-header-brand-mark" aria-hidden="true">DE</span><span class="site-header-brand-text"><strong lang="en" dir="ltr">Digital Execution</strong></span></a>
+      <div class="site-header-nav"><a class="site-header-brand" href="${root}"><span class="site-header-brand-mark" aria-hidden="true">DE</span><span class="site-header-brand-text"><strong lang="en" dir="ltr">Digital Execution</strong><small lang="ar" dir="rtl">أدوات رقمية وخدمات تصميم</small></span></a>
       <nav class="site-header-links" aria-label="التنقل الرئيسي">${navigation}</nav>
       <div class="site-header-actions"><a class="site-header-cta" href="${cta[0]}">${cta[1]}</a><button class="site-header-menu-btn" type="button" aria-expanded="false" aria-controls="siteHeaderMobile" aria-label="فتح القائمة">☰</button></div></div>
       <nav class="site-header-mobile" id="siteHeaderMobile" aria-label="قائمة الهاتف" hidden>${navigation}</nav>`;
