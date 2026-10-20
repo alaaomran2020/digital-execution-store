@@ -2,33 +2,34 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#08111E"><meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="theme-color" content="#f8faff"><meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <link rel="icon" type="image/svg+xml" href="../../favicon/favicon.svg">
 <title>حاسبة تسعير المنتجات المجانية | Digital Execution</title>
 <meta name="description" content="احسب سعر بيع مبدئي لمنتجك بناءً على التكلفة والمصاريف ونسبة الزيادة المطلوبة.">
 <link rel="canonical" href="https://digital-execution.cc/tools/pricing-calculator/">
-<link rel="stylesheet" href="../../styles.css"><link rel="stylesheet" href="../../brand.css"><link rel="stylesheet" href="pricing.css">
-<link rel="stylesheet" href="/footer.css?v=20261001-footer-v7">
-<link rel="stylesheet" href="/header.css?v=20261001-header-v2">
-<link rel="stylesheet" href="/global-visual.css?v=20261001-v2">
+<link rel="stylesheet" href="pricing.css">
+<link rel="stylesheet" href="/footer.css?v=20261020-premium">
+<link rel="stylesheet" href="/header.css?v=20261020-premium">
+
+<link rel="stylesheet" href="/site-premium.css?v=20261020-site">
 </head>
-<body data-page="tool">
+<body data-page="tool" class="premium-site"><a class="skip-link" href="#main">انتقل إلى المحتوى</a>
 <header class="topbar"><div class="container nav"><a class="brand" href="../../"><span class="mark">DE</span><span>Digital Execution</span></a><a class="nav-buy" href="../../tools/" data-track="pricing_demo_product_click" data-product-slug="pricing-calculator" data-source="pricing_demo" data-cta-location="header">أدوات أخرى</a></div></header>
-<main>
+<main id="main">
 <section class="hero pricing-hero"><div class="container narrow"><span class="eyebrow">أداة مجانية</span><h1>حاسبة تسعير المنتجات</h1><p>احسب سعر بيع مبدئي بسرعة من التكلفة والمصاريف ونسبة الزيادة المطلوبة. الحساب يتم داخل متصفحك ولا تُرسل بياناتك لأي سيرفر.</p></div></section>
 <section class="section alt"><div class="container pricing-layout">
 <form class="pricing-panel" id="pricingForm"><div class="section-title"><span class="eyebrow">الحساب الأساسي</span><h2>أدخل تكلفة القطعة</h2></div>
-<label>تكلفة شراء المنتج<input id="cost" type="number" min="0" step="0.01" inputmode="decimal" required placeholder="مثال: 100"></label>
-<label>شحن وتغليف للقطعة<input id="shipping" type="number" min="0" step="0.01" inputmode="decimal" value="0"></label>
-<label>مصاريف إضافية للقطعة<input id="extra" type="number" min="0" step="0.01" inputmode="decimal" value="0"></label>
-<label>نسبة الزيادة على التكلفة %<input id="markup" type="number" min="0" step="0.1" inputmode="decimal" value="30" required></label>
+<label>تكلفة شراء المنتج (جنيه)<input id="cost" type="number" min="0" max="1000000000000" step="0.01" inputmode="decimal" required placeholder="مثال: 100"></label>
+<label>شحن وتغليف للقطعة (جنيه)<input id="shipping" type="number" min="0" max="1000000000000" step="0.01" inputmode="decimal" value="0"></label>
+<label>مصاريف إضافية للقطعة (جنيه)<input id="extra" type="number" min="0" max="1000000000000" step="0.01" inputmode="decimal" value="0"></label>
+<label>نسبة الزيادة على التكلفة %<input id="markup" type="number" min="0" max="1000" step="0.1" inputmode="decimal" value="30" required></label>
 <button class="btn primary" type="submit" data-track="pricing_calculate" data-source="pricing_demo" data-cta-location="calculator">احسب سعر البيع</button></form>
-<aside class="pricing-result" aria-live="polite"><span class="eyebrow">النتيجة</span><div class="metric"><small>إجمالي التكلفة</small><strong id="totalCost">—</strong></div><div class="metric main"><small>سعر البيع المقترح</small><strong id="salePrice">—</strong></div><div class="metric"><small>الربح بالجنيه</small><strong id="profit">—</strong></div><div class="metric"><small>هامش الربح من سعر البيع</small><strong id="margin">—</strong></div><p class="small">هذه نتيجة حسابية وليست توصية سعر سوق. راجع المنافسة والطلب والضرائب والمصاريف الفعلية قبل اعتماد السعر.</p><a class="btn secondary" href="../../tools/" data-track="pricing_demo_product_click" data-product-slug="pricing-calculator" data-source="pricing_demo" data-cta-location="result">أحتاج أدوات أخرى</a></aside>
+<aside class="pricing-result" aria-live="polite"><span class="eyebrow">النتيجة</span><div class="metric"><small>إجمالي التكلفة</small><strong id="totalCost">—</strong></div><div class="metric main"><small>سعر البيع المقترح</small><strong id="salePrice">—</strong></div><div class="metric"><small>الربح بالجنيه</small><strong id="profit">—</strong></div><div class="metric"><small>هامش الربح من سعر البيع</small><strong id="margin">—</strong></div><p class="small" id="pricingStatus" role="status">أدخل بياناتك واضغط «احسب سعر البيع» لعرض النتيجة. هذه نتيجة حسابية وليست توصية سعر سوق. راجع المنافسة والطلب والضرائب والمصاريف الفعلية قبل اعتماد السعر.</p><a class="btn secondary" href="../../tools/" data-track="pricing_demo_product_click" data-product-slug="pricing-calculator" data-source="pricing_demo" data-cta-location="result">أحتاج أدوات أخرى</a></aside>
 </div></section>
-<section class="section"><div class="container narrow"><div class="section-title"><span class="eyebrow">أدوات أخرى</span><h2>أكثر من مجرد نسبة زيادة على التكلفة.</h2></div><div class="cards"><article><h4>هامش ربح مستهدف</h4><p>حدد هامش الربح المطلوب وتحصل على سعر البيع اللازم لتحقيقه.</p></article><article><h4>سعر بيع مستهدف</h4><p>اختبر سعرًا محددًا واعرف الربح والهامش الناتج قبل اعتماده.</p></article><article><h4>مقارنة سيناريوهات</h4><p>قارن أكثر من سعر أو نسبة واحفظ النتيجة المناسبة بشكل أسرع.</p></article></div></div></section>
+<section class="section"><div class="container narrow"><div class="section-title"><span class="eyebrow">دليل سريع للحساب</span></div><h2>افهم الرقم قبل ما تعتمد السعر.</h2><div class="cards"><article><h3>اجمع التكلفة كاملة</h3><p>أدخل تكلفة الشراء والشحن والتغليف وأي مصاريف إضافية للقطعة.</p></article><article><h3>الزيادة غير الهامش</h3><p>الزيادة محسوبة فوق التكلفة؛ هامش الربح هو نسبة الربح من سعر البيع.</p></article><article><h3>اختبر سيناريو تاني</h3><p>غيّر المدخلات واضغط حساب لتقارن النتيجة السابقة بالجديدة قبل اعتماد السعر.</p></article></div></div></section>
 </main>
 <footer><div class="container">© 2026 Alaa Omran — Digital Execution · <a href="../../tools/">أدوات أخرى</a> · <a href="../../privacy.html">الخصوصية</a></div></footer>
 <script src="../../script.js" defer></script><script src="pricing.js" defer></script>
-<script src="/footer.js?v=20261001-footer-v7" defer></script>
-<script src="/header.js?v=20261001-header-v2" defer></script>
+<script src="/footer.js?v=20261020-premium" defer></script>
+<script src="/header.js?v=20261020-premium" defer></script>
 </body></html>

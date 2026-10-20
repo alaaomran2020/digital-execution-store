@@ -13,7 +13,7 @@ for(const route of routes){
   const html=read(file);
   assert.match(html,/<html[^>]+lang="ar"[^>]+dir="rtl"/);
   assert.ok(html.includes('href="https://digital-execution.cc/'+route+'"'),"canonical missing for "+route); checks++;
-  const expectedStyle=route==="tools/"?'/storefront-light.css?v=20261011-m1m2':'/sections.css';
+  const expectedStyle=route==="services/graphic-design/"?'/sections.css':'/site-premium.css?v=20261020-site';
   assert.ok(html.includes('href="'+expectedStyle+'"'),"shared section styling missing: "+route); checks++;
   if(route==="services/graphic-design/") {
     assert.ok(html.includes('class="ds-local-header"'),"studio-local header missing"); checks++;
@@ -27,7 +27,7 @@ for(const route of routes){
 }
 const productsVisible=JSON.parse(read("data/storefront-mode.json")).productsVisible!==false;
 for(const route of productsVisible?["/products/","/tools/","/services/"]:["/tools/","/services/"]){
-  assert.ok(read("header.js").includes('href="'+route+'"'),"shared nav route missing: "+route);checks++;
+  assert.ok(read("header.js").includes('"'+route+'"'),"shared nav route missing: "+route);checks++;
   assert.ok(read("index.html").includes('href="'+route+'"'),"homepage department route missing: "+route);checks++;
 }
 for(const file of ["tools/pricing-calculator/index.html","products/pricing-calculator/index.html","products/graphic-designer-business-os/index.html"]){

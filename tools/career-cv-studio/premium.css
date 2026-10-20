@@ -1,0 +1,7 @@
+/* Keep resume templates and print metrics independent from the public site. */
+@font-face{font-family:"DE UI";src:url('/assets/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:"DE UI";src:url('/assets/fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2') format('woff2');font-weight:600 900;font-display:swap}
+:root:not([data-theme=dark]){--bg:#f8faff;--surface:#fff;--surface-2:#f3f6ff;--surface-3:#eaf0ff;--text:#17233b;--muted:#55657f;--line:#dfe6f2;--accent:#245de9;--accent-strong:#1948bf}
+.app-header{position:static;font-family:"DE UI",Tahoma,Arial,sans-serif}.editor-panel,.preview-toolbar{font-family:"DE UI",Tahoma,Arial,sans-serif}.site-header-shell{background:#f8faff}.header-actions>a{text-decoration:none}
+@media print{.site-header-shell,.site-footer-pro{display:none!important}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
