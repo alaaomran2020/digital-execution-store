@@ -89,10 +89,13 @@ for (const match of homeSchemas) {
 }
 
 for (const { file, loc, html } of files) {
-  note(!isNoindex(html), "Sitemap lists noindex page: " + file);
-  note(!!canonical(html), "Canonical missing on sitemap page: " + file);
-  note(h1Count(html) === 1, "H1 count=" + h1Count(html) + ": " + file);
-  note(!!metaTag(html, "description"), "Meta description missing: " + file);
+  // Every published sitemap URL must be indexable, describe itself, and
+  // self-canonicalize. This catches regressions outside the five hub routes.
+  requireCheck(!isNoindex(html), "Sitemap lists noindex page: " + file);
+  requireCheck(canonical(html) === loc, "Missing or mismatched self-canonical: " + file + " (expected " + loc + ")");
+  requireCheck(/<title>[^<]+<\/title>/i.test(html), "Missing title on sitemap page: " + file);
+  requireCheck(h1Count(html) === 1, "H1 count=" + h1Count(html) + ": " + file);
+  requireCheck(!!metaTag(html, "description"), "Meta description missing: " + file);
   for (const script of html.matchAll(/<script\b[^>]*type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
     try { JSON.parse(script[1]); } catch { warnings.push("Invalid JSON-LD: " + file); }
   }
