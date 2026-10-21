@@ -2,7 +2,7 @@
 
 **Scope:** improve the existing `https://digital-execution.cc/` and the existing `alaaomran2020/digital-execution-store` repository. **Never create or migrate to a new website.**
 
-**Status:** working plan and Codex/Claude Code prompts; none of these prompts assert that Google has indexed, recommended, or ranked the website.
+**Status:** working plan and Codex/Claude Code prompts; PR #214 also implements the technical crawlability regression checks and canonical/sitemap repairs. Nothing here asserts that Google has indexed, recommended, or ranked the website.
 
 ## Non-negotiable boundaries
 
@@ -20,7 +20,7 @@
 - `qa/seo-visibility-qa.mjs` adds a read-only, dependency-free technical SEO audit; review warnings rather than blindly suppressing them.
 - `seo/keyword-map.csv` and `seo/keyword-strategy.md` exist; rewrite outdated paid-product conversion paths to describe the **currently active** free-tool, guide, and design-service journey without erasing commercial history.
 - `operations/seo-performance-dashboard.html` / `.js` already exist; respect the security review in Draft PR #213.
-- Missing `updates/` canonical was separately prepared in Draft PR #207; **do not duplicate this change**.
+- The missing `/updates/` canonical is fixed within this SEO rollout using the current page; earlier Draft PR #207 is **superseded** for that specific issue and must not be merged blindly because it was prepared against an older page layout.
 - Metricool integration is a separate unmerged Draft PR #208; **do not treat it as live** or combine its consent/security scope into SEO work.
 
 ## Prompt 1 — baseline audit and prioritization (read-only)
