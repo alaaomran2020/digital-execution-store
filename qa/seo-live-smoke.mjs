@@ -61,19 +61,19 @@ const canonical = (html, route) =>
   html.includes('href="' + ORIGIN + route + '" rel="canonical"');
 
 await check("/robots.txt", r =>
-  /user-agent:\\s*\\*/i.test(r.text) &&
+  /user-agent:\s*\*/i.test(r.text) &&
   r.text.includes("Sitemap: " + ORIGIN + "/sitemap.xml") &&
-  !/^Disallow:\\s*\\/\\s*$/im.test(r.text)
+  !/^Disallow:\s*\/\s*$/im.test(r.text)
 );
 await check("/sitemap.xml", r => {
-  const locs = [...r.text.matchAll(/<loc>\\s*([^<]+)\\s*<\\/loc>/gi)].map(x => x[1]);
+  const locs = [...r.text.matchAll(/<loc>\s*([^<]+)\s*<\/loc>/gi)].map(x => x[1]);
   return locs.length >= 40 &&
     new Set(locs).size === locs.length &&
     locs.includes(ORIGIN + "/guides/") &&
     !locs.some(x => x.startsWith(ORIGIN + "/products/"));
 });
 await check("/", r =>
-  /<h1\\b/i.test(r.text) &&
+  /<h1\b/i.test(r.text) &&
   r.text.includes('"@type": "Organization"') &&
   r.text.includes('"@type": "WebSite"') &&
   canonical(r.text, "/")
@@ -89,17 +89,17 @@ await check("/tools/break-even-calculator/", r =>
   canonical(r.text, "/tools/break-even-calculator/")
 );
 await check("/guides/", r =>
-  /<h1\\b/i.test(r.text) && canonical(r.text, "/guides/")
+  /<h1\b/i.test(r.text) && canonical(r.text, "/guides/")
 );
 await check("/services/graphic-design/", r =>
   r.text.includes('id="ds-brief-form"') &&
   canonical(r.text, "/services/graphic-design/")
 );
 await check("/updates/", r =>
-  /<h1\\b/i.test(r.text) && canonical(r.text, "/updates/")
+  /<h1\b/i.test(r.text) && canonical(r.text, "/updates/")
 );
 await check("/products/", r => {
-  const robotsTag = (r.text.match(/<meta\\b[^>]*name=["']robots["'][^>]*>/i) || [""])[0];
+  const robotsTag = (r.text.match(/<meta\b[^>]*name=["']robots["'][^>]*>/i) || [""])[0];
   return /noindex/i.test(robotsTag) && !r.text.includes('data-product-offer="active"');
 });
 
