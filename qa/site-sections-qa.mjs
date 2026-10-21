@@ -74,7 +74,7 @@ const publicContent = [
 ];
 for(const spec of publicContent){
   const html=read(spec.file);
-  assert.equal((html.match(/<h1\\b/g)||[]).length,1,"One H1 required on "+spec.file);checks++;
+  assert.equal((html.match(/<h1\b/g)||[]).length,1,"One H1 required on "+spec.file);checks++;
   assert.ok(html.includes('id="'+spec.form+'"'),"Existing form lost on "+spec.file);checks++;
   assert.ok(html.includes(spec.script),"Existing script lost on "+spec.file);checks++;
   assert.ok(html.includes('<meta name="description"'),"Meta description missing on "+spec.file);checks++;
