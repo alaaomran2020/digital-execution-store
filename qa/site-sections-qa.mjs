@@ -66,4 +66,34 @@ assert.ok(headerCss.includes("body > header:empty{min-height:105px"),"Desktop he
 assert.ok(headerCss.includes("@media(max-width:900px){body > header:empty{min-height:97px}"),"Mobile header height must be reserved before deferred JS");checks++;
 console.log("PASS creative studio cards, navigation, styling, and temporary product-hide assertions");
 
+// SEO/AEO/GEO: static answers are crawlable without JS; calculators and studio stay functional.
+const publicContent = [
+  {file:"tools/pricing-calculator/index.html",sections:["pricing-example","pricing-answers"],form:"pricingForm",script:'src="pricing.js"'},
+  {file:"tools/break-even-calculator/index.html",sections:["break-even-example","break-even-answers"],form:"breakEvenForm",script:'src="break-even.js"'},
+  {file:"services/graphic-design/index.html",sections:["faq"],form:"ds-brief-form",script:'src="/services/graphic-design/studio.js'}
+];
+for(const spec of publicContent){
+  const html=read(spec.file);
+  assert.equal((html.match(/<h1\\b/g)||[]).length,1,"One H1 required on "+spec.file);checks++;
+  assert.ok(html.includes('id="'+spec.form+'"'),"Existing form lost on "+spec.file);checks++;
+  assert.ok(html.includes(spec.script),"Existing script lost on "+spec.file);checks++;
+  assert.ok(html.includes('<meta name="description"'),"Meta description missing on "+spec.file);checks++;
+  assert.ok(html.includes('rel="canonical"'),"Canonical missing on "+spec.file);checks++;
+  assert.ok(!html.includes('href="/products/')&&!html.includes('application/ld+json'),"Paused paid items or fabricated rich snippets on "+spec.file);checks++;
+  for(const section of spec.sections){assert.ok(html.includes('id="'+section+'"'),"Static answer section missing: "+section);checks++;}
+}
+const pricing=read("tools/pricing-calculator/index.html");
+assert.ok(pricing.includes("100 شراء + 15 شحن")&&pricing.includes("سعر البيع: 150 جنيه")&&pricing.includes("هامش الربح: 20٪"),"Pricing worked example absent/mismatched");checks++;
+assert.equal((100+15+5)*(1+25/100),150,"Pricing example must follow existing JS formula");checks++;
+assert.equal((150-120)/150*100,20,"Markup is not margin");checks++;
+assert.ok(pricing.includes('href="/tools/break-even-calculator/"'),"Missing related free break-even calculator link");checks++;
+const breaking=read("tools/break-even-calculator/index.html");
+assert.ok(breaking.includes("هامش المساهمة: 80 جنيه")&&breaking.includes("التعادل: 125 قطعة")&&breaking.includes("مبيعات التعادل: 25,000 جنيه"),"Break-even example absent/mismatched");checks++;
+assert.equal(Math.ceil(10000/(200-120)),125,"Break-even quantity example must follow JS formula");checks++;
+assert.equal(10000/((200-120)/200),25000,"Break-even revenue example must follow JS formula");checks++;
+assert.ok(breaking.includes('href="/tools/pricing-calculator/"'),"Missing related free pricing tool link");checks++;
+assert.ok(design.includes("مثال توضيحي مش لعميل حقيقي")&&design.includes("مش دراسات حالة موثّقة"),"Studio brief must not invent customer projects");checks++;
+assert.ok(design.includes("الشعار علامة مميزة")&&design.includes("هوامش القص"),"Studio useful questions missing");checks++;
+console.log("PASS answer-ready pricing, break-even and studio content with original app contracts");
+
 console.log("PASS "+checks+" independent department checks; product visibility: "+(productsVisible?"on":"temporarily paused"));
