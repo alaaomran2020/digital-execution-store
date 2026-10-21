@@ -1,0 +1,25 @@
+name: SEO live HTTP crawlability QA
+
+on:
+  pull_request:
+    paths:
+      - 'qa/seo-live-smoke.mjs'
+      - '.github/workflows/seo-live-smoke.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-seo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out existing website source
+        uses: actions/checkout@v4
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify deployed domain crawlability over HTTPS
+        run: node qa/seo-live-smoke.mjs
