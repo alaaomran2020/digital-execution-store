@@ -4,8 +4,8 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#f8faff"><meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <link rel="icon" type="image/svg+xml" href="../../favicon/favicon.svg">
-<title>حاسبة تسعير المنتجات المجانية | Digital Execution</title>
-<meta name="description" content="احسب سعر بيع مبدئي لمنتجك بناءً على التكلفة والمصاريف ونسبة الزيادة المطلوبة.">
+<title>حاسبة تسعير المنتجات مجانًا وحساب هامش الربح | Digital Execution</title>
+<meta name="description" content="احسب سعر بيع المنتج من تكلفة الشراء والشحن والمصاريف ونسبة الزيادة على التكلفة. مثال عملي يوضح الفرق بين الزيادة وهامش الربح بحاسبة مجانية.">
 <link rel="canonical" href="https://digital-execution.cc/tools/pricing-calculator/">
 <link rel="stylesheet" href="pricing.css">
 <link rel="stylesheet" href="/footer.css?v=20261020-premium">
@@ -16,7 +16,7 @@
 <body data-page="tool" class="premium-site"><a class="skip-link" href="#main">انتقل إلى المحتوى</a>
 <header class="topbar"><div class="container nav"><a class="brand" href="../../"><span class="mark">DE</span><span>Digital Execution</span></a><a class="nav-buy" href="../../tools/" data-track="pricing_demo_product_click" data-product-slug="pricing-calculator" data-source="pricing_demo" data-cta-location="header">أدوات أخرى</a></div></header>
 <main id="main">
-<section class="hero pricing-hero"><div class="container narrow"><span class="eyebrow">أداة مجانية</span><h1>حاسبة تسعير المنتجات</h1><p>احسب سعر بيع مبدئي بسرعة من التكلفة والمصاريف ونسبة الزيادة المطلوبة. الحساب يتم داخل متصفحك ولا تُرسل بياناتك لأي سيرفر.</p></div></section>
+<section class="hero pricing-hero"><div class="container narrow"><span class="eyebrow">أداة مجانية</span><h1>حاسبة تسعير المنتجات</h1><p>احسب سعر البيع المبدئي بعد ما تجمع تكلفة الشراء والشحن والمصاريف لكل قطعة، وتحدد نسبة الزيادة على التكلفة. الحاسبة بتوضح كمان هامش الربح من سعر البيع، والحساب بيتم داخل متصفحك من غير إرسال مدخلاتك للسيرفر.</p></div></section>
 <section class="section alt"><div class="container pricing-layout">
 <form class="pricing-panel" id="pricingForm"><div class="section-title"><span class="eyebrow">الحساب الأساسي</span><h2>أدخل تكلفة القطعة</h2></div>
 <label>تكلفة شراء المنتج (جنيه)<input id="cost" type="number" min="0" max="1000000000000" step="0.01" inputmode="decimal" required placeholder="مثال: 100"></label>
@@ -27,6 +27,21 @@
 <aside class="pricing-result" aria-live="polite"><span class="eyebrow">النتيجة</span><div class="metric"><small>إجمالي التكلفة</small><strong id="totalCost">—</strong></div><div class="metric main"><small>سعر البيع المقترح</small><strong id="salePrice">—</strong></div><div class="metric"><small>الربح بالجنيه</small><strong id="profit">—</strong></div><div class="metric"><small>هامش الربح من سعر البيع</small><strong id="margin">—</strong></div><p class="small" id="pricingStatus" role="status">أدخل بياناتك واضغط «احسب سعر البيع» لعرض النتيجة. هذه نتيجة حسابية وليست توصية سعر سوق. راجع المنافسة والطلب والضرائب والمصاريف الفعلية قبل اعتماد السعر.</p><a class="btn secondary" href="../../tools/" data-track="pricing_demo_product_click" data-product-slug="pricing-calculator" data-source="pricing_demo" data-cta-location="result">أحتاج أدوات أخرى</a></aside>
 </div></section>
 <section class="section"><div class="container narrow"><div class="section-title"><span class="eyebrow">دليل سريع للحساب</span></div><h2>افهم الرقم قبل ما تعتمد السعر.</h2><div class="cards"><article><h3>اجمع التكلفة كاملة</h3><p>أدخل تكلفة الشراء والشحن والتغليف وأي مصاريف إضافية للقطعة.</p></article><article><h3>الزيادة غير الهامش</h3><p>الزيادة محسوبة فوق التكلفة؛ هامش الربح هو نسبة الربح من سعر البيع.</p></article><article><h3>اختبر سيناريو تاني</h3><p>غيّر المدخلات واضغط حساب لتقارن النتيجة السابقة بالجديدة قبل اعتماد السعر.</p></article></div></div></section>
+
+<section class="section alt" id="pricing-example" aria-labelledby="pricing-example-title"><div class="container narrow">
+<div class="section-title"><span class="eyebrow">مثال حسابي قابل للتطبيق</span></div>
+<h2 id="pricing-example-title">إزاي تحسب سعر بيع منتج خطوة بخطوة؟</h2>
+<p>افترض إن تكلفة شراء القطعة 100 جنيه، والشحن والتغليف 15 جنيه، والمصاريف الإضافية 5 جنيه. إجمالي تكلفة القطعة 120 جنيه. لو اخترت زيادة 25٪ على التكلفة، يبقى سعر البيع المحسوب 150 جنيه، والفرق 30 جنيه، وهامش الربح من سعر البيع 20٪.</p>
+<div class="cards"><article><h3>إجمالي التكلفة: 120 جنيه</h3><p>100 شراء + 15 شحن وتغليف + 5 مصاريف إضافية للقطعة.</p></article><article><h3>سعر البيع: 150 جنيه</h3><p>120 × (1 + 25 ÷ 100) = 150 جنيه. دي زيادة على التكلفة (Markup)، مش هامش ربح 25٪.</p></article><article><h3>هامش الربح: 20٪</h3><p>(150 − 120) ÷ 150 × 100 = 20٪ قبل أي تكاليف أو رسوم مش مدخلة في الحساب.</p></article></div>
+<p>المثال تعليمي، مش سعر مناسب لكل سوق. لو عندك عمولات بيع أو خصومات أو مرتجعات أو ضرائب غير محسوبة، ضيف أثرها قبل اتخاذ قرار التسعير.</p>
+</div></section>
+<section class="section" id="pricing-answers" aria-labelledby="pricing-answers-title"><div class="container narrow">
+<div class="section-title"><span class="eyebrow">إجابات مهمة قبل التسعير</span></div><h2 id="pricing-answers-title">أسئلة شائعة عن حساب سعر البيع</h2>
+<div class="cards">
+<article><h3>إيه الفرق بين نسبة الزيادة وهامش الربح؟</h3><p>نسبة الزيادة بتتقاس على التكلفة؛ أما الهامش بيتقاس على سعر البيع. علشان كده زيادة 25٪ على تكلفة 120 جنيه بتدي هامش 20٪، مش 25٪.</p></article>
+<article><h3>هل النتيجة هي صافي الربح؟</h3><p>لأ. الفرق المعروض بين سعر البيع والتكلفة اللي دخلتها. صافي ربح النشاط محتاج كمان تحسب الإيجار والرواتب والعمولات والضرائب والفاقد وأي مصروفات تانية.</p></article>
+<article><h3>أعرف أبيع كام قطعة علشان أغطي مصاريفي؟</h3><p>سعر البيع وحده مش كفاية. استخدم <a href="/tools/break-even-calculator/">حاسبة نقطة التعادل المجانية</a> علشان تربط سعر الوحدة بالتكلفة المتغيرة والمصاريف الثابتة لفترة محددة.</p></article>
+</div></div></section>
 </main>
 <footer><div class="container">© 2026 Alaa Omran — Digital Execution · <a href="../../tools/">أدوات أخرى</a> · <a href="../../privacy.html">الخصوصية</a></div></footer>
 <script src="../../script.js" defer></script><script src="pricing.js" defer></script>
