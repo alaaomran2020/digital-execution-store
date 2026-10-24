@@ -45,7 +45,7 @@ assert.ok(read("services/graphic-design/index.html").includes('mailto:contact@di
 // Sector landing pilot: no fake portfolio, hidden paid products, or offsite dependencies.
 const restaurant=read("services/design-for-restaurants/index.html");
 assert.ok(read("services/index.html").includes('href="/services/design-for-restaurants/"'),"Restaurant sector landing must be discoverable from service hub");checks++;
-assert.equal((restaurant.match(/<h1\\b/g)||[]).length,1,"Restaurant page needs one H1");checks++;
+assert.equal((restaurant.match(/<h1\b/g)||[]).length,1,"Restaurant page needs one H1");checks++;
 assert.ok(restaurant.includes('id="rds-services"')&&restaurant.includes('id="rds-faq-title"'),"Restaurant page must explain scope and FAQs");checks++;
 for(const anchor of ["ds-print","ds-packaging","ds-social","ds-ads"]){
   assert.ok(restaurant.includes('href="/services/graphic-design/#'+anchor+'"'),"Missing studio service context "+anchor);checks++;
@@ -54,7 +54,7 @@ assert.ok(restaurant.includes("مش منيوهات جاهزة للشراء")&&re
 assert.ok(!restaurant.includes('href="/products/'),"Paid products must remain hidden in sector landing");checks++;
 assert.ok(!/<script[^>]*src="https?:/.test(restaurant),"Restaurant page must not add remote scripts");checks++;
 assert.ok(restaurant.includes('prefers-reduced-motion'),"Restaurant design must support reduced motion");checks++;
-for(const image of [...restaurant.matchAll(/<img\\b[^>]*src="(\\/assets\\/[^"]+)"/g)]){
+for(const image of [...restaurant.matchAll(/<img\b[^>]*src="(\/assets\/[^"]+)"/g)]){
   assert.ok(exists(image[1].slice(1)),"Restaurant landing references missing image: "+image[1]);checks++;
 }
 
