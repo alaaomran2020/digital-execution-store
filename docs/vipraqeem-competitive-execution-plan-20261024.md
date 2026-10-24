@@ -1,31 +1,35 @@
-# Digital Execution | VIP Raqeem: Strategic execution plan
+# خطة تطوير Digital Execution بعد تحليل VIP Raqeem
 
-Approved reference: 2026-10-24. Status: design and implementation review only; no approval to merge or publish.
+**الاعتماد:** 24 أكتوبر 2026 — **الحالة:** مرجع استراتيجي وتجهيز للمراجعة، بدون تفويض بالدمج أو النشر.
 
-## Lessons from competitor
-- As of research snapshot, VIP Raqeem advertises roughly 100 products and 8 homepage bundles. These are catalog claims, not verified sales.
-- Useful patterns: industry-focused landing pages, bundles by customer job, clear value and pricing, topical SEO articles leading to relevant tools.
-- Avoid: inconsistent payment claims, manual payment friction, inflated AI product claims, wrong arithmetic, unrelated internal links, unclear example provenance and catalog clutter.
-- Rankings, conversion rates, platform implementation and speed were not independently verified.
+## الدروس المستفادة من المنافس
+- عند الفحص أعلن رقيم عن نحو 100 منتج و8 باقات رئيسية. دي بيانات وقتية عن المعروض، مش دليل على حجم المبيعات.
+- نستفيد من الباقات حسب نوع العميل، وصفحات الهبوط حسب النشاط، وربط محتوى SEO بالمشكلة ثم الحل، ووضوح الأسعار والمخرجات.
+- نتجنب تضارب كلام الدفع، تأكيد التحويل اليدوي المعقد، المبالغة في وصف برومبتات AI كموظفين آليين، وأخطاء الحسابات والروابط غير المرتبطة بالمقال.
+- لازم تكون معاينات المنتجات أصلية وواضحة المصدر، ونوضح الفرق بين تصور تصميمي وعمل منفذ لعميل.
+- لم تُثبت أرقام الزيارات أو ترتيب رقيم في Google أو أمانه أو سرعته أو تقنياته الداخلية، فلا نستخدمها كحقائق.
 
-## Roadmap for Digital Execution
-1. Premium, mobile-first graphic design studio with clear examples and transparent scopes.
-2. Sector design landing pages, beginning with restaurants and cafés; later retail, gifts and children's businesses if differentiated content exists.
-3. Useful free tools and tutorials with relevant contextual links, without merging departments.
-4. Digital-product pages, short visual previews and bundles prepared for later; paid products remain hidden until separately authorized.
-5. Accurate crawlable SEO content, canonical URLs, sitemap and sector-specific internal linking.
-6. Trust: validate calculations, avoid false claims about delivered work, explain limitations, pricing and delivery consistently.
+## ترتيب مراحل التنفيذ
+1. **استوديو تصميم عالمي:** هوية بصرية مميزة، عرض أعمال صادق، معاينات قوية، تجربة موبايل سريعة وواضحة.
+2. **صفحات خدمات حسب النشاط:** البداية بالمطاعم والكافيهات، وبعد مراجعتها نقيّم صفحات المحلات والأطفال والهدايا بدون محتوى مكرر.
+3. **الأدوات والأدلة:** نربط أدوات التسعير والتعادل والمخزون بأدلتها وخدماتها المرتبطة فقط؛ الأقسام تفضل منفصلة.
+4. **المنتجات الرقمية:** نجهز صفحات ومعاينات وفيديوهات وتراخيص وباقات حسب احتياج العميل. المنتجات المدفوعة تفضل مخفية لحين الموافقة الصريحة على البيع.
+5. **SEO:** عناوين ووصف وCanonical ومحتوى HTML قابل للزحف وروابط داخلية مناسبة وSitemap، مع متابعة Search Console بعد النشر.
+6. **الثقة:** نراجع صحة الأرقام ورسائل الدفع والتسليم، ولا نعد العميل بنتيجة تجارية أو نصور أمثلة توضيحية على إنها أعمال فعلية.
 
-## First deliverable
-- Single static service page: /services/design-for-restaurants/.
-- Topic: menu, packaging, social media, and ad creatives for cafés and restaurants.
-- Local WebP images are labeled illustrative examples, not clients' commissioned work.
-- Clear contact path using existing design studio/email; no account, backend, external APIs, or subscriptions.
-- One contextual link from /services/ and a matching sitemap entry (only if published after approval).
+## أول تنفيذ: صفحة المطاعم والكافيهات
+- إنشاء مسار /services/design-for-restaurants/ لعرض خدمات منيو وتغليف وسوشيال وإعلانات المطاعم والكافيهات فقط.
+- الاعتماد على صور WebP الموجودة بالفعل، مع وصفها كتصورات توضيحية وليس مشاريع لعملاء.
+- توفير مسار استفسار بالبريد أو موجز استوديو التصميم الحالي، بدون API أو تسجيل أو اشتراك.
+- الربط من فهرس الخدمات وإضافة Sitemap فقط ضمن تغيير يراجع قبل الدمج والنشر.
+- عدم لمس الصفحة الرئيسية أو تعديل الاستوديو الأصلي طالما طلبات تعديلهما مفتوحة.
 
-## Guardrails
-- Work on a dedicated branch and draft PR. No merge, no automatic production release.
-- Preserve productsVisible=false, and do not alter product catalog, prices, calculators or commercial download access.
-- Egyptian Arabic copy, original visual language, accessible links and strong mobile layouts.
-- Run Store QA and browser checks where available; do not assert unperformed QA has passed.
-- Assess effectiveness after publication using real inquiry clicks, Search Console and mobile performance rather than guessed sales.
+## حدود التنفيذ والفحص
+- فرع مستقل وDraft PR فقط؛ لا نشر مباشر على GitHub Pages أو Cloudflare ولا دمج في main بدون موافقة المالك.
+- الحفاظ على productsVisible=false، وعدم تعديل سجل المنتجات أو إظهار منتجات أو أسعار أو روابط تحميل مدفوعة.
+- عامية مصرية واضحة في الواجهة، وهوية مستقلة لا تقلد رقيم، وبدون مكتبات أو خطوط أو صور خارجية.
+- فحص 320 و390 و768 و1440 بكسل والتباين والتركيز ولوحة المفاتيح والحركة المخفّضة عند توفر معاينة متصفح.
+- اختبار Store QA وروابط الخدمات وSEO والصور المحلية قبل الاعتماد، مع توضيح ما لم يُختبر.
+
+## قياس النتائج بعد أي نشر معتمد
+القياس الفعلي يشمل: زيارات الصفحة، ضغطات طلب التصميم، الاستفسارات المؤهلة، Search Console وأداء الموبايل. مفيش تقديرات مبيعات أو تصدر جوجل بدون أدلة.
