@@ -5,7 +5,7 @@ import assert from "node:assert/strict";
 const root=process.cwd();
 const read=file=>fs.readFileSync(path.join(root,file),"utf8");
 const exists=file=>fs.existsSync(path.join(root,file));
-const routes=["tools/","services/","services/graphic-design/"];
+const routes=["tools/","services/","services/graphic-design/","services/design-for-restaurants/"];
 let checks=0;
 for(const route of routes){
   const file=route+"index.html";
@@ -41,6 +41,26 @@ for(const tool of ["pricing-calculator","break-even-calculator","inventory-healt
 }
 assert.ok(read("services/index.html").includes('href="/services/graphic-design/"'));checks++;
 assert.ok(read("services/graphic-design/index.html").includes('mailto:contact@digital-execution.cc'));checks++;
+// Footer credit must appear on general pages and standalone studio.
+assert.ok(read("footer.js").includes('class="footer-owner-credit" lang="en" dir="ltr">Alaa Omran</span>'),"Shared footer missing Alaa Omran");checks++;
+assert.ok(read("footer.css").includes(".footer-owner-credit"),"Footer name style missing");checks++;
+assert.ok(read("services/graphic-design/index.html").includes('lang="en" dir="ltr">Alaa Omran</b>'),"Studio footer missing Alaa Omran");checks++;
+
+// Sector landing pilot: no fake portfolio, hidden paid products, or offsite dependencies.
+const restaurant=read("services/design-for-restaurants/index.html");
+assert.ok(read("services/index.html").includes('href="/services/design-for-restaurants/"'),"Restaurant sector landing must be discoverable from service hub");checks++;
+assert.equal((restaurant.match(/<h1\b/g)||[]).length,1,"Restaurant page needs one H1");checks++;
+assert.ok(restaurant.includes('id="rds-services"')&&restaurant.includes('id="rds-faq-title"'),"Restaurant page must explain scope and FAQs");checks++;
+for(const anchor of ["ds-print","ds-packaging","ds-social","ds-ads"]){
+  assert.ok(restaurant.includes('href="/services/graphic-design/#'+anchor+'"'),"Missing studio service context "+anchor);checks++;
+}
+assert.ok(restaurant.includes("مش منيوهات جاهزة للشراء")&&restaurant.includes("ولا أعمال منفذة لعملاء مطاعم"),"Restaurant visual samples must be honestly labeled");checks++;
+assert.ok(!restaurant.includes('href="/products/'),"Paid products must remain hidden in sector landing");checks++;
+assert.ok(!/<script[^>]*src="https?:/.test(restaurant),"Restaurant page must not add remote scripts");checks++;
+assert.ok(restaurant.includes('prefers-reduced-motion'),"Restaurant design must support reduced motion");checks++;
+for(const image of [...restaurant.matchAll(/<img\b[^>]*src="(\/assets\/[^"]+)"/g)]){
+  assert.ok(exists(image[1].slice(1)),"Restaurant landing references missing image: "+image[1]);checks++;
+}
 
 // Creative Studio checks: presentation refresh must not expose paused products.
 const design=read("services/graphic-design/index.html");
