@@ -41,6 +41,10 @@ for(const tool of ["pricing-calculator","break-even-calculator","inventory-healt
 }
 assert.ok(read("services/index.html").includes('href="/services/graphic-design/"'));checks++;
 assert.ok(read("services/graphic-design/index.html").includes('mailto:contact@digital-execution.cc'));checks++;
+// Footer credit must appear on general pages and standalone studio.
+assert.ok(read("footer.js").includes('class="footer-owner-credit" lang="en" dir="ltr">Alaa Omran</span>'),"Shared footer missing Alaa Omran");checks++;
+assert.ok(read("footer.css").includes(".footer-owner-credit"),"Footer name style missing");checks++;
+assert.ok(read("services/graphic-design/index.html").includes('lang="en" dir="ltr">Alaa Omran</b>'),"Studio footer missing Alaa Omran");checks++;
 
 // Sector landing pilot: no fake portfolio, hidden paid products, or offsite dependencies.
 const restaurant=read("services/design-for-restaurants/index.html");
