@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="/header.css?v=20261020-premium"><link rel="stylesheet" href="/footer.css?v=20261020-premium">
 <link rel="stylesheet" href="/site-premium.css?v=20261020-site">
 <style>
-.rds-page{--ink:#f7f7ff;--muted:#b9bdd0;--accent:#d5ff78;--stroke:rgba(255,255,255,.15);background:#0b1020;color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;min-height:100vh;overflow:hidden}
+.rds-page{--ink:#f7f7ff;--muted:#b9bdd0;--accent:#d5ff78;--stroke:rgba(255,255,255,.15);background:#0b1020;color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;min-height:100vh;overflow-x:clip}
 .rds-page *, .rds-page *::before,.rds-page *::after{box-sizing:border-box}
 .rds-wrap{width:min(1160px,calc(100% - 40px));margin-inline:auto}
 .rds-page a{color:inherit}
@@ -36,7 +36,7 @@
 .rds-button-primary{color:#15200c!important;background:var(--accent);border-color:var(--accent)}
 .rds-button-primary:hover{background:#e8ffa5}
 .rds-fine{font-size:.79rem;color:#a6b0c4;line-height:1.85;margin-top:22px}
-.rds-art{position:relative;min-height:490px;display:grid;place-items:center}
+.rds-art{position:relative;min-height:490px;display:grid;place-items:center;isolation:isolate}
 .rds-art-main{position:relative;width:min(94%,470px);margin:0;padding:11px;border:1px solid #4f5173;border-radius:27px;background:linear-gradient(145deg,#242a45,#11172b);box-shadow:0 35px 100px #0009;transform:rotate(-3deg)}
 .rds-art-main img{display:block;width:100%;height:auto;aspect-ratio:8/5;object-fit:cover;border-radius:17px}
 .rds-art-main figcaption{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:20px 12px 10px;font-size:.83rem;color:#e6e8f6}
@@ -74,6 +74,39 @@
 @media(max-width:850px){.rds-hero{grid-template-columns:1fr;gap:20px;padding:42px 0 55px}.rds-art{min-height:350px}.rds-art-main{width:min(86%,520px)}.rds-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.rds-steps{grid-template-columns:1fr}}
 @media(max-width:600px){.rds-wrap{width:min(100% - 28px,1160px)}.rds-hero h1{font-size:clamp(2.25rem,11vw,3.5rem)}.rds-art{min-height:285px}.rds-art-main{width:80%;border-radius:19px}.rds-art-main figcaption{font-size:.69rem;padding:12px 4px 4px}.rds-art-secondary{width:42%}.rds-marker{width:64px;height:64px;font-size:.75rem}.rds-section{padding:65px 0}.rds-services,.rds-gallery{grid-template-columns:1fr}.rds-card{padding:24px}.rds-actions .rds-button{width:100%}.rds-endcap{padding:55px 0 70px}}
 @media(prefers-reduced-motion:reduce){.rds-button,.rds-card{transition:none}.rds-button:hover{transform:none}}
+
+/* 2026 hospitality polish: scoped, lightweight, no new assets or scripts */
+.rds-hero-highlights{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.rds-hero-highlights span{display:inline-flex;align-items:center;gap:7px;min-height:30px;padding:5px 11px;border:1px solid rgba(213,255,120,.25);border-radius:100px;color:#e2e8d4;background:rgba(213,255,120,.045);font-size:.75rem;font-weight:650}
+.rds-hero-highlights span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.rds-art-overline{position:absolute;bottom:-10px;left:5%;font-size:.69rem;letter-spacing:.16em;font-weight:850;color:#a8abc7;direction:ltr}
+.rds-art::after{content:"";position:absolute;inset:3% 2% 9%;border:1px solid rgba(213,255,120,.11);border-radius:50%;transform:rotate(-14deg);pointer-events:none;z-index:-1}
+.rds-art-main{transition:transform .35s ease,box-shadow .35s ease}
+.rds-art-main:hover{transform:rotate(-1deg) translateY(-6px);box-shadow:0 40px 100px #000b}
+.rds-proof-band{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--stroke);border-radius:16px;background:#11182b;margin:-18px 0 28px;overflow:hidden}
+.rds-proof-band>div{display:flex;align-items:center;gap:13px;padding:17px 20px;font-size:.78rem;line-height:1.55;font-weight:750}
+.rds-proof-band>div+div{border-inline-start:1px solid var(--stroke)}
+.rds-proof-band b{color:var(--accent);font-size:.72rem;direction:ltr;white-space:nowrap}
+.rds-card{position:relative;overflow:hidden;min-height:310px;background:radial-gradient(ellipse at 85% 0%,rgba(213,255,120,.065),transparent 42%),linear-gradient(145deg,#1b2239,#10182c);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.rds-card::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,transparent,var(--card-accent,#d5ff78),transparent)}
+.rds-card:nth-child(2){--card-accent:#ffb978}
+.rds-card:nth-child(3){--card-accent:#b9a7ff}
+.rds-card:nth-child(4){--card-accent:#83dfce}
+.rds-card:hover{transform:translateY(-3px);border-color:rgba(213,255,120,.4);box-shadow:0 14px 35px #0003}
+.rds-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:15px}
+.rds-card-glyph{display:grid;place-items:center;flex:none;width:62px;height:62px;border:1px solid color-mix(in srgb,var(--card-accent,#d5ff78) 40%,transparent);border-radius:18px;background:color-mix(in srgb,var(--card-accent,#d5ff78) 9%,transparent);color:var(--card-accent,#d5ff78);font-size:2rem;font-weight:800;line-height:1}
+.rds-card .rds-num{margin-top:5px}
+.rds-card h3{margin-top:15px}
+.rds-tags{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 21px}
+.rds-tags span{font-size:.73rem;color:#d2d6e7;padding:5px 10px;border:1px solid rgba(255,255,255,.12);border-radius:7px;background:#ffffff08}
+.rds-gallery figure{position:relative;transition:transform .2s ease,border-color .2s ease}
+.rds-gallery figure:hover{transform:translateY(-3px);border-color:rgba(213,255,120,.5)}
+.rds-gallery figcaption{border-top:1px solid rgba(255,255,255,.1)}
+.rds-highlight{color:var(--accent)}
+.rds-endcap{border-top:1px solid rgba(213,255,120,.2)}
+@media(max-width:850px){.rds-proof-band{margin:0 0 16px}.rds-proof-band>div{padding:14px 12px;gap:8px}.rds-art-overline{bottom:0}}
+@media(max-width:600px){.rds-hero{gap:22px;padding-bottom:33px}.rds-hero h1{letter-spacing:-.022em;line-height:1.22}.rds-hero-highlights{gap:6px}.rds-hero-highlights span{font-size:.68rem;padding:5px 8px}.rds-art{min-height:270px}.rds-proof-band{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:#646d84 transparent}.rds-proof-band>div{min-width:210px;flex:none;scroll-snap-align:start}.rds-proof-band>div+div{border-inline-start:1px solid var(--stroke)}.rds-card{min-height:0}.rds-card-glyph{width:53px;height:53px;font-size:1.65rem}.rds-gallery img{aspect-ratio:16/9}.rds-art-overline{font-size:.6rem;left:2%}}
+@media(prefers-reduced-motion:reduce){.rds-art-main,.rds-gallery figure,.rds-card{transition:none}.rds-art-main:hover,.rds-gallery figure:hover,.rds-card:hover{transform:none}}
 </style>
 </head>
 <body class="premium-site" data-page="department">
@@ -84,25 +117,26 @@
 <section class="rds-hero" aria-labelledby="rds-heading">
 <div><span class="rds-eyebrow" lang="en" dir="ltr">DESIGN FOR HOSPITALITY</span>
 <h1 id="rds-heading">الأكلة ليها طعم.<br><em>والبراند ليه حضور.</em></h1>
-<p class="rds-lead">من أول المنيو اللي سهل يتقري، لحد شكل العلبة والبوست اللي بيعرّف الناس بعرضك. نساعدك تبني اتجاه بصري واضح لمطعمك أو كافيهك، بخدمات تصميم حسب احتياجك الفعلي.</p>
-<div class="rds-actions"><a class="rds-button rds-button-primary" href="mailto:contact@digital-execution.cc?subject=Restaurant%20and%20Cafe%20Design%20Inquiry">اطلب عرض تصميم <span aria-hidden="true">←</span></a><a class="rds-button" href="#rds-services">استكشف أنواع التصميم</a></div>
+<p class="rds-lead">المنيو، والتغليف، والبوست، والإعلان — كل تفصيلة فرصة تخلي مشروعك يتشاف ويتفتكر. بنصمملك شكل متناسق يناسب مطعمك أو كافيهك، من غير ما نحمّلك خدمات مش محتاجها.</p><div class="rds-hero-highlights" aria-label="مجالات التصميم"><span>منيو يلفت النظر</span><span>تغليف ليه شخصية</span><span>إعلان واضح</span></div>
+<div class="rds-actions"><a class="rds-button rds-button-primary" href="mailto:contact@digital-execution.cc?subject=Restaurant%20and%20Cafe%20Design%20Inquiry&body=اسم المطعم أو الكافيه: %0Aنوع التصميم المطلوب: %0Aقنوات الاستخدام: %0Aموعد التسليم المتوقع: %0A">اطلب عرض تصميم <span aria-hidden="true">←</span></a><a class="rds-button" href="#rds-services">استكشف أنواع التصميم</a></div>
 <p class="rds-fine">السعر، المقاسات، الملفات وموعد التسليم بيتحددوا بعد مراجعة تفاصيل مشروعك، مش بسعر أو وعد موحد لكل الأنشطة.</p>
 </div>
-<div class="rds-art"><div class="rds-marker" aria-hidden="true">MAKE IT<br>VISIBLE</div>
-<figure class="rds-art-main"><img src="/assets/design-studio/social-media.webp" alt="تصور توضيحي لأسلوب تصميم منشورات تسويقية" width="960" height="600" fetchpriority="high"><figcaption><span>فكرة واحدة، واستخدامات متعددة</span><b>VISUAL DIRECTION / 01</b></figcaption></figure>
+<div class="rds-art"><div class="rds-marker" aria-hidden="true">MAKE IT<br>VISIBLE</div><span class="rds-art-overline" aria-hidden="true">01 / THE CREATIVE SIDE</span>
+<figure class="rds-art-main"><img src="/assets/design-studio/social-media.webp" alt="تصور توضيحي لأسلوب تصميم منشورات تسويقية" width="960" height="600" fetchpriority="high"><figcaption><span>فكرة واحدة، واستخدامات متعددة</span><b>VISUAL CONCEPT / 01</b></figcaption></figure>
 <div class="rds-art-secondary"><img src="/assets/design-studio/packaging.webp" alt="تصور توضيحي لتصميمات العبوات والملصقات" width="960" height="600" decoding="async"></div></div>
 </section>
 </div>
+<div class="rds-wrap"><div class="rds-proof-band" aria-label="إزاي بنتعامل مع التصميم؟"><div><b>01 /</b><span>شكل يناسب نشاطك</span></div><div><b>02 /</b><span>مقاسات واستخدامات واضحة</span></div><div><b>03 /</b><span>اتفاق قبل التنفيذ</span></div></div></div>
 <section class="rds-section" id="rds-services" aria-labelledby="rds-service-title"><div class="rds-wrap">
 <span class="rds-label">01 / اختر اللي هيفرق مع نشاطك</span><h2 class="rds-title" id="rds-service-title">مش كل مطعم محتاج نفس التصميمات.</h2><p class="rds-description">بنحدد نوع الشغل حسب مكان ظهور التصميم: على المنيو، التغليف، شاشة الإعلان أو السوشيال ميديا. ونراجع المقاسات والمعلومات اللي هتستخدمها قبل البداية.</p>
 <div class="rds-services">
-<article class="rds-card"><span class="rds-num">01 — MENU & PRINT</span><h3>منيو ومطبوعات المطعم</h3><p>قوائم طعام واضحة، تصميمات عروض داخل المكان، فلايرات وبطاقات. المطلوب منك: الأصناف، الأسعار النهائية، الأقسام والمقاسات.</p><a href="/services/graphic-design/#ds-print">استكشف خدمة المطبوعات ←</a></article>
-<article class="rds-card"><span class="rds-num">02 — PACKAGING</span><h3>تغليف وملصقات</h3><p>تصميمات لأكياس وعلب واستيكرات حسب مقاسات الطباعة وخامات التغليف ومواصفات المطبعة المتاحة.</p><a href="/services/graphic-design/#ds-packaging">استكشف خدمة التغليف ←</a></article>
-<article class="rds-card"><span class="rds-num">03 — SOCIAL</span><h3>منشورات وستوري</h3><p>اتجاه بصري موحد للبوستات والعروض الموسمية وأغلفة الحسابات بالمقاسات المناسبة للمنصة.</p><a href="/services/graphic-design/#ds-social">استكشف تصميم السوشيال ←</a></article>
-<article class="rds-card"><span class="rds-num">04 — CAMPAIGNS</span><h3>إعلانات وتصميم حملات</h3><p>بانرات ومواد بصرية للعروض والافتتاحات والحملات. التصميم خدمة إبداعية، مش وعد بنتائج إعلان أو مبيعات.</p><a href="/services/graphic-design/#ds-ads">استكشف تصميم الإعلانات ←</a></article>
+<article class="rds-card"><div class="rds-card-top"><span class="rds-num">01 — MENU & PRINT</span><span class="rds-card-glyph" aria-hidden="true">☷</span></div><h3>منيو ومطبوعات المطعم</h3><p>قوائم طعام واضحة، تصميمات عروض داخل المكان، فلايرات وبطاقات. المطلوب منك: الأصناف، الأسعار النهائية، الأقسام والمقاسات.</p><div class="rds-tags" aria-label="أمثلة للاستخدام"><span>أقسام المنيو</span><span>المقاسات</span></div><a href="/services/graphic-design/#ds-print">استكشف خدمة المطبوعات ←</a></article>
+<article class="rds-card"><div class="rds-card-top"><span class="rds-num">02 — PACKAGING</span><span class="rds-card-glyph" aria-hidden="true">◇</span></div><h3>تغليف وملصقات</h3><p>تصميمات لأكياس وعلب واستيكرات حسب مقاسات الطباعة وخامات التغليف ومواصفات المطبعة المتاحة.</p><div class="rds-tags" aria-label="أمثلة للاستخدام"><span>عبوات</span><span>ملصقات</span></div><a href="/services/graphic-design/#ds-packaging">استكشف خدمة التغليف ←</a></article>
+<article class="rds-card"><div class="rds-card-top"><span class="rds-num">03 — SOCIAL</span><span class="rds-card-glyph" aria-hidden="true">✳</span></div><h3>منشورات وستوري</h3><p>اتجاه بصري موحد للبوستات والعروض الموسمية وأغلفة الحسابات بالمقاسات المناسبة للمنصة.</p><div class="rds-tags" aria-label="أمثلة للاستخدام"><span>منشورات</span><span>ستوري</span></div><a href="/services/graphic-design/#ds-social">استكشف تصميم السوشيال ←</a></article>
+<article class="rds-card"><div class="rds-card-top"><span class="rds-num">04 — CAMPAIGNS</span><span class="rds-card-glyph" aria-hidden="true">↗</span></div><h3>إعلانات وتصميم حملات</h3><p>بانرات ومواد بصرية للعروض والافتتاحات والحملات. التصميم خدمة إبداعية، مش وعد بنتائج إعلان أو مبيعات.</p><div class="rds-tags" aria-label="أمثلة للاستخدام"><span>افتتاحات</span><span>عروض</span></div><a href="/services/graphic-design/#ds-ads">استكشف تصميم الإعلانات ←</a></article>
 </div></div></section>
 <section class="rds-section" aria-labelledby="rds-look-title"><div class="rds-wrap">
-<span class="rds-label">02 / معاينات بصرية</span><h2 class="rds-title" id="rds-look-title">من الفكرة للتطبيق.</h2><p class="rds-description">الصور دي بتوضح اتجاهات تصميم ممكن نبني عليها فكرة تناسب نشاطك. هي مش منيوهات جاهزة للشراء، ولا أعمال منفذة لعملاء مطاعم.</p>
+<span class="rds-label">02 / معاينات بصرية</span><h2 class="rds-title" id="rds-look-title">مش مجرد صورة حلوة.<br>هوية بتكمل بعضها.</h2><p class="rds-description">الصور دي بتوضح اتجاهات تصميم ممكن نبني عليها فكرة تناسب نشاطك. هي مش منيوهات جاهزة للشراء، ولا أعمال منفذة لعملاء مطاعم.</p>
 <div class="rds-gallery"><figure><img src="/assets/design-studio/print-design.webp" width="960" height="600" loading="lazy" decoding="async" alt="معاينة توضيحية لمطبوعات بهوية متناسقة"><figcaption>01 / مطبوعات متناسقة</figcaption></figure>
 <figure><img src="/assets/design-studio/digital-ads.webp" width="960" height="600" loading="lazy" decoding="async" alt="معاينة توضيحية لاتجاه بصري للإعلانات"><figcaption>02 / حملات وإعلانات</figcaption></figure>
 <figure><img src="/assets/design-studio/packaging.webp" width="960" height="600" loading="lazy" decoding="async" alt="معاينة توضيحية لاتجاه التغليف"><figcaption>03 / تغليف وملصقات</figcaption></figure></div>
@@ -119,8 +153,8 @@
 <details><summary>فين الأسعار ومدة التنفيذ؟</summary><p>التكلفة والموعد حسب عدد التصميمات والمقاسات وملفات المصدر ومراجعاتك. بعد إرسال موجز المشروع نحدد نطاق مناسب قبل بدء التنفيذ.</p></details></div>
 </div></section>
 <section class="rds-endcap" aria-labelledby="rds-end"><div class="rds-wrap">
-<span class="rds-label">LET'S DESIGN WHAT'S NEXT</span><h2 class="rds-title" id="rds-end">خلّي شكل مشروعك يعبّر عنه.</h2><p class="rds-description">ابعت لنا نوع المطعم أو الكافيه وإيه اللي محتاجه بالضبط. ولو عايز تختار من بقية خدمات التصميم، الاستوديو الرئيسي موجود.</p>
-<div class="rds-actions"><a class="rds-button rds-button-primary" href="mailto:contact@digital-execution.cc?subject=Restaurant%20and%20Cafe%20Design%20Inquiry">ابدأ استفسارك ←</a><a class="rds-button" href="/services/graphic-design/#design-contact">افتح موجز مشروع التصميم</a></div>
+<span class="rds-label">LET'S DESIGN WHAT'S NEXT</span><h2 class="rds-title" id="rds-end">مستعد تخلي مشروعك<br><span class="rds-highlight">يتشاف بشكل مختلف؟</span></h2><p class="rds-description">ابعت لنا نوع المطعم أو الكافيه وإيه اللي محتاجه بالضبط. ولو عايز تختار من بقية خدمات التصميم، الاستوديو الرئيسي موجود.</p>
+<div class="rds-actions"><a class="rds-button rds-button-primary" href="mailto:contact@digital-execution.cc?subject=Restaurant%20and%20Cafe%20Design%20Inquiry&body=اسم المطعم أو الكافيه: %0Aنوع التصميم المطلوب: %0Aقنوات الاستخدام: %0Aموعد التسليم المتوقع: %0A">ابدأ استفسارك ←</a><a class="rds-button" href="/services/graphic-design/#design-contact">افتح موجز مشروع التصميم</a></div>
 </div></section></main>
 <footer></footer><script src="/header.js?v=20261020-premium" defer></script><script src="/footer.js?v=20261020-premium" defer></script>
 </body></html>
